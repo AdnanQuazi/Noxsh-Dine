@@ -1,0 +1,556 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+body {
+  background-color: #f5f5f5 !important;
+}
+
+.outer-con {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.outer-con .filters-restaurants-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 2rem;
+}
+
+.outer-con .filters-restaurants-div .filter-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 35rem;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  row-gap: 0.4rem;
+  top: 0;
+}
+
+.outer-con .filters-restaurants-div .filter-div .cuisine-div, .outer-con .filters-restaurants-div .filter-div .restaurant-type, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  max-height: 30rem;
+  background-color: white;
+  padding: 1rem;
+}
+
+.outer-con .filters-restaurants-div .filter-div .cuisine-div .cuisine-data-con, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-type-data-con, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-popularity-data-con, .outer-con .filters-restaurants-div .filter-div .restaurant-type .cuisine-data-con, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-type-data-con, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-popularity-data-con, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .cuisine-data-con, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-type-data-con, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-popularity-data-con, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .cuisine-data-con, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .restaurant-type-data-con, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .restaurant-popularity-data-con {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.outer-con .filters-restaurants-div .filter-div .cuisine-div .cuisine-data-con ul, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-type-data-con ul, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-popularity-data-con ul, .outer-con .filters-restaurants-div .filter-div .restaurant-type .cuisine-data-con ul, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-type-data-con ul, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-popularity-data-con ul, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .cuisine-data-con ul, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-type-data-con ul, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-popularity-data-con ul, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .cuisine-data-con ul, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .restaurant-type-data-con ul, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .restaurant-popularity-data-con ul {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+.outer-con .filters-restaurants-div .filter-div .cuisine-div .cuisine-data-con ul li, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-type-data-con ul li, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-popularity-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-type .cuisine-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-type-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-popularity-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .cuisine-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-type-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-popularity-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .cuisine-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .restaurant-type-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .restaurant-popularity-data-con ul li {
+  text-decoration: none;
+  list-style: none;
+  font-size: 1.5rem;
+  color: #afafaf;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.outer-con .filters-restaurants-div .filter-div .cuisine-div .cuisine-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-type-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-popularity-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .restaurant-type .cuisine-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-type-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-popularity-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .cuisine-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-type-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-popularity-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .cuisine-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .restaurant-type-data-con ul .active-li, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range .restaurant-popularity-data-con ul .active-li {
+  background-color: #F47D47;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.outer-con .filters-restaurants-div .filter-div .cuisine-div h4, .outer-con .filters-restaurants-div .filter-div .restaurant-type h4, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity h4, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range h4 {
+  color: #afafaf;
+}
+
+.outer-con .filters-restaurants-div .filter-div .cuisine-div input, .outer-con .filters-restaurants-div .filter-div .restaurant-type input, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity input, .outer-con .filters-restaurants-div .filter-div .restaurant-price-range input {
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  outline: none;
+  margin: 1rem 0;
+  color: #333;
+}
+
+.outer-con .filters-restaurants-div .filter-div .restaurant-price-range {
+  display: none;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  background-color: transparent;
+  min-height: 100vh;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  gap: 2rem;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .filters-btn {
+  display: none;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  cursor: pointer;
+  position: relative;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 28rem;
+          flex: 0 0 28rem;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card .distance {
+  position: absolute;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 0.5rem;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+  z-index: 1;
+  font-size: 1.3rem;
+  right: 1rem;
+  top: 19rem;
+  -webkit-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+  color: black;
+  width: 6.4rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  -webkit-backdrop-filter: blur(1.5px);
+          backdrop-filter: blur(1.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card img {
+  position: relative;
+  width: 100%;
+  height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card .restaurant-details-wrap-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card .restaurant-details-wrap-div .restaurant-name {
+  display: inline-block;
+  color: #333;
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-weight: 500;
+  max-width: 90%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card .restaurant-details-wrap-div .cuisine-name {
+  display: inline-block;
+  max-width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-weight: 400;
+  color: #afafaf;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card .restaurant-details-wrap-div .restaurant-address {
+  display: inline-block;
+  max-width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-weight: 400;
+  color: #afafaf;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card .restaurant-details-wrap-div .restaurant-rating-price-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 30%;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card .restaurant-details-wrap-div .restaurant-rating-price-con .rating {
+  width: 5.5rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+  background-color: #3ab757;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card .restaurant-details-wrap-div .restaurant-rating-price-con .price {
+  margin: 0;
+  margin-top: 1rem;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-details-name-cuisine {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.skeleton {
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+          animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@-webkit-keyframes skeleton-loading {
+  0% {
+    background-color: #a3b8c2;
+  }
+  100% {
+    baclkground-color: #f0f3f5;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #a3b8c2;
+  }
+  100% {
+    baclkground-color: #f0f3f5;
+  }
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.5rem !important;
+}
+
+.skeleton-text:last-child {
+  width: 80%;
+}
+
+.price-input {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.price-input .field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.price-input .field span {
+  font-size: 1.2rem;
+  color: #afafaf;
+}
+
+.field input {
+  width: 50%;
+  height: 100%;
+  outline: none;
+  font-size: 1.8rem;
+  margin-left: 2rem !important;
+  border-radius: 0.5rem;
+  text-align: center;
+  border: 1px solid #999;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.price-input .separator {
+  width: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 19px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.slider {
+  height: 0.5rem;
+  position: relative;
+  background: #ddd;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slider .progress {
+  height: 100%;
+  left: 8%;
+  right: 75%;
+  position: absolute;
+  border-radius: 0.55rem;
+  background: #17A2B8;
+}
+
+.range-input {
+  position: relative !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.range-input input {
+  position: absolute !important;
+  width: 100%;
+  height: 0.5rem;
+  -webkit-transform: translate(0, -25%);
+          transform: translate(0, -25%);
+  background: none !important;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  height: 1.7rem;
+  width: 1.7rem;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 1.7rem;
+  width: 1.7rem;
+  border: none;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 480px) {
+  .outer-con .filters-restaurants-div .filter-div {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    padding: 2rem;
+    background-color: white !important;
+    width: 100% !important;
+    height: 100vh !important;
+    left: 0 !important;
+    opacity: 0;
+    row-gap: 2rem;
+    border-radius: 5rem 5rem 0 0;
+  }
+  .outer-con .filters-restaurants-div .filter-div h2 {
+    font-size: 3rem;
+    display: inline-block;
+    margin: 2rem 0 4rem 0;
+  }
+  .outer-con .filters-restaurants-div .filter-div h2 .bi-chevron-left {
+    margin-right: 2rem;
+  }
+  .outer-con .filters-restaurants-div .filter-div .cuisine-div, .outer-con .filters-restaurants-div .filter-div .restaurant-type, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity {
+    -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+    max-height: 43rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+  .outer-con .filters-restaurants-div .filter-div .cuisine-div h4, .outer-con .filters-restaurants-div .filter-div .restaurant-type h4, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity h4 {
+    font-size: 3rem;
+  }
+  .outer-con .filters-restaurants-div .filter-div .cuisine-div input, .outer-con .filters-restaurants-div .filter-div .restaurant-type input, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity input {
+    font-size: 3rem;
+    padding: 1rem 2rem;
+  }
+  .outer-con .filters-restaurants-div .filter-div .cuisine-div .cuisine-data-con ul li, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-type-data-con ul li, .outer-con .filters-restaurants-div .filter-div .cuisine-div .restaurant-popularity-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-type .cuisine-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-type-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-type .restaurant-popularity-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .cuisine-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-type-data-con ul li, .outer-con .filters-restaurants-div .filter-div .restaurant-popularity .restaurant-popularity-data-con ul li {
+    font-size: 3rem;
+  }
+  .outer-con .filters-restaurants-div .restaurants-div .filters-btn {
+    display: block;
+    background-color: transparent;
+    color: #afafaf;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    border: 0.2rem solid #afafaf;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 0.5rem;
+  }
+  .outer-con .filters-restaurants-div .restaurants-div .restaurant-card-wrap-div .restaurant-card {
+    -webkit-box-flex: 1 !important;
+        -ms-flex-positive: 1 !important;
+            flex-grow: 1 !important;
+  }
+}
+/*# sourceMappingURL=viewAllRestaurants.css.map */

@@ -1,0 +1,247 @@
+nav {
+  position: relative !important;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+nav span {
+  color: #333 !important;
+}
+
+nav .acc-det a {
+  color: black;
+}
+
+nav .acc-det .fa-heart {
+  color: #333 !important;
+}
+
+nav .acc-det span {
+  color: #333 !important;
+}
+
+nav .acc-det .fa-caret-down {
+  color: #333 !important;
+}
+
+body {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/oranges.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/oranges.jpg);
+}
+
+.nav-links-con ul li a {
+  color: #333 !important;
+}
+
+.nav-links-con ul li a:after {
+  background-color: #333 !important;
+}
+
+.login-main-con {
+  width: 100%;
+  height: calc(100vh - 8rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-con {
+  width: 120rem;
+  height: 70rem;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+}
+
+.login-det {
+  width: 40%;
+  height: 100%;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-det span {
+  font-size: 4rem;
+  font-weight: 500;
+  margin-left: 5rem;
+  color: #333;
+}
+
+.login-det .input-details {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  border-bottom: 0.2rem solid #afafaf;
+  width: 30rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5rem;
+  margin-left: 5rem;
+}
+
+.login-det .input-details span {
+  margin-left: 1rem;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.login-det .input-details hr {
+  margin: 0 2rem;
+  height: 2rem;
+  border: 0.1rem solid #afafaf;
+}
+
+.login-det .input-details input {
+  font-weight: 300;
+  padding: 0 1rem;
+  border: none;
+  outline: none;
+  height: 4rem;
+  width: 20rem;
+  font-size: 2rem;
+}
+
+.login-det .input-details .text-danger {
+  position: absolute;
+  color: red;
+  bottom: 4rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.login-det .input-details #visible {
+  color: gray;
+}
+
+.login-det .input-details #invisible {
+  display: none;
+  color: gray;
+}
+
+.login-det .login-btn {
+  cursor: pointer;
+  margin-left: 5rem;
+  background-color: #96C7C1;
+  padding: 1rem 2rem;
+  border: none;
+  width: 30rem;
+  height: auto;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  color: white;
+  margin-top: 5rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(/images/colorFruit.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/colorFruit.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: 300;
+  letter-spacing: 0.4rem;
+}
+
+.login-det .forgot-pass-link {
+  font-size: 1.5rem;
+  display: block;
+  margin-top: 1rem;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+.login-det .forgot-pass-link a {
+  text-decoration: none;
+  color: #333;
+  text-decoration: none;
+  font-weight: 400 !important;
+}
+
+.login-det .new-acc-link {
+  color: #afafaf;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.login-det .new-acc-link a {
+  color: #96C7C1;
+  text-decoration: none;
+  font-weight: 400 !important;
+}
+
+.wel-msg-con {
+  width: 60%;
+  height: 100%;
+  background-color: #96C7C1;
+  border-radius: 0.5rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(/images/colorFruit.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/colorFruit.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.wel-msg-con span {
+  font-family: 'Major Mono Display', monospace;
+  font-size: 8rem;
+  font-weight: 300;
+  color: white;
+  -webkit-transition: 0.5s linear step-end;
+  transition: 0.5s linear step-end;
+  text-align: center;
+}
+
+.wel-msg-con:hover {
+  line-height: 15rem;
+}
+
+.wel-msg-con:hover span {
+  -webkit-transition: 0.5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
+}
+/*# sourceMappingURL=login.css.map */

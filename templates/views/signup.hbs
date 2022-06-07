@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/sass/login.css">
+    <link rel="stylesheet" href="/sass/main.css">
+    <link rel="stylesheet" href="/sass/signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&family=Raleway:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@300;400;700&family=Comfortaa:wght@300;400;500&family=Fira+Code:wght@300;400;500&family=Major+Mono+Display&family=Montserrat:wght@200;300;400;500&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> 
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+    {{>navbar}}
+    
+    <div class="login-main-con">
+        <div class="login-con">
+            <div class="login-det">
+                <form action="/signup" method="post" onsubmit="return validation('signup')">
+                <span>SIGN UP</span>
+                <div class="input-details" >
+                     <span class="text-danger" id="danger-fname"></span>
+                <input class="inp-name" id="name" type="text" name="name" placeholder="Your Name" required>
+                
+                </div>
+                <div class="input-details" style="margin-top: 4rem;">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-details" style="margin-top: 4rem;">
+                    <span class="text-danger" id="danger-phone"></span>
+                <span>+91</span>
+                <hr>
+                <input type="text" id="phone" name="phone" placeholder="Contact Number" required>
+                </div>
+                 <div class="input-details" style="margin-top: 4rem;">
+                     <span class="text-danger" id="danger-pass"></span>
+                     <span class="eye-icons">
+                        <i class="ri-eye-line visible" id="visible"></i>
+                        <i class="ri-eye-close-line invisible" id="invisible"></i>
+                    </span>
+                    <hr>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                 
+                </div>
+                <div class="input-details" style="margin-top: 4rem;">
+                <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="login-btn">Sign Up</button>
+                </form>
+                <span class="new-acc-link">Already have an account? <a href="/login">Login</a></span>
+            </div>
+            <div class="wel-msg-con">
+                <span>Welcome!<br>We’re thrilled<br>to have you<br>with us.</span>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script src="/js/validation.js"></script>
+<script src="/js/visibl.js"></script>
+<script src="/js/common.js"></script>
+</html>

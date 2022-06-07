@@ -1,0 +1,51 @@
+ <nav>
+        
+                
+                <a href=""><span class="logo"><img src="/images/nxshwhite.png" alt="" srcset=""></span></a>
+           
+            
+            <div class="nav-links-con">
+                <ul>
+                    <li> <a href="/" class="active-link" onclick="ovfh()">Home</a> </li>
+                    <li><a href="/" onclick="ovfh()" style="display: none;">Top Restaurant</a> </li>
+                   
+                </ul>
+            </div>
+            <div class="acc-det">
+
+                 {{#if token}}
+           
+                <i class="fas fa-heart"></i>
+                <img class="prof-img" src="/images/profimg.jpg" alt="" onclick="openProfileOptions()">
+                <span onclick="openProfileOptions()">{{name}}</span>
+                <i class="fas fa-caret-down" onclick="openProfileOptions()"></i>
+                
+                <div class="home-prof-div-con">
+                    <ul>
+                        
+                        <li><a href="/myprofile">Profile</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Recent Bookings</a></li>
+                        <li><a href="/logout">Log Out</a></li>
+                        
+                       
+                    </ul>
+                </div>
+            {{else}}
+            
+            <button class="register-as-restaurant">Register as a Restaurant</button>
+            <a href="/login">Log in/Sign up</a>
+            
+            {{/if}}
+            
+
+
+                
+            </div>
+            <div class="burger">
+
+           <i class="fas fa-bars bar" id="bars"></i>
+           <i class="fas fa-times bar" id="cross"></i>
+           </div>
+        
+    </nav>

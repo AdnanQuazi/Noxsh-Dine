@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&family=Raleway:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/caae6b21c5.js" crossorigin="anonymous"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+     <link rel="stylesheet" href="/sass/businessRegister.css">
+    <link rel="stylesheet" href="/sass/main.css">
+    
+</head>
+<body>
+    
+  <nav>
+         <div class="nav-wrapper">
+             <span>NOXSH</span>
+
+             <div class="nav-util"> 
+                 
+                 <ul>
+            
+           <div class="acc-det">
+
+                 {{#if token}}
+           
+              
+                <img class="prof-img" src="/images/profimg.jpg" alt="" onclick="openProfileOptions()">
+                <span onclick="openProfileOptions()">{{name}}</span>
+                <i class="fas fa-caret-down" onclick="openProfileOptions()"></i>
+                
+                <div class="home-prof-div-con-b">
+                    <ul>
+                        
+                        <li><a href="/myprofile">Profile</a></li>
+                        <li><a href="#">My Restaurants</a></li>
+                        <li><a href="#">Manage Restaurant</a></li>
+                        <li><a href="/logout">Log Out</a></li>
+                        
+                       
+                    </ul>
+                </div>
+            {{else}}
+            
+            
+            <ul>
+                <li><button type="button" class="login-btn" onclick="window.location.href = '/login'">LOGIN</button></li>
+            </ul>
+            {{/if}}
+            
+
+
+                
+            </div>
+             
+        </ul>
+        </div>
+       
+    
+        </div>
+        
+    </nav>
+
+    <div class="main-form-outer-div">
+        <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts" >
+<div class="toast-container w-auto position-absolute p-3 top-100 start-50 translate-middle-x" id="toastPlacement"><div class="toast bg-white border-0 w-100 top-50"><div class="toast-body d-flex w-100 justify-content-center align-items-center display-6 text-center text-white rounded d-flex justify-content-evenly bg-success">
+     
+    </div>  
+  </div>
+</div>
+        </div>
+        <div class="wrapper">
+            <form action="/business/register" method="POST">
+                <div class="form-content-wrap-div">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                    <div class="progress-step " data-title="Restaurnt Details">
+                        <span>Restaurnt Details</span>
+                    </div>
+
+                    <div class="progress-step progress-step-active" data-title="Restaurant Timings & Cuisines">
+                        <span>Restaurant Timings, Cuisines & Facilities</span>
+                    </div>
+
+                    <div class="progress-step" data-title="Restaurant Food Items & Facilities">
+                        <span>Restaurant & Menu Images </span>
+                    </div>
+
+                    <div class="progress-step" data-title="Upload Documents">
+                        <span>Upload Documents</span>
+                    </div>
+
+                     <div class="progress-step" data-title="Contract">
+                        <span>Contract</span>
+                    </div>
+                </div>
+                <div class="form-wrap-con">
+                     <h1>Restaurant Details</h1>
+
+
+
+                <div class="form-step ">
+                   
+                    
+                    <div class="input-group">
+                        <span>Restaurant Details</span>
+                        <label for="RestaurantName">Restaurant Name</label>
+                        <input type="text" name="RestaurantName" id="">
+                        <label for="RestaurantAddress">Restaurant Address</label>
+                        <input type="text" name="RestaurantAddress" id="">
+                    </div>
+                       
+                    <div class="input-group">
+                         <span>Enter The Co-ordinates</span>
+                        <label for="lat">Latitude</label>
+                         <input type="text" name="lat" id="lat">
+                         <label for="long">Longitude</label>
+                         <input type="text" name="long" id="long">
+                         <button class="detect-loc"><i class="fa-solid fa-location-crosshairs"></i>Detect</button>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="styled-header">
+                         <span class="tel-det-head">Contact Number At Restaurant</span>
+                         <p>Your customers will call on this number for general enquiries</p>
+                         </div>
+                        <label for="phone"></label>
+                        
+                        <div class="tel-wrapper">
+                            <div class="tel-det">
+                            <span>+91</span>
+                            <hr>
+                            <input type="tel" name="phone" id="phone">
+
+
+                        </div>
+                         
+                        <button class="verify-phone">Get OTP</button>
+                        </div>
+                         <div class="otp-div">
+                            <input type="number">
+                            
+                        </div>
+                         
+                    </div>
+                    <div class="input-group">
+                        
+                            <span class="tel-det-head">Restaurant Owner Details</span>
+                            
+                        
+                         
+                         
+                        <label for="ownerPhone"></label>
+                        
+                        <div class="tel-wrapper">
+                            <div class="tel-det">
+                            <span>+91</span>
+                            <hr>
+                            <input type="tel" name="ownerPhone" id="ownerPhone">
+
+
+                        </div>
+                         
+                        <button class="verify-phone">Get OTP</button>
+                        </div>
+                        <div class="otp-div">
+                            <input type="number">
+                            
+                        </div>
+                            
+                         
+                    </div>
+                    <div class="input-group">
+                        <div class="owner-det">
+                            <div class="owner-det-con">
+
+                                <label for="ownerName">Restuarant Owner Name</label>
+                                <input type="text" name="ownerName" id="ownerName">
+                            </div>
+
+                            <div class="owner-det-con">
+                                <label for="ownerEmail">Restaurant Owner Email</label>
+                         <input type="email" name="ownerEmail" id="ownerEmail">
+                            </div>
+                         
+                        </div>
+                    </div>
+                     <div class="buttons-con">
+                  
+                    <button class="next">Next</button>
+                </div>
+                </div>
+
+
+
+                <div class="form-step step-active">
+                    <div class="input-group">
+                        <div class="styled-header">
+                        <span>Establishment Type</span>
+                        <p>Select most relevant category for your restaurant type</p>
+                        </div>
+                       
+                        <div class="establishment-radio-div">
+                        <input type="radio" name="establishment">
+                         <span>Dine-in only</span>
+                        </div>
+                        
+                        <div class="establishment-radio-div">
+                        <input type="radio" name="establishment">
+                        <span>Takeaway Only</span>
+                        </div>
+                        
+                        <div class="establishment-radio-div">
+                        <input type="radio" name="establishment">
+                        <span>Dine-in & Takeaway both</span>
+                        </div>
+                        
+                       
+                    </div>
+                    <div class="input-group">
+                        
+                        <span>Select options which best describe your outlet</span>
+                        <div class="selected-div">
+                            <span>Selected :</span>
+                            
+                        </div>
+                        <div class="checkbox-div">
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="outletType" value="Bakery" placeholder="Bakery" onchange="getSelected(this)">
+                            <label for="">Bakery</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="outletType" value="Beverage Shop" onchange="getSelected(this)">
+                            <label for="">Beverage Shop</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="outletType" value="Cafe" onchange="getSelected(this)">
+                            <label for="">Cafe</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="outletType" value="Casual Dining" onchange="getSelected(this)">
+                            <label for="">Casual Dining</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="outletType" value="Desert Parlour" onchange="getSelected(this)">
+                            <label for="">Desert Parlour</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="outletType" value="Food Court" onchange="getSelected(this)">
+                            <label for="">Food Court</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="outletType" value="Quick Bite" onchange="getSelected(this)">
+                            <label for="">Quick Bite</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="outletType" value="Sweet Shop" onchange="getSelected(this)">
+                            <label for="">Sweet Shop</label>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="input-group">
+                        
+                        <span>Types of Cuisines</span>
+                        <div class="selected-div">
+                            <span>Selected :</span>
+                            
+                        </div>
+                        <div class="checkbox-div">
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="cuisine" value="Afghan" onchange="getSelectedCuisine(this)">
+                            <label for="">Afghan</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="cuisine" value="American" onchange="getSelectedCuisine(this)">
+                            <label for="">American</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="cuisine" value="Andhra" onchange="getSelectedCuisine(this)">
+                            <label for="">Andhra</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="cuisine" value="Arabian" onchange="getSelectedCuisine(this)">
+                            <label for="">Arabian</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="cuisine" value="Asian" onchange="getSelectedCuisine(this)">
+                            <label for="">Asian</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="cuisine" value="Assamese" onchange="getSelectedCuisine(this)">
+                            <label for="">Assamese</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="cuisine" value="BBQ" onchange="getSelectedCuisine(this)">
+                            <label for="">BBQ</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                            <input type="checkbox" name="cuisine" value="Bar Food" onchange="getSelectedCuisine(this)">
+                            <label for="">Bar Food</label>
+                            </div>
+                            <button class="load-cuisine">Load More</button>
+                        </div>
+                        
+                    </div>
+                    <div class="input-group">
+                        <div class="styled-header">
+                            <span>Restaurant operational hours</span>
+                        <p>Mark restaurant opening and closing hours</p>
+                        </div>
+                        <div class="time-div">
+                            <div class="open-div">
+                                <h4 class="about-time">Open Hours</h4>
+                                <span class="open-hour-text">10</span>
+                                <span>:</span>
+                                <span class="open-min-text">00</span>
+                                <i class="bi bi-clock"></i>
+                            <div class="open-time-wrap-con">
+                            <div class="open-time-con-hours">
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="0" onchange="openTime(this)">
+                                    <span class="hours">00</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="1" onchange="openTime(this)">
+                                    <span class="hours">01</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="2" onchange="openTime(this)">
+                                    <span class="hours">02</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="3" onchange="openTime(this)">
+                                    <span class="hours">03</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="4" onchange="openTime(this)">
+                                    <span class="hours">04</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="5" onchange="openTime(this)">
+                                    <span class="hours">05</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="6" onchange="openTime(this)">
+                                    <span class="hours">06</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="7" onchange="openTime(this)">
+                                    <span class="hours">07</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="8" onchange="openTime(this)">
+                                    <span class="hours">08</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="9" onchange="openTime(this)">
+                                    <span class="hours">09</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="10" onchange="openTime(this)">
+                                    <span class="hours">10</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="11" onchange="openTime(this)">
+                                    <span class="hours">11</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="12" onchange="openTime(this)">
+                                    <span class="hours">12</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="13" onchange="openTime(this)">
+                                    <span class="hours">13</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="14" onchange="openTime(this)">
+                                    <span class="hours">14</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="15" onchange="openTime(this)">
+                                    <span class="hours">15</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="16" onchange="openTime(this)">
+                                    <span class="hours">16</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="17" onchange="openTime(this)">
+                                    <span class="hours">17</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="18" onchange="openTime(this)">
+                                    <span class="hours">18</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="19" onchange="openTime(this)">
+                                    <span class="hours">19</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="20" onchange="openTime(this)">
+                                    <span class="hours">20</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="21" onchange="openTime(this)">
+                                    <span class="hours">21</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="22" onchange="openTime(this)">
+                                    <span class="hours">22</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="23" onchange="openTime(this)">
+                                    <span class="hours">23</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="24" onchange="openTime(this)">
+                                    <span class="hours">24</span>
+                                    </label>
+                               
+                              
+                            </div>
+                            <div class="open-time-con-min">
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="0" onchange="openTime(this)">
+                                    <span class="min">00</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="1" onchange="openTime(this)">
+                                    <span class="min">01</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="2" onchange="openTime(this)">
+                                    <span class="min">02</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="3" onchange="openTime(this)">
+                                    <span class="min">03</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="4" onchange="openTime(this)">
+                                    <span class="min">04</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="5" onchange="openTime(this)">
+                                    <span class="hours">05</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="6" onchange="openTime(this)">
+                                    <span class="hours">06</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="7" onchange="openTime(this)">
+                                    <span class="hours">07</span>
+                                    </label> 
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="8" onchange="openTime(this)">
+                                    <span class="hours">08</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="9" onchange="openTime(this)">
+                                    <span class="hours">09</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="10"onchange="openTime(this)">
+                                    <span class="hours">10</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="11"onchange="openTime(this)">
+                                    <span class="hours">11</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="12"onchange="openTime(this)">
+                                    <span class="hours">12</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="13"onchange="openTime(this)">
+                                    <span class="hours">13</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="14"onchange="openTime(this)">
+                                    <span class="hours">14</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="15"onchange="openTime(this)">
+                                    <span class="hours">15</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="16"onchange="openTime(this)">
+                                    <span class="hours">16</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="17"onchange="openTime(this)">
+                                    <span class="hours">17</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="18"onchange="openTime(this)">
+                                    <span class="hours">18</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="19"onchange="openTime(this)">
+                                    <span class="hours">19</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="20"onchange="openTime(this)">
+                                    <span class="hours">20</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="21" onchange="openTime(this)">
+                                    <span class="hours">21</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="22" onchange="openTime(this)">
+                                    <span class="hours">22</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="23" onchange="openTime(this)">
+                                    <span class="hours">23</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="24" onchange="openTime(this)">
+                                    <span class="hours">24</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="25" onchange="openTime(this)">
+                                    <span class="hours">25</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="26" onchange="openTime(this)">
+                                    <span class="hours">26</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="27" onchange="openTime(this)"> 
+                                    <span class="hours">27</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="28" onchange="openTime(this)">
+                                    <span class="hours">28</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="29" onchange="openTime(this)">
+                                    <span class="hours">29</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="30" onchange="openTime(this)">
+                                    <span class="hours">30</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="31" onchange="openTime(this)">
+                                    <span class="hours">31</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="32" onchange="openTime(this)">
+                                    <span class="hours">32</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="33" onchange="openTime(this)">
+                                    <span class="hours">33</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="34" onchange="openTime(this)">
+                                    <span class="hours">34</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="35" onchange="openTime(this)">
+                                    <span class="hours">35</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="36" onchange="openTime(this)">
+                                    <span class="hours">36</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="37" onchange="openTime(this)">
+                                    <span class="hours">37</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="38" onchange="openTime(this)">
+                                    <span class="hours">38</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="39" onchange="openTime(this)">
+                                    <span class="hours">39</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="40" onchange="openTime(this)">
+                                    <span class="hours">40</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="41" onchange="openTime(this)">
+                                    <span class="hours">41</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="42" onchange="openTime(this)">
+                                    <span class="hours">42</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="43" onchange="openTime(this)">
+                                    <span class="hours">43</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="44" onchange="openTime(this)">
+                                    <span class="hours">44</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="45" onchange="openTime(this)">
+                                    <span class="hours">45</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="46" onchange="openTime(this)">
+                                    <span class="hours">46</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="47" onchange="openTime(this)">
+                                    <span class="hours">47</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="48" onchange="openTime(this)">
+                                    <span class="hours">48</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="49" onchange="openTime(this)">
+                                    <span class="hours">49</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="50" onchange="openTime(this)">
+                                    <span class="hours">50</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="51" onchange="openTime(this)">
+                                    <span class="hours">51</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="52" onchange="openTime(this)">
+                                    <span class="hours">52</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="53" onchange="openTime(this)">
+                                    <span class="hours">53</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="54" onchange="openTime(this)"> 
+                                    <span class="hours">54</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="55" onchange="openTime(this)">
+                                    <span class="hours">55</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="56" onchange="openTime(this)">
+                                    <span class="hours">56</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="57" onchange="openTime(this)">
+                                    <span class="hours">57</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="58" onchange="openTime(this)">
+                                    <span class="hours">58</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openMin" value="59" onchange="openTime(this)">
+                                    <span class="hours">59</span>
+                                    </label>
+                                    
+                                
+                            </div>
+                            </div>
+                            </div>
+                            <h4>to</h4>
+                             <div class="close-div">
+                                 <h4 class="about-time">Close Hours</h4>
+                                <span class="close-hour-text">22</span>
+                                <span>:</span>
+                                <span class="close-min-text">00</span>
+                                <i class="bi bi-clock"></i>
+                                <div class="close-time-wrap-con">
+                            <div class="close-time-con-hours">
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="0" onchange="closeTime(this)">
+                                    <span class="hours">00</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="1" onchange="closeTime(this)">
+                                    <span class="hours">01</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="2" onchange="closeTime(this)">
+                                    <span class="hours">02</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="3" onchange="closeTime(this)">
+                                    <span class="hours">03</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="4" onchange="closeTime(this)">
+                                    <span class="hours">04</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="5" onchange="closeTime(this)">
+                                    <span class="hours">05</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="6" onchange="closeTime(this)">
+                                    <span class="hours">06</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="7" onchange="closeTime(this)">
+                                    <span class="hours">07</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="8" onchange="closeTime(this)">
+                                    <span class="hours">08</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="9" onchange="closeTime(this)">
+                                    <span class="hours">09</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="10" onchange="closeTime(this)">
+                                    <span class="hours">10</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="11" onchange="closeTime(this)">
+                                    <span class="hours">11</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="openHour" value="12" onchange="closeTime(this)">
+                                    <span class="hours">12</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="13" onchange="closeTime(this)">
+                                    <span class="hours">13</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="14" onchange="closeTime(this)">
+                                    <span class="hours">14</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="15" onchange="closeTime(this)">
+                                    <span class="hours">15</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="16" onchange="closeTime(this)">
+                                    <span class="hours">16</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="17" onchange="closeTime(this)">
+                                    <span class="hours">17</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="18" onchange="closeTime(this)">
+                                    <span class="hours">18</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="19" onchange="closeTime(this)">
+                                    <span class="hours">19</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="20" onchange="closeTime(this)">
+                                    <span class="hours">20</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="21" onchange="closeTime(this)">
+                                    <span class="hours">21</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="22" onchange="closeTime(this)">
+                                    <span class="hours">22</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="23" onchange="closeTime(this)">
+                                    <span class="hours">23</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="24" onchange="closeTime(this)">
+                                    <span class="hours">24</span>
+                                    </label>
+                               
+                              
+                            </div>
+                            <div class="close-time-con-min">
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="0" onchange="closeTime(this)">
+                                    <span class="min">00</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="1" onchange="closeTime(this)">
+                                    <span class="min">01</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="2" onchange="closeTime(this)">
+                                    <span class="min">02</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="3" onchange="closeTime(this)">
+                                    <span class="min">03</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="4" onchange="closeTime(this)">
+                                    <span class="min">04</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="5" onchange="closeTime(this)">
+                                    <span class="hours">05</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="6" onchange="closeTime(this)">
+                                    <span class="hours">06</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="7" onchange="closeTime(this)">
+                                    <span class="hours">07</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="8" onchange="closeTime(this)">
+                                    <span class="hours">08</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="10" onchange="closeTime(this)">
+                                    <span class="hours">10</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="11" onchange="closeTime(this)">
+                                    <span class="hours">11</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="12" onchange="closeTime(this)">
+                                    <span class="hours">12</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="13" onchange="closeTime(this)">
+                                    <span class="hours">13</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="14" onchange="closeTime(this)">
+                                    <span class="hours">14</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="15" onchange="closeTime(this)">
+                                    <span class="hours">15</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="16" onchange="closeTime(this)">
+                                    <span class="hours">16</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="17" onchange="closeTime(this)">
+                                    <span class="hours">17</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="18" onchange="closeTime(this)">
+                                    <span class="hours">18</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="19" onchange="closeTime(this)">
+                                    <span class="hours">19</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="20" onchange="closeTime(this)">
+                                    <span class="hours">20</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="21" onchange="closeTime(this)">
+                                    <span class="hours">21</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="22" onchange="closeTime(this)">
+                                    <span class="hours">22</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="23" onchange="closeTime(this)">
+                                    <span class="hours">23</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="24" onchange="closeTime(this)">
+                                    <span class="hours">24</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="25" onchange="closeTime(this)">
+                                    <span class="hours">25</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="26" onchange="closeTime(this)">
+                                    <span class="hours">26</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="27" onchange="closeTime(this)">
+                                    <span class="hours">27</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="28" onchange="closeTime(this)">
+                                    <span class="hours">28</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="29" onchange="closeTime(this)">
+                                    <span class="hours">29</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="30" onchange="closeTime(this)">
+                                    <span class="hours">30</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="31" onchange="closeTime(this)">
+                                    <span class="hours">31</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="32" onchange="closeTime(this)">
+                                    <span class="hours">32</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="33" onchange="closeTime(this)">
+                                    <span class="hours">33</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="34" onchange="closeTime(this)">
+                                    <span class="hours">34</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="35" onchange="closeTime(this)">
+                                    <span class="hours">35</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="36" onchange="closeTime(this)">
+                                    <span class="hours">36</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="37" onchange="closeTime(this)">
+                                    <span class="hours">37</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="38" onchange="closeTime(this)">
+                                    <span class="hours">38</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="39" onchange="closeTime(this)">
+                                    <span class="hours">39</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="40" onchange="closeTime(this)">
+                                    <span class="hours">40</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="41" onchange="closeTime(this)">
+                                    <span class="hours">41</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="42" onchange="closeTime(this)">
+                                    <span class="hours">42</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="43" onchange="closeTime(this)">
+                                    <span class="hours">43</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="44" onchange="closeTime(this)">
+                                    <span class="hours">44</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="45" onchange="closeTime(this)">
+                                    <span class="hours">45</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="46" onchange="closeTime(this)">
+                                    <span class="hours">46</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="47" onchange="closeTime(this)">
+                                    <span class="hours">47</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="48"onchange="closeTime(this)">
+                                    <span class="hours">48</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="49" onchange="closeTime(this)">
+                                    <span class="hours">49</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="50" onchange="closeTime(this)">
+                                    <span class="hours">50</span>
+                                    </label>
+                                     <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="51" onchange="closeTime(this)">
+                                    <span class="hours">51</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="52" onchange="closeTime(this)">
+                                    <span class="hours">52</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="53" onchange="closeTime(this)">
+                                    <span class="hours">53</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="54" onchange="closeTime(this)">
+                                    <span class="hours">54</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="55" onchange="closeTime(this)">
+                                    <span class="hours">55</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="56" onchange="closeTime(this)">
+                                    <span class="hours">56</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="57" onchange="closeTime(this)">
+                                    <span class="hours">57</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="58" onchange="closeTime(this)">
+                                    <span class="hours">58</span>
+                                    </label>
+                                    <label class="container">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="59" onchange="closeTime(this)">
+                                    <span class="hours">59</span>
+                                    </label>
+                                    
+                                
+                            </div>
+                            </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <div class="input-group">
+                        <div class="styled-header">
+                            <span>Mark open days</span>
+                            <p>Don't forget to uncheck your off-day</p>
+                        </div>
+                        <div class="weeks-checkbox-div">
+                            <div class="input-checkbox-div">
+                                <input type="checkbox" name="week" id="week" value="Monday" checked>
+                                <label for="">Monday</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                                <input type="checkbox" name="week" id="week" value="Tuesday" checked>
+                                <label for="">Tuesday</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                                <input type="checkbox" name="week" id="week" value="Wednesday" checked>
+                                <label for="">Wednesday</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                                <input type="checkbox" name="week" id="week" value="Thrusday" checked>
+                                <label for="">Thrusday</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                                <input type="checkbox" name="week" id="week" value="Friday" checked>
+                                <label for="">Friday</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                                <input type="checkbox" name="week" id="week" value="Saturday" checked>
+                                <label for="">Saturday</label>
+                            </div>
+                            <div class="input-checkbox-div">
+                                <input type="checkbox" name="week" id="week" value="Sunday" checked>
+                                <label for="">Sunday</label>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="buttons-con">
+                    <button class="prev">Back</button>
+                    <button class="next" >Next</button>
+                </div>  
+                </div>
+                </div>
+                </div>
+               
+            </form>
+        </div>
+    </div>
+</body>
+{{!-- <script src="https://apis.mapmyindia.com/advancedmaps/v1/{{accessToken}}/map_load?v=1.3"></script>
+<script src="https://apis.mapmyindia.com/advancedmaps/api/{{accessToken}}/map_sdk_plugins"></script> --}}
+
+<script>
+    
+// var map = new MapmyIndia.Map('map', {center: [localStorage.getItem("clientLatitude"), localStorage.getItem("clientLongitude")], zoom: 15, search: false});
+
+  // var options ={
+      //  map:map,
+        
+      //  location:{lat: localStorage.getItem("clientLatitude"),lng: localStorage.getItem("clientLongitude")}, //to open that location on map on initailization
+      //  callback : getRestLoc
+       
+       
+  //  };
+   // var picker = new MapmyIndia.placePicker(options);
+   // function getRestLoc (){
+         
+ //   console.log(picker.getLocation());
+ //  }
+ 
+ 
+
+
+
+
+
+
+
+</script>
+<script src="/js/business.js"></script>
+<script src="/js/formSlide.js"></script>
+<script src="/js/businessRegisterValidation.js"></script>
+<script>
+    var buttons = document.querySelectorAll('form button:not([type="submit"])');
+for (i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function(e) {
+    
+    e.preventDefault();
+  });
+}
+</script>
+<script>
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl)
+  
+})
+
+
+var myToastEl = document.querySelector('.toast')
+var myToast = bootstrap.Toast.getInstance(myToastEl) // Returns a Bootstrap toast instance
+
+
+
+</script>
+</html>

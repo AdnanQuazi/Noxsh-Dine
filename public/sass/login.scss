@@ -1,0 +1,212 @@
+nav{
+    position: relative !important;
+    box-shadow: 0 3px 1rem rgba(0,0,0,.1);
+    background-color: white;
+    span{
+        color:  #333 !important;
+    }
+    .acc-det{
+        a{
+            color: black;
+        }
+        .fa-heart{
+            color: #333 !important;
+        }
+        span{
+            color:#333 !important;
+        }
+        .fa-caret-down{
+            
+            color:#333 !important;
+        }
+    }
+}
+
+    body{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url(/images/oranges.jpg);
+    }
+        
+ 
+.nav-links-con{
+    ul li a{
+        color: #333 !important;
+    }
+    ul li a:after{
+        background-color: #333 !important;
+    }
+}
+
+.login-main-con{
+    width: 100%;
+    height: calc(100vh - 8rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.login-con{
+    width: 120rem;
+    height: 70rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 1rem rgba(0,0,0,.1); 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background: white;
+   
+}
+.login-det{
+    width: 40%;
+    height: 100%;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    span{
+        font-size: 4rem;
+        font-weight: 500;
+        margin-left: 5rem;
+        color: #333;
+    }
+    .input-details{
+        
+        position: relative;
+        display: flex;
+        width: auto;
+        border-bottom: 0.2rem solid #afafaf;
+        width: 30rem;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 5rem;
+        margin-left: 5rem;
+
+        span{
+            margin-left: 1rem;
+            font-size: 2rem;
+            font-weight: 400;
+           
+        }
+        hr {
+            margin: 0 2rem;
+            height: 2rem;
+            
+            border: 0.1rem solid #afafaf;
+        }
+        input{
+            font-weight: 300;
+            padding: 0 1rem;
+            border: none;
+            outline: none;
+            height: 4rem;
+            width: 20rem;
+            font-size: 2rem;
+        }
+
+        .text-danger{
+            position: absolute;
+            color: red;
+            bottom: 4rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .eye-icons{
+        }
+        #visible{
+            
+           
+            color: gray;
+        }
+        #invisible{
+          
+            display: none;
+            
+            color: gray;
+        
+          
+        }
+        
+        
+    }
+    .login-btn{
+        cursor: pointer;
+        margin-left: 5rem;
+        background-color: #96C7C1;
+        padding: 1rem 2rem;
+        border: none;
+        width: 30rem;
+        height: auto;
+        font-size: 2rem;
+        border-radius: 0.5rem;
+        color: white;
+        margin-top: 5rem;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),url(/images/colorFruit.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-weight: 300;
+        letter-spacing: 0.4rem;
+        
+    }
+    .forgot-pass-link{
+        font-size: 1.5rem;
+        display: block;
+        margin-top: 1rem;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,0);
+
+        a{
+            text-decoration: none;
+            color: #333;
+            text-decoration: none;
+            font-weight: 400 !important;
+        }
+    }
+    .new-acc-link{
+
+        color: #afafaf;
+        font-size: 2rem;
+        margin-top: 2rem;
+
+        a{
+            color: #96C7C1;
+            text-decoration: none;
+            font-weight: 400 !important;
+        }
+    }
+} 
+.wel-msg-con{
+    width: 60%;
+    height: 100%;
+    background-color: #96C7C1;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(/images/colorFruit.jpg);
+    background-position: center;
+    background-size: cover;
+
+
+    
+    span{
+        font-family: 'Major Mono Display', monospace;
+        font-size: 8rem;
+        font-weight: 300;
+        color: white;   
+        transition: 0.5s linear step-end;
+        text-align: center;
+
+    }
+}
+.wel-msg-con:hover {
+    line-height: 15rem;
+    span{
+        transition: 0.5s all ease-in-out;
+
+    }
+}

@@ -1,0 +1,86 @@
+{{!-- <div class="loc-div">
+             <i class="fas fa-map-marker-alt"></i>
+            <span class="location">Location...</span>
+            <i class="fas fa-caret-down"></i>
+            <input type="text" name="restaurants" placeholder="Search for Restaurant/Cuisine" onkeyup="sendData(this)">
+            <i class="fas fa-search"></i>
+        <div class="search-res-con">
+           
+        </div>
+
+        </div> --}}
+
+
+        <nav>
+        
+            
+                <a href="/"><span class="logo">NOXSH</span></a>
+           
+             <div class="loc-div navS">
+        <div class="location-div">
+             <i class="fas fa-map-marker-alt"></i>
+             <span  class="location"></span>
+            
+            <i class="fas fa-caret-down loc-arr" onclick="displayDecLocCon()"></i>
+            </div>
+            <div class="dec-loc-con">
+                <div class="detect-con">
+                    <button>
+                        <i class="bi bi-geo-fill"></i>
+                <span onclick="detectUsingGps()">Detect current location</span>
+                    </button>
+                    
+                </div>
+                
+            </div>
+            <div class="search-con">
+            <input type="text" name="restaurants" placeholder="Search for Restaurant/Cuisine" onkeyup="sendData(this)" >
+            <i class="fas fa-search"></i>
+            </div>
+        <div class="search-res-con">
+           
+        </div>
+
+        </div>
+        <div class="nav-links-con">
+                <ul>
+                    <li> <a href="/" class="active-link" onclick="ovfh()">Home</a> </li>
+                    <li><a href="/" onclick="ovfh()" style="display: none;">Top Restaurant</a> </li>
+                </ul>
+            </div>
+           
+            <div class="acc-det">
+
+                 {{#if token}}
+           
+                <i class="fas fa-heart"></i>
+                <img class="prof-img" src="/images/profimg.jpg" alt="" onclick="openProfileOptions()">
+                <span onclick="openProfileOptions()">{{name}}</span>
+                <i class="fas fa-caret-down" onclick="openProfileOptions()"></i>
+                
+                <div class="home-prof-div-con">
+                    <ul>
+                          <li><a href="/myprofile">Profile</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Recent Bookings</a></li>
+                        <li><a href="/logout">Log Out</a></li>
+                        
+                    </ul>
+                </div>
+            {{else}}
+            
+            
+            <a href="/login">Log in</a>
+            <a href="/signup">Sign up</a>
+            {{/if}}
+            
+
+
+                
+            </div>
+            <div class="burger">
+           <i class="fas fa-bars bar" id="bars"></i>
+           <i class="fas fa-times bar" id="cross"></i>
+           </div>
+        
+    </nav>

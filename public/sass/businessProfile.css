@@ -1,0 +1,1135 @@
+body {
+  background-color: #eeeeee !important;
+}
+
+p {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+
+nav {
+  width: 100% !important;
+  height: 6rem;
+  background-color: white !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  position: relative !important;
+}
+
+nav .nav-wrapper {
+  width: 120rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .nav-wrapper span {
+  color: #333;
+}
+
+nav .nav-util {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+  color: white;
+}
+
+nav .nav-util ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+}
+
+nav .nav-util ul li {
+  list-style: none;
+  font-size: 1.8rem;
+}
+
+nav .nav-util ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+nav .nav-util ul li button {
+  background-color: antiquewhite;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  padding: 0.5rem 2rem;
+  color: #333;
+}
+
+nav .nav-util .acc-det {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  width: auto;
+}
+
+nav .nav-util .acc-det .prof-img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: gray;
+  margin-left: 2rem;
+}
+
+nav .nav-util .acc-det span {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  font-family: 'Poppins', "sans-serif";
+  font-size: 2rem;
+  padding: 0 1rem;
+  color: #333;
+}
+
+nav .nav-util .acc-det .fa-caret-down {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  font-size: 2rem;
+  color: #333;
+}
+
+nav .nav-util .acc-det a {
+  text-decoration: none;
+  color: #333;
+  font-family: 'Poppins', "sans-serif";
+  font-size: 2rem;
+  padding: 0 1rem;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+nav .nav-util .acc-det .home-prof-div-con-b {
+  position: absolute;
+  top: 8rem;
+  right: 0;
+  width: 22rem;
+  height: auto;
+  background-color: white;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  -webkit-transition: 0.2s linear ease-in-out;
+  transition: 0.2s linear ease-in-out;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+}
+
+nav .nav-util .acc-det .home-prof-div-con-b ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+nav .nav-util .acc-det .home-prof-div-con-b ul li {
+  width: 100%;
+  padding: 1rem 0rem;
+  list-style: none;
+  font-size: 2rem;
+  font-family: 'Poppins' , "sans-serif";
+  font-weight: 300;
+}
+
+nav .nav-util .acc-det .home-prof-div-con-b ul li a {
+  display: inline-block;
+  margin-left: 1rem;
+  padding: 0;
+  color: #333;
+  width: 100%;
+  height: 100%;
+}
+
+nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
+  background-color: #f5f5f5;
+}
+
+.parent-con {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: auto;
+  top: 0rem;
+}
+
+.parent-con .side-nav {
+  width: 6.5rem;
+  height: 100vh;
+  background-color: white;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 5;
+}
+
+.parent-con .side-nav ul {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.parent-con .side-nav ul li {
+  width: auto;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.parent-con .side-nav ul li i {
+  position: relative;
+  font-size: 2.5rem;
+  margin-right: 2.5rem;
+  color: #afafaf;
+}
+
+.parent-con .side-nav ul li i .notify {
+  position: absolute;
+  font-size: 1.5rem;
+  background-color: #dc3545;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: -1rem;
+  right: -1rem;
+  color: white;
+}
+
+.parent-con .side-nav ul li:hover {
+  background-color: #f5f5f5;
+}
+
+.parent-con .side-nav ul li.active {
+  background-color: #f5f5f5;
+}
+
+.parent-con .side-nav ul li.active i {
+  color: #333;
+}
+
+.parent-con .side-nav .upper-con {
+  margin-top: 8rem;
+}
+
+.parent-con .side-nav:hover {
+  width: 32rem;
+}
+
+.parent-con .data-con {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 8rem);
+  margin-left: 6.5rem;
+  top: 8rem;
+}
+
+.parent-con .data-con [data-tab-content] {
+  display: none;
+}
+
+.parent-con .data-con .active[data-tab-content] {
+  display: block;
+}
+
+.parent-con .data-con .data-wrapper-parent-dashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 8rem);
+  padding: 2rem 4rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-dashboard .main-data-con {
+  width: 45rem;
+  height: 30rem;
+  background-color: white;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  position: relative;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parent-con .data-con .data-wrapper-parent-dashboard .main-data-con img {
+  width: 100%;
+  height: 25rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings, .parent-con .data-con .data-wrapper-parent-currentBookings, .parent-con .data-con .data-wrapper-parent-upcomingBookings, .parent-con .data-con .data-wrapper-parent-userProfile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  min-height: calc(100vh - 8rem);
+  padding: 2rem 4rem;
+  gap: 2rem;
+  position: relative;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder {
+  position: relative;
+  width: auto;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con {
+  max-width: 45rem;
+  min-height: 22rem;
+  background-color: white;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  position: relative;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .name-username-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .name-username-div .name {
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .name-username-div .username {
+  color: #afafaf;
+  font-size: 1.5rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  gap: 2rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-count-con {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-count-con h4 {
+  color: #afafaf;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-count-con p {
+  font-size: 1.5rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .status-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .status-con h4 {
+  margin: 0;
+  margin-right: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill {
+  display: inline-block;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  margin: 0 1rem 0 0;
+  color: #28a745;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con button {
+  padding: 1rem 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: none;
+  background-color: transparent;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .more-info {
+  position: relative;
+  margin-right: auto;
+  background-color: #F47D4F;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .decline {
+  position: relative;
+  background-color: #dc3545;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .accept {
+  position: relative;
+  background-color: #28a745;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.parent-con .data-con .more-data-holder {
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2rem;
+  margin-left: auto;
+  max-width: 40rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  height: calc(100vh - 12rem);
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+}
+
+.parent-con .data-con .more-data-holder .order-list-con hr {
+  border: 0.1rem;
+}
+
+.parent-con .data-con .more-data-holder .order-list-con .overall-food {
+  border-bottom: 0.1rem solid #afafaf;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.parent-con .data-con .more-data-holder .order-list-con .overall-food .food-item-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.parent-con .data-con .more-data-holder .order-list-con .overall-food .food-item-con .item-details {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.parent-con .data-con .more-data-holder .order-list-con .overall-food .food-item-con .item-details h4 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.parent-con .data-con .more-data-holder .order-list-con .overall-food .food-item-con .item-details p {
+  font-size: 1.5rem;
+}
+
+.parent-con .data-con .more-data-holder .order-list-con .overall-food .food-item-con .item-details .details {
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.parent-con .data-con .more-data-holder .order-list-con .overall-food .food-item-con .item-details .details p {
+  font-weight: 500;
+}
+
+.parent-con .data-con .more-data-holder .order-list-con .overall-food p {
+  margin: 0;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+
+.parent-con .data-con .more-data-holder .total-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.parent-con .data-con .more-data-holder .total-div p {
+  font-weight: 500;
+}
+
+.parent-con .data-con .more-data-holder .total-div hr {
+  border: 0.1rem;
+}
+
+.parent-con .data-con .more-data-holder .total-div .cal-div {
+  border-bottom: 0.1rem dashed #afafaf;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.parent-con .data-con .more-data-holder .total-div .cal-div .sub-total, .parent-con .data-con .more-data-holder .total-div .cal-div .tax {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5rem 0;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parent-con .data-con .more-data-holder .total-div .grand-total {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.main-data-holder-userProfile {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100% !important;
+  overflow: hidden;
+  -webkit-column-gap: 0 !important;
+          column-gap: 0 !important;
+}
+
+.main-data-holder-userProfile .offers-outer-con, .main-data-holder-userProfile .food-items-outer-con, .main-data-holder-userProfile .menu-outer-con, .main-data-holder-userProfile .gallery-outer-con {
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 2rem 2rem;
+  background-color: white;
+  width: calc(100% - 2rem);
+  overflow: hidden;
+  margin: 0;
+}
+
+.main-data-holder-userProfile .offers-outer-con .header-search-div input, .main-data-holder-userProfile .food-items-outer-con .header-search-div input, .main-data-holder-userProfile .menu-outer-con .header-search-div input, .main-data-holder-userProfile .gallery-outer-con .header-search-div input {
+  padding: 0.5rem 2rem;
+  font-size: 1.8rem;
+  outline: none;
+  border: 0.1rem solid #afafaf;
+  color: #333;
+  border-radius: 5rem;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  padding: 1rem 0;
+  overflow: auto;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .add-div, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .add-div, .main-data-holder-userProfile .offers-outer-con .menu-div-con .add-div, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .add-div, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .add-div, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .add-div, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .add-div, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .add-div, .main-data-holder-userProfile .menu-outer-con .offers-div-con .add-div, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .add-div, .main-data-holder-userProfile .menu-outer-con .menu-div-con .add-div, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .add-div, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .add-div, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .add-div, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .add-div, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .add-div {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 25rem;
+  height: 30rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  right: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .add-div i, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .add-div i, .main-data-holder-userProfile .offers-outer-con .menu-div-con .add-div i, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .add-div i, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .add-div i, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .add-div i, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .add-div i, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .add-div i, .main-data-holder-userProfile .menu-outer-con .offers-div-con .add-div i, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .add-div i, .main-data-holder-userProfile .menu-outer-con .menu-div-con .add-div i, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .add-div i, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .add-div i, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .add-div i, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .add-div i, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .add-div i {
+  font-size: 5rem;
+  color: #afafaf;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .add-div p, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .add-div p, .main-data-holder-userProfile .offers-outer-con .menu-div-con .add-div p, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .add-div p, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .add-div p, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .add-div p, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .add-div p, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .add-div p, .main-data-holder-userProfile .menu-outer-con .offers-div-con .add-div p, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .add-div p, .main-data-holder-userProfile .menu-outer-con .menu-div-con .add-div p, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .add-div p, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .add-div p, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .add-div p, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .add-div p, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .add-div p {
+  color: #afafaf;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery {
+  background-color: #f5f5f5;
+  width: 25rem;
+  height: 30rem;
+  border-radius: 0.5rem;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .hov-btn-con {
+  position: absolute;
+  right: 0;
+  display: none;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .hov-btn-con button, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .hov-btn-con button {
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  font-size: 2rem;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .img {
+  width: 100%;
+  height: 75%;
+  border-radius: 0.5rem;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .menu-img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .gallery-img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .menu-img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .gallery-img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .menu-img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .gallery-img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .menu-img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .gallery-img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .menu-img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .gallery-img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .menu-img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .gallery-img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .menu-img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .gallery-img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .menu-img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .gallery-img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .menu-img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .gallery-img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .menu-img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .gallery-img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .menu-img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .gallery-img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .menu-img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .gallery-img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .menu-img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .gallery-img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .menu-img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .gallery-img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .menu-img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .gallery-img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .menu-img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .gallery-img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .menu-img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .gallery-img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .menu-img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .gallery-img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .menu-img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .gallery-img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .menu-img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .gallery-img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .menu-img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .gallery-img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .menu-img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .gallery-img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .menu-img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .gallery-img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .menu-img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .gallery-img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .menu-img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .gallery-img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .menu-img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .gallery-img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .menu-img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .gallery-img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .menu-img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .gallery-img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .menu-img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .gallery-img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .menu-img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .gallery-img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .menu-img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .gallery-img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .menu-img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .gallery-img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .menu-img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .gallery-img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .menu-img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .gallery-img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .menu-img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .gallery-img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .menu-img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .gallery-img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .menu-img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .gallery-img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .menu-img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .gallery-img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .menu-img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .gallery-img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .menu-img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .gallery-img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .menu-img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .gallery-img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .menu-img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .gallery-img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .menu-img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .gallery-img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .menu-img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .gallery-img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .menu-img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .gallery-img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .menu-img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .gallery-img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .menu-img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .gallery-img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .menu-img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .gallery-img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .menu-img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .gallery-img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .menu-img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .gallery-img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .menu-img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .gallery-img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .menu-img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .gallery-img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .menu-img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .gallery-img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .menu-img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .gallery-img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .menu-img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .gallery-img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .menu-img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .gallery-img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .menu-img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .gallery-img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .menu-img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .gallery-img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .menu-img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .gallery-img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .menu-img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .gallery-img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .menu-img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .gallery-img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .menu-img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .gallery-img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .menu-img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .gallery-img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .menu-img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .gallery-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .menu-img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .gallery-img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .menu-img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .gallery-img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .menu-img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .gallery-img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .menu-img img, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .gallery-img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .menu-img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .gallery-img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .menu-img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .gallery-img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .menu-img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .gallery-img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .menu-img img, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .gallery-img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .menu-img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .gallery-img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .menu-img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .gallery-img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .menu-img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .gallery-img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .menu-img img, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .gallery-img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .menu-img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .gallery-img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .menu-img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .gallery-img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .menu-img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .gallery-img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .menu-img img, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .menu-img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .menu-img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .menu-img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .menu-img img, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .menu-img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .menu-img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .menu-img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .menu-img img, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .menu-img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .menu-img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .menu-img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .menu-img img, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .menu-img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .menu-img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .menu-img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .gallery-img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .menu-img img, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .gallery-img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .menu-img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .gallery-img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .menu-img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .gallery-img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .menu-img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .gallery-img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .menu-img img, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .gallery-img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .menu-img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .gallery-img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .menu-img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .gallery-img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .menu-img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .gallery-img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .menu-img img, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .gallery-img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .menu-img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .gallery-img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .menu-img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .gallery-img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .menu-img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .gallery-img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .menu-img img, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .gallery-img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .menu-img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .gallery-img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .menu-img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .gallery-img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .menu-img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .gallery-img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .menu-img img, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .menu-img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .menu-img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .menu-img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .menu-img img, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .menu-img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .menu-img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .menu-img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .menu-img img, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .menu-img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .menu-img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .menu-img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .menu-img img, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .menu-img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .menu-img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .menu-img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .gallery-img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .menu-img img, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .gallery-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .offer-det-div, .main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .food-det-div, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .offer-det-div, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .food-det-div, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .offer-det-div, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .food-det-div, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .offer-det-div, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .food-det-div, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .offer-det-div, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .food-det-div, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .offer-det-div, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .food-det-div, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .offer-det-div, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .food-det-div, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .offer-det-div, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .food-det-div, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .offer-det-div, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .food-det-div, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .offer-det-div, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .food-det-div, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .offer-det-div, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .food-det-div, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .offer-det-div, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .food-det-div, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .offer-det-div, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .food-det-div, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .offer-det-div, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .food-det-div, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .offer-det-div, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .food-det-div, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .offer-det-div, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .food-det-div, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .food-det-div, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .food-det-div, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .food-det-div, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .food-det-div, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .food-det-div, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .food-det-div, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .food-det-div, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .food-det-div, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .food-det-div, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .food-det-div, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .food-det-div, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .food-det-div, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .food-det-div, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .food-det-div, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .food-det-div, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .offer-det-div, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .food-det-div, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .offer-det-div, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .food-det-div, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .offer-det-div, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .food-det-div, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .offer-det-div, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .food-det-div, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .offer-det-div, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .food-det-div, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .offer-det-div, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .food-det-div, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .offer-det-div, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .food-det-div, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .offer-det-div, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .food-det-div, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .offer-det-div, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .food-det-div, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .offer-det-div, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .food-det-div, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .offer-det-div, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .food-det-div, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .offer-det-div, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .food-det-div, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .offer-det-div, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .food-det-div, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .offer-det-div, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .food-det-div, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .offer-det-div, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .food-det-div, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .offer-det-div, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .food-det-div, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .offer-det-div, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .food-det-div, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .food-det-div, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .food-det-div, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .food-det-div, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .food-det-div, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .food-det-div, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .food-det-div, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .food-det-div, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .food-det-div, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .food-det-div, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .food-det-div, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .food-det-div, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .food-det-div, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .food-det-div, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .food-det-div, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .food-det-div, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .offer-det-div, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .food-det-div {
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 1rem 1rem;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .food-det-div p, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .food-det-div p, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .food-det-div p, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .food-det-div p, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .food-det-div p, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .food-det-div p, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .food-det-div p, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .food-det-div p, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .food-det-div p, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .food-det-div p, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .food-det-div p, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .food-det-div p, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .food-det-div p, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .food-det-div p, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .food-det-div p, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .food-det-div p, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .food-det-div p, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .food-det-div p, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .food-det-div p, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .food-det-div p, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .food-det-div p, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .food-det-div p, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .food-det-div p, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .food-det-div p, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .food-det-div p, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .food-det-div p, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .food-det-div p, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .food-det-div p, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .food-det-div p, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .food-det-div p, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .food-det-div p, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .food-det-div p, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .food-det-div p, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .offer-det-div p, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .food-det-div p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .food-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .offer-det-div .offer-name-price-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .food-det-div .offer-name-price-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .offers-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .offers-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .offers-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu .food-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .offer-det-div .offer-before, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery .food-det-div .offer-before {
+  position: relative;
+  overflow: hidden;
+  color: #afafaf;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .offer:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .offer:hover > .hov-btn-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .food:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .food:hover > .hov-btn-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .menu:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .menu:hover > .hov-btn-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-data-holder-userProfile .offers-outer-con .offers-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .food-items-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .menu-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .offers-outer-con .gallery-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .offers-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .food-items-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .menu-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .food-items-outer-con .gallery-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .offers-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .food-items-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .menu-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .menu-outer-con .gallery-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .offers-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .food-items-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .menu-div-con .gallery:hover > .hov-btn-con, .main-data-holder-userProfile .gallery-outer-con .gallery-div-con .gallery:hover > .hov-btn-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.edit-data-outer-div, .edit-data-outer-div-2 {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 7;
+  display: none;
+}
+
+.edit-data-outer-div i, .edit-data-outer-div-2 i {
+  position: absolute;
+  font-size: 3rem;
+  right: 4rem;
+  top: 4rem;
+  padding: 0.5rem 2rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  cursor: pointer;
+}
+
+.edit-data-outer-div .edit-data-div, .edit-data-outer-div-2 .edit-data-div {
+  width: 80rem;
+  height: 60rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 2rem 2rem;
+  overflow-y: scroll;
+}
+
+.edit-data-outer-div .edit-data-div .form-div, .edit-data-outer-div-2 .edit-data-div .form-div {
+  width: 100%;
+  height: auto;
+  margin-top: 4rem;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form, .edit-data-outer-div-2 .edit-data-div .form-div form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 4rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form button[type="submit"], .edit-data-outer-div-2 .edit-data-div .form-div form button[type="submit"] {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.8rem;
+  background-color: #F47D4F;
+  color: white;
+  border: 0.1rem solid #F47D4F;
+  border-radius: 0.5rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: auto;
+  position: relative;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .form-content, .edit-data-outer-div-2 .edit-data-div .form-div form .form-content {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  gap: 4rem;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .upload-img-div, .edit-data-outer-div-2 .edit-data-div .form-div form .upload-img-div {
+  min-width: 25rem;
+  height: 20rem;
+  background-color: #afafaf;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .upload-img-div .selected-food-img, .edit-data-outer-div-2 .edit-data-div .form-div form .upload-img-div .selected-food-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .upload-img-div i, .edit-data-outer-div-2 .edit-data-div .form-div form .upload-img-div i {
+  font-size: 4rem;
+  position: relative;
+  color: #f5f5f5;
+  top: auto;
+  right: auto;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div input, .edit-data-outer-div .edit-data-div .form-div form .food-item-det-div select, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div input, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div select {
+  outline: none;
+  font-size: 1.8rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .input-quantity-group, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .input-quantity-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .input-group, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .input-group label, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .input-group label {
+  font-size: 1.8rem;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .input-group input, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .input-group input {
+  width: auto;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .cuisine-data-con h2, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .cuisine-data-con h2 {
+  margin: 2rem 0 2rem 0;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder .input-con, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder .input-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  width: 50%;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder .input-con input, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder .input-con input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 2rem;
+  height: 3rem;
+}
+
+.edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder .input-con label, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder .input-con label {
+  font-size: 2rem;
+}
+/*# sourceMappingURL=businessProfile.css.map */

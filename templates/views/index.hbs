@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noxsh Restaurant</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Bellota+Text:wght@300;400;700&family=Charmonman:wght@400;700&family=Comfortaa:wght@300;400;500&family=Fira+Code:wght@300;400;500&family=Major+Mono+Display&family=Montserrat:wght@100;200;300;400;500&family=Quicksand:wght@300;400;500&family=Rochester&family=Sacramento&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/sass/main.css">
+
+
+</head>
+<body id="body"> 
+    {{>navbar}}
+    
+    <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
+  <div class="toast-container position-absolute p-3 top-0 start-50 translate-middle-x " id="toastPlacement">
+    <div class="toast bg-white border-0">
+      {{!-- <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto display-3 text-danger">Bootstrap</strong>
+        <small>11 mins ago</small>
+      </div> --}}
+      <div class="toast-body display-6 text-center text-black rounded d-flex justify-content-evenly bg-white flex-column align-items-center">
+       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_6LimOm.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;"    autoplay></lottie-player> Account Created Successfully
+      </div>
+    </div>
+  </div>
+</div>
+ 
+    
+    <div class="sec1" id="sec1">
+        
+        <h1 class="head-txt">NOXSH EATS</h1>
+        <h2 class="tagline">The Best you Deserve</h2>
+        
+    <div class="loc-div">   
+        <div class="location-div">
+             <i class="fas fa-map-marker-alt"></i>
+             <span  class="location"></span>
+            
+            <i class="fas fa-caret-down loc-arr" onclick="displayDecLocCon()"></i>
+            </div>
+            <div class="dec-loc-con">
+                <div class="detect-con">
+                    <button>
+                        <i class="bi bi-geo-fill"></i>
+                <span onclick="detectUsingGps()">Detect current location</span>
+                    </button>
+                    
+                </div>
+                
+            </div>
+            <div class="search-con">
+            <input type="text" class="voice-Inp" name="restaurants" placeholder="Search for Restaurant/Cuisine" onkeyup="sendData(this)" onblur="sendData(this)">
+            <i class="bi bi-mic-fill"></i>
+            </div>
+        <div class="search-res-con">
+           
+        </div>
+
+        </div>
+
+        
+    </div>
+    <div class="sec2">
+        <div class="wrapper">
+            <div class="top-restaurant-con">
+                <h1 class="top-restaurant-con-head"></h1>
+                <span> Search by Filters:</span>
+                
+                <div class="filters">
+                    <span class="filter-dist" onclick="filterSort({distance : 1})"> <i class="fas fa-exchange-alt"></i> Distance</span>
+                    <span class="filter-rate" onclick="filterSort({rating : 1})">Rating: 4.0+</span>
+                    <span class="filter-categ">Pure Veg</span>
+                    
+                    <span class="filter-type">Cafés</span>
+                </div>
+                   <button class="see-more-restaurants" onclick="openMoreRestaurants()">See More...</button>
+
+                <div class="restaurant-list-con elem1"></div>
+                
+            </div>
+            
+        </div>
+        <img class="nothing-found" src="/images/nothingFound.png" alt="" srcset="">
+    </div>
+
+
+{{!-- <div class="sec2">
+
+        <div class="wrapper">
+            <div class="top-restaurant-head-con">
+                <h1 class="top-restaurant-con-head"></h1>
+                <span> Search by Filters:</span>
+            </div>
+        </div>
+                
+            <div class="wrapper">
+                    <div class="top-restaurant-con">
+                    <div class="restaurant-list-con elem1"></div>
+                </div>
+            
+        </div>
+        <img class="nothing-found" src="/images/nothingFound.png" alt="" srcset="">
+    </div> --}}
+
+
+    {{!-- <div class="filters">
+                    <span class="filter-dist" onclick="filterSort({distance : 1})"> <i class="fas fa-exchange-alt"></i> Distance</span>
+                    <span class="filter-rate" onclick="filterSort({rating : 1})">Rating: 4.0+</span>
+                    <span class="filter-categ">Pure Veg</span>
+                    <span class="filter-sched">Open Now</span>
+                    <span class="filter-type">Cafés</span>
+                </div> --}}
+
+    {{!-- <div id="map"></div>
+
+    <button onclick="getRestLoc()">Click ME</button> --}}
+
+{{!-- <div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</div>
+
+<div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Library</li>
+  </ol>
+</div>
+
+<div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</div> --}}
+    <div class="sec3">
+        <div class="wrapper">
+            
+            <div class="top-faci-con">
+                <h1 class="top-faci-con-head">Best Category</h1>
+                <h3 style="color: #afafaf">Explore variety of category according to your mood</h3>
+                 <span class="more-faci">See More...</span> 
+                <div class="faci-con">
+                    
+                    <div class="fac-1">
+                        <span>Rooftop Vibes</span>
+                    </div>
+                    <div class="fac-2">
+                        <span>Purely Veg</span>
+                    </div>
+                    <div class="fac-3">
+                        <span>Outside seating</span>
+                    </div>
+                    <div class="fac-4">
+                        <span>Private Dining</span>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sec4">
+        <div class="wrapper">
+            <div class="top-food-items">
+                <h1>Discover your taste</h1>
+                <div class="food-items-con">
+                     <div class="food-1">
+                        <span>Chicken</span>
+                    </div>
+                    <div class="food-2">
+                        <span>Biryani</span>
+                    </div>
+                    <div class="food-3">
+                        <span>Pizza</span>
+                    </div>
+                    <div class="food-4">
+                        <span>Thali</span>
+                    </div>
+                    <div class="food-5">
+                        <span>Fast Food</span>
+                    </div>
+                    <div class="food-6">
+                        <span>Ice Cream</span>
+                    </div>
+                    <div class="food-7">
+                        <span>Momos</span>
+                    </div>
+                    <div class="food-8">
+                        <span>Dosa</span>
+                    </div>
+                    <div class="food-9">
+                        <span>Panner</span>
+                    </div>
+                    <div class="food-10">
+                        <span>Kabab</span>
+                    </div>
+                   
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec5">
+            <div class="wrapper">
+                    <div class="explore-con">
+                        <h1>Trendy cuisines</h1>
+                        
+                        <div class="cuisines-list-con">
+                            <div class="cuisine-list">
+                        <h4><ul>
+                            <li>American</li>
+                            <li>Asian</li>
+                            <li>Afghan</li>
+                            <li>Arabian</li>
+                            <li>BBQ</li>
+                            <li>Biryani</li>
+                        </ul></h4>
+
+                        <h4><ul>
+                            <li>Bengali</li>
+                            <li>Biryani</li>
+                            <li>Bakery</li>
+                            <li>Continental</li>
+                            <li>Cafe</li>
+                            <li>Coffee</li>
+                            
+                        </ul></h4>
+
+                        <h4><ul>
+                            <li>Chinese</li>
+                            <li>Deserts</li>
+                            <li>European</li>
+                            <li>Fast Food</li>
+                            <li>Gujrati</li>
+                            <li>Healthy</li>
+                        </ul></h4>
+
+                        <h4><ul>
+                            <li>Ice Cream</li>
+                            <li>Italian</li>
+                            <li>Juice</li>
+                            <li>Kabab</li>
+                            <li>Lebanese</li>
+                            <li>Maharashtrian</li>
+                            
+                            
+                            
+                        </ul></h4>
+
+                         <h4><ul>
+                            <li>Mexican</li>
+                            <li>Mughlai</li>
+                            <li>Momos</li>
+                            <li>North Indian</li>
+                            <li>Oriental</li>
+                            <li>South Indian</li>
+                            
+                            
+                            
+                        </ul></h4>
+                                
+                               
+                               
+                        </div>
+                    </div>
+            </div>
+        
+            <div class=""></div>
+    </div>
+    </div>
+
+    <div class="sec6">
+        
+           <div class="wrapper">
+
+                <div class="extras-con">
+            <div class="pre-cook-con">
+                <div class="pre-cook-head"><h1>Pre-Cook</h1></div>
+            <div class="pre-cook-div">
+             <img src="/images/chef3.png" alt="">
+             <h2>Pre-Cook your meal from the comfort your home and get fresh and cooked meal when you arrive at the restaurant</h2>
+            </div>
+           </div>
+
+           <div class="pre-cook-con">
+                <div class="pre-cook-head"><h1>Contactless NFC/QR Dine-In</h1></div>
+            <div class="pre-cook-div">
+             <img src="/images/dinner2.png" alt="">
+             <h2> Eliminate certain touchpoints and experience a safe and hygenic dining everytime you order using our website</h2>
+            </div>
+           </div>
+
+           
+           </div>
+
+           <div class="extras-con">
+               <div class="pre-cook-con">
+                <div class="pre-cook-head"><h1>Group Treat</h1></div>
+            <div class="pre-cook-div">
+             <img src="/images/dinner2.png" alt="">
+             <h2> Eliminate certain touchpoints and experience a safe and hygenic dining everytime you order using our website</h2>
+            </div>
+           </div>
+
+
+            <div class="pre-cook-con">
+                <div class="pre-cook-head"><h1>Takeaway</h1></div>
+            <div class="pre-cook-div">
+             <img src="/images/take-away.png" alt="">
+             <h2> Eliminate certain touchpoints and experience a safe and hygenic dining everytime you order using our website</h2>
+            </div>
+           </div>
+           </div>
+
+           <div class="extras-con">
+               <div class="pre-cook-con">
+                <div class="pre-cook-head"><h1>Speak To Order</h1></div>
+            <div class="pre-cook-div">
+             <img src="/images/dinner2.png" alt="">
+             <h2> Eliminate certain touchpoints and experience a safe and hygenic dining everytime you order using our website</h2>
+            </div>
+           </div>
+
+
+           </div>
+
+           </div>
+           
+        </div>
+   
+    
+
+    
+    {{!-- {{>footer}} --}}
+<footer>
+        <div class="footer-img">
+            <h1>ONE CANNOT<br>SLEEP WELL<br>THINK WELL<br>LOVE WELL<br>IF ONE HAS NOT DINED WELL</h1>
+        </div>
+         <div class="footer-content">
+            <div class="footer-upper-content">
+                <div class="logo-div">
+                    <img src="/images/nxshwhite.png" alt="">
+                </div>
+                <div class="site-map-div">
+                    <h1>Site Map</h1>
+                    <a href="/">Home</a>
+                    <a href="/">How It Works?</a>
+                    <a href="/">Raise a Complaint</a>
+                    <a href="/">How can we improve</a>
+
+                    <a href="/">Suggest a Good Feature</a>
+
+                    <a href="/signup">Sign Up</a>
+
+                    <a onclick="resredirect()" style="cursor: pointer;">Register as A Restaurant</a>
+
+
+
+                </div>
+                <div class="contact-us-div">
+                    <h1>Get in Touch</h1>
+                    <span>7057-7057-98</span>
+                    <span>noxsh@dine.com</span>
+                    <div class="contact-us-logo-div">
+                        <i class="bi bi-whatsapp"></i>
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-twitter"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-lower-content">
+                    <div class="copyright-div">
+                        <span>Copyright 2022 All Rights Reserved<br>NOXSH</span>
+                    </div>
+
+            </div>
+            
+
+
+        </div>
+    </footer>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ 
+
+<script  src="js/index.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/common.js"></script>
+<script src="js/search.js"></script>
+
+<script>
+    const resredirect = ()=>{
+        if(localStorage.getItem("user")){
+            window.location.href = "/business/register"
+        }else{
+            window.location.href = "/signup"
+
+        }
+    }
+   
+    if(localStorage.getItem("user") != `{{userId}}`){localStorage.setItem("user",`{{userId}}`)}
+
+    const openMoreRestaurants = ()=>{
+        const url = "/" + localStorage.getItem("clientCity") + "/restaurants"
+        window.location.href = url
+    }
+</script>
+
+<script>
+    if(localStorage.getItem("userReg")){
+ var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl)
+  
+})
+
+
+var myToastEl = document.querySelector('.toast')
+var myToast = bootstrap.Toast.getInstance(myToastEl) // Returns a Bootstrap toast instance
+
+myToast.show();
+localStorage.removeItem("userReg")
+    }
+  
+   
+
+</script>
+<script src="/js/voiceRecognition.js"></script>
+</html>

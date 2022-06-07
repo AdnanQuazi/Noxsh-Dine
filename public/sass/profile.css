@@ -1,0 +1,1170 @@
+nav {
+  position: relative;
+}
+
+nav .nav-links-con {
+  display: none !important;
+}
+
+nav .loc-div {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: auto;
+  height: 6rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .loc-div input {
+  font-family: 'Poppins', "sans-serif";
+  outline: none;
+  text-align: start;
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  padding: 0 2rem;
+  font-weight: 400;
+  width: auto;
+  text-decoration: none;
+}
+
+nav .loc-div .location-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25rem;
+}
+
+nav .loc-div .location {
+  width: 40rem;
+  color: #afafaf;
+  font-weight: 400;
+}
+
+nav .loc-div .location, nav .loc-div .fa-map-marker-alt, nav .loc-div .fa-search, nav .loc-div .fa-caret-down {
+  padding: 0 1rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+nav .dec-loc-con {
+  background: white;
+  position: absolute;
+  height: auto;
+  width: 30rem;
+  border-radius: 0.5rem;
+  left: 0;
+  top: 100%;
+  margin-top: 2rem;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+nav .dec-loc-con .detect-con {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+nav .dec-loc-con .detect-con button {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+nav .dec-loc-con .detect-con button span, nav .dec-loc-con .detect-con button .bi-geo-fill {
+  font-size: 2rem;
+  height: 4rem;
+  font-weight: 400;
+  line-height: 4rem;
+  text-align: center;
+  color: #333;
+}
+
+.profile-page-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;
+}
+
+.profile-page-con .profile-banner-img {
+  width: 100vw;
+  height: 35rem;
+  background-image: url(/images/bannerImg.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.profile-page-con .profile-main-con {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-page-con .profile-main-con .edit-btn-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 1rem;
+}
+
+.profile-page-con .profile-main-con .edit-btn-con .edit-prof-btn {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 0.2rem solid #F47D4F;
+  background-color: #F47D4F;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con {
+  width: 100%;
+  height: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .prof-img-name-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .prof-img-name-con .prof-img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .prof-img-name-con .prof-det-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-left: 4rem;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .prof-img-name-con .prof-det-con .prof-name {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .prof-img-name-con .prof-det-con .prof-username {
+  font-size: 2.5rem;
+  color: #afafaf;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .rf-holder-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .rf-holder-con .review-count-con, .profile-page-con .profile-main-con .profile-pic-con .rf-holder-con .followers-count-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: auto;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .rf-holder-con .review-count-con span, .profile-page-con .profile-main-con .profile-pic-con .rf-holder-con .followers-count-con span {
+  font-size: 2.5rem;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .rf-holder-con .review-count-con .review-count, .profile-page-con .profile-main-con .profile-pic-con .rf-holder-con .review-count-con .followers-count, .profile-page-con .profile-main-con .profile-pic-con .rf-holder-con .followers-count-con .review-count, .profile-page-con .profile-main-con .profile-pic-con .rf-holder-con .followers-count-con .followers-count {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.profile-page-con .profile-main-con .profile-pic-con .rf-holder-con .review-count-con {
+  margin-right: 4rem;
+}
+
+.profile-page-con .profile-main-con .profile-options-con {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 1rem;
+}
+
+.profile-page-con .profile-main-con .profile-options-con .options-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 30%;
+  height: auto;
+  background-color: aqua;
+}
+
+.profile-page-con .profile-main-con .profile-options-con .options-dis-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+  height: auto;
+  background-color: #338181;
+  margin-left: 1rem;
+}
+
+.profile-page-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  min-height: calc(100vh - 6rem);
+}
+
+.profile-page-con .banner-img-con {
+  width: 100%;
+  height: 30rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, rgba(0, 0, 0, 0.01)), color-stop(90%, black)), url(/images/hero.jpg);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.01) 20%, black 90%), url(/images/hero.jpg);
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-page-con .banner-img-con .prof-img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  position: relative;
+  bottom: -5rem;
+  margin-left: 1rem;
+  border: 0.2rem solid #f5f5f5;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.profile-page-con .banner-img-con .prof-det-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-left: 4rem;
+}
+
+.profile-page-con .banner-img-con .prof-det-con .prof-name {
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: white;
+}
+
+.profile-page-con .banner-img-con .prof-det-con .prof-username {
+  font-size: 1.5rem;
+  color: #afafaf;
+}
+
+.profile-page-con .edit-prof-btn-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.profile-page-con .edit-prof-btn-con .edit-prof-btn {
+  width: 20rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  font-size: 1.5rem;
+  padding: .5rem 0;
+  border: 0.2rem solid #F47D4F;
+  background-color: #F47D4F;
+  color: white;
+  border-radius: 0.5rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-top: 6rem;
+}
+
+.profile-page-con .edit-prof-btn-con .rf-holder-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-top: 6rem;
+  margin-left: auto;
+}
+
+.profile-page-con .edit-prof-btn-con .rf-holder-con .review-count-con, .profile-page-con .edit-prof-btn-con .rf-holder-con .followers-count-con, .profile-page-con .edit-prof-btn-con .rf-holder-con .following-count-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: auto;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-page-con .edit-prof-btn-con .rf-holder-con .review-count-con span, .profile-page-con .edit-prof-btn-con .rf-holder-con .followers-count-con span, .profile-page-con .edit-prof-btn-con .rf-holder-con .following-count-con span {
+  font-size: 2rem;
+  color: #afafaf;
+}
+
+.profile-page-con .edit-prof-btn-con .rf-holder-con .review-count-con .review-count, .profile-page-con .edit-prof-btn-con .rf-holder-con .review-count-con .followers-count, .profile-page-con .edit-prof-btn-con .rf-holder-con .review-count-con .following-count, .profile-page-con .edit-prof-btn-con .rf-holder-con .followers-count-con .review-count, .profile-page-con .edit-prof-btn-con .rf-holder-con .followers-count-con .followers-count, .profile-page-con .edit-prof-btn-con .rf-holder-con .followers-count-con .following-count, .profile-page-con .edit-prof-btn-con .rf-holder-con .following-count-con .review-count, .profile-page-con .edit-prof-btn-con .rf-holder-con .following-count-con .followers-count, .profile-page-con .edit-prof-btn-con .rf-holder-con .following-count-con .following-count {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.profile-page-con .edit-prof-btn-con .rf-holder-con .followers-count-con, .profile-page-con .edit-prof-btn-con .rf-holder-con .following-count-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile-page-con .edit-prof-btn-con .rf-holder-con .review-count-con, .profile-page-con .edit-prof-btn-con .rf-holder-con .followers-count-con {
+  margin-right: 4rem;
+}
+
+.profile-page-con hr {
+  margin: 2rem 0;
+}
+
+.profile-page-con .profile-options-con {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 1rem;
+}
+
+.profile-page-con .profile-options-con .options-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 30%;
+  height: auto;
+}
+
+.profile-page-con .profile-options-con .options-con .options-wrap-div {
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.profile-page-con .profile-options-con .options-con hr {
+  border: 0.1rem solid #333;
+  margin: 0;
+  background-color: #333;
+  width: 100%;
+  display: none;
+}
+
+.profile-page-con .profile-options-con .options-con h2 {
+  font-weight: 300;
+  color: #afafaf !important;
+}
+
+.profile-page-con .profile-options-con .options-con .prof-options-heading {
+  font-size: 2.5rem;
+  color: #afafaf;
+}
+
+.profile-page-con .profile-options-con .options-con ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0rem 0;
+}
+
+.profile-page-con .profile-options-con .options-con ul li {
+  font-size: 1.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.profile-page-con .profile-options-con .options-con ul li .bi-chevron-right {
+  display: none;
+}
+
+.profile-page-con .profile-options-con .options-con .active {
+  border-left: 0.2rem solid #F47D4F;
+}
+
+.profile-page-con .profile-options-con .options-dis-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+  height: auto;
+  margin-left: 2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .bi-chevron-left {
+  display: none;
+}
+
+.profile-page-con .profile-options-con .options-dis-con [data-tab-content] {
+  display: none;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .active[data-tab-content] {
+  display: block;
+}
+
+.profile-page-con .profile-options-con .options-dis-con h2 {
+  font-size: 2.5rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .recent-view-con, .profile-page-con .profile-options-con .options-dis-con .fav-view-con {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem 0 2rem 0;
+  width: 33.33%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  cursor: pointer;
+  position: relative;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card .distance {
+  position: absolute;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 0.5rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+  z-index: 1;
+  font-size: 1.3rem;
+  right: 2rem;
+  top: 25rem;
+  -webkit-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+  color: black;
+  width: 6.4rem;
+  text-align: center;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card img {
+  position: relative;
+  width: 100%;
+  height: 25rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card .restaurant-details-wrap-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: auto;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card .restaurant-details-wrap-div .restaurant-details-name-cuisine {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card .restaurant-details-wrap-div .restaurant-name {
+  display: inline-block;
+  color: #333;
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 70%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-weight: 500;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card .restaurant-details-wrap-div .cuisine-name {
+  display: inline-block;
+  max-width: 50%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-weight: 400;
+  color: #333;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card .restaurant-details-wrap-div .restaurant-address {
+  display: inline-block;
+  max-width: 50%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-weight: 300;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card .restaurant-details-wrap-div .restaurant-rating-price-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: auto;
+  height: 100%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card .restaurant-details-wrap-div .restaurant-rating-price-con .rating {
+  width: 4.5rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin: 0;
+  padding: 0;
+  background-color: #3ab757;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card .restaurant-details-wrap-div .restaurant-rating-price-con .price {
+  margin: 0;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .restaurant-card:hover {
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding: 1rem 0;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-sep-tags-con {
+  height: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5rem 0;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-sep-tags-con h3 {
+  font-weight: 500 !important;
+  margin-right: 2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews hr {
+  width: 100%;
+  border: 0.1rem solid #afafaf;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 1rem 0;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .reviewer-details, .profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .reviewer-details img, .profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-count img {
+  width: 6rem;
+  height: 6rem;
+  margin-right: 2rem;
+  border-radius: 50%;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .reviewer-details .reviewer-name, .profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-count .reviewer-name {
+  margin: 0;
+  margin-right: 2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .reviewer-details .review-time, .profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-count .review-time {
+  color: #afafaf;
+  margin: 0;
+  font-size: 1.5rem !important;
+  font-weight: 300 !important;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: .5rem 0;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-count h3 {
+  color: #afafaf;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-count .res-rating {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.5rem;
+  margin-right: 2rem;
+  padding: .2rem .5rem;
+  background-color: #3ab757;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-content {
+  width: 100%;
+  height: auto;
+  margin: 2rem 0;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .review-view-con .reviews .review-content h3 {
+  font-weight: 300 !important;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con {
+  min-height: 22rem;
+  background-color: white;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  position: relative;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .user-details-div {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .user-details-div img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .user-details-div .name-username-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .user-details-div .name-username-div .name {
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .user-details-div .name-username-div .username {
+  color: #afafaf;
+  font-size: 1.5rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  gap: 2rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .date-con, .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .time-con, .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .guest-name-con, .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .guest-count-con {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .date-con h4, .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .time-con h4, .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .guest-name-con h4, .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .guest-count-con h4 {
+  color: #afafaf;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .date-con p, .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .time-con p, .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .guest-name-con p, .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .booking-details-con .guest-count-con p {
+  font-size: 1.5rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con .status-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con .status-con h4 {
+  margin: 0;
+  margin-right: 2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con .status-con .bi-circle-fill {
+  display: inline-block;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  margin: 0 1rem 0 0;
+  color: #28a745;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con button {
+  padding: 1rem 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: none;
+  background-color: transparent;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con .more-info {
+  position: relative;
+  margin-right: auto;
+  background-color: #F47D4F;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 500;
+  gap: 2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con .more-info img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con .decline {
+  position: relative;
+  background-color: #dc3545;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con .accept {
+  position: relative;
+  background-color: #28a745;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.skeleton {
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+          animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@-webkit-keyframes skeleton-loading {
+  0% {
+    background-color: #a3b8c2;
+  }
+  100% {
+    baclkground-color: #f0f3f5;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #a3b8c2;
+  }
+  100% {
+    baclkground-color: #f0f3f5;
+  }
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.5rem !important;
+}
+
+.skeleton-text:last-child {
+  width: 80%;
+}
+/*# sourceMappingURL=profile.css.map */

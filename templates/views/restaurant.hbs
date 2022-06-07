@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{restaurantName}}</title>
+
+   
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@300;400;700&family=Comfortaa:wght@300;400;500&family=Fira+Code:wght@300;400;500&family=Major+Mono+Display&family=Montserrat:wght@200;300;400;500&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/caae6b21c5.js" crossorigin="anonymous"></script>
+    
+     <link rel="stylesheet" href="/sass/main.css">
+    <link rel="stylesheet" href="/sass/restaurant.css">
+     <link rel="stylesheet" href="/sass/nfc.css">
+     <link rel="stylesheet" href="/sass/cart.css">
+
+
+    
+</head>
+<body>
+    <div class="takeaway-div">
+
+        <button class="categories-btn">Categories</button>
+
+    <div class="ovf-div"></div>
+
+    <div class="categories-div" style="display : none;">
+            <ul class="catUl">
+               
+                
+
+
+
+            </ul>
+    </div>  
+        <div class="head-div">
+            <h1><i class="fa-solid fa-angle-left" onclick="closeTakeawayCon()"></i>Takeaway</h1>
+          <p>Please choose food for takeaway from below menu</p>
+        </div>
+          
+         <div class="menu-items">
+        <div class="filter-div">
+            <div class="veg" data-tab-category="Veg" data-tab-status="inactive"><span>Veg</span></div>
+            <div class="non-veg" data-tab-category="Non-Veg" data-tab-status="inactive"><span>Non Veg</span></div>
+
+        </div>
+        <div class="menu-wrap-con"></div>
+                
+        </div>
+
+        <div class="content-side-section-cart">
+                 <div class="cart-con">
+                    <h2><i class="fa-solid fa-angle-left" onclick="closeCartMobile()"></i>Your Cart</h2>
+                   
+                   <img class="empty-cart" src="/images/emptyCart.png" alt="" srcset="" >
+
+                   <div class="food-items-holder"></div>
+                  <div class="total-div">
+                    <h2>Total</h2>
+                  
+                    <div class="cal-div">
+                        <div class="sub-total"><h4>Sub Total : </h4> <p class="sub-total-text ">0 ₹</p></div>
+                        <div class="tax"><h4>Taxes & Charges : </h4> <p class="tax-text ">0 ₹</p></div>
+                    </div>
+
+                    <div class="grand-total"><h4>Grand Total : </h4> <p class="grand-total-text ">0 ₹</p></div>
+
+
+                </div>
+                <button class="order-btn" onclick="pushOrder()">Proceed To Pay</button>
+                 </div>
+               </div>
+
+
+    <div class="cart-absolute-div">
+
+                <div class="det-div">
+                  <h4 class="item-count-abs">0 ITEM</h4>
+                <h4 class="grand-total-abs ">₹ 0</h4>
+                </div>
+                
+                <h2>View Cart <i class="bi bi-caret-right-fill"></i></h2>
+
+              </div>
+    </div> 
+
+    
+    <div class="ghost-div"></div>
+    <div class="register-popup">
+        <div class="popup-con">
+            <h1><span class="lets">Let's</span>  Get Started with a Free Account to Experience <span class="smooth">Smooth</span> and <span class="hassle-free">Hassle Free</span> <span class="dine-in">DINE-IN</span> and </h1>
+            <ul>
+                <li>Pre-Cook</li>
+                <li>Group Treat</li>
+                <li>Contactless NFC/QR Dine-In</li>
+                <li>Speak to Order</li>
+                <li>Takeaway</li>
+                <li>.</li>
+                <li>.</li>
+                <li>.</li>
+                <li>And Many More Features</li>
+
+
+            </ul>
+
+            {{!-- <div class="buttons-con">
+                
+                <button class="user-register">As a User</button>
+
+            </div> --}}
+            <div class="end-con">
+                <button class="sign-up" onclick="window.location.href='/signup'">Sign Up</button>
+            <span onclick="skipPopup()">Skip</span>
+
+            </div>
+        </div>
+    </div>
+    {{>searchbar}}
+    <div class="phone-view-loc-con">
+         <div class="loc-div">
+        <div class="location-div">
+             <i class="fas fa-map-marker-alt"></i>
+             <span  class="location"></span>
+            
+            <i class="fas fa-caret-down loc-arr" onclick="displayDecLocCon()"></i>
+            </div>
+            <div class="dec-loc-con">
+                <div class="detect-con">
+                    <button>
+                        <i class="bi bi-geo-fill"></i>
+                <span onclick="detectUsingGps()">Detect current location</span>
+                    </button>
+                    
+                </div>
+                
+            </div>
+            <div class="search-con">
+            <input type="text" name="restaurants" placeholder="Search for Restaurant/Cuisine" onkeyup="sendData(this)" >
+            <i class="bi bi-mic-fill"></i>
+            </div>
+        <div class="search-res-con">
+           
+        </div>
+
+        </div>
+        </div>
+    
+ 
+<div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts" >
+<div class="toast-container w-auto position-absolute p-3 top-0 start-50 translate-middle-x" id="toastPlacement"><div class="toast bg-white border-0 w-100 top-50"><div class="toast-body d-flex w-100 justify-content-center align-items-center display-6 text-center text-white rounded d-flex justify-content-evenly bg-success">
+     
+    </div>  
+  </div>
+</div>
+</div>
+ 
+
+      <div class="restaurant-profile-con">
+        <div class="restaurant-basic-details-con">
+                  <img src="/images/rest-demo-2.jpg" alt="">
+
+        </div>
+          <div class="wrapper">
+              <div class="restaurant-basic-details-con">
+                  <div class="restaurant-basic-details">
+                    <div class="left-con">
+                      
+                      <h1 class="restaurant-name">{{restaurantname}}</h1>
+
+                     
+                     
+
+                     
+                      <h2 class="address">{{address}}</h2>
+
+                      <h2 class="call" ><a href="tel:8788967972"><i class="bi bi-telephone-fill"></i>+91 8788967972</a></h2>
+
+
+                      <h2 class="opening-time"> <span class="open-status"></span></h2>
+                      </div>
+                      <div class="right-con">
+                           <div class="rev-con">
+                       <span class="distance">2.5 km</span>
+                       <hr> 
+                      <span class="res-rating"></span>
+                      </div>
+                        <h2 class="header-see-all-rev" data-tab-target ="#reviews">See all reviews</h2>
+                        <div class="fav-button-con">
+                     
+                      
+                      </div>
+
+                      </div>
+
+                  </div> 
+              </div>
+              </div>
+
+              {{!-- Offers Section --}}
+
+              
+                {{!-- <div class="wrapper">
+                  <div class="offers-div">
+                    <h1>Today's Offers</h1>
+
+                    <div class="offers-con">
+                      <div class="offer">
+                        <div class="offer-img"><img src="/images/baigan.png" alt="" srcset=""></div>
+                        <div class="offer-det">
+                          <span class="name">Baigan</span>
+                          <div class="offer-details">
+                            
+                            <span class="price ruppee">₹20</span>
+                            <span class="offer-price ruppee">₹11</span>
+
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <div class="offer">
+                        <div class="offer-img"></div>
+                        <div class="offer-det">
+                          
+                        </div>
+                      </div>
+                      <div class="offer">
+                        <div class="offer-img"></div>
+                        <div class="offer-det">
+                          
+                        </div>
+                      </div>
+                      <div class="offer">
+                        <div class="offer-img"></div>
+                        <div class="offer-det">
+                          
+                        </div>
+                      </div>
+                      <div class="offer">
+                        <div class="offer-img"></div>
+                        <div class="offer-det">
+                          
+                        </div>
+                      </div>
+                      <div class="offer">
+                        <div class="offer-img"></div>
+                        <div class="offer-det">
+                          
+                        </div>
+                      </div>
+                      <div class="offer">
+                        <div class="offer-img"></div>
+                        <div class="offer-det">
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> --}}
+
+
+                <div class="book-table-button-con">
+                <div class="wrapper">
+                <div class="book-table-button-div">
+                  
+                  <button class="book-table-btn" onclick="openBookCon()"><img src="/images/bookIcon.png" alt="">Reserve a Table</button>
+               
+              </div>
+              </div>
+              </div>
+              <div class="book-table-button-con">
+                <div class="wrapper">
+                <div class="book-table-button-div">
+                  
+                  <button class="book-table-btn" onclick=""><img src="/images/bookIcon.png" alt="">Pre Cook</button>
+               
+              </div>
+              </div>
+              </div>
+              <div class="book-table-button-con">
+                <div class="wrapper">
+                <div class="book-table-button-div">
+                  
+                  <button class="book-table-btn" onclick="openTakeawayCon()"><img src="/images/bookIcon.png" alt="">Takeaway</button>
+               
+              </div>
+              </div>
+              </div>
+              <div class="menu-bar-con">
+                   <ul>
+                       <li class="active" data-tab-target ="#overview">Overview</li>
+                       <li id="lirev" data-tab-target ="#reviews">Reviews</li>
+                       <li data-tab-target ="#menu">Menu</li>
+                       <li data-tab-target ="#gallery">Gallery</li>
+                       {{!-- <li data-tab-target ="#food-items">Food Items</li> --}}
+                   </ul>
+               </div>
+               <div class="wrapper">
+    <div class="menu-book-con">
+               
+
+<div class="full-restaurant-content-section">
+               <div class="content-section">
+                   <div class="active" id="overview" data-tab-content>
+                     
+                       <div class="overview-menu-con">
+                           {{!-- <div class="menu-con">
+                           <h2>Menu</h2>
+                           
+                           <div class="overview-menu-img-con">
+                               
+                              
+                           </div>+
+                           </div> --}}
+                           
+                           <div class="overview-facilities-con">
+                              <h2>Facilities</h2>
+
+                               
+                                 
+                           </div>
+                           
+                           <div class="overview-facilities-con">
+                              <h2>Parking</h2>
+                              <span><i class="bi bi-check-circle-fill"></i>Two Wheeler</span>
+                              <span><i class="bi bi-check-circle-fill"></i>Four Wheeler</span>
+
+                               
+                                 
+                           </div>
+                           <div class="overview-cuisines">
+                             <h2>Cuisines</h2>
+                                
+                                </div>
+                                <div class="overview-popular">
+                             <h2>Popular For</h2>
+                             
+                             <div class="popular-dishes">
+                             <h2 class="sub-head">Dishes</h2>
+                             <div class="dishes-con">
+                             
+                             </div>
+                             </div>
+                             
+                              <div class="popular-service">
+                             <h2 class="sub-head">Service</h2>
+                             <div class="service-con">
+                             
+                             </div>
+                             </div>   
+                                </div>
+                                <div class="overview-facilities-con">
+                              <h2>Events/Party Orders</h2>
+                              <span><i class="bi bi-check-circle-fill"></i>Accepted</span>
+
+                               
+                                 
+                           </div>
+
+                                {{!-- <div class="reviews-con"> 
+                                    <h2>Reviews</h2> --}}
+                                    {{!-- <div class="review-tags-con">
+                                    
+                                    <h3>#birayni</h3>
+                                    <h3>#chinese</h3>
+                                    <h3>#burger</h3>
+                                    <h3>#hygenic</h3>
+                                    <h3>#goodStaff</h3>
+                                    <h3>#oraganised</h3>
+                                    <h3>#birayni</h3>
+                                    <h3>#chinese</h3>
+                                    
+                                    <h3>#goodStaff</h3>
+                                    <h3>#oraganised</h3>
+                                    </div> --}}
+                                 
+                                    
+                                    
+                                {{!-- </div>   --}}
+                       </div>
+                   </div>
+
+
+                   <div id="reviews" data-tab-content>
+                       <div class="review-tab-con">
+                           <div class="add-review-con">
+                               <h2>Add your review</h2>
+                            
+                                   <form name="reviewForm" class="rev-form" action="./{{resId}}" method="POST">
+                                       <div class="rev-text-stars-con">
+                                   <textarea name="reviewData" id="" spellcheck="false" maxlength="300" required></textarea>
+                                  
+                                       
+                                         <div class="container">
+  <div class="feedback">
+    <div class="rating">
+      <input type="radio" name="rating" id="rating-5" value="5" required>
+      <label for="rating-5"></label>
+      <input type="radio" name="rating" id="rating-4" value="4" required>
+      <label for="rating-4"></label>
+      <input type="radio" name="rating" id="rating-3" value="3" required>
+      <label for="rating-3"></label>
+      <input type="radio" name="rating" id="rating-2" value="2" required>
+      <label for="rating-2"></label>
+      <input type="radio" name="rating" id="rating-1" value="1" required>
+      <label for="rating-1"></label>
+      <div class="emoji-wrapper">
+        <div class="emoji">
+          <svg class="rating-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <circle cx="256" cy="256" r="256" fill="#ffd93b"/>
+          <path d="M512 256c0 141.44-114.64 256-256 256-80.48 0-152.32-37.12-199.28-95.28 43.92 35.52 99.84 56.72 160.72 56.72 141.36 0 256-114.56 256-256 0-60.88-21.2-116.8-56.72-160.72C474.8 103.68 512 175.52 512 256z" fill="#f4c534"/>
+          <ellipse transform="scale(-1) rotate(31.21 715.433 -595.455)" cx="166.318" cy="199.829" rx="56.146" ry="56.13" fill="#fff"/>
+          <ellipse transform="rotate(-148.804 180.87 175.82)" cx="180.871" cy="175.822" rx="28.048" ry="28.08" fill="#3e4347"/>
+          <ellipse transform="rotate(-113.778 194.434 165.995)" cx="194.433" cy="165.993" rx="8.016" ry="5.296" fill="#5a5f63"/>
+          <ellipse transform="scale(-1) rotate(31.21 715.397 -1237.664)" cx="345.695" cy="199.819" rx="56.146" ry="56.13" fill="#fff"/>
+          <ellipse transform="rotate(-148.804 360.25 175.837)" cx="360.252" cy="175.84" rx="28.048" ry="28.08" fill="#3e4347"/>
+          <ellipse transform="scale(-1) rotate(66.227 254.508 -573.138)" cx="373.794" cy="165.987" rx="8.016" ry="5.296" fill="#5a5f63"/>
+          <path d="M370.56 344.4c0 7.696-6.224 13.92-13.92 13.92H155.36c-7.616 0-13.92-6.224-13.92-13.92s6.304-13.92 13.92-13.92h201.296c7.696.016 13.904 6.224 13.904 13.92z" fill="#3e4347"/>
+        </svg>
+          <svg class="rating-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <circle cx="256" cy="256" r="256" fill="#ffd93b"/>
+          <path d="M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z" fill="#f4c534"/>
+          <path d="M328.4 428a92.8 92.8 0 0 0-145-.1 6.8 6.8 0 0 1-12-5.8 86.6 86.6 0 0 1 84.5-69 86.6 86.6 0 0 1 84.7 69.8c1.3 6.9-7.7 10.6-12.2 5.1z" fill="#3e4347"/>
+          <path d="M269.2 222.3c5.3 62.8 52 113.9 104.8 113.9 52.3 0 90.8-51.1 85.6-113.9-2-25-10.8-47.9-23.7-66.7-4.1-6.1-12.2-8-18.5-4.2a111.8 111.8 0 0 1-60.1 16.2c-22.8 0-42.1-5.6-57.8-14.8-6.8-4-15.4-1.5-18.9 5.4-9 18.2-13.2 40.3-11.4 64.1z" fill="#f4c534"/>
+          <path d="M357 189.5c25.8 0 47-7.1 63.7-18.7 10 14.6 17 32.1 18.7 51.6 4 49.6-26.1 89.7-67.5 89.7-41.6 0-78.4-40.1-82.5-89.7A95 95 0 0 1 298 174c16 9.7 35.6 15.5 59 15.5z" fill="#fff"/>
+          <path d="M396.2 246.1a38.5 38.5 0 0 1-38.7 38.6 38.5 38.5 0 0 1-38.6-38.6 38.6 38.6 0 1 1 77.3 0z" fill="#3e4347"/>
+          <path d="M380.4 241.1c-3.2 3.2-9.9 1.7-14.9-3.2-4.8-4.8-6.2-11.5-3-14.7 3.3-3.4 10-2 14.9 2.9 4.9 5 6.4 11.7 3 15z" fill="#fff"/>
+          <path d="M242.8 222.3c-5.3 62.8-52 113.9-104.8 113.9-52.3 0-90.8-51.1-85.6-113.9 2-25 10.8-47.9 23.7-66.7 4.1-6.1 12.2-8 18.5-4.2 16.2 10.1 36.2 16.2 60.1 16.2 22.8 0 42.1-5.6 57.8-14.8 6.8-4 15.4-1.5 18.9 5.4 9 18.2 13.2 40.3 11.4 64.1z" fill="#f4c534"/>
+          <path d="M155 189.5c-25.8 0-47-7.1-63.7-18.7-10 14.6-17 32.1-18.7 51.6-4 49.6 26.1 89.7 67.5 89.7 41.6 0 78.4-40.1 82.5-89.7A95 95 0 0 0 214 174c-16 9.7-35.6 15.5-59 15.5z" fill="#fff"/>
+          <path d="M115.8 246.1a38.5 38.5 0 0 0 38.7 38.6 38.5 38.5 0 0 0 38.6-38.6 38.6 38.6 0 1 0-77.3 0z" fill="#3e4347"/>
+          <path d="M131.6 241.1c3.2 3.2 9.9 1.7 14.9-3.2 4.8-4.8 6.2-11.5 3-14.7-3.3-3.4-10-2-14.9 2.9-4.9 5-6.4 11.7-3 15z" fill="#fff"/>
+        </svg>
+          <svg class="rating-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <circle cx="256" cy="256" r="256" fill="#ffd93b"/>
+          <path d="M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z" fill="#f4c534"/>
+          <path d="M336.6 403.2c-6.5 8-16 10-25.5 5.2a117.6 117.6 0 0 0-110.2 0c-9.4 4.9-19 3.3-25.6-4.6-6.5-7.7-4.7-21.1 8.4-28 45.1-24 99.5-24 144.6 0 13 7 14.8 19.7 8.3 27.4z" fill="#3e4347"/>
+          <path d="M276.6 244.3a79.3 79.3 0 1 1 158.8 0 79.5 79.5 0 1 1-158.8 0z" fill="#fff"/>
+          <circle cx="340" cy="260.4" r="36.2" fill="#3e4347"/>
+          <g fill="#fff">
+            <ellipse transform="rotate(-135 326.4 246.6)" cx="326.4" cy="246.6" rx="6.5" ry="10"/>
+            <path d="M231.9 244.3a79.3 79.3 0 1 0-158.8 0 79.5 79.5 0 1 0 158.8 0z"/>
+          </g>
+          <circle cx="168.5" cy="260.4" r="36.2" fill="#3e4347"/>
+          <ellipse transform="rotate(-135 182.1 246.7)" cx="182.1" cy="246.7" rx="10" ry="6.5" fill="#fff"/>
+        </svg>
+          <svg class="rating-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <circle cx="256" cy="256" r="256" fill="#ffd93b"/>
+    <path d="M407.7 352.8a163.9 163.9 0 0 1-303.5 0c-2.3-5.5 1.5-12 7.5-13.2a780.8 780.8 0 0 1 288.4 0c6 1.2 9.9 7.7 7.6 13.2z" fill="#3e4347"/>
+    <path d="M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z" fill="#f4c534"/>
+    <g fill="#fff">
+      <path d="M115.3 339c18.2 29.6 75.1 32.8 143.1 32.8 67.1 0 124.2-3.2 143.2-31.6l-1.5-.6a780.6 780.6 0 0 0-284.8-.6z"/>
+      <ellipse cx="356.4" cy="205.3" rx="81.1" ry="81"/>
+    </g>
+    <ellipse cx="356.4" cy="205.3" rx="44.2" ry="44.2" fill="#3e4347"/>
+    <g fill="#fff">
+      <ellipse transform="scale(-1) rotate(45 454 -906)" cx="375.3" cy="188.1" rx="12" ry="8.1"/>
+      <ellipse cx="155.6" cy="205.3" rx="81.1" ry="81"/>
+    </g>
+    <ellipse cx="155.6" cy="205.3" rx="44.2" ry="44.2" fill="#3e4347"/>
+    <ellipse transform="scale(-1) rotate(45 454 -421.3)" cx="174.5" cy="188" rx="12" ry="8.1" fill="#fff"/>
+  </svg>
+          <svg class="rating-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <circle cx="256" cy="256" r="256" fill="#ffd93b"/>
+          <path d="M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z" fill="#f4c534"/>
+          <path d="M232.3 201.3c0 49.2-74.3 94.2-74.3 94.2s-74.4-45-74.4-94.2a38 38 0 0 1 74.4-11.1 38 38 0 0 1 74.3 11.1z" fill="#e24b4b"/>
+          <path d="M96.1 173.3a37.7 37.7 0 0 0-12.4 28c0 49.2 74.3 94.2 74.3 94.2C80.2 229.8 95.6 175.2 96 173.3z" fill="#d03f3f"/>
+          <path d="M215.2 200c-3.6 3-9.8 1-13.8-4.1-4.2-5.2-4.6-11.5-1.2-14.1 3.6-2.8 9.7-.7 13.9 4.4 4 5.2 4.6 11.4 1.1 13.8z" fill="#fff"/>
+          <path d="M428.4 201.3c0 49.2-74.4 94.2-74.4 94.2s-74.3-45-74.3-94.2a38 38 0 0 1 74.4-11.1 38 38 0 0 1 74.3 11.1z" fill="#e24b4b"/>
+          <path d="M292.2 173.3a37.7 37.7 0 0 0-12.4 28c0 49.2 74.3 94.2 74.3 94.2-77.8-65.7-62.4-120.3-61.9-122.2z" fill="#d03f3f"/>
+          <path d="M411.3 200c-3.6 3-9.8 1-13.8-4.1-4.2-5.2-4.6-11.5-1.2-14.1 3.6-2.8 9.7-.7 13.9 4.4 4 5.2 4.6 11.4 1.1 13.8z" fill="#fff"/>
+          <path d="M381.7 374.1c-30.2 35.9-75.3 64.4-125.7 64.4s-95.4-28.5-125.8-64.2a17.6 17.6 0 0 1 16.5-28.7 627.7 627.7 0 0 0 218.7-.1c16.2-2.7 27 16.1 16.3 28.6z" fill="#3e4347"/>
+          <path d="M256 438.5c25.7 0 50-7.5 71.7-19.5-9-33.7-40.7-43.3-62.6-31.7-29.7 15.8-62.8-4.7-75.6 34.3 20.3 10.4 42.8 17 66.5 17z" fill="#e24b4b"/>
+        </svg>
+          <svg class="rating-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <g fill="#ffd93b">
+            <circle cx="256" cy="256" r="256"/>
+            <path d="M512 256A256 256 0 0 1 56.8 416.7a256 256 0 0 0 360-360c58 47 95.2 118.8 95.2 199.3z"/>
+          </g>
+          <path d="M512 99.4v165.1c0 11-8.9 19.9-19.7 19.9h-187c-13 0-23.5-10.5-23.5-23.5v-21.3c0-12.9-8.9-24.8-21.6-26.7-16.2-2.5-30 10-30 25.5V261c0 13-10.5 23.5-23.5 23.5h-187A19.7 19.7 0 0 1 0 264.7V99.4c0-10.9 8.8-19.7 19.7-19.7h472.6c10.8 0 19.7 8.7 19.7 19.7z" fill="#e9eff4"/>
+          <path d="M204.6 138v88.2a23 23 0 0 1-23 23H58.2a23 23 0 0 1-23-23v-88.3a23 23 0 0 1 23-23h123.4a23 23 0 0 1 23 23z" fill="#45cbea"/>
+          <path d="M476.9 138v88.2a23 23 0 0 1-23 23H330.3a23 23 0 0 1-23-23v-88.3a23 23 0 0 1 23-23h123.4a23 23 0 0 1 23 23z" fill="#e84d88"/>
+          <g fill="#38c0dc">
+            <path d="M95.2 114.9l-60 60v15.2l75.2-75.2zM123.3 114.9L35.1 203v23.2c0 1.8.3 3.7.7 5.4l116.8-116.7h-29.3z"/>
+          </g>
+          <g fill="#d23f77">
+            <path d="M373.3 114.9l-66 66V196l81.3-81.2zM401.5 114.9l-94.1 94v17.3c0 3.5.8 6.8 2.2 9.8l121.1-121.1h-29.2z"/>
+          </g>
+          <path d="M329.5 395.2c0 44.7-33 81-73.4 81-40.7 0-73.5-36.3-73.5-81s32.8-81 73.5-81c40.5 0 73.4 36.3 73.4 81z" fill="#3e4347"/>
+          <path d="M256 476.2a70 70 0 0 0 53.3-25.5 34.6 34.6 0 0 0-58-25 34.4 34.4 0 0 0-47.8 26 69.9 69.9 0 0 0 52.6 24.5z" fill="#e24b4b"/>
+          <path d="M290.3 434.8c-1 3.4-5.8 5.2-11 3.9s-8.4-5.1-7.4-8.7c.8-3.3 5.7-5 10.7-3.8 5.1 1.4 8.5 5.3 7.7 8.6z" fill="#fff" opacity=".2"/>
+        </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+                                       
+                                       
+                                   </div>
+                                   </div>
+                                    <button type="button" value="Submit" id="btnSubmit">POST</button>
+                                    </form>
+
+                                    <div class="review-count-div"></div>
+                                    
+                               </div>
+                           </div>
+                       
+                   </div>
+
+
+                   <div id="menu" data-tab-content>
+                       <div class="menu-con">
+                           <h2>Menu</h2>
+                           
+                           <div class="overview-menu-img-con-2">
+                              
+                           </div>
+                           </div>
+                   </div>
+
+
+                   <div id="gallery" data-tab-content>
+                       <div class="gallery-con">
+                         <h2>Gallery</h2>
+
+                         <div class="rest-imgs-con">
+                           
+                           
+                         </div>
+                       </div>
+                   </div>
+                   {{!-- <div id="food-items" data-tab-content>
+                       <div class="food-items-con">
+                         <h2>Food Items</h2>
+
+                         <div class="food-items-div-con">
+                          
+                         </div>
+                       </div>
+                   </div> --}}
+
+
+               </div>
+
+               <div class="content-side-section">
+                 <div class="ghost-booking">
+                       <div class="content">
+                   <img src="/images/rollingloader2.svg" alt="" srcset="">
+                   <span class="ghost-h2">Please wait for confirmation from the Restuarant</span>
+                   <p>Do not close this window</p>
+                      <h4 class="time"></h4>
+                      
+
+                   </div>
+                 </div>
+                
+                   <div class="schedule-book-container">
+                      <h1 class="schedule-head"><i class="bi bi-x-lg" onclick="closeBookCon()"></i>Book your table</h1>
+                     
+                       <h2>Book Your Table</h2>
+
+                        <form  method="POST" class="table-book">
+
+                        
+                        <div class="date-con">
+
+                        
+
+                         <label class="container">
+                         <input class="date-radio" type="radio" checked="checked" name="date" value="" onchange="getRadData(this)">
+                         <span class="month">JAN</span>
+                         <span class="week-date">28 Fri</span>
+                         </label>
+
+                          <label class="container">
+                         <input class="date-radio" type="radio" checked="" name="date" value="" onchange="getRadData(this)">
+                         <span class="month">JAN</span>
+                         <span class="week-date">28 Fri</span>
+                         </label>
+
+                         <label class="container">
+                         <input class="date-radio" type="radio" checked="" name="date" value="" onchange="getRadData(this)">
+                         <span class="month">JAN</span>
+                         <span class="week-date">28 Fri</span>
+                         </label>
+
+                          <label class="container">
+                         <input class="date-radio" type="radio" checked="" name="date" value="" onchange="getRadData(this)">
+                         <span class="month">JAN</span>
+                         <span class="week-date">28 Fri</span>
+                         </label>
+
+                         <label class="container">
+                         <input class="date-radio" type="radio" checked="" name="date" value="" onchange="getRadData(this)">
+                         <span class="month">JAN</span>
+                         <span class="week-date">28 Fri</span>
+                         </label>
+                          
+                          <label class="container">
+                         <input class="date-radio" type="radio" checked="" name="date" value="" onchange="getRadData(this)">
+                         <span class="month"></span>
+                         <span class="week-date"></span>
+                         </label>
+
+                         <label class="container">
+                         <input class="date-radio" type="radio" checked="" name="date" value="" onchange="getRadData(this)">
+                         <span class="month"></span>
+                         <span class="week-date"></span>
+                         </label>
+
+                        </div>
+                        <div class="timing-con"></div>
+                        <div class="guest-det-con">
+
+                            <label for="guestName">Name</label>
+                        <input class="guest-name" id="guest-name" type="text" name="guestName" required>
+                         
+                        <label class="gCount-l" for="number-input">No. Of Persons</label>
+                        <div class="number-input">
+                        
+                        <button class="minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                        <input class="quantity" min="1" max="15" name="guestCount" value="1" type="number" required>
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        </div>
+
+                        </div>
+                        
+
+                        <button type="submit" onclick="clientBookingCycleAnimation();">Book Now</button>
+
+
+                        </form>
+
+
+                   </div>
+               </div>
+
+               </div>
+               </div>
+          </div>
+
+         
+      </div>
+       {{!-- <form action="/test" method="POST" enctype="multipart/form-data" >
+      <input type="text" name="category"> 
+       <input type="checkbox" value="Outdoor Seating" name="facilities">
+      <input type="checkbox" value="Air Conditioned" name="facilities">
+       <input type="checkbox" value="Parking" name="facilities">  
+      <input type="text" name="cuisines" > 
+    <input type="file" name="file" multiple>
+      <button type="submit">Submit</button>
+      </form>  --}}
+      <div class="slide-parent-div">
+
+        <div class="close-icn">
+          <i class="bi bi-x" data-tab-imageTarget="close"></i>
+        </div>
+        <div class="slide-img-parent-con">
+          <i class="bi bi-chevron-left" data-tab-imageTarget = "prev"></i>
+          <div class="slide-img-con" alt="image" loading="lazy" data-tab-index=2></div>
+          <i class="bi bi-chevron-right" data-tab-imageTarget = "next"></i>
+        </div>
+      </div>        
+       {{>footer}}
+
+</body>
+
+<script>
+  
+    
+   
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script  src="/js/index.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/search.js"></script>
+<script src="/js/tabSelector.js"></script>
+<script src="/js/restaurantPage.js"></script>
+<script src="/js/restaurantRender.js"></script>
+<script src="/js/searchBar.js"></script>
+<script src="/js/countdown.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script  src="/js/socket.js"></script>
+
+<script>
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl)
+  
+})
+
+
+var myToastEl = document.querySelector('.toast')
+var myToast = bootstrap.Toast.getInstance(myToastEl) // Returns a Bootstrap toast instance
+
+
+
+</script>
+<script>
+  //  window.addEventListener('scroll', function (){
+
+    //let nav = document.querySelector('.heading');
+    //let landingDiv = document.querySelector('.landing-div');
+
+
+    //let windowPosition = window.scrollY > 100;
+  //  nav.classList.toggle('head-scroll', windowPosition);
+
+
+//})
+
+const scrollToDiv = ()=>{
+    const elem = document.querySelector("#BurgerScroll");
+
+    elem.scrollIntoView({behavior : "smooth"})
+
+}
+const tl3 = new TimelineLite()
+
+
+
+    const catDiv = document.querySelector('.categories-div');
+    const ovfDiv2 = document.querySelector('.ovf-div');
+    const catBtn = document.querySelector('.categories-btn');
+
+    
+    catBtn.addEventListener('click', ()=>{
+        if(catDiv.style.display == "none"){
+         tl3.to(catDiv,0,{
+        display : "block"
+    },)
+     tl3.to(ovfDiv2,0,{
+        display : "block",
+        top : 0,
+        zIndex : "1"
+    },)
+    document.body.classList.add('ovf');
+    catBtn.innerHTML = "Close"
+    }else{
+
+          tl3.to(catDiv,0,{
+        display : "none"
+    },)
+     tl3.to(ovfDiv2,0,{
+        display : "none",
+        top : window.scrollY
+    },)
+    document.body.classList.remove('ovf');
+    catBtn.innerHTML = "Categories"
+
+    }
+    })
+    
+     document.addEventListener('mouseup', function(e) {
+
+          try {
+
+              
+
+          if (!catDiv.contains(e.target) && !catBtn.contains(e.target) ) {
+               
+                            tl3.to(catDiv,0,{
+                            display : "none"
+                        },)
+                        tl3.to(ovfDiv2,0,{
+                            display : "none",
+                            top : window.scrollY
+                        },)
+                        catBtn.innerHTML = "Categories"
+          }
+          
+          } catch (error) {
+               
+          }
+          
+          
+      });
+   
+
+</script>
+
+<script>
+
+let finalData;
+
+let categories = [];
+let a = 0;
+const menuWrapCon = document.querySelector('.menu-wrap-con');
+
+const fillMenu = ()=>{
+  document.querySelector('.catUl').innerHTML = ""
+    menuWrapCon.innerHTML = ''
+    finalData.menuData.menu.forEach(element => {
+        if(!categories.includes(element.category)){
+            categories.push(element.category)
+        }
+
+    });
+    
+    categories.forEach((element,index )=>{
+
+       finalData.menuData.menu.forEach(e =>{
+            if(element == e.category){
+                a += 1;
+            }
+
+
+        })
+        document.querySelector('.catUl').innerHTML += `<li id="${element}">${element} (${a})</li>`
+        let containerData = `<div class="specify-div" >
+            <button class="specify-head"  data-tab-target="${element}" data-tab-status="open">${element} (${a}) <i class="bi bi-caret-down-fill"></i></button>
+            <div class="menu-inner-wrap-con menu-inner-wrap-con${index}" id="${element}" data-tab-content="${element}"></div>
+            </div>
+            `
+               menuWrapCon.innerHTML += containerData; 
+               
+        finalData.menuData.menu.forEach(elem=>{
+
+            const containerDiv = document.querySelector(`.menu-inner-wrap-con${index}`);
+
+            
+            if(element == elem.category){
+                  let typeData;
+               if(elem.type == "Non-Veg"){
+                   typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
+               }else{
+                   typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
+               } 
+                let htmlData = `<div class="menu-item" >
+                <div class="item-wrap-con">
+                <div class="img-wrap-con">
+                        <div class="img-div">
+                <img src="/uploads/${elem.cuisineImg}" alt="" srcset="">
+
+                </div>
+                </div>
+                
+                <div class="item-details-div">
+                    ${typeData}
+                    <span class="item-name">${elem.cuisinename}</span>
+                    <span class="item-price ">₹${elem.price}</span>
+
+                    
+
+                </div>
+                <div class="add-to-cart-div">
+                    <button class="add-to-cart" onclick="addToCart('${elem._id}')">Add <i class="bi bi-plus"></i></button>
+                    
+                </div>
+                </div>
+                
+           
+            <div class="quantity-wrap-div">
+                        <div class="quantity-div">
+                                <input type="radio" name="quantity1">
+                                <label for="quantity1">1/2 Plate</label>
+                        </div>
+                        <div class="quantity-div">
+                                <input type="radio" name="quantity1">
+                                <label for="quantity1">1 Plate</label>
+                        </div>
+
+                    </div>
+                     <hr>
+
+            </div>`
+
+            containerDiv.innerHTML += htmlData
+
+            }   
+        })
+
+        a = 0;
+    })
+    
+}
+
+
+const menuDataFetch = async()=>{
+
+    const menuData = await fetch(`/menuData/${id}`,{
+        method : "GET",
+       
+    })
+
+
+    let data = await menuData.json();
+    finalData = data;
+    console.log(finalData);
+    fillMenu()
+    
+
+    
+
+    
+}
+menuDataFetch()
+
+const filterTabs = document.querySelectorAll('[data-tab-category]');
+filterTabs.forEach(tab =>{
+    tab.addEventListener('click', ()=>{
+      document.querySelector('.catUl').innerHTML = ""
+      a = 0;
+        console.log(tab);
+
+        if(tab.dataset.tabCategory == "Veg"){
+
+            if(tab.dataset.tabStatus == "inactive"){
+
+                let vegData = [];
+                let vegCategories = []
+                menuWrapCon.innerHTML = '';
+                finalData.menuData.menu.forEach(elem =>{
+            
+                    if(elem.type == "Veg"){
+                       vegData.push(elem)
+                    }
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+                })
+                vegData.forEach(elem =>{
+                    if(!vegCategories.includes(elem.category)){
+                        vegCategories.push(elem.category)
+                    }
+                })
+                vegCategories.forEach((element,index )=>{
+                  finalData.menuData.menu.forEach(e =>{
+                        if(element == e.category){
+                            a += 1;
+                        }
+            
+            
+                    })
+                    document.querySelector('.catUl').innerHTML += `<li id="${element}">${element} (${a})</li>`
+                    let containerData = `<div class="specify-div" >
+                        <button class="specify-head"  data-tab-target="${element}" data-tab-status="open">${element} (${a}) <i class="bi bi-caret-down-fill"></i></button>
+                        <div class="menu-inner-wrap-con menu-inner-wrap-con${index}" id="${element}" data-tab-content="${element}">
+                        </div>
+                        </div>
+                        `
+                           menuWrapCon.innerHTML += containerData; 
+                           
+                    vegData.forEach(elem=>{
+            
+                        const containerDiv = document.querySelector(`.menu-inner-wrap-con${index}`);
+            
+                        
+                        if(element == elem.category){
+                              let typeData;
+                           if(elem.type == "Non-Veg"){
+                               typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
+                           }else{
+                               typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
+                           } 
+                            let htmlData = `<div class="menu-item" >
+                            <div class="item-wrap-con">
+                            <div class="img-wrap-con">
+                                    <div class="img-div">
+                            <img src="/uploads/${elem.cuisineImg}" alt="" srcset="">
+            
+                            </div>
+                            </div>
+                            
+                            <div class="item-details-div">
+                                ${typeData}
+                                <span class="item-name">${elem.cuisinename}</span>
+                                <span class="item-price ">₹${elem.price}</span>
+            
+                                
+            
+                            </div>
+                            <div class="add-to-cart-div">
+                                <button class="add-to-cart" onclick="addToCart('${elem._id}')">Add <i class="bi bi-plus"></i></button>
+                                
+                            </div>
+                            </div>
+                            
+                       
+                        <div class="quantity-wrap-div">
+                                    <div class="quantity-div">
+                                            <input type="radio" name="quantity1">
+                                            <label for="quantity1">1/2 Plate</label>
+                                    </div>
+                                    <div class="quantity-div">
+                                            <input type="radio" name="quantity1">
+                                            <label for="quantity1">1 Plate</label>
+                                    </div>
+            
+                                </div>
+                                 <hr>
+            
+                        </div>`
+                        containerDiv.innerHTML += htmlData
+            
+                        }   
+                    })
+                })
+                tab.style.backgroundColor = "#3ea055"
+                tab.style.color = "white"
+                tab.style.borderColor = "#3ea055"
+
+
+                tab.dataset.tabStatus = "active";
+            }else{
+              tab.style.backgroundColor = "white"
+                tab.style.color = "black"
+                tab.style.borderColor = "#afafaf"
+                tab.dataset.tabStatus = "inactive"
+                fillMenu()
+            }   
+        }else if(tab.dataset.tabCategory == "Non-Veg"){
+            if(tab.dataset.tabStatus == "inactive"){
+                let vegData = [];
+                let vegCategories = []
+                menuWrapCon.innerHTML = '';
+                finalData.menuData.menu.forEach(elem =>{
+            
+                    if(elem.type == "Non-Veg"){
+                       vegData.push(elem)
+                    }
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+                })
+                vegData.forEach(elem =>{
+                    if(!vegCategories.includes(elem.category)){
+                        vegCategories.push(elem.category)
+                    }
+                })
+                vegCategories.forEach((element,index )=>{
+                  finalData.menuData.menu.forEach(e =>{
+                        if(element == e.category){
+                            a += 1;
+                        }
+            
+            
+                    })
+                    document.querySelector('.catUl').innerHTML += `<li id="${element}">${element} (${a})</li>`
+                    let containerData = `<div class="specify-div" >
+                        <button class="specify-head"  data-tab-target="${element}" data-tab-status="open">${element} (${a}) <i class="bi bi-caret-down-fill"></i></button>
+                        <div class="menu-inner-wrap-con menu-inner-wrap-con${index}" id="${element}" data-tab-content="${element}">
+                        </div>
+                        </div>
+                        `
+                           menuWrapCon.innerHTML += containerData; 
+                           
+                    vegData.forEach(elem=>{
+            
+                        const containerDiv = document.querySelector(`.menu-inner-wrap-con${index}`);
+            
+                        
+                        if(element == elem.category){
+                              let typeData;
+                           if(elem.type == "Non-Veg"){
+                               typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
+                           }else{
+                               typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
+                           } 
+                            let htmlData = `<div class="menu-item" >
+                            <div class="item-wrap-con">
+                            <div class="img-wrap-con">
+                                    <div class="img-div">
+                            <img src="/uploads/${elem.cuisineImg}" alt="" srcset="">
+            
+                            </div>
+                            </div>
+                            
+                            <div class="item-details-div">
+                                ${typeData}
+                                <span class="item-name">${elem.cuisinename}</span>
+                                <span class="item-price ">₹${elem.price}</span>
+            
+                                
+            
+                            </div>
+                            <div class="add-to-cart-div">
+                                <button class="add-to-cart" onclick="addToCart('${elem._id}')">Add <i class="bi bi-plus"></i></button>
+                                
+                            </div>
+                            </div>
+                            
+                       
+                        <div class="quantity-wrap-div">
+                                    <div class="quantity-div">
+                                            <input type="radio" name="quantity1">
+                                            <label for="quantity1">1/2 Plate</label>
+                                    </div>
+                                    <div class="quantity-div">
+                                            <input type="radio" name="quantity1">
+                                            <label for="quantity1">1 Plate</label>
+                                    </div>
+            
+                                </div>
+                                 <hr>
+            
+                        </div>`
+                        containerDiv.innerHTML += htmlData
+            
+                        }   
+                    })
+                })
+                tab.style.backgroundColor = "#3ea055"
+                tab.style.color = "white"
+                tab.style.borderColor = "#3ea055"
+
+
+
+                tab.dataset.tabStatus = "active";
+            }
+            else{
+              tab.style.backgroundColor = "white"
+                tab.style.color = "black"
+                tab.style.borderColor = "#afafaf"
+                tab.dataset.tabStatus = "inactive";
+                fillMenu()
+            }
+        }
+
+
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+const cartCon = document.querySelector('.cart-con');
+const foodItemHolder = document.querySelector('.food-items-holder');
+
+const emptyCart = document.querySelector('.empty-cart')
+
+const displayCart = async()=>{
+
+    try {
+      
+        console.log(id)
+
+    let arr = JSON.parse(localStorage.getItem(id)) || []
+    
+    let cart = [];
+    const menuData = await fetch(`/menuData/${id}`,{
+        method : "GET",
+       
+    })
+    let dataMenu = await menuData.json();
+    arr.forEach(elem => {
+        for(var i = 0; i < dataMenu.menuData.menu.length; i ++){
+            
+            
+            
+            
+            if(elem ==  dataMenu.menuData.menu[i]._id.valueOf()){
+               
+                
+                if(cart.includes(dataMenu.menuData.menu[i])){
+                    
+                  let elemIndex = cart.indexOf(dataMenu.menuData.menu[i])
+                   cart[elemIndex]["quantityuser"] += 1;
+                }else{      
+                   
+                    cart.push(dataMenu.menuData.menu[i]);
+                    let elemIndex = cart.indexOf(dataMenu.menuData.menu[i])
+                    cart[elemIndex]["quantityuser"] = 1;
+                     break;
+                }
+               
+            }
+        }
+
+
+    });
+
+
+
+   
+   
+        try {
+            const remEl = document.querySelectorAll('.food-list-con')
+            console.log(remEl);
+            remEl.forEach(elem =>{
+                console.log(elem);
+                elem.remove()
+            })
+        } catch (error) {
+            
+        }
+    
+
+    
+
+        if(cart.length < 1){
+            
+            emptyCart.classList.add("active");
+            document.querySelector('.cart-absolute-div').style.display = "none"
+            document.querySelector('.categories-btn').style.bottom = "2rem"
+
+
+        }else{
+            emptyCart.classList.remove("active");
+            document.querySelector('.cart-absolute-div').style.display = "flex"
+            document.querySelector('.categories-btn').style.bottom = "14rem"
+
+
+        }
+
+        let subTotal = 0;
+        let grandTotal = 0;
+        let tax = 0;
+
+        
+        const cartCon = document.querySelector('.total-div');
+        cart.forEach(elem =>{
+            
+            let catData;
+        if(elem.category == "Veg"){
+
+            catData = `<img loading="lazy" src="https://img.icons8.com/fluency/48/000000/vegetarian-food-symbol.png"/>`
+            
+        }else{
+            catData = `<img loading="lazy" src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png"/>`
+        }
+
+
+            let htmlData = `<div class="food-list-con">
+            <div class="food-item">
+            <div class="food-img-con">
+            <img src="/images/biryani.jpg"></img>
+            </div>
+            
+              <div class="left-con">
+                <div class="food-food-price-con">
+                  <h4>${elem.cuisinename}</h4>
+                  <h4 class="">₹ ${elem.price}</h4>
+               ${catData}
+
+                </div>
+              </div>
+              <div class="right-con">
+                 <div class="number-input">
+               
+               <button class="minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); removeFromCart('${elem._id}')"><i class="bi bi-dash"></i></button>
+               <input class="quantity" min="1" max="15" name="food-quantity" value="${elem.quantityuser}" type="number" required>
+               <button onclick="this.parentNode.querySelector('input[type=number]').stepUp(); addToCart('${elem._id}')" class="plus"><i class="bi bi-plus"></i></button>
+               </div>
+               <h4 class="food-total-price ">₹ ${elem.price * elem.quantityuser}</h4>
+              </div>
+        
+            </div>
+          </div>`
+          subTotal = parseFloat(subTotal)
+          subTotal +=  parseFloat(`${elem.price * elem.quantityuser}`);
+          subTotal = parseFloat(subTotal).toFixed(2)
+          
+          
+          
+          foodItemHolder.insertAdjacentHTML('afterbegin', htmlData)
+        })
+        tax = ((parseFloat(subTotal) * 18) / 100).toFixed(2)
+
+
+        
+        grandTotal = (parseFloat(subTotal) + parseFloat(tax)).toFixed(2);
+
+         document.querySelector('.sub-total-text').textContent = "₹ " + subTotal;
+            document.querySelector('.tax-text').textContent = "₹ " + tax ;
+         document.querySelector('.grand-total-text').textContent = "₹ " + grandTotal;
+         document.querySelector('.grand-total-abs').textContent = "₹ " + grandTotal;
+         document.querySelector('.item-count-abs').textContent =   `${cart.length} ${ cart.length > 1 ? "ITEMS" : "ITEM"}`;
+
+
+
+
+    } catch (error) {
+        console.log(error);
+    }
+    
+
+   
+}
+const addToCart = async(i)=>{
+    try {
+
+    let arr = JSON.parse(localStorage.getItem(id)) || []
+    
+    arr.push(i)
+    
+    localStorage.setItem(id, JSON.stringify(arr));
+
+    displayCart()
+        
+    } catch (error) {
+        console.log("errrrrr hereee");
+    }
+    
+    
+ 
+}
+
+
+
+
+
+const removeFromCart = async(i)=>{
+   
+    
+    const arr = JSON.parse(localStorage.getItem(id))
+   
+    for(var j = 0; j < arr.length; j++){
+        if(arr[j] == i){
+            arr.splice(j,1)
+            break ;
+        }
+    }
+
+    localStorage.setItem(id, JSON.stringify(arr));
+
+    displayCart()
+
+    
+}   
+
+
+const pushOrder = async()=>{
+    
+}
+
+
+const tlN = new TimelineLite();
+document.querySelector('.cart-absolute-div').addEventListener('click', ()=>{
+    openCartMobile();
+})
+const openCartMobile = ()=>{
+
+    const tabContainer = document.querySelector('.content-side-section-cart');
+    document.body.classList.add('ovf');
+    tlN.to(tabContainer, 0.5, {opacity: 1,
+        display : "flex",
+        top : "0",
+        ease : Power2.easeinout      
+   });
+    
+   
+   
+
+}
+
+const closeCartMobile = ()=>{
+  console.log("265415")
+  const tabContainer = document.querySelector('.content-side-section-cart');
+    
+    tlN.to(tabContainer, 0.5, {opacity: 0,
+        display : "none",
+        top : "100%",
+        ease : Power2.easeinout      
+   });
+}
+
+// let preCookId = window.location.href.substring(window.location.href.indexOf('/nfc') + 1).split(['/'])[1];
+// const callF = ()=>{
+//     if(localStorage.getItem(preCookId)){
+//         displayCart()
+       
+//     }
+// }
+// callF()
+
+// displayCart()
+
+displayCart()
+
+
+
+
+
+</script>
+<script src="/js/menuAnimation.js"></script>
+</html>

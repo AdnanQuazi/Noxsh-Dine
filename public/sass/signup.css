@@ -1,0 +1,112 @@
+.login-con {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.wel-msg-con {
+  background-color: #181D31;
+  border-radius: 0.5rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.wel-msg-con:hover {
+  line-height: 10rem !important;
+}
+
+.login-det .login-btn {
+  background-color: #181D31;
+}
+
+.login-det .new-acc-link a {
+  color: #181D31;
+}
+
+nav .acc-det a {
+  color: black;
+}
+
+@media (max-width: 875px) {
+  .login-con {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    width: 90% !important;
+    height: 120rem !important;
+  }
+  .wel-msg-con {
+    width: 100% !important;
+    height: 60% !important;
+  }
+  .wel-msg-con span {
+    font-size: 5rem !important;
+  }
+  .login-det {
+    width: 100% !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+  }
+  .login-det form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .login-det span, .login-det .input-details, .login-det .login-btn {
+    margin-left: 0 !important;
+  }
+  .login-det span {
+    font-size: 5rem !important;
+  }
+  .login-det .input-details {
+    width: auto !important;
+  }
+  .login-det .input-details input {
+    width: 35rem !important;
+    font-size: 3rem !important;
+  }
+  .login-det .input-details #phone, .login-det .input-details #password {
+    width: calc(35rem - 9.1rem) !important;
+  }
+  .login-det .input-details span {
+    font-size: 3rem !important;
+    width: 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .login-det .new-acc-link {
+    font-size: 2.3rem !important;
+  }
+  .login-det .new-acc-link a {
+    margin-top: 1rem !important;
+    font-weight: 400 !important;
+    color: #1d7932;
+  }
+  .wel-msg-con:hover {
+    line-height: 8rem !important;
+  }
+}
+/*# sourceMappingURL=signup.css.map */

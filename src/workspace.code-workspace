@@ -1,0 +1,71 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\rootfolder"
+		},
+		{
+			"path": "..\\..\\Website"
+		},
+		{
+			"path": "..\\..\\Awsaf"
+		},
+		{
+			"path": "..\\..\\jspractice"
+		},
+		{
+			"path": "..\\..\\notesweb"
+		},
+		{
+			"path": "..\\..\\reactprac"
+		},
+		{
+			"path": "..\\..\\collegeWebsite"
+		},
+		{
+			"path": "..\\..\\nodeprac"
+		},
+		{
+			"path": "..\\..\\quotes"
+		},
+		{
+			"path": "..\\..\\expressjs"
+		},
+		{
+			"path": "..\\..\\mongoP"
+		},
+		{
+			"path": "..\\..\\businessCard"
+		},
+		{
+			"path": "..\\..\\mongoProject"
+		},
+		{
+			"path": "..\\..\\restApi"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\Cpp"
+		},
+		{
+			"path": "..\\..\\NoxshTech"
+		},
+		{
+			"path": "..\\..\\..\\Downloads\\bootstrap-5.1.3"
+		},
+		{
+			"path": "..\\..\\FreshEco"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"PTACTICE.C": "cpp",
+			"ostream": "cpp",
+			"iostream": "cpp"
+		},
+		"liveServer.settings.multiRootWorkspaceName": "NoxshTech",
+		"editor.tokenColorCustomizations": null,
+		"workbench.colorTheme": "One Dark Pro"
+	}
+}

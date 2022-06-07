@@ -1,0 +1,105 @@
+.login-con{
+    flex-direction: row-reverse;
+}
+.wel-msg-con{
+    background-color: #181D31;
+    border-radius: 0.5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    
+   
+}
+.wel-msg-con:hover{
+    line-height: 10rem !important;
+
+    }
+.login-det{
+    
+    .login-btn{
+        background-color: #181D31;
+    }
+    .new-acc-link{
+
+        a{
+            color: #181D31;
+        }
+    }
+    
+}
+nav{
+    .acc-det{
+        a{
+            color: black;
+        }
+    }
+}
+@media (max-width: 875px) {
+    .login-con{
+        flex-direction: column-reverse;
+        width: 90% !important;
+        height: 120rem !important;
+    }
+
+    .wel-msg-con{
+        width: 100% !important;
+        height: 60% !important;
+
+        span{
+        font-size: 5rem !important;
+
+        }
+    }
+
+    .login-det{
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center !important;
+
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        span,.input-details,.login-btn{
+            margin-left: 0 !important;
+        }
+        span{
+            font-size: 5rem !important;
+        }
+        .input-details{
+            width: auto !important;
+
+            input{
+                width: 35rem !important;
+            font-size: 3rem !important;
+
+            }
+            #phone,#password{
+                width: calc(35rem - 9.1rem) !important;
+            }
+
+            span{
+                font-size: 3rem !important;
+                width: 5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .new-acc-link{
+            font-size: 2.3rem !important;
+
+            a{
+                margin-top: 1rem !important;
+                font-weight: 400 !important;
+                color: #1d7932;
+            }
+        }
+    }
+    .wel-msg-con:hover{
+    line-height: 8rem !important;
+
+    }
+}
