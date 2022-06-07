@@ -173,6 +173,15 @@ nav .nav-links-con ul li {
   display: inline-block;
 }
 
+nav .nav-links-con ul li button {
+  font-size: 2.5rem;
+  background-color: #3ea055;
+  border: 0.1rem solid #3ea055;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  color: white;
+}
+
 nav .nav-links-con ul li a {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
@@ -377,7 +386,7 @@ nav .acc-det .home-prof-div-con ul li:hover {
   height: 7rem;
   padding: 2rem;
   background-color: white;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 
 .sec1 .loc-div input {
@@ -475,7 +484,7 @@ nav .acc-det .home-prof-div-con ul li:hover {
 .sec1 .search-res-con {
   right: 0;
   margin-top: 2rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   background: white;
   position: absolute;
   top: 100%;
@@ -516,10 +525,18 @@ nav .acc-det .home-prof-div-con ul li:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  gap: 2rem;
+  padding: 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .sec1 .search-res-con .search-result span {
@@ -534,7 +551,7 @@ nav .acc-det .home-prof-div-con ul li:hover {
   width: 8rem;
   margin: 1rem 1rem;
   background-image: url(../images/rest-demo.jpg);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -555,13 +572,16 @@ nav .acc-det .home-prof-div-con ul li:hover {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  width: 20rem;
   height: 10rem;
-  margin-left: 2rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .sec1 .search-res-con .search-result .search-result-res-data span {
-  max-width: 70%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   font-size: 2rem;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -571,7 +591,6 @@ nav .acc-det .home-prof-div-con ul li:hover {
 
 .sec1 .search-res-con .search-result .search-result-res-data .cuisine-name {
   display: inline-block;
-  max-width: 15rem;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -586,8 +605,8 @@ nav .acc-det .home-prof-div-con ul li:hover {
 }
 
 .sec1 .search-res-con .search-result .search-result-res-data .restaurant-address {
+  max-width: 20rem;
   display: inline-block;
-  max-width: 50%;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -619,6 +638,7 @@ nav .acc-det .home-prof-div-con ul li:hover {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  display: none;
 }
 
 .sec1 .search-res-con .search-result .search-result-res-stats-mas-con .search-result-res-stats {
@@ -1448,8 +1468,9 @@ footer .footer-img {
 footer .footer-img h1 {
   color: white;
   text-align: center;
-  line-height: 7rem;
-  font-size: 5rem;
+  line-height: 8rem;
+  font-size: 7rem;
+  font-family: 'Dancing Script' , 'cursive';
 }
 
 footer .footer-content {
@@ -1684,9 +1705,6 @@ footer .footer-content .footer-lower-content .copyright-div span {
     display: -ms-flexbox;
     display: flex;
   }
-  nav .burger .fa-bars, nav .burger .fa-times {
-    color: #333;
-  }
   nav #bars {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1903,7 +1921,7 @@ footer .footer-content .footer-lower-content .copyright-div span {
     width: calc(80vw + 4rem);
     background-color: white;
     margin: 2rem 0;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
   }
   .sec1 .loc-div .location-div .location, .sec1 .loc-div .search-con .location {
     padding: 0 2rem;
@@ -1957,18 +1975,26 @@ footer .footer-content .footer-lower-content .copyright-div span {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    min-height: 18rem !important;
+  }
+  .sec1 .loc-div .search-res-con .search-result .search-result-res-data {
+    height: 100%;
   }
   .sec1 .loc-div .search-res-con .search-result .search-result-res-data span {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   .sec1 .loc-div .search-res-con .search-result .search-result-res-data .cuisine-name {
-    font-size: 1.9rem;
+    font-size: 2.2rem;
+    line-height: 4rem;
   }
   .sec1 .loc-div .search-res-con .search-result .search-result-res-data .restaurant-address {
-    font-size: 1.9rem;
+    font-size: 2.2rem;
+    line-height: 4rem;
   }
   .sec1 .loc-div .search-res-con .search-result .search-result-res-img {
     margin-left: 0;
+    height: 100%;
+    width: 14rem;
   }
   .sec1 .loc-div .search-res-con .search-result .search-result-res-stats-mas-con {
     -webkit-box-align: end;

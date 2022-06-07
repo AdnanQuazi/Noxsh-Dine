@@ -198,8 +198,8 @@ app.post('/verify-otp',otpAuth,async(req,res)=>{
 
 
     } catch (error) {
-        console.log(error);
-            res.send(error)
+       
+            res.send(false)
     }   
 })
 
@@ -324,15 +324,13 @@ app.get("/", auth , async (req,res)=>{
            
         } catch (error) {
 
-           const  searchToken = await axios.post('https://outpost.mapmyindia.com/api/security/oauth/token?grant_type=client_credentials&client_id=33OkryzDZsIXVzuUQVOb9BG1i9USkApHaZJnEOk8y715O2aBzZw3vOpbNmPIu2APzCLixguqOUy9BlRlRK1qiw==&client_secret=lrFxI-iSEg93KeRGEI7TpqilgCcJ5hyCdpEAfqt5_QeXOAh0xRh3SBB684Irewr4aAP5kwpGyK1r1x7So6n1sEMACHaYsjGZ')
+        //    const  searchToken = await axios.post('https://outpost.mapmyindia.com/api/security/oauth/token?grant_type=client_credentials&client_id=33OkryzDZsIXVzuUQVOb9BG1i9USkApHaZJnEOk8y715O2aBzZw3vOpbNmPIu2APzCLixguqOUy9BlRlRK1qiw==&client_secret=lrFxI-iSEg93KeRGEI7TpqilgCcJ5hyCdpEAfqt5_QeXOAh0xRh3SBB684Irewr4aAP5kwpGyK1r1x7So6n1sEMACHaYsjGZ')
 
 
             
             
 
-                res.render("index",{
-                    accessToken : searchToken.data.access_token
-                });
+                res.render("index");
                 
                 
             
@@ -1980,13 +1978,28 @@ app.post("/suggest-a-feature",auth,async(req,res)=>{
     try {
         if(req.token){
 
-            const data = await new FeatureData({
-                userId : req.user._id,
-                msg : req.body.msg
-            })
+           
 
-            await data.save()
-            res.send(true);
+
+                const options = {
+                    from : "noxshdine@outlook.com",
+                    to : "noxshsuggestions@gmail.com",
+                    subject : "A New Feature!",
+                    text : req.body.msg
+                }
+                
+                transporter.sendMail(options, (err,info)=>{
+                    if(err){
+                        res.send(false)
+                    }else{
+                        res.send(true)   
+                    }
+
+                })
+    
+                
+
+
 
         }else{
             res.redirect('/login')
@@ -1997,6 +2010,85 @@ app.post("/suggest-a-feature",auth,async(req,res)=>{
         
     }
 })
+
+
+app.post("/complaints",auth,async(req,res)=>{
+    try {
+        if(req.token){
+
+           
+
+
+                const options = {
+                    from : "noxshdine@outlook.com",
+                    to : "noxshcomplaints@gmail.com",
+                    subject : "Complain!",
+                    text : req.body.msg
+                }
+                
+                transporter.sendMail(options, (err,info)=>{
+                    if(err){
+                        res.send(false)
+                    }else{
+                        res.send(true)   
+                    }
+
+                })
+    
+                
+
+
+
+        }else{
+            res.redirect('/login')
+        }
+    } catch (error) {
+
+        res.send(error)
+        
+    }
+})
+
+
+app.post("/contact-us",auth,async(req,res)=>{
+    try {
+        if(req.token){
+
+           
+
+
+                const options = {
+                    from : "noxshdine@outlook.com",
+                    to : "noxshcontacts@gmail.com",
+                    subject : "There's a Query",
+                    text : req.body.msg
+                }
+                
+                transporter.sendMail(options, (err,info)=>{
+                    if(err){
+                        res.send(false)
+                    }else{
+                        res.send(true)   
+                    }
+
+                })
+    
+                
+
+
+
+        }else{
+            res.redirect('/login')
+        }
+    } catch (error) {
+
+        res.send(error)
+        
+    }
+})
+
+
+
 
 app.get("/how-it-works",async(req,res)=>{
     try {

@@ -6,10 +6,10 @@ window.addEventListener('scroll', function (){
 
     nav.classList.toggle('nav-scroll', windowPosition);
 })
+let tl;
 
 try{
-const tl = new TimelineLite();
-
+     tl = new TimelineLite();
 }catch{
      
 }
