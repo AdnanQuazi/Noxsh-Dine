@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const otpSchema = new mongoose.Schema({
     createdAt : {
         type : Date,
-        default : Date.now()
+        default : Date.now
     },
     username : {
         type : String
@@ -15,7 +15,7 @@ const otpSchema = new mongoose.Schema({
     otp : {
         type : Number
     }
-});
+}, {timestamps : true});
 otpSchema.methods.generateToken = async function (){
     try {
 
@@ -43,7 +43,7 @@ otpSchema.methods.generateToken = async function (){
 // next()
 // })
 
-otpSchema.index({createdAt: 1},{expireAfterSeconds: 300});
+otpSchema.index({createdAt: 1},{expireAfterSeconds: 60});
 const Otp = new mongoose.model("Otp",otpSchema)
 
 module.exports = Otp;

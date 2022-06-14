@@ -141,7 +141,7 @@ box-shadow: 0 3px 1rem rgba(0,0,0,.1);
         }
     }
 
-    .menu-wrap-con{
+    .menu-wrap-con,.menu-wrap-con-takeaway{
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -292,20 +292,21 @@ box-shadow: 0 3px 1rem rgba(0,0,0,.1);
                 align-items: center;
                 width: fit-content;
                 .add-to-cart{
-                    width: 15rem;
+                    width: 20rem;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     gap: 1rem;
                     font-size: 3rem;
-                    padding: 1rem 10rem;
+                    padding: 1rem 2rem;
                     color: white;
                     background-color: #3ea055;
                     border: 0.1rem solid #3ea055;
                     
                     border-radius: 10rem;
                     i{
-                        font-size: 3rem;
+                        font-size: 4rem;
+                        line-height: 3rem;
                     }
                 }
                 }
@@ -313,3 +314,43 @@ box-shadow: 0 3px 1rem rgba(0,0,0,.1);
     }
 }
 
+.btn-con{
+    width: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+   font-size: 4rem;
+    padding: 1rem 2rem;
+    color: white;
+    background-color: #3ea055;
+    border: 0.1rem solid #3ea055;
+    
+    border-radius: 10rem;
+
+    button{
+        line-height: 3rem;
+        height: auto;
+        background-color: #3ea055;
+        border: none;
+    }
+    i{
+        font-size: 4rem;
+        font-weight: 500;
+        color: white;
+        line-height: 4rem;
+
+    }
+    input{  
+        max-width: 3rem;
+        text-align: center;
+        background-color: #3ea055;
+        color: white;
+        border: none;
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+    span{
+        line-height: 4rem;
+    }
+}

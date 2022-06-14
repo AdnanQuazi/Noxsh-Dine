@@ -191,6 +191,14 @@ const RestSchema = new mongoose.Schema({
         type : String
 
     }],
+    parking : {
+        twoWheeler : {
+            type : Boolean
+        },
+        fourWheeler : {
+            type : Boolean
+        }
+    },
     cuisines:[{
         type : String
             

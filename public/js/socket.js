@@ -1,12 +1,14 @@
 
     const room =  window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+    const {token} = sessionStorage
     const socket = io()
     var form = document.querySelector('.table-book');  
     let bookingDetails = {};
     const ghostBooking2 = document.querySelector('.ghost-booking');
     const content= document.querySelector('.content');
-
+    
     form.addEventListener('submit', function(e) {
+
             e.preventDefault();
             var input = document.querySelectorAll('.date-radio');
             let time = document.querySelectorAll('.time')

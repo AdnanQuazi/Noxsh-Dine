@@ -103,6 +103,10 @@ nav {
   z-index: 5;
 }
 
+nav a {
+  text-decoration: none;
+}
+
 nav span {
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
@@ -390,7 +394,6 @@ nav .acc-det .home-prof-div-con ul li:hover {
 }
 
 .sec1 .loc-div input {
-  font-family: 'Quicksand', sans-serif;
   outline: none;
   text-align: start;
   background-color: transparent;
@@ -419,7 +422,9 @@ nav .acc-det .home-prof-div-con ul li:hover {
   width: 40rem;
   color: #afafaf;
   font-weight: 500;
-  font-family: 'Quicksand', sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .sec1 .loc-div .location, .sec1 .loc-div .fa-map-marker-alt, .sec1 .loc-div .fa-search, .sec1 .loc-div .fa-caret-down, .sec1 .loc-div .bi-mic-fill, .sec1 .loc-div .bi-mic-mute-fill {
@@ -1670,6 +1675,8 @@ footer .footer-content .footer-lower-content .copyright-div span {
   nav .nav-active {
     -webkit-transform: translate(0, 0%);
             transform: translate(0, 0%);
+    -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
   }
   nav .acc-det {
     position: absolute;
@@ -1709,6 +1716,7 @@ footer .footer-content .footer-lower-content .copyright-div span {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    color: #333 !important;
   }
   nav .acc-active {
     opacity: 1;
@@ -1749,7 +1757,7 @@ footer .footer-content .footer-lower-content .copyright-div span {
   }
   .wel-msg-con {
     width: 100% !important;
-    height: 100% !important;
+    height: 50% !important;
   }
   .login-det {
     width: 100% !important;
@@ -1764,8 +1772,33 @@ footer .footer-content .footer-lower-content .copyright-div span {
             align-items: center !important;
     margin-top: 2rem;
   }
+  .login-det .form-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
   .login-det .login-btn {
     padding: 0 !important;
+  }
+  .login-det .forgot-pass-link {
+    width: 100%;
+  }
+  .login-det .forgot-pass-link a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem !important;
+  }
+  .login-det .login-btn {
     font-size: 3.5rem !important;
   }
   .login-det span, .login-det .input-details, .login-det .login-btn {

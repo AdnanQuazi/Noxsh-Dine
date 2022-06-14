@@ -484,11 +484,13 @@ nav{
         height: 6rem;
         padding:  2rem;
         background-color: white;
-        border-radius: 0.5rem;
+        border-radius: 1rem;
+        
+
         
 
         input{
-            font-family: 'Poppins', "sans-serif";
+           
             outline: none;
             text-align: start;
             background-color: transparent;
@@ -503,9 +505,20 @@ nav{
             line-height: 3rem;
             color: #333;
         }
+        .location-div{
+            width: 25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .location{
             color: #afafaf;
-            
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 40rem;
+            color: #afafaf;
+            font-weight: 500;
         }
     }
     .dec-loc-con{

@@ -10,6 +10,9 @@ menuWrapCon.addEventListener('click' , (e)=>{
         
         div2.innerHTML =  `₹${e.target.dataset.tabPrice}`
 
+
+
+
     }
 })
 
@@ -29,7 +32,7 @@ const fillMenu = ()=>{
         }
 
     });
-    
+    document.querySelector('.catUl').innerHTML = ''
     categories.forEach((element,index )=>{
 
         finalData.menuData.menu.forEach(e =>{
@@ -62,15 +65,49 @@ const fillMenu = ()=>{
                } 
 
                
-               elem.quantityDetails.forEach(element =>{
+               elem.quantityDetails.forEach((element , index)=>{
 
-                quantityData += `<div class="quantity-div">
-                <input type="radio" name="quantity" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id} data-tab-price=${element.price}>
+                if(index == 0){
+                    quantityData += `<div class="quantity-div">
+                <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id} data-tab-price=${element.price} onchange="changeBtn(this)" checked>
                 <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
                 </div>`
+                }else{
+                    quantityData += `<div class="quantity-div">
+                <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id} data-tab-price=${element.price} onchange="changeBtn(this)">
+                <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                </div>`
+                }
+                
 
             })
-               
+            let arr = JSON.parse(localStorage.getItem(id)) || []
+            console.log(arr);
+            let btn;
+            if(arr.length < 1){
+                btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+            }
+                for(let [index,i] of arr.entries()){
+                    let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
+                    console.log(quantity);
+                    if(i.foodId == elem._id){
+
+                        if(i.foodQuantity == quantity){
+                            btn = `<div class="btn-con">
+                            <button ><span><i class="bi bi-dash" onclick="removeFromCart('${i.foodId}' , '${i.foodQuantity}' , this);"></i></span></button>
+                            <input class="quantity ${i.foodId}" min="1" max="15" name="food-quantity" value="${i.cartQuantity}" type="number"  data-id="${i.foodId}">
+                            <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
+                            </div>`
+                            break;
+                        }
+
+                    }else{
+                        
+                        if(index == arr.length - 1){
+                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                        }
+                    }
+                } 
                
                 let htmlData = `<div class="menu-item" >
                 <div class="item-wrap-con">
@@ -84,13 +121,13 @@ const fillMenu = ()=>{
                 <div class="item-details-div">
                     ${typeData}
                     <span class="item-name">${elem.cuisinename}</span>
-                    <span class="item-price ">₹${elem.price}</span>
+                    <span class="item-price ">₹${elem.quantityDetails[0].price}</span>
 
                     
 
                 </div>
                 <div class="add-to-cart-div">
-                    <button class="add-to-cart" id=${elem._id} onclick="addToCart(this)">Add <i class="bi bi-plus"></i></button>
+                   ${btn}
                     
                 </div>
                 </div>
@@ -149,7 +186,7 @@ filterTabs.forEach(tab =>{
         if(tab.dataset.tabCategory == "Veg"){
 
             if(tab.dataset.tabStatus == "inactive"){
-
+                document.querySelector('.catUl').innerHTML = ''
                 let vegData = [];
                 let vegCategories = []
                 menuWrapCon.innerHTML = '';
@@ -209,15 +246,45 @@ filterTabs.forEach(tab =>{
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                            } 
 
-                           elem.quantityDetails.forEach(element =>{
-
-                            quantityData += `<div class="quantity-div">
-                            <input type="radio" name="quantity" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price}>
-                            <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
-                            </div>`
+                           elem.quantityDetails.forEach((element , index)=>{
+                            if(index == 0){
+                                quantityData += `<div class="quantity-div">
+                                <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price} onchange="changeBtn(this)" checked>
+                                <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                                </div>`
+                            }else{
+                                quantityData += `<div class="quantity-div">
+                                <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price} onchange="changeBtn(this)">
+                                <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                                </div>`
+                            }
+                           
             
                         })
                             
+                        let arr = JSON.parse(localStorage.getItem(id)) || []
+                        let btn;
+                        for(let [index,i] of arr.entries()){
+                            let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
+                            console.log(quantity);
+                            if(i.foodId == elem._id){
+        
+                                if(i.foodQuantity == quantity){
+                                    btn = `<div class="btn-con">
+                                    <button ><span><i class="bi bi-dash" onclick="removeFromCart('${i.foodId}' , '${i.foodQuantity}' , this);"></i></span></button>
+                                    <input class="quantity ${i.foodId}" min="1" max="15" name="food-quantity" value="${i.cartQuantity}" type="number"  data-id="${i.foodId}">
+                                    <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
+                                    </div>`
+                                    break;
+                                }
+        
+                            }else{
+                                
+                                if(index == arr.length - 1){
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                                }
+                            }
+                        }  
 
                             let htmlData = `<div class="menu-item" >
                             <div class="item-wrap-con">
@@ -231,13 +298,13 @@ filterTabs.forEach(tab =>{
                             <div class="item-details-div">
                                 ${typeData}
                                 <span class="item-name">${elem.cuisinename}</span>
-                                <span class="item-price ">₹${elem.price}</span>
+                                <span class="item-price ">₹${elem.quantityDetails[0].price}</span>
             
                                 
             
                             </div>
                             <div class="add-to-cart-div">
-                                <button class="add-to-cart" id=${elem._id} onclick="addToCart(this)">Add <i class="bi bi-plus"></i></button>
+                                ${btn}
                                 
                             </div>
                             </div>
@@ -273,6 +340,8 @@ filterTabs.forEach(tab =>{
             }   
         }else if(tab.dataset.tabCategory == "Non-Veg"){
             if(tab.dataset.tabStatus == "inactive"){
+
+                document.querySelector('.catUl').innerHTML = ''
                 let vegData = [];
                 let vegCategories = []
                 menuWrapCon.innerHTML = '';
@@ -328,16 +397,44 @@ filterTabs.forEach(tab =>{
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                            } 
 
-                           elem.quantityDetails.forEach(element =>{
-
-                            quantityData += `<div class="quantity-div">
-                            <input type="radio" name="quantity" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price}>
-                            <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
-                            </div>`
+                           elem.quantityDetails.forEach((element , index)=>{
+                                if(index == 0){
+                                    quantityData += `<div class="quantity-div">
+                                    <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price} onchange="changeBtn(this)" checked> 
+                                    <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                                    </div>`
+                                }else{
+                                    quantityData += `<div class="quantity-div">
+                                    <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price} onchange="changeBtn(this)">
+                                    <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                                    </div>`
+                                }
+                           
             
                         })
-            
-
+                        let arr = JSON.parse(localStorage.getItem(id)) || []
+                        let btn;
+                        for(let [index,i] of arr.entries()){
+                            let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
+                            console.log(quantity);
+                            if(i.foodId == elem._id){
+        
+                                if(i.foodQuantity == quantity){
+                                    btn = `<div class="btn-con">
+                                    <button ><span><i class="bi bi-dash" onclick="removeFromCart('${i.foodId}' , '${i.foodQuantity}' , this);"></i></span></button>
+                                    <input class="quantity ${i.foodId}" min="1" max="15" name="food-quantity" value="${i.cartQuantity}" type="number"  data-id="${i.foodId}">
+                                    <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
+                                    </div>`
+                                    break;
+                                }
+        
+                            }else{
+                                
+                                if(index == arr.length - 1){
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                                }
+                            }
+                        } 
                             let htmlData = `<div class="menu-item" >
                             <div class="item-wrap-con">
                             <div class="img-wrap-con">
@@ -350,13 +447,13 @@ filterTabs.forEach(tab =>{
                             <div class="item-details-div">
                                 ${typeData}
                                 <span class="item-name">${elem.cuisinename}</span>
-                                <span class="item-price ">₹${elem.price}</span>
+                                <span class="item-price ">₹${elem.quantityDetails[0].price}</span>
             
                                 
             
                             </div>
                             <div class="add-to-cart-div">
-                                <button class="add-to-cart" id=${elem._id} onclick="addToCart(this)">Add <i class="bi bi-plus"></i></button>
+                                ${btn}
                                 
                             </div>
                             </div>

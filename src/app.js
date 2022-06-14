@@ -21,6 +21,7 @@ const math = require('mathjs')
 const auth = require("./middleware/auth");
 const otpAuth = require("./middleware/otpAuth");
 
+
 const axios = require('axios');
 const bcrypt = require('bcryptjs');
 const multer = require('multer'); 
@@ -33,6 +34,7 @@ const io = require('socket.io')(server);
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const otpGenerator = require('otp-generator');
+const jwt = require('jsonwebtoken');
 
 const transporter = nodemailer.createTransport({
     service : "hotmail",
@@ -43,49 +45,11 @@ const transporter = nodemailer.createTransport({
 })
 
 
-app.use(cors({
-    origin: '*'
-}));
+// app.use(cors({
+//     origin: '*'
+// }));
 const users = {}
 const res = {}
-
-io.on("connection", (socket)=>{
- 
-    socket.on('rest-connect', id =>{
-        res[socket.id] = id
-       console.log(socket.id);
-    })
-  
-
-    socket.on('booking-details', auth,async (msg,room) => { 
-
-        try {
-            if(req.token){
-                const user = await UserData.findById({_id : msg.userId});
-                msg.name = user.name;
-                msg.userName = user.username
-                msg.profilepic = "file-1643559975111.jpg"
-                msg.socketId = socket.id  
-              socket.to(room).emit("recieve-details", msg);
-            }
-           
-        } catch (error) {
-            
-        }
-
-          
-     });
-
-    socket.on('join-room',room =>{
-        socket.join(room)
-    })
-
-    socket.on('booking-response', (msg,socketId)=>{
-
-        socket.broadcast.to(socketId).emit("recieved-details", msg)
-    } )
-})
-
 
 
 
@@ -116,6 +80,53 @@ const storage = multer.diskStorage({
 });
   
 var upload = multer({ storage: storage });
+
+
+io.on("connection", (socket)=>{
+   
+    
+
+    socket.on('rest-connect', id =>{
+        res[socket.id] = id
+    })
+    
+
+    socket.on('booking-details',async (msg,room) => { 
+
+        try {
+            const token = socket.handshake.headers.cookie.split(["jwt="])[1]
+            const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
+
+            if(verifyUser){
+                const user = await UserData.findById({_id : verifyUser._id.valueOf()});
+                msg.name = user.name;
+                msg.userName = user.username
+                msg.profilepic = "file-1643559975111.jpg"
+                msg.socketId = socket.id  
+              socket.to(room).emit("recieve-details", msg);
+            }
+           
+        } catch (error) {
+            console.log(error);
+        }
+
+          
+     });1
+
+    socket.on('join-room',room =>{
+
+        socket.join(room)
+    })
+
+    socket.on('booking-response', (msg,socketId)=>{
+
+        socket.broadcast.to(socketId).emit("recieved-details", msg)
+    } )
+})
+
+
+
+
 
 
 app.get('/forgot-password', async(req,res)=>{
@@ -158,7 +169,8 @@ app.post('/forgot-password',async(req,res)=>{
 
             const saveOTP = await new Otp({
                     username : username,
-                    otp : OTP
+                    otp : OTP,
+                  
             })
 
 
@@ -352,7 +364,7 @@ app.post("/login", async (req,res)=>{
     try {
         const phone = req.body.phone
         const pass = req.body.password
-        
+      
         const user = await UserData.findOne({phone});
         
         if(user){
@@ -368,23 +380,20 @@ app.post("/login", async (req,res)=>{
                 });
                
                 
-                res.redirect("/");
+                res.send(true)
     
             }else{
     
-                res.render("login", {
-                    error : "Invalid login details"
-                })
+               res.send(false)
     
             };
             
             
             
         }else{
+           
+            res.send(false)
             
-            res.render("login",{
-                error : "invalid login deatils"
-            })
         }
 
         
@@ -2088,7 +2097,13 @@ app.post("/contact-us",auth,async(req,res)=>{
 })
 
 
-
+app.get('/contact-us',async(req,res)=>{
+    try {
+        res.render('contactUs')
+    } catch (error) {
+        res.send(error)
+    }
+})
 
 app.get("/how-it-works",async(req,res)=>{
     try {

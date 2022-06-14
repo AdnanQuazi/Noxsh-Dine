@@ -6,13 +6,8 @@ window.addEventListener('scroll', function (){
 
     nav.classList.toggle('nav-scroll', windowPosition);
 })
-let tl;
 
-try{
-     tl = new TimelineLite();
-}catch{
-     
-}
+
 
 function displayDecLocCon(){
 
@@ -23,6 +18,7 @@ function displayDecLocCon(){
      if(dec_loc_con.style.display == 'flex'){
           loccaret.style .transform = "rotate(0deg)";
          
+         let tl = new TimelineLite();
           tl.to(dec_loc_con,0.5,{
                     opacity: 0,
                      display : "none",
@@ -34,6 +30,8 @@ function displayDecLocCon(){
      
      }else{
           loccaret.style .transform = "rotate(180deg)";
+          
+         let tl = new TimelineLite();
           tl.to(dec_loc_con,0.5,{
                opacity: 1,
                 display : "flex",

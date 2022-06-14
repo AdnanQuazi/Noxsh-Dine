@@ -393,39 +393,39 @@ const fetcha =  async (id)=>{
     
 
     //FOOD ITEM
-    const foodPCon = document.querySelector('.overview-menu-img-con-2');
-    const foodList = finalData.restaurant[0].menu;
-    console.log(foodList);
-    foodList.forEach(elem =>{
-        let catData;
-        if(elem.category == "Veg"){
+    // const foodPCon = document.querySelector('.overview-menu-img-con-2');
+    // const foodList = finalData.restaurant[0].menu;
+    // console.log(foodList);
+    // foodList.forEach(elem =>{
+    //     let catData;
+    //     if(elem.category == "Veg"){
 
-            catData = `<div class="food-category">
-            <img loading="lazy" src="https://img.icons8.com/fluency/48/000000/vegetarian-food-symbol.png"/>
-          </div>`
+    //         catData = `<div class="food-category">
+    //         <img loading="lazy" src="https://img.icons8.com/fluency/48/000000/vegetarian-food-symbol.png"/>
+    //       </div>`
             
-        }else{
-            catData = `<div class="food-category" style="border-color: red;">
-            <img loading="lazy" src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png"/>
-          </div>`
-        }
+    //     }else{
+    //         catData = `<div class="food-category" style="border-color: red;">
+    //         <img loading="lazy" src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png"/>
+    //       </div>`
+    //     }
 
-        let data = ` <div class="food-item">
+    //     let data = ` <div class="food-item">
 
-        <div class="img-con">
-        ${catData}
-        <img loading = "lazy" src="/uploads/${elem.cuisineImg}" alt="">
-        </div>
-        <div class="food-item-details">
-          <h3 class="food-item-name">${elem.cuisinename}<span class="food-item-rating">${elem.cuisinevotes}<i class="bi bi-chevron-double-up"></i></span></h3>
+    //     <div class="img-con">
+    //     ${catData}
+    //     <img loading = "lazy" src="/uploads/${elem.cuisineImg}" alt="">
+    //     </div>
+    //     <div class="food-item-details">
+    //       <h3 class="food-item-name">${elem.cuisinename}<span class="food-item-rating">${elem.cuisinevotes}<i class="bi bi-chevron-double-up"></i></span></h3>
          
-           <h3 class="food-item-price ruppee">₹${elem.price} /${elem.quantity}</h3>
-        </div>
+    //        <h3 class="food-item-price ruppee">₹${elem.price} /${elem.quantity}</h3>
+    //     </div>
         
-      </div>`
+    //   </div>`
 
-      foodPCon.insertAdjacentHTML('beforeend', data);
-    })
+    //   foodPCon.insertAdjacentHTML('beforeend', data);
+    // })
 
     
     

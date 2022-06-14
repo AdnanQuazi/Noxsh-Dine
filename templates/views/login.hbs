@@ -22,66 +22,82 @@
 </head>
 <body>
     {{>navbar}}
-    {{#if error}}
+
+    <div class="my-toast">
+      <span></span>
+    </div>
+    {{!-- {{#if error}}
     <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
   <div class="toast-container position-absolute p-3 top-0 start-50 translate-middle-x" id="toastPlacement">
     <div class="toast bg-white border-0">
-      {{!-- <div class="toast-header">
-        <img src="..." class="rounded me-2" alt="...">
-        <strong class="me-auto display-3 text-danger">Bootstrap</strong>
-        <small>11 mins ago</small>
-      </div> --}}
+     
       <div class="toast-body display-6 text-center text-white rounded d-flex justify-content-evenly bg-danger">
        <i class="bi bi-exclamation-circle-fill text-white"></i> {{error}}
       </div>
     </div>
   </div>
 </div>
- {{/if}}
+ {{/if}} --}}
 
- <form action="/login" data-tab-formTarget="login" method="post" onsubmit="return validation();">
     <div class="login-main-con">
         <div class="login-con">
             <div class="login-det">
+ <div class="form-div">
                 <span>LOG IN</span>
+
                 <div class="input-details">
                 <span>+91</span>
                 <hr>
                 <input type="text" name="phone" placeholder="Contact Number" required="true">
                 </div>
                  <div class="input-details" style="margin-top: 3rem;">
-                <span><i class="ri-eye-line"></i></span>
+                <span class="eye-icons"> 
+                  <i class="ri-eye-line visible" id="visible"></i>
+                  <i class="ri-eye-close-line invisible" id="invisible"></i>
+                </span>
                                 <hr>
 
-                <input type="password" name="password" placeholder="Password" required="true">
+                <input type="password" name="password" id="password" placeholder="Password" required="true">
                 </div>
-                <button type="submit" class="login-btn">Login</button>
+                <button class="login-btn" >Login</button>
+
+  </div>                
                 <span class="forgot-pass-link"> <a href="/forgot-password">Forgot Password?</a></span>
                 <span class="new-acc-link">Don't Have an Account? <br><a href="/signup">Create Account .... It's Free</a></span>
+                
             </div>
             <div class="wel-msg-con">
                 <span>Welcome<br>Back</span>
             </div>
         </div>
     </div>
-    </form>
 </body>
-<script src="/js/validation"></script>
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/validation.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/visibl.js"></script>
+
+
+<script src="/js/toast.js" type="module"></script>
+
+
+<script type="module">
   
- var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-var toastList = toastElList.map(function (toastEl) {
-  return new bootstrap.Toast(toastEl)
-  
-})
+  import * as toast from './js/toast.js'
+  let a = "{{error}}" || false
+    if(a){
+  toast.showToast("Invalid Login Details") 
 
+    } 
 
-var myToastEl = document.querySelector('.toast')
-var myToast = bootstrap.Toast.getInstance(myToastEl) // Returns a Bootstrap toast instance
+ 
 
-myToast.show();
-  
+</script>
+<script type="module">
+    import {login} from './js/login.js'
 
+    document.querySelector('.login-btn').addEventListener('click', login)
+     
 </script>
 
 </html>

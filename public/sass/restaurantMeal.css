@@ -469,7 +469,7 @@
     bottom: 2rem;
     margin-bottom: 2rem;
     display: none;
-    padding: 1.5rem;
+    padding: 2rem;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -477,10 +477,10 @@
         -ms-flex-align: center;
             align-items: center;
     background-color: #f4774d;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     color: white;
-    width: 90%;
-    left: 5%;
+    width: 95%;
+    left: 2.5%;
   }
   .cart-absolute-div .det-div h4 {
     margin: 0;

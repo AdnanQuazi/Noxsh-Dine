@@ -1,3 +1,6 @@
+
+
+
 const parentBtn = document.querySelector('.menu-wrap-con');
 
 let Resid = window.location.href.substring(21).split(['/'])[2];
@@ -11,6 +14,18 @@ const foodItemHolder = document.querySelector('.food-items-holder');
 const emptyCart = document.querySelector('.empty-cart')
 
 const displayCart = async()=>{
+
+    try {
+        const remEl = document.querySelectorAll('.food-list-con')
+        console.log(remEl);
+        remEl.forEach(elem =>{
+            
+            elem.remove()
+        })
+    } catch (error) {
+        
+    }
+
 
     try {
       
@@ -86,23 +101,27 @@ const displayCart = async()=>{
                       <div class="right-con">
                          <div class="number-input">
                        
-                       <button class="minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); removeFromCart('${elem._id}')"><i class="bi bi-dash"></i></button>
+                       <button class="minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); removeFromCart('${elem._id}' , '${element.foodQuantity}' , this)"><i class="bi bi-dash"></i></button>
                        <input class="quantity" min="1" max="15" name="food-quantity" value=${element.cartQuantity} type="number" required>
-                       <button onclick="this.parentNode.querySelector('input[type=number]').stepUp(); addToCart('${elem._id}')" class="plus"><i class="bi bi-plus"></i></button>
+                       <button onclick="this.parentNode.querySelector('input[type=number]').stepUp();" class="plus" ><i class="bi bi-plus" data-tab-target="addToCart" id="${elem._id}"></i></button>
                        </div>
                        <h4 class="food-total-price ">₹ ${currentPrice * element.cartQuantity}</h4>
                       </div>
                 
                     </div>
                   </div>`
+                  
+      
+
+
                   foodItemHolder.insertAdjacentHTML('afterbegin', htmlData)
+
                   subTotal = parseFloat(subTotal)
                   subTotal +=  parseFloat(`${currentPrice * element.cartQuantity}`);
                   subTotal = parseFloat(subTotal).toFixed(2)
                   
                   
-                  console.log(htmlData);
-                  console.log(foodItemHolder);
+
                   
               
             }
@@ -116,18 +135,6 @@ const displayCart = async()=>{
 
    
    
-        try {
-            const remEl = document.querySelectorAll('.food-list-con')
-            console.log(remEl);
-            remEl.forEach(elem =>{
-                console.log(elem);
-                elem.remove()
-            })
-        } catch (error) {
-            
-        }
-    
-
     
 
         
@@ -140,7 +147,7 @@ const displayCart = async()=>{
 
         
         grandTotal = (parseFloat(subTotal) + parseFloat(tax)).toFixed(2);
-        console.log(subTotal , grandTotal);
+       
 
          document.querySelector('.sub-total-text').textContent = "₹ " + subTotal;
             document.querySelector('.tax-text').textContent = "₹ " + tax ;
@@ -169,6 +176,22 @@ const displayCart = async()=>{
 
 
 
+menuWrapCon.addEventListener('click', (e)=>{
+   
+    if(e.target.dataset.tabTarget == "addToCart"){
+      
+        addToCart(e.target)
+    }
+
+   
+})
+
+document.querySelector('.food-items-holder').addEventListener('click', (e)=>{
+    console.log(e.target);
+    if(e.target.dataset.tabTarget == "addToCart"){
+        addToCart(e.target)
+    }
+})
 
 
 
@@ -176,29 +199,84 @@ const displayCart = async()=>{
 
 
 
+const changeBtn = (e)=>{
+
+    let arr = JSON.parse(localStorage.getItem(Resid)) || []
+
+        let parentDiv = e.closest('.menu-item');
+    let addToCartDiv = parentDiv.querySelector('.add-to-cart-div');
+    if(arr.length < 1){
+
+    }else{
+
+        for(let [index,elem] of arr.entries()){
+            if(elem.foodId == e.name){
+                
+                if(elem.foodQuantity == e.value){
+                       
+                    let btn = ` <div class="btn-con">
+                    <button ><span><i class="bi bi-dash" onclick="removeFromCart('${elem.foodId}' , '${e.value}' , this);"></i></span></button>
+                    <input class="quantity ${elem.foodId}" min="1" max="15" name="food-quantity" value=${elem.cartQuantity} type="number"  data-id="${elem.foodId}">
+                    <button ><span><i class="bi bi-plus" id="${elem.foodId}" data-tab-target="addToCart" ></i></span></button>
+                </div>`
+                addToCartDiv.innerHTML = ''
+                addToCartDiv.insertAdjacentHTML('afterbegin', btn)
+                break;
+                }
+            }else{
+                let btn = `<button class="add-to-cart" id="${e.name}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                addToCartDiv.innerHTML = ''
+                addToCartDiv.insertAdjacentHTML('afterbegin', btn)
+
+            }
+        }
+
+    }
+}
 
 
+// const addCount = (e)=>{
 
+//     const pCon = e.closest('.btn-con');
+//     pCon.querySelector('input').value = parseInt(pCon.querySelector('input').value) + 1;
+// }
+// const subCount = (e)=>{
 
-
-
+//     const pCon = e.closest('.btn-con');
+//     pCon.querySelector('input').value = parseInt(pCon.querySelector('input').value) - 1;
+// }
 const addToCart = (e)=>{
+    
     let foodId;
-    let foodQuantity;       
+    let foodQuantity;
+   
 
     foodId = e.id
-
+    console.log(e);
+    console.log(e.id);
+    try{
+      
+    }catch (error){
+        console.log(error)
+    }
     try {
     foodQuantity = document.querySelector(`[data-tab-id='${foodId}']:checked`).value;
         
     } catch (error) {
-        
+        document.querySelector(`[data-tab-id='${foodId}']`).checked = true;
         foodQuantity = document.querySelector(`[data-tab-id='${foodId}']`).value;
 
     }
     
-    console.log(foodId , foodQuantity);
-
+    
+    try{
+        // const pCon = e.closest('.menu-item');
+        
+        document.querySelector(`[data-id='${foodId}']`).value = parseInt(document.querySelector(`[data-id='${foodId}']`).value) + 1;
+    }catch {
+       
+    }
+    
 
     let arr = JSON.parse(localStorage.getItem(Resid)) || []
                 
@@ -215,47 +293,101 @@ const addToCart = (e)=>{
 
         arr.push(currentData) 
         localStorage.setItem(Resid, JSON.stringify(arr));
+        console.log('First');
+        try {
+            let parentDiv = e.closest('.menu-item');
+            let addToCartDiv = parentDiv.querySelector('.add-to-cart-div');
+            let btn = ` <div class="btn-con">
+                    <button ><span><i class="bi bi-dash" onclick="removeFromCart('${foodId}' , '${foodQuantity}' , this);"></i></span></button>
+                    <input class="quantity ${foodId}" min="1" max="15" name="food-quantity" value="1" type="number"  data-id="${foodId}">
+                    <button ><span><i class="bi bi-plus" id="${foodId}" data-tab-target="addToCart" ></i></span></button>
+                </div>`
+                addToCartDiv.innerHTML = ''
+                addToCartDiv.insertAdjacentHTML('afterbegin', btn)
+
+        } catch (error) {
+            
+        }
+        
+        displayCart()
         return;
         }else{
 
-        arr.forEach((elem , index )=> {
-    if(elem.foodId == foodId){
-
-        if(elem.foodQuantity == foodQuantity){
-
-
-
-            arr[index].cartQuantity += 1
-            localStorage.setItem(Resid, JSON.stringify(arr));
+            for(let [index,elem] of arr.entries()){
+                if(elem.foodId == foodId){
+              
+                    if(elem.foodQuantity == foodQuantity){
             
+            
+            
+                        arr[index].cartQuantity += 1
+                        localStorage.setItem(Resid, JSON.stringify(arr));
+                       
+                        
+                        break;
+                        
+            
+            
+            
+                    }else{
+            
+                        currentData = {
+                            foodId : foodId,
+                            foodQuantity : foodQuantity,
+                            cartQuantity : 1
+                        }
+                        arr.push(currentData)
+                        console.log('Second');
+                        localStorage.setItem(Resid, JSON.stringify(arr));
+                        try {
+                            let parentDiv = e.closest('.menu-item');
+                            let addToCartDiv = parentDiv.querySelector('.add-to-cart-div');
+                            let btn = ` <div class="btn-con">
+                                    <button ><span><i class="bi bi-dash" onclick="removeFromCart('${foodId}' , '${foodQuantity}' , this);"></i></span></button>
+                                    <input class="quantity ${foodId}" min="1" max="15" name="food-quantity" value="1" type="number"  data-id="${foodId}">
+                                    <button ><span><i class="bi bi-plus" id="${foodId}" data-tab-target="addToCart" ></i></span></button>
+                                </div>`
+                                addToCartDiv.innerHTML = ''
+                                addToCartDiv.insertAdjacentHTML('afterbegin', btn)
+                
+                        } catch (error) {
+                            
+                        }
+                        break;
+                    }
+                }else{
+            
+                    if(index == arr.length - 1){
+                        currentData = {
+                            foodId : foodId,
+                            foodQuantity : foodQuantity,
+                            cartQuantity : 1
+                        }
+                        arr.push(currentData) 
+                        console.log(index , elem.foodId , foodId);
+                        localStorage.setItem(Resid, JSON.stringify(arr));
+                        try {
+                            let parentDiv = e.closest('.menu-item');
+                            let addToCartDiv = parentDiv.querySelector('.add-to-cart-div');
+                            let btn = ` <div class="btn-con">
+                                    <button ><span><i class="bi bi-dash" onclick="removeFromCart('${foodId}' , '${foodQuantity}' , this);"></i></span></button>
+                                    <input class="quantity ${foodId}" min="1" max="15" name="food-quantity" value="1" type="number"  data-id="${foodId}">
+                                    <button ><span><i class="bi bi-plus" id="${foodId}" data-tab-target="addToCart" ></i></span></button>
+                                </div>`
+                                addToCartDiv.innerHTML = ''
+                                addToCartDiv.insertAdjacentHTML('afterbegin', btn)
+                
+                        } catch (error) {
+                            
+                        }
+                        break;
+                    }
+            
+            
+                }
 
-
-
-        }else{
-
-            currentData = {
-                foodId : foodId,
-                foodQuantity : foodQuantity,
-                cartQuantity : 1
             }
-            arr.push(currentData)
-            localStorage.setItem(Resid, JSON.stringify(arr));
-        }
-    }else{
-
-        if(index == arr.length - 1){
-            currentData = {
-                foodId : foodId,
-                foodQuantity : foodQuantity,
-                cartQuantity : 1
-            }
-            arr.push(currentData) 
-            localStorage.setItem(Resid, JSON.stringify(arr));
-        }
-
-
-    }
-});
+       
 
 }
 
@@ -293,11 +425,17 @@ displayCart()
 
 
 
-const removeFromCart = (foodId, foodQuantity)=>{
+const removeFromCart = (foodId, foodQuantity, e)=>{
     
     
-    
+
     const arr = JSON.parse(localStorage.getItem(Resid))
+    try {
+        document.querySelector(`[data-id='${foodId}']`).value = parseInt(document.querySelector(`[data-id='${foodId}']`).value) - 1;
+    } catch (error) {
+        
+    }
+    
    
     for(var j = 0; j < arr.length; j++){
       if(arr[j].foodId == foodId){
@@ -306,31 +444,32 @@ const removeFromCart = (foodId, foodQuantity)=>{
 
               if(arr[j].cartQuantity == 0){
                   arr.splice(j,1);
+                  try {
+            
+                    let parentDiv = document.querySelector(`[data-id='${foodId}']`).closest('.menu-item');
+                    console.log(parentDiv);
+                    let addToCartDiv = parentDiv.querySelector('.add-to-cart-div');
+                    let btn = `<button class="add-to-cart" id="${foodId}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                        addToCartDiv.innerHTML = ''
+                        addToCartDiv.insertAdjacentHTML('afterbegin', btn)
+        
+                } catch (error) {
+                    
+                }
               }
           }
       }
     }
+   
 
     localStorage.setItem(Resid, JSON.stringify(arr));
-
+    if(arr.length < 1){
+       
+    }
     displayCart()
 
 
 }
 
-// const displayCart = async()=>{
-
-//     const arr = JSON.parse(localStorage.getItem(id))
-
-
-
-//     const menuData = await fetch(`/menuData/${id}`,{
-//         method : "GET",
-       
-//     })
-//     let dataMenu = await menuData.json();
-//     console.log(menuData);
-
-// }
 
 displayCart()

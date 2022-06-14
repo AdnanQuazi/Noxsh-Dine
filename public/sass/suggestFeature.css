@@ -4,14 +4,19 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #f5f5f5;
+  background-color: white !important;
   margin: 0;
+  gap: 4rem;
 }
 
 .feature-container .inner-con {
@@ -20,8 +25,6 @@
   height: auto;
   padding: 2rem;
   border-radius: 1rem;
-  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
-          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
 }
 
 .feature-container .inner-con h1 {
@@ -46,7 +49,7 @@
   padding: 1rem;
   width: 100%;
   height: 20rem;
-  border: 0.2rem solid #afafaf;
+  border: 0.1rem solid #afafaf;
   border-radius: 1rem;
   margin-top: 2rem;
 }
@@ -67,10 +70,18 @@
 
 @media (max-width: 480px) {
   .feature-container {
-    padding: 0 2rem;
+    padding: 4rem 2rem !important;
+  }
+  .feature-container .head {
+    font-size: 6rem !important;
+    font-weight: 700 !important;
+  }
+  .feature-container p {
+    text-align: center;
+    font-size: 3rem !important;
   }
   .inner-con {
-    width: 100vw !important;
+    width: 100% !important;
     padding: 2rem !important;
   }
   .inner-con h1 {
@@ -80,9 +91,17 @@
     margin-top: 2rem !important;
     gap: 4rem !important;
   }
+  .inner-con form input {
+    font-size: 2.5rem;
+    padding: 2rem;
+    width: 100%;
+    border: 0.1rem solid #afafaf;
+    border-radius: 1rem;
+    outline: black;
+  }
   .inner-con textarea {
-    height: 50rem !important;
-    font-size: 3rem !important;
+    height: 30rem !important;
+    font-size: 2.5rem !important;
     padding: 2rem !important;
   }
   .inner-con button {

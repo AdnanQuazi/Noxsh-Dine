@@ -37,12 +37,12 @@ nav{
     .login-con{
         flex-direction: column-reverse;
         width: 90% !important;
-        height: 120rem !important;
+        height: 125rem !important;
     }
 
     .wel-msg-con{
         width: 100% !important;
-        height: 60% !important;
+        height: 50% !important;
 
         span{
         font-size: 5rem !important;
@@ -56,10 +56,13 @@ nav{
         justify-content: center;
         align-items: center !important;
 
-        form{
+        .form{
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
         }
 
         span,.input-details,.login-btn{
@@ -89,12 +92,13 @@ nav{
             }
         }
         .new-acc-link{
-            font-size: 2.3rem !important;
+            font-size: 2.5rem !important;
 
             a{
                 margin-top: 1rem !important;
                 font-weight: 400 !important;
                 color: #1d7932;
+                font-size: 3.5rem !important;
             }
         }
     }
@@ -102,4 +106,28 @@ nav{
     line-height: 8rem !important;
 
     }
+}
+
+form{
+    .danger-l-span{
+        font-size: 3rem !important;
+        background-color: rgb(206, 24, 24);
+        
+        color: white;   
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        transform: translate(100%,0);    
+        border-radius: 0.5rem;
+        width: fit-content;
+        padding: 2rem 2rem;
+        position: absolute;
+        top: 0;
+        height: fit-content;
+        right: 50%;
+        transform: translate(50%,0);
+        opacity: 0;
+        transition: 0.5s all ease-in-out;
+        pointer-events: none;
+}
 }

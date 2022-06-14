@@ -25,11 +25,6 @@ nav .acc-det .fa-caret-down {
   color: #333 !important;
 }
 
-body {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/oranges.jpg);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/oranges.jpg);
-}
-
 .nav-links-con ul li a {
   color: #333 !important;
 }
@@ -115,9 +110,15 @@ body {
 }
 
 .login-det .input-details span {
-  margin-left: 1rem;
+  margin: 0;
   font-size: 2rem;
   font-weight: 400;
+  width: 4rem;
+  text-align: center;
+}
+
+.login-det .input-details span .invisible {
+  visibility: visible !important;
 }
 
 .login-det .input-details hr {
@@ -163,7 +164,7 @@ body {
   font-size: 2rem;
   border-radius: 0.5rem;
   color: white;
-  margin-top: 5rem;
+  margin-top: 2rem;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(/images/colorFruit.jpg);
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/colorFruit.jpg);
   background-position: center;
@@ -243,5 +244,60 @@ body {
 .wel-msg-con:hover span {
   -webkit-transition: 0.5s all ease-in-out;
   transition: 0.5s all ease-in-out;
+}
+
+.my-toast {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+}
+
+.my-toast span {
+  font-size: 2rem;
+  background-color: #ca1d1d;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .login-det .input-details .text-danger {
+    font-size: 2rem !important;
+    background-color: rgba(0, 0, 0, 0.719);
+    color: white;
+    right: 0;
+    bottom: 0;
+    width: 10rem;
+    text-align: center;
+    -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0);
+    border-radius: 0.5rem;
+  }
+  .my-toast {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    opacity: 0;
+  }
+  .my-toast span {
+    font-size: 4rem;
+    background-color: #ca1d1d;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    color: white;
+  }
 }
 /*# sourceMappingURL=login.css.map */

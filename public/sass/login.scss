@@ -22,9 +22,6 @@ nav{
     }
 }
 
-    body{
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url(/images/oranges.jpg);
-    }
         
  
 .nav-links-con{
@@ -83,9 +80,14 @@ nav{
         margin-left: 5rem;
 
         span{
-            margin-left: 1rem;
+            margin: 0;
             font-size: 2rem;
             font-weight: 400;
+            width: 4rem;
+            text-align: center;
+            .invisible{
+                visibility: visible !important;
+            }
            
         }
         hr {
@@ -139,7 +141,7 @@ nav{
         font-size: 2rem;
         border-radius: 0.5rem;
         color: white;
-        margin-top: 5rem;
+        margin-top: 2rem;
         background-image: linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),url(/images/colorFruit.jpg);
         background-position: center;
         background-size: cover;
@@ -210,3 +212,55 @@ nav{
 
     }
 }
+
+.my-toast{
+    
+    position: absolute;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    span{   
+        font-size: 2rem;
+        background-color: rgb(202, 29, 29);
+        border-radius: 1rem;
+        padding: 1rem 2rem;
+        color: white
+    }
+}
+
+@media (max-width: 480px) {
+        .login-det .input-details .text-danger{
+
+            font-size: 2rem !important;
+            background-color: rgba(0, 0, 0, 0.719);
+            
+            color: white;   
+            right: 0;
+            bottom: 0;
+            width: 10rem;
+            text-align: center;
+            transform: translate(100%,0);    
+            border-radius: 0.5rem;
+        }
+
+        .my-toast{
+    
+            position: absolute;
+            width: 100%;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            span{   
+                font-size: 4rem;
+                background-color: rgb(202, 29, 29);
+                border-radius: 1rem;
+                padding: 1rem 2rem;
+                color: white
+            }
+        }
+}
+
+

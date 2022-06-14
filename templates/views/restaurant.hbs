@@ -52,7 +52,7 @@
             <div class="non-veg" data-tab-category="Non-Veg" data-tab-status="inactive"><span>Non Veg</span></div>
 
         </div>
-        <div class="menu-wrap-con"></div>
+        <div class="menu-wrap-con-takeaway"></div>
                 
         </div>
 
@@ -519,9 +519,15 @@
                        <div class="menu-con">
                            <h2>Menu</h2>
                            
-                           <div class="overview-menu-img-con-2">
-                              
-                           </div>
+                           <div class="menu-items">
+                            <div class="filter-div">
+                                <div class="veg" data-tab-category="Veg" data-tab-status="inactive"><span>Veg</span></div>
+                                <div class="non-veg" data-tab-category="Non-Veg" data-tab-status="inactive"><span>Non Veg</span></div>
+
+                            </div>
+                            <div class="menu-wrap-con"></div>
+                                    
+                            </div>
                            </div>
                    </div>
 
@@ -685,7 +691,7 @@
 <script src="/js/tabSelector.js"></script>
 <script src="/js/restaurantPage.js"></script>
 <script src="/js/restaurantRender.js"></script>
-<script src="/js/searchBar.js"></script>
+<script src="/js/searchbar.js"></script>
 <script src="/js/countdown.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script  src="/js/socket.js"></script>
@@ -786,17 +792,34 @@ const tl3 = new TimelineLite()
    
 
 </script>
-
 <script>
+
+const menuWrapCon = document.querySelector('.menu-wrap-con-takeaway');
+
+
+menuWrapCon.addEventListener('click' , (e)=>{
+
+    if(e.target.name == "quantity"){
+        let itemPrice = document.querySelector('.item-price');
+        let div = e.target.closest('.menu-item');
+        let div2 = div.querySelector('.item-price')
+        
+        div2.innerHTML =  `₹${e.target.dataset.tabPrice}`
+
+
+
+
+    }
+})
+
+
 
 let finalData;
 
 let categories = [];
 let a = 0;
-const menuWrapCon = document.querySelector('.menu-wrap-con');
 
 const fillMenu = ()=>{
-  document.querySelector('.catUl').innerHTML = ""
     menuWrapCon.innerHTML = ''
     finalData.menuData.menu.forEach(element => {
         if(!categories.includes(element.category)){
@@ -804,10 +827,10 @@ const fillMenu = ()=>{
         }
 
     });
-    
+    document.querySelector('.catUl').innerHTML = ''
     categories.forEach((element,index )=>{
 
-       finalData.menuData.menu.forEach(e =>{
+        finalData.menuData.menu.forEach(e =>{
             if(element == e.category){
                 a += 1;
             }
@@ -829,11 +852,58 @@ const fillMenu = ()=>{
             
             if(element == elem.category){
                   let typeData;
+                  let quantityData = '';
                if(elem.type == "Non-Veg"){
                    typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                }else{
                    typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                } 
+
+               
+               elem.quantityDetails.forEach((element , index)=>{
+
+                if(index == 0){
+                    quantityData += `<div class="quantity-div">
+                <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id} data-tab-price=${element.price} onchange="changeBtn(this)" checked>
+                <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                </div>`
+                }else{
+                    quantityData += `<div class="quantity-div">
+                <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id} data-tab-price=${element.price} onchange="changeBtn(this)">
+                <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                </div>`
+                }
+                
+
+            })
+            let arr = JSON.parse(localStorage.getItem(id)) || []
+            console.log(arr);
+            let btn;
+            if(arr.length < 1){
+                btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+            }
+                for(let [index,i] of arr.entries()){
+                    let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
+                    console.log(quantity);
+                    if(i.foodId == elem._id){
+
+                        if(i.foodQuantity == quantity){
+                            btn = `<div class="btn-con">
+                            <button ><span><i class="bi bi-dash" onclick="removeFromCart('${i.foodId}' , '${i.foodQuantity}' , this);"></i></span></button>
+                            <input class="quantity ${i.foodId}" min="1" max="15" name="food-quantity" value="${i.cartQuantity}" type="number"  data-id="${i.foodId}">
+                            <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
+                            </div>`
+                            break;
+                        }
+
+                    }else{
+                        
+                        if(index == arr.length - 1){
+                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                        }
+                    }
+                } 
+               
                 let htmlData = `<div class="menu-item" >
                 <div class="item-wrap-con">
                 <div class="img-wrap-con">
@@ -846,34 +916,29 @@ const fillMenu = ()=>{
                 <div class="item-details-div">
                     ${typeData}
                     <span class="item-name">${elem.cuisinename}</span>
-                    <span class="item-price ">₹${elem.price}</span>
+                    <span class="item-price ">₹${elem.quantityDetails[0].price}</span>
 
                     
 
                 </div>
                 <div class="add-to-cart-div">
-                    <button class="add-to-cart" onclick="addToCart('${elem._id}')">Add <i class="bi bi-plus"></i></button>
+                   ${btn}
                     
                 </div>
                 </div>
                 
            
             <div class="quantity-wrap-div">
-                        <div class="quantity-div">
-                                <input type="radio" name="quantity1">
-                                <label for="quantity1">1/2 Plate</label>
-                        </div>
-                        <div class="quantity-div">
-                                <input type="radio" name="quantity1">
-                                <label for="quantity1">1 Plate</label>
-                        </div>
-
+                        
+                        ${quantityData}
                     </div>
                      <hr>
 
             </div>`
 
             containerDiv.innerHTML += htmlData
+            quantityData = ''
+       
 
             }   
         })
@@ -882,7 +947,10 @@ const fillMenu = ()=>{
     })
     
 }
+const menuWra = document.querySelectorAll('.menu-wrap-con');
+menuWra.forEach(elem => {
 
+})
 
 const menuDataFetch = async()=>{
 
@@ -904,17 +972,18 @@ const menuDataFetch = async()=>{
 }
 menuDataFetch()
 
-const filterTabs = document.querySelectorAll('[data-tab-category]');
+const filterTabs = menuWrapCon.closest('.menu-items').querySelectorAll('[data-tab-category]');
+
 filterTabs.forEach(tab =>{
     tab.addEventListener('click', ()=>{
-      document.querySelector('.catUl').innerHTML = ""
-      a = 0;
+        a = 0;
         console.log(tab);
 
         if(tab.dataset.tabCategory == "Veg"){
+          console.log(tab)
 
             if(tab.dataset.tabStatus == "inactive"){
-
+                document.querySelector('.catUl').innerHTML = ''
                 let vegData = [];
                 let vegCategories = []
                 menuWrapCon.innerHTML = '';
@@ -938,8 +1007,12 @@ filterTabs.forEach(tab =>{
                         vegCategories.push(elem.category)
                     }
                 })
+
+                
+
                 vegCategories.forEach((element,index )=>{
-                  finalData.menuData.menu.forEach(e =>{
+
+                    finalData.menuData.menu.forEach(e =>{
                         if(element == e.category){
                             a += 1;
                         }
@@ -957,16 +1030,59 @@ filterTabs.forEach(tab =>{
                            
                     vegData.forEach(elem=>{
             
-                        const containerDiv = document.querySelector(`.menu-inner-wrap-con${index}`);
+                        const containerDiv = menuWrapCon.querySelector(`.menu-inner-wrap-con${index}`);
             
                         
                         if(element == elem.category){
                               let typeData;
+                  let quantityData;
+
                            if(elem.type == "Non-Veg"){
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                            }else{
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                            } 
+
+                           elem.quantityDetails.forEach((element , index)=>{
+                            if(index == 0){
+                                quantityData += `<div class="quantity-div">
+                                <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price} onchange="changeBtn(this)" checked>
+                                <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                                </div>`
+                            }else{
+                                quantityData += `<div class="quantity-div">
+                                <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price} onchange="changeBtn(this)">
+                                <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                                </div>`
+                            }
+                           
+            
+                        })
+                            
+                        let arr = JSON.parse(localStorage.getItem(id)) || []
+                        let btn;
+                        for(let [index,i] of arr.entries()){
+                            let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
+                            console.log(quantity);
+                            if(i.foodId == elem._id){
+        
+                                if(i.foodQuantity == quantity){
+                                    btn = `<div class="btn-con">
+                                    <button ><span><i class="bi bi-dash" onclick="removeFromCart('${i.foodId}' , '${i.foodQuantity}' , this);"></i></span></button>
+                                    <input class="quantity ${i.foodId}" min="1" max="15" name="food-quantity" value="${i.cartQuantity}" type="number"  data-id="${i.foodId}">
+                                    <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
+                                    </div>`
+                                    break;
+                                }
+        
+                            }else{
+                                
+                                if(index == arr.length - 1){
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                                }
+                            }
+                        }  
+
                             let htmlData = `<div class="menu-item" >
                             <div class="item-wrap-con">
                             <div class="img-wrap-con">
@@ -979,37 +1095,32 @@ filterTabs.forEach(tab =>{
                             <div class="item-details-div">
                                 ${typeData}
                                 <span class="item-name">${elem.cuisinename}</span>
-                                <span class="item-price ">₹${elem.price}</span>
+                                <span class="item-price ">₹${elem.quantityDetails[0].price}</span>
             
                                 
             
                             </div>
                             <div class="add-to-cart-div">
-                                <button class="add-to-cart" onclick="addToCart('${elem._id}')">Add <i class="bi bi-plus"></i></button>
+                                ${btn}
                                 
                             </div>
                             </div>
                             
                        
                         <div class="quantity-wrap-div">
-                                    <div class="quantity-div">
-                                            <input type="radio" name="quantity1">
-                                            <label for="quantity1">1/2 Plate</label>
-                                    </div>
-                                    <div class="quantity-div">
-                                            <input type="radio" name="quantity1">
-                                            <label for="quantity1">1 Plate</label>
-                                    </div>
+                                    ${quantityData}
             
                                 </div>
                                  <hr>
             
                         </div>`
                         containerDiv.innerHTML += htmlData
+                        quantityData = ''
             
                         }   
                     })
                 })
+
                 tab.style.backgroundColor = "#3ea055"
                 tab.style.color = "white"
                 tab.style.borderColor = "#3ea055"
@@ -1017,14 +1128,17 @@ filterTabs.forEach(tab =>{
 
                 tab.dataset.tabStatus = "active";
             }else{
-              tab.style.backgroundColor = "white"
+                tab.style.backgroundColor = "white"
                 tab.style.color = "black"
                 tab.style.borderColor = "#afafaf"
+
                 tab.dataset.tabStatus = "inactive"
                 fillMenu()
             }   
         }else if(tab.dataset.tabCategory == "Non-Veg"){
             if(tab.dataset.tabStatus == "inactive"){
+
+                document.querySelector('.catUl').innerHTML = ''
                 let vegData = [];
                 let vegCategories = []
                 menuWrapCon.innerHTML = '';
@@ -1049,7 +1163,7 @@ filterTabs.forEach(tab =>{
                     }
                 })
                 vegCategories.forEach((element,index )=>{
-                  finalData.menuData.menu.forEach(e =>{
+                    finalData.menuData.menu.forEach(e =>{
                         if(element == e.category){
                             a += 1;
                         }
@@ -1072,11 +1186,52 @@ filterTabs.forEach(tab =>{
                         
                         if(element == elem.category){
                               let typeData;
+                  let quantityData;
+
                            if(elem.type == "Non-Veg"){
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                            }else{
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                            } 
+
+                           elem.quantityDetails.forEach((element , index)=>{
+                                if(index == 0){
+                                    quantityData += `<div class="quantity-div">
+                                    <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price} onchange="changeBtn(this)" checked> 
+                                    <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                                    </div>`
+                                }else{
+                                    quantityData += `<div class="quantity-div">
+                                    <input type="radio" name="${elem._id}" value='${element.quantity} ${element.quantityUnit}' data-tab-id=${elem._id}  data-tab-price=${element.price} onchange="changeBtn(this)">
+                                    <label for="quantity1">${element.quantity} ${element.quantityUnit}</label>
+                                    </div>`
+                                }
+                           
+            
+                        })
+                        let arr = JSON.parse(localStorage.getItem(id)) || []
+                        let btn;
+                        for(let [index,i] of arr.entries()){
+                            let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
+                            console.log(quantity);
+                            if(i.foodId == elem._id){
+        
+                                if(i.foodQuantity == quantity){
+                                    btn = `<div class="btn-con">
+                                    <button ><span><i class="bi bi-dash" onclick="removeFromCart('${i.foodId}' , '${i.foodQuantity}' , this);"></i></span></button>
+                                    <input class="quantity ${i.foodId}" min="1" max="15" name="food-quantity" value="${i.cartQuantity}" type="number"  data-id="${i.foodId}">
+                                    <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
+                                    </div>`
+                                    break;
+                                }
+        
+                            }else{
+                                
+                                if(index == arr.length - 1){
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                                }
+                            }
+                        } 
                             let htmlData = `<div class="menu-item" >
                             <div class="item-wrap-con">
                             <div class="img-wrap-con">
@@ -1089,33 +1244,28 @@ filterTabs.forEach(tab =>{
                             <div class="item-details-div">
                                 ${typeData}
                                 <span class="item-name">${elem.cuisinename}</span>
-                                <span class="item-price ">₹${elem.price}</span>
+                                <span class="item-price ">₹${elem.quantityDetails[0].price}</span>
             
                                 
             
                             </div>
                             <div class="add-to-cart-div">
-                                <button class="add-to-cart" onclick="addToCart('${elem._id}')">Add <i class="bi bi-plus"></i></button>
+                                ${btn}
                                 
                             </div>
                             </div>
                             
                        
                         <div class="quantity-wrap-div">
-                                    <div class="quantity-div">
-                                            <input type="radio" name="quantity1">
-                                            <label for="quantity1">1/2 Plate</label>
-                                    </div>
-                                    <div class="quantity-div">
-                                            <input type="radio" name="quantity1">
-                                            <label for="quantity1">1 Plate</label>
-                                    </div>
+
+                            ${quantityData}
             
                                 </div>
                                  <hr>
             
                         </div>`
                         containerDiv.innerHTML += htmlData
+                        quantityData = ''
             
                         }   
                     })
@@ -1124,14 +1274,13 @@ filterTabs.forEach(tab =>{
                 tab.style.color = "white"
                 tab.style.borderColor = "#3ea055"
 
-
-
                 tab.dataset.tabStatus = "active";
             }
             else{
-              tab.style.backgroundColor = "white"
+                tab.style.backgroundColor = "white"
                 tab.style.color = "black"
                 tab.style.borderColor = "#afafaf"
+
                 tab.dataset.tabStatus = "inactive";
                 fillMenu()
             }
@@ -1151,205 +1300,7 @@ filterTabs.forEach(tab =>{
 
 
 
-const cartCon = document.querySelector('.cart-con');
-const foodItemHolder = document.querySelector('.food-items-holder');
 
-const emptyCart = document.querySelector('.empty-cart')
-
-const displayCart = async()=>{
-
-    try {
-      
-        console.log(id)
-
-    let arr = JSON.parse(localStorage.getItem(id)) || []
-    
-    let cart = [];
-    const menuData = await fetch(`/menuData/${id}`,{
-        method : "GET",
-       
-    })
-    let dataMenu = await menuData.json();
-    arr.forEach(elem => {
-        for(var i = 0; i < dataMenu.menuData.menu.length; i ++){
-            
-            
-            
-            
-            if(elem ==  dataMenu.menuData.menu[i]._id.valueOf()){
-               
-                
-                if(cart.includes(dataMenu.menuData.menu[i])){
-                    
-                  let elemIndex = cart.indexOf(dataMenu.menuData.menu[i])
-                   cart[elemIndex]["quantityuser"] += 1;
-                }else{      
-                   
-                    cart.push(dataMenu.menuData.menu[i]);
-                    let elemIndex = cart.indexOf(dataMenu.menuData.menu[i])
-                    cart[elemIndex]["quantityuser"] = 1;
-                     break;
-                }
-               
-            }
-        }
-
-
-    });
-
-
-
-   
-   
-        try {
-            const remEl = document.querySelectorAll('.food-list-con')
-            console.log(remEl);
-            remEl.forEach(elem =>{
-                console.log(elem);
-                elem.remove()
-            })
-        } catch (error) {
-            
-        }
-    
-
-    
-
-        if(cart.length < 1){
-            
-            emptyCart.classList.add("active");
-            document.querySelector('.cart-absolute-div').style.display = "none"
-            document.querySelector('.categories-btn').style.bottom = "2rem"
-
-
-        }else{
-            emptyCart.classList.remove("active");
-            document.querySelector('.cart-absolute-div').style.display = "flex"
-            document.querySelector('.categories-btn').style.bottom = "14rem"
-
-
-        }
-
-        let subTotal = 0;
-        let grandTotal = 0;
-        let tax = 0;
-
-        
-        const cartCon = document.querySelector('.total-div');
-        cart.forEach(elem =>{
-            
-            let catData;
-        if(elem.category == "Veg"){
-
-            catData = `<img loading="lazy" src="https://img.icons8.com/fluency/48/000000/vegetarian-food-symbol.png"/>`
-            
-        }else{
-            catData = `<img loading="lazy" src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png"/>`
-        }
-
-
-            let htmlData = `<div class="food-list-con">
-            <div class="food-item">
-            <div class="food-img-con">
-            <img src="/images/biryani.jpg"></img>
-            </div>
-            
-              <div class="left-con">
-                <div class="food-food-price-con">
-                  <h4>${elem.cuisinename}</h4>
-                  <h4 class="">₹ ${elem.price}</h4>
-               ${catData}
-
-                </div>
-              </div>
-              <div class="right-con">
-                 <div class="number-input">
-               
-               <button class="minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); removeFromCart('${elem._id}')"><i class="bi bi-dash"></i></button>
-               <input class="quantity" min="1" max="15" name="food-quantity" value="${elem.quantityuser}" type="number" required>
-               <button onclick="this.parentNode.querySelector('input[type=number]').stepUp(); addToCart('${elem._id}')" class="plus"><i class="bi bi-plus"></i></button>
-               </div>
-               <h4 class="food-total-price ">₹ ${elem.price * elem.quantityuser}</h4>
-              </div>
-        
-            </div>
-          </div>`
-          subTotal = parseFloat(subTotal)
-          subTotal +=  parseFloat(`${elem.price * elem.quantityuser}`);
-          subTotal = parseFloat(subTotal).toFixed(2)
-          
-          
-          
-          foodItemHolder.insertAdjacentHTML('afterbegin', htmlData)
-        })
-        tax = ((parseFloat(subTotal) * 18) / 100).toFixed(2)
-
-
-        
-        grandTotal = (parseFloat(subTotal) + parseFloat(tax)).toFixed(2);
-
-         document.querySelector('.sub-total-text').textContent = "₹ " + subTotal;
-            document.querySelector('.tax-text').textContent = "₹ " + tax ;
-         document.querySelector('.grand-total-text').textContent = "₹ " + grandTotal;
-         document.querySelector('.grand-total-abs').textContent = "₹ " + grandTotal;
-         document.querySelector('.item-count-abs').textContent =   `${cart.length} ${ cart.length > 1 ? "ITEMS" : "ITEM"}`;
-
-
-
-
-    } catch (error) {
-        console.log(error);
-    }
-    
-
-   
-}
-const addToCart = async(i)=>{
-    try {
-
-    let arr = JSON.parse(localStorage.getItem(id)) || []
-    
-    arr.push(i)
-    
-    localStorage.setItem(id, JSON.stringify(arr));
-
-    displayCart()
-        
-    } catch (error) {
-        console.log("errrrrr hereee");
-    }
-    
-    
- 
-}
-
-
-
-
-
-const removeFromCart = async(i)=>{
-   
-    
-    const arr = JSON.parse(localStorage.getItem(id))
-   
-    for(var j = 0; j < arr.length; j++){
-        if(arr[j] == i){
-            arr.splice(j,1)
-            break ;
-        }
-    }
-
-    localStorage.setItem(id, JSON.stringify(arr));
-
-    displayCart()
-
-    
-}   
-
-
-const pushOrder = async()=>{
-    
-}
 
 
 const tlN = new TimelineLite();
@@ -1393,12 +1344,17 @@ const closeCartMobile = ()=>{
 
 // displayCart()
 
-displayCart()
+//displayCart()
 
 
 
 
 
 </script>
+
+
 <script src="/js/menuAnimation.js"></script>
+<script src="/js/menu.js"></script>
+<script src="/js/addToCart.js"></script>
+
 </html>

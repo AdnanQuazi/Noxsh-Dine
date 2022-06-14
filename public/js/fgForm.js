@@ -42,7 +42,7 @@ const verifyUsername = async ()=>{
                     document.querySelector('.fg-div1').style.display = "none"
                     document.querySelector('.fg-div2').style.display = "flex"
                 }else{
-                    document.querySelector('.text-danger-username').innerHTML = "Please check the useramne"
+                    document.querySelector('.text-danger-username').innerHTML = "Invalid Username"
                 document.querySelector('.text-danger-username').style.opacity = "1"
 
                 }
@@ -96,7 +96,7 @@ const validation = async(btn)=>{
 
     }else{
 
-        document.querySelector('.text-danger-password').innerHTML = "Password must contain one number and one special character"
+        document.querySelector('.text-danger-password').innerHTML = "Password must be of 8 character and contain one number and one special character"
         document.querySelector('.text-danger-password').style.opacity = "1"
 
         return;
