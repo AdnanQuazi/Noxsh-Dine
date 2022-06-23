@@ -145,7 +145,7 @@ const submitPassword = async()=>{
         })
 
         if(await resetPassword.json()){
-            console.log("Reset Successful");
+            window.location.href = './login'
         }else{
             console.log("Reset Unsuccessful");
 

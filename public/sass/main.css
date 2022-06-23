@@ -1,4 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+.my-toast {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+}
+
+.my-toast span {
+  font-size: 2rem;
+  background-color: #ca1d1d;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  color: white;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1518,8 +1539,8 @@ footer .footer-content .footer-upper-content .logo-div, footer .footer-content .
 }
 
 footer .footer-content .footer-upper-content .logo-div img {
-  width: 85%;
-  height: 100%;
+  width: 35rem;
+  height: 35rem;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -1917,6 +1938,102 @@ footer .footer-content .footer-lower-content .copyright-div span {
 }
 
 @media (max-width: 480px) {
+  .edit-det-con {
+    height: auto !important;
+  }
+  .edit-det-con h1 {
+    font-size: 3.5rem !important;
+  }
+  .edit-det-con .wrap-con {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 6rem;
+  }
+  .edit-det-con .wrap-con .left-con {
+    width: 100% !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .edit-det-con .wrap-con .left-con form {
+    width: 100% !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .edit-det-con .wrap-con .left-con label {
+    width: 22rem !important;
+    height: 22rem !important;
+  }
+  .edit-det-con .wrap-con .left-con button[type="submit"] {
+    font-size: 2.5rem !important;
+    padding: 1.5rem 0 !important;
+    width: 22rem;
+  }
+  .edit-det-con .wrap-con .right-con {
+    width: 100% !important;
+  }
+  .edit-det-con .wrap-con .right-con h2 {
+    font-size: 2.5rem !important;
+  }
+  .edit-det-con .wrap-con .right-con .save-btn {
+    padding: 2rem 0 !important;
+    width: 100% !important;
+    font-size: 2.5rem !important;
+  }
+  .edit-det-con .wrap-con .right-con input {
+    font-size: 2.5rem !important;
+    padding: 2.5rem !important;
+  }
+  .edit-det-con .wrap-con .right-con .text-danger {
+    font-size: 2rem !important;
+  }
+  .edit-det-con .wrap-con .right-con .priv-acc-div {
+    padding: 2.5rem 2.5rem !important;
+  }
+  .edit-det-con .wrap-con .right-con .priv-acc-div span {
+    font-size: 2.5rem !important;
+  }
+  .edit-det-con .wrap-con .right-con .priv-acc-div .switch {
+    width: 8rem !important;
+    height: 4rem !important;
+  }
+  .edit-det-con .wrap-con .right-con .priv-acc-div .slider::before {
+    height: 3rem !important;
+    width: 3rem !important;
+  }
+  .my-toast {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    opacity: 0;
+    z-index: 10 !important;
+  }
+  .my-toast span {
+    font-size: 3rem !important;
+    background-color: #ca1d1d;
+    border-radius: 1rem;
+    padding: 1rem 2rem !important;
+    color: white;
+  }
   html {
     font-size: 33%;
   }

@@ -2113,6 +2113,81 @@ app.get("/how-it-works",async(req,res)=>{
     }
 
 })
+
+app.get("/edit-profile",auth,async(req,res)=>{
+    try {
+        if(req.token){
+            let name = req.user.name.split([" "]);
+
+            res.render('editprofile', {
+                token : true,
+                name : name
+            });
+        }
+       
+    } catch (error) {
+        
+    }
+
+})
+app.post('/send-prof-det' , auth,async(req,res)=>{
+
+    try {
+        if(req.token){
+            res.send(req.user)
+        }
+    } catch (error) {
+        
+    }
+})
+app.post('/edit-profile',auth,async(req,res)=>{
+    try {
+        if(req.token){
+            console.log(req.body.payload);
+            const updateUser = await UserData.findByIdAndUpdate({_id : req.user._id},{
+                name : req.body.payload.name,
+                username : req.body.payload.username,
+                email : req.body.payload.email
+            },{new : true})
+            let updatedUser = await updateUser.save()
+            console.log(updatedUser);
+            res.send(true);
+        }
+    } catch (error) {
+        res.send(Object.keys(error.keyValue))
+    }
+
+})
+app.post('/private-account',auth,async(req,res)=>{
+
+    try {
+        if(req.token){
+            
+                const updatedUser = await UserData.findByIdAndUpdate({_id : req.user._id},{
+                    privateAccount : req.body.payload
+                })
+                await updatedUser.save()
+                res.send(true)
+        }
+    } catch (error) {
+            res.send(false)
+    }
+})
+app.post('/blogger-account',auth,async(req,res)=>{
+
+    try {
+        if(req.token){
+            
+                const updatedUser = await UserData.findByIdAndUpdate({_id : req.user._id},{
+                    bloggerAccount : req.body.payload
+                })
+                await updatedUser.save()
+                res.send(true)
+        }
+    } catch (error) {
+            res.send(false)
+    }
+})
 server.listen(port, ()=>{
     console.log("Conection is established at " + port);
 })

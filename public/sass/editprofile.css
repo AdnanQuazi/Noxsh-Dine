@@ -1,0 +1,258 @@
+nav {
+  -webkit-box-shadow: 0 3px 1rem #0000001a;
+          box-shadow: 0 3px 1rem #0000001a;
+  position: relative !important;
+  width: 100%;
+}
+
+nav .nav-links-con ul li a {
+  color: #333;
+}
+
+nav .acc-det .fa-heart, nav .acc-det .fa-caret-down, nav .acc-det span {
+  color: #333;
+}
+
+.edit-prof-sec1 {
+  width: 100%;
+  min-height: calc(100vh - 8rem);
+  padding: 4rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.edit-prof-sec1 .edit-det-con {
+  width: 100%;
+  height: auto;
+  padding: 2rem 2rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4rem;
+}
+
+.edit-prof-sec1 .edit-det-con h1 {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .left-con {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .left-con form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .left-con form label {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0rem 0 4rem 0rem;
+  width: 18rem;
+  height: 18rem;
+  position: relative;
+  background-color: black;
+  text-align: center;
+  line-height: 18rem;
+  color: green;
+  font-size: 4rem;
+  border-radius: 50%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .left-con form input[type="file"] {
+  display: none;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .left-con form button[type="submit"] {
+  background-color: white;
+  border: 0.2rem solid #3ea055;
+  padding: 0.8rem 0;
+  border-radius: 1rem;
+  font-size: 2rem;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .left-con form button[type="submit"]:hover {
+  background-color: #3ea055;
+  color: white;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .save-btn {
+  background-color: #3ea055;
+  color: white;
+  border: 0.2rem solid #3ea055;
+  padding: 0.8rem 4rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con h2 {
+  letter-spacing: 1rem;
+  color: #afafaf;
+  text-transform: uppercase;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con form input {
+  font-size: 2rem;
+  padding: 1.2rem;
+  width: 100%;
+  border: 0.1rem solid #afafaf;
+  border-radius: 1rem;
+  outline: black;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con form input[name="phone"] {
+  color: #afafaf;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con form .text-danger {
+  opacity: 0;
+  font-size: 1.5rem;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 1.5rem;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div span {
+  font-size: 2rem;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div .switch {
+  position: relative;
+  display: inline-block;
+  width: 6rem;
+  height: 3rem;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div .slider.round {
+  border-radius: 34px;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div .slider.round:before {
+  border-radius: 50%;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div .slider:before {
+  position: absolute;
+  content: "";
+  height: 2.2rem;
+  width: 2.2rem;
+  bottom: 50%;
+  -webkit-transform: translate(0.6rem, 50%);
+          transform: translate(0.6rem, 50%);
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div input:checked + .slider {
+  background-color: #3ea055;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #3ea055;
+          box-shadow: 0 0 1px #3ea055;
+}
+
+.edit-prof-sec1 .edit-det-con .wrap-con .right-con .priv-acc-div input:checked + .slider:before {
+  -webkit-transform: translate(calc(150% - 0.1rem), 50%);
+          transform: translate(calc(150% - 0.1rem), 50%);
+}
+/*# sourceMappingURL=editprofile.css.map */

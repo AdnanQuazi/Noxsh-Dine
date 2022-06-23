@@ -2608,6 +2608,9 @@ nav .acc-det .home-prof-div-con ul li {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .restaurant-profile-con .menu-book-con .content-section .food-items-con {

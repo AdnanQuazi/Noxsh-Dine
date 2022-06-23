@@ -42,7 +42,7 @@ const fillMenu = ()=>{
 
 
         })
-        document.querySelector('.catUl').innerHTML += `<li id="${element}">${element} (${a})</li>`
+        document.querySelector('.catUl').innerHTML += `<li onclick="scrollToView('${element}')" id="${element}">${element} (${a})</li>`
         let containerData = `<div class="specify-div" >
             <button class="specify-head"  data-tab-target="${element}" data-tab-status="open">${element} (${a}) <i class="bi bi-caret-down-fill"></i></button>
             <div class="menu-inner-wrap-con menu-inner-wrap-con${index}" id="${element}" data-tab-content="${element}"></div>
@@ -222,7 +222,7 @@ filterTabs.forEach(tab =>{
             
             
                     })
-                    document.querySelector('.catUl').innerHTML += `<li id="${element}">${element} (${a})</li>`
+                    document.querySelector('.catUl').innerHTML += `<li onclick="scrollToView('${element}')" id="${element}">${element} (${a})</li>`
                     let containerData = `<div class="specify-div" >
                         <button class="specify-head"  data-tab-target="${element}" data-tab-status="open">${element} (${a}) <i class="bi bi-caret-down-fill"></i></button>
                         <div class="menu-inner-wrap-con menu-inner-wrap-con${index}" id="${element}" data-tab-content="${element}">
@@ -373,7 +373,7 @@ filterTabs.forEach(tab =>{
             
             
                     })
-                    document.querySelector('.catUl').innerHTML += `<li id="${element}">${element} (${a})</li>`
+                    document.querySelector('.catUl').innerHTML += `<li onclick="scrollToView('${element}')" id="${element}">${element} (${a})</li>`
                     let containerData = `<div class="specify-div" >
                         <button class="specify-head"  data-tab-target="${element}" data-tab-status="open">${element} (${a}) <i class="bi bi-caret-down-fill"></i></button>
                         <div class="menu-inner-wrap-con menu-inner-wrap-con${index}" id="${element}" data-tab-content="${element}">

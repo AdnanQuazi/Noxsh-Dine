@@ -506,7 +506,9 @@
                                    </div>
                                     <button type="button" value="Submit" id="btnSubmit">POST</button>
                                     </form>
-
+                                    <div class="classified-rev-con">
+                                        <div class="rev-div"><span>Hygenice</span></div>
+                                    </div>    
                                     <div class="review-count-div"></div>
                                     
                                </div>
@@ -1035,7 +1037,7 @@ filterTabs.forEach(tab =>{
                         
                         if(element == elem.category){
                               let typeData;
-                  let quantityData;
+                  let quantityData = '';
 
                            if(elem.type == "Non-Veg"){
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
@@ -1060,10 +1062,12 @@ filterTabs.forEach(tab =>{
                         })
                             
                         let arr = JSON.parse(localStorage.getItem(id)) || []
-                        let btn;
-                        for(let [index,i] of arr.entries()){
+                        if(arr.length < 1){
+                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                        }else{
+                            for(let [index,i] of arr.entries()){
+                            console.log(index);
                             let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
-                            console.log(quantity);
                             if(i.foodId == elem._id){
         
                                 if(i.foodQuantity == quantity){
@@ -1073,15 +1077,19 @@ filterTabs.forEach(tab =>{
                                     <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
                                     </div>`
                                     break;
+
                                 }
         
                             }else{
                                 
-                                if(index == arr.length - 1){
+                                
+                                if(index == arr.length - 1) {
                                     btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
                                 }
                             }
-                        }  
+                        } 
+                        }
+                         
 
                             let htmlData = `<div class="menu-item" >
                             <div class="item-wrap-con">
@@ -1186,7 +1194,7 @@ filterTabs.forEach(tab =>{
                         
                         if(element == elem.category){
                               let typeData;
-                  let quantityData;
+                  let quantityData = '';
 
                            if(elem.type == "Non-Veg"){
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
@@ -1211,7 +1219,10 @@ filterTabs.forEach(tab =>{
                         })
                         let arr = JSON.parse(localStorage.getItem(id)) || []
                         let btn;
-                        for(let [index,i] of arr.entries()){
+                        if(arr.length < 1){
+                             btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                        }else{
+                             for(let [index,i] of arr.entries()){
                             let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
                             console.log(quantity);
                             if(i.foodId == elem._id){
@@ -1232,6 +1243,8 @@ filterTabs.forEach(tab =>{
                                 }
                             }
                         } 
+                        }
+                       
                             let htmlData = `<div class="menu-item" >
                             <div class="item-wrap-con">
                             <div class="img-wrap-con">

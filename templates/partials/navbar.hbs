@@ -9,6 +9,9 @@
                     <li> <a href="/" class="active-link" onclick="ovfh()">Home</a> </li>
                     
                     {{#if token}}
+                    
+                    <li><a href="/signup" onclick="ovfh()" >Contact Us</a> </li>
+                    <li><button onclick="ovfh(); window.location.href='/business/register'">Register as a Restaurant</button></li>
 
                     {{else}}
                     <li><a href="/login" onclick="ovfh()" >Log In</a> </li>

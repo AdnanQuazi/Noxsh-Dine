@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
+.my-toast{
+    
+    position: absolute;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    span{   
+        font-size: 2rem;
+        background-color: rgb(202, 29, 29);
+        border-radius: 1rem;
+        padding: 1rem 2rem;
+        color: white
+    }
+}
 
 *{
     margin: 0;
@@ -1265,8 +1281,8 @@ nav{
 
                 .logo-div{
                     img{
-                        width: 85%;
-                        height: 100%;
+                        width: 35rem;
+                        height: 35rem;
                         align-self: center;
                     }
                 }
@@ -1691,6 +1707,92 @@ nav{
 }
 }
 @media (max-width: 480px) {
+
+    .edit-prof-sec1{
+    }
+    .edit-det-con{
+        height: auto !important;
+        
+        h1{
+            font-size: 3.5rem !important;
+        }
+        .wrap-con{
+            flex-direction: column;
+            gap: 6rem;
+            .left-con{
+                width: 100% !important;
+                align-items: center;
+                form{
+                    width: 100% !important;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                label{
+                    width: 22rem !important;
+                    height: 22rem !important;
+                }
+                button[type="submit"]{
+                    font-size: 2.5rem !important;
+                    padding: 1.5rem 0 !important;
+                    width: 22rem;
+                }
+            }
+            .right-con{
+                width: 100% !important;
+
+                h2{
+                    font-size: 2.5rem !important;
+                }
+                .save-btn{
+                    padding: 2rem 0 !important;
+                    width: 100% !important;
+                    font-size: 2.5rem !important;
+                }
+                input{
+                    font-size: 2.5rem !important;
+                    padding: 2.5rem !important;
+                }
+                .text-danger{
+                    font-size: 2rem !important;
+                }
+                .priv-acc-div{
+                    padding: 2.5rem 2.5rem !important;
+
+                    span{
+                        font-size: 2.5rem !important;
+                    }
+                    .switch{
+                        width: 8rem !important;
+                        height: 4rem !important;
+                    }
+                    .slider::before{
+                        height: 3rem !important;
+                        width: 3rem !important;
+                    }
+                }
+
+            }
+        }
+    } 
+    .my-toast{
+    
+        position: absolute;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        z-index: 10 !important;
+        span{   
+            font-size: 3rem !important;
+            background-color: rgb(202, 29, 29);
+            border-radius: 1rem;
+            padding: 1rem 2rem !important;
+            color: white
+        }
+    }
     html{
         font-size: 33%;
     }

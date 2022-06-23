@@ -46,3 +46,4 @@ categoryData.forEach(elem =>{
 
     cuisineDataHolder.insertAdjacentHTML('beforeend', htmlData);
 })
+

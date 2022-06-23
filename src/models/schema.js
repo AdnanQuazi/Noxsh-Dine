@@ -16,6 +16,9 @@ const userSchema = new mongoose.Schema({
         lowercase : true,
         unique : true
     },
+    profileImg :{
+        type : String
+    },  
     phone:{
         type: String,
         required: true,
@@ -83,6 +86,12 @@ const userSchema = new mongoose.Schema({
     followers : [{
         type : String
     }],
+    privateAccount : {
+        type : Boolean
+    },
+    bloggerAccount : {
+        type : Boolean
+    },
     ownerOf : {
         type : String
     }

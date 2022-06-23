@@ -13,9 +13,11 @@ export const hideToast = ()=>{
     
     
 }
-export const showToast = (data)=>{
+export const showToast = (data,color)=>{
     let toast = document.querySelector('.my-toast')
-    toast.querySelector('span').innerHTML = data
+    color ? toast.querySelector('span').style.backgroundColor = color : toast.querySelector('span').style.backgroundColor = 'rgb(202, 29, 29)'
+    
+    toast.querySelector('span').innerHTML = data    
     tl.to(toast,0.5,{
         opacity : "1",
         display : "flex",
