@@ -464,10 +464,8 @@
     margin-top: auto;
   }
   .cart-absolute-div {
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     bottom: 2rem;
-    margin-bottom: 2rem;
     display: none;
     padding: 2rem;
     -webkit-box-pack: justify;

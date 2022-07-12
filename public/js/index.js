@@ -310,7 +310,7 @@ const nearbyRestaurants = async () =>{
 
      const restaurantPageRedirect = async (_id)=>{
 
-         window.location.href = `http://localhost:3000/restaurants/${_id}`
+         window.location.href = `/restaurants/${_id}`
      }
 
 
@@ -425,7 +425,8 @@ const nearbyRestaurants = async () =>{
            
      }
   )}
-     if(window.location.href == "http://localhost:3000/"){
+     
+     if(window.location.href == "https://noxshdine.com/"){
           defaultRestaurantFetch();
 
      }
@@ -767,7 +768,7 @@ const nearbyRestaurants = async () =>{
 
 
 const detectUsingGps = ()=>{
-
+    document.querySelector('.location').innerHTML = 'Loading...' 
     navigator.geolocation.getCurrentPosition(((position) => {
      successfulLookup(position);
      removeElem();

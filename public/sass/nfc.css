@@ -462,4 +462,39 @@
 .btn-con span {
   line-height: 4rem;
 }
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 11;
+  width: 90%;
+  height: 30rem;
+  border-radius: 1rem;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #afafaf;
+}
+
+.popup svg {
+  width: 5rem;
+  height: 5rem;
+}
+
+.popup h1 {
+  font-size: 3.5rem;
+}
+
+.popup p {
+  font-size: 2rem;
+}
 /*# sourceMappingURL=nfc.css.map */

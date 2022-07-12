@@ -23,7 +23,7 @@
 </head>
 <body id="body"> 
     {{>navbar}}
-    
+     
     <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
   <div class="toast-container position-absolute p-3 top-0 start-50 translate-middle-x " id="toastPlacement">
     <div class="toast bg-white border-0">
@@ -42,7 +42,9 @@
  
     
     <div class="sec1" id="sec1">
-        
+        <div class="mic">
+        <i class="fas fa-microphone"></i>
+      </div>
         <h1 class="head-txt">NOXSH DINE</h1>
         <h2 class="tagline">Have It Your way</h2>
         
@@ -55,9 +57,9 @@
             </div>
             <div class="dec-loc-con">
                 <div class="detect-con">
-                    <button>
+                    <button onclick="detectUsingGps()">
                         <i class="bi bi-geo-fill"></i>
-                <span onclick="detectUsingGps()">Detect current location</span>
+                <span >Detect current location</span>
                     </button>
                     
                 </div>
@@ -160,15 +162,19 @@
                 <div class="faci-con">
                     
                     <div class="fac-1">
+                        <img loading="lazy" src="/images/rooftop.jpg" alt="">
                         <span>Rooftop Vibes</span>
                     </div>
                     <div class="fac-2">
+                        <img loading="lazy" src="/images/veg.jpg" alt="">
                         <span>Purely Veg</span>
                     </div>
                     <div class="fac-3">
+                        <img loading="lazy" src="/images/outdoor.jpg" alt="">
                         <span>Outside seating</span>
                     </div>
                     <div class="fac-4">
+                        <img loading="lazy" src="/images/prvdine.jpg" alt="">
                         <span>Private Dining</span>
                     </div>
                     
@@ -184,33 +190,52 @@
                 <h1>Discover your taste</h1>
                 <div class="food-items-con">
                      <div class="food-1">
+                        <img loading="lazy" src="/images/chicken.jpg" alt="">
                         <span>Chicken</span>
                     </div>
                     <div class="food-2">
+                        <img loading="lazy" src="/images/biryani.jpg" alt="">
+
                         <span>Biryani</span>
                     </div>
                     <div class="food-3">
+                        <img loading="lazy" src="/images/pizza.jpg" alt="">
+
                         <span>Pizza</span>
                     </div>
                     <div class="food-4">
+                        <img loading="lazy" src="/images/pizza.jpg" alt="">
+
                         <span>Thali</span>
                     </div>
                     <div class="food-5">
+                        <img loading="lazy" src="/images/streetFood.jpg" alt="">
+
                         <span>Fast Food</span>
                     </div>
                     <div class="food-6">
+                        <img loading="lazy" src="/images/iceCream.jpg" alt="">
+
                         <span>Ice Cream</span>
                     </div>
                     <div class="food-7">
+                        <img loading="lazy" src="/images/momos2.jpg" alt="">
+
                         <span>Momos</span>
                     </div>
                     <div class="food-8">
+                        <img loading="lazy" src="/images/dosa.jpg" alt="">
+
                         <span>Dosa</span>
                     </div>
                     <div class="food-9">
+                        <img loading="lazy" src="/images/paneer.jpg" alt="">
+
                         <span>Panner</span>
                     </div>
                     <div class="food-10">
+                        <img loading="lazy" src="/images/kabab.jpg" alt="">
+
                         <span>Kabab</span>
                     </div>
                    
@@ -357,17 +382,15 @@
         </div>
          <div class="footer-content">
             <div class="footer-upper-content">
-                <div class="logo-div">
-                    <img src="/images/noxshFinalLogo.png" alt="">
-                </div>
-                <div class="site-map-div">
+                {{!-- <div class="logo-div">
+                    <img src="/images/noxshLogo.png" alt="">
+                </div> --}}
+                <div class="footer-data-con">
+                        <div class="site-map-div">
                     <h1>Site Map</h1>
                     <a href="/">Home</a>
                     <a href="/">How It Works?</a>
-                    <a href="/">Raise a Complaint</a>
-                    <a href="/">How can we improve</a>
-
-                    <a href="/">Suggest a Good Feature</a>
+                   
 
                     <a href="/signup">Sign Up</a>
 
@@ -376,18 +399,31 @@
 
 
                 </div>
+                <div class="legal-div">
+                    <h1>Legal</h1>
+                    <a href="/privacy-policy">Policy</a>
+                    <a href="/terms-&-conditions">Terms <br>& Conditions</a>
+
+                </div>
                 <div class="contact-us-div">
                     <h1>Get in Touch</h1>
-                    <span>7057-7057-98</span>
-                    <span>noxsh@dine.com</span>
-                    <div class="contact-us-logo-div">
-                        <i class="bi bi-whatsapp"></i>
-                        <i class="bi bi-instagram"></i>
-                        <i class="bi bi-twitter"></i>
-                    </div>
+                    <a href="/contact-us">Contact us</a>
+
+                     <a href="/complaints">Raise a Complaint</a>
+                    <a href="/suggest-a-feature">Suggest us a feature</a>
+                    
                 </div>
+                </div>
+                    
             </div>
             <div class="footer-lower-content">
+                      <div class="contact-us-logo-div">
+
+                        <span><i class="bi bi-whatsapp"></i></span> 
+                        <span><i class="bi bi-instagram"></i></span>
+                        <span><i class="bi bi-twitter"></i></span>
+                        
+                    </div>  
                     <div class="copyright-div">
                         <span>Copyright 2022 All Rights Reserved<br>NOXSH</span>
                     </div>
@@ -437,7 +473,7 @@ var toastList = toastElList.map(function (toastEl) {
 
 var myToastEl = document.querySelector('.toast')
 var myToast = bootstrap.Toast.getInstance(myToastEl) // Returns a Bootstrap toast instance
-myToast.show();
+
 localStorage.removeItem("userReg")
     }
   
@@ -445,4 +481,5 @@ localStorage.removeItem("userReg")
 
 </script>
 <script src="/js/voiceRecognition.js"></script>
+<script src="/js/paymentGateway.js"></script>
 </html>

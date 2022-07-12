@@ -11,7 +11,8 @@ export const getUser = async()=>{
     const phoneInp = document.querySelector('input[name=phone]');
     const privateInp = document.querySelector('input[name=privateAccount]');
     const bloggerInp = document.querySelector('input[name=bloggerAccount]');
-    const imageInp = document.querySelector('.profileImageLabel');
+    const profileImg = document.querySelector('.profileImg');
+
 
     const getData = await fetch('/send-prof-det',{
         method : "POST"
@@ -26,7 +27,8 @@ export const getUser = async()=>{
     }
     finalData.privateAccount ? privateInp.checked = true : privateInp.checked = false
     finalData.bloggerAccount ? bloggerInp.checked = true : bloggerInp.checked = false
-    finalData.profileImg ? imageInp.style.backgroundImage = `/uploads/${finalData.profileImg}` : imageInp.style.backgroundImage = '/images/avatar.png'
+    finalData.profileImg ? profileImg.src = `${finalData.profileImg}` : profileImg.src = '/images/avatar.png'
+    finalData.profileColor ? document.querySelector('.profileImageLabel').style.backgroundColor = finalData.profileColor : document.querySelector('.profileImageLabel').style.backgroundColor = "#f5f5f5"
     
 }
 

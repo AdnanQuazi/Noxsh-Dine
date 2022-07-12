@@ -1,8 +1,8 @@
 const giveColor = (e , btn)=>{
    
     if(e.value){
-       document.querySelector(`.${btn}`).style.backgroundColor = "#3ea055"
-       document.querySelector(`.${btn}`).style.borderColor = "#3ea055"
+       document.querySelector(`.${btn}`).style.backgroundColor = "#00917c"
+       document.querySelector(`.${btn}`).style.borderColor = "#00917c"
        document.querySelector(`.${btn}`).style.color = "white"
 
 
@@ -106,8 +106,8 @@ const validation = async(btn)=>{
     if(pass == cPass){
 
         valid = true
-        document.querySelector(`.${btn}`).style.backgroundColor = "#3ea055"
-       document.querySelector(`.${btn}`).style.borderColor = "#3ea055"
+        document.querySelector(`.${btn}`).style.backgroundColor = "#00917c"
+       document.querySelector(`.${btn}`).style.borderColor = "#00917c"
        document.querySelector(`.${btn}`).style.color = "white"
        document.querySelector('.text-danger-cPassword').style.opacity = "0"
        document.querySelector('.text-danger-cPassword').innerHTML= ""

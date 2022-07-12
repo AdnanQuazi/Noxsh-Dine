@@ -3,12 +3,19 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+console.log("port ",port)
 require("./db/conn");
 const UserData = require('./models/schema');
 const RestData = require('./models/restaurant')
 const RestOwnerData = require('./models/restaurantOwner')
 const FeatureData = require('./models/feature')
+const RestaurantRequest = require('./models/restaurantRequest')
+
 const Otp = require('./models/otp')
+const Cart = require('./models/cart')
+
+const Verification = require('./models/verification');
+const Admin = require('./models/admin');
 
 
 const path = require("path");
@@ -16,10 +23,15 @@ const hbs = require('hbs');
 const staticPath = path.join(__dirname, "../public");
 const templatePath = path.join(__dirname, "../templates/views");
 const partialPath = path.join(__dirname, "../templates/partials");
+const avatarPath = path.join(__dirname, "../public/avatars");
 const cookieParser = require('cookie-parser');
 const math = require('mathjs')
 const auth = require("./middleware/auth");
 const otpAuth = require("./middleware/otpAuth");
+const verificationAuth = require("./middleware/verificationAuth");
+const adminAuth = require("./middleware/adminAuth");
+
+
 
 
 const axios = require('axios');
@@ -36,6 +48,10 @@ const nodemailer = require('nodemailer');
 const otpGenerator = require('otp-generator');
 const jwt = require('jsonwebtoken');
 
+const fs = require('fs');
+const RestaurantData = require('./models/restaurant');
+
+
 const transporter = nodemailer.createTransport({
     service : "hotmail",
     auth : {
@@ -43,6 +59,147 @@ const transporter = nodemailer.createTransport({
         pass : process.env.PASS
     }
 })
+const fsPromises = fs.promises;
+
+
+const options = {
+    from : "noxshdine@outlook.com",
+    to : "quaziadnan12352@gmail.com",
+    subject : "Verfication",
+    html : `
+
+    <div id="invoice" style="padding: 30px;">
+    
+       
+        <div class="invoice overflow-auto" style="position: relative;background-color: #FFF;min-height: 680px;padding: 15px;">
+            <div style="min-width: 600px">
+               
+                <main style="padding-bottom: 50px;">
+                <header class="row">
+    			<div class="receipt-header" style="display:flex;justify-content:space-between;" >
+					<div class="col-xs-6 col-sm-6 col-md-6" style="width:100%">
+						<div class="receipt-left">
+							<img class="img-responsive" alt="iamgurdeeposahan" src="https://bootdey.com/img/Content/avatar/avatar6.png" style="width: 71px; border-radius: 43px;">
+						</div>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6 text-right" style="min-width: max-content;">
+						<div class="receipt-right">
+							<h5 style="font-size: 16px;font-weight: bold;margin: 0 0 7px 0;">Company Name.</h5>
+							<p style="font-size: 12px;margin: 0px;">+1 3649-6589 <i class="fa fa-phone" style="text-align: center;width: 18px;"></i></p>
+							<p style="font-size: 12px;margin: 0px;">company@gmail.com <i class="fa fa-envelope-o" style="text-align: center;width: 18px;"></i></p>
+							<p style="font-size: 12px;margin: 0px;">USA <i class="fa fa-location-arrow" style="text-align: center;width: 18px;"></i></p>
+						</div>
+					</div>
+				</div>
+            </header>
+			
+			<div class="row">
+				<div class="receipt-header receipt-header-mid" style="margin: 24px 0;overflow: hidden;display:flex;">
+					<div class="col-xs-8 col-sm-8 col-md-8 text-left" style="width:100%">
+						<div class="receipt-right">
+							<h5 style="font-size: 16px;font-weight: bold;margin: 0 0 7px 0;">Customer Name </h5>
+							<p style="font-size: 12px;margin: 0px;"><b>Mobile :</b> +1 12345-4569</p>
+							<p style="font-size: 12px;margin: 0px;"><b>Email :</b> customer@gmail.com</p>
+							<p style="font-size: 12px;margin: 0px;"><b>Address :</b> New York, USA</p>
+						</div>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4" style="width:max-content">
+						<div class="receipt-left">
+							<h3>INVOICE # 102</h3>
+						</div>
+					</div>
+				</div>
+            </div>
+
+                    <table border="0" cellspacing="0" cellpadding="0" style="width: 100%;border-collapse: collapse;border-spacing: 0;margin-bottom: 20px;">
+                        <thead>
+                            <tr>
+                                <th style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;white-space: nowrap;font-weight: 400;font-size: 16px;">#</th>
+                                <th class="text-left" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;white-space: nowrap;font-weight: 400;font-size: 16px;">DESCRIPTION</th>
+                                <th class="text-right" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;white-space: nowrap;font-weight: 400;font-size: 16px;">HOUR PRICE</th>
+                                <th class="text-right" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;white-space: nowrap;font-weight: 400;font-size: 16px;">HOURS</th>
+                                <th class="text-right" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;white-space: nowrap;font-weight: 400;font-size: 16px;">TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="no" style="padding: 15px;background: #3989c6;border-bottom: 1px solid #fff;color: #fff;font-size: 1.6em;">04</td>
+                                <td class="text-left" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;"><h3 style="margin: 0;font-weight: 400;color: #3989c6;font-size: 1.2em;">
+                                    <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                    Youtube channel
+                                    </a>
+                                    </h3>
+                                   <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                       Useful videos
+                                   </a> 
+                                   to improve your Javascript skills. Subscribe and stay tuned :)
+                                </td>
+                                <td class="unit" style="padding: 15px;background: #ddd;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;">$0.00</td>
+                                <td class="qty" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;">100</td>
+                                <td class="total" style="padding: 15px;background: #3989c6;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;color: #fff;">$0.00</td>
+                            </tr>
+                            <tr>
+                                <td class="no" style="padding: 15px;background: #3989c6;border-bottom: 1px solid #fff;color: #fff;font-size: 1.6em;">01</td>
+                                <td class="text-left" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;"><h3 style="margin: 0;font-weight: 400;color: #3989c6;font-size: 1.2em;">Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity</td>
+                                <td class="unit" style="padding: 15px;background: #ddd;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;">$40.00</td>
+                                <td class="qty" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;">30</td>
+                                <td class="total" style="padding: 15px;background: #3989c6;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;color: #fff;">$1,200.00</td>
+                            </tr>
+                            <tr>
+                                <td class="no" style="padding: 15px;background: #3989c6;border-bottom: 1px solid #fff;color: #fff;font-size: 1.6em;">02</td>
+                                <td class="text-left" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;"><h3 style="margin: 0;font-weight: 400;color: #3989c6;font-size: 1.2em;">Website Development</h3>Developing a Content Management System-based Website</td>
+                                <td class="unit" style="padding: 15px;background: #ddd;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;">$40.00</td>
+                                <td class="qty" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;">80</td>
+                                <td class="total" style="padding: 15px;background: #3989c6;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;color: #fff;">$3,200.00</td>
+                            </tr>
+                            <tr>
+                                <td class="no" style="padding: 15px;background: #3989c6;border-bottom: 1px solid #fff;color: #fff;font-size: 1.6em;">03</td>
+                                <td class="text-left" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;"><h3 style="margin: 0;font-weight: 400;color: #3989c6;font-size: 1.2em;">Search Engines Optimization</h3>Optimize the site for search engines (SEO)</td>
+                                <td class="unit" style="padding: 15px;background: #ddd;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;">$40.00</td>
+                                <td class="qty" style="padding: 15px;background: #eee;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;">20</td>
+                                <td class="total" style="padding: 15px;background: #3989c6;border-bottom: 1px solid #fff;text-align: right;font-size: 1.2em;color: #fff;">$800.00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" style="padding: 10px 20px;background: 0 0;border-bottom: none;white-space: nowrap;text-align: right;font-size: 1.2em;border-top: 1px solid #aaa;border: none;"></td>
+                                <td colspan="2" style="padding: 10px 20px;background: 0 0;border-bottom: none;white-space: nowrap;text-align: right;font-size: 1.2em;border-top: 1px solid #aaa;">SUBTOTAL</td>
+                                <td style="padding: 10px 20px;background: 0 0;border-bottom: none;white-space: nowrap;text-align: right;font-size: 1.2em;border-top: 1px solid #aaa;">$5,200.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding: 10px 20px;background: 0 0;border-bottom: none;white-space: nowrap;text-align: right;font-size: 1.2em;border-top: 1px solid #aaa;border: none;"></td>
+                                <td colspan="2" style="padding: 10px 20px;background: 0 0;border-bottom: none;white-space: nowrap;text-align: right;font-size: 1.2em;border-top: 1px solid #aaa;">TAX 25%</td>
+                                <td style="padding: 10px 20px;background: 0 0;border-bottom: none;white-space: nowrap;text-align: right;font-size: 1.2em;border-top: 1px solid #aaa;">$1,300.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding: 10px 20px;background: 0 0;border-bottom: none;white-space: nowrap;text-align: right;font-size: 1.2em;border-top: 1px solid #aaa;border: none;"></td>
+                                <td colspan="2" style="padding: 10px 20px;background: 0 0;border-bottom: none;white-space: nowrap;text-align: right;font-size: 1.2em;border-top: 1px solid #aaa;">GRAND TOTAL</td>
+                                <td style="padding: 10px 20px;background: 0 0;border-bottom: none;white-space: nowrap;text-align: right;font-size: 1.2em;border-top: 1px solid #aaa;">$6,500.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="thanks" style="margin-top: -100px;font-size: 2em;margin-bottom: 50px;">Thank you!</div>
+                    
+                </main>
+                <footer style="width: 100%;text-align: center;color: #777;border-top: 1px solid #aaa;padding: 8px 0;">
+                    Invoice was created on a computer and is valid without the signature and seal.
+                </footer>
+            </div>
+            <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+            <div></div>
+        </div>
+    </div>
+    
+    `
+}
+
+// transporter.sendMail(options, (err,info)=>{
+//     if(err){
+//         console.log(err);
+//         return;
+//     }
+//     console.log(info.response);
+// })
 
 
 // app.use(cors({
@@ -70,6 +227,14 @@ app.use(express.static(staticPath));
 app.use(cookieParser());
 hbs.registerPartials(partialPath);
 
+
+
+    
+
+
+          
+           
+
 const storage = multer.diskStorage({
     destination: function(req,file,cb){
         cb(null,'./public/uploads');
@@ -82,6 +247,21 @@ const storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 
+const docStorage = multer.diskStorage({
+    destination: function(req,file,cb){
+       
+
+        cb(null,'./public/documents');
+    },
+    filename: (req, file, cb) => {
+        
+        cb(null, file.fieldname + '-' + Date.now()+path.extname(file.originalname))
+    }
+});
+  
+var uploadDocs = multer({ storage: docStorage });
+var uploadMultipleDocs = uploadDocs.fields([{name : 'restaurantImage', maxCount : 1},{name : 'panImage' , maxCount : 1 },{name : 'fssaiImage' , maxCount : 1 },{name : 'gstImage' , maxCount : 1 }])
+
 io.on("connection", (socket)=>{
    
     
@@ -90,18 +270,18 @@ io.on("connection", (socket)=>{
         res[socket.id] = id
     })
     
-
+    
     socket.on('booking-details',async (msg,room) => { 
 
         try {
-            const token = socket.handshake.headers.cookie.split(["jwt="])[1]
+            const token = socket.handshake.headers.cookie.replaceAll("jwt=", '$').replaceAll(';','$').split('$')[1];
             const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
 
             if(verifyUser){
                 const user = await UserData.findById({_id : verifyUser._id.valueOf()});
                 msg.name = user.name;
                 msg.userName = user.username
-                msg.profilepic = "file-1643559975111.jpg"
+                msg.profileImg = user.profileImg
                 msg.socketId = socket.id  
               socket.to(room).emit("recieve-details", msg);
             }
@@ -122,6 +302,166 @@ io.on("connection", (socket)=>{
 
         socket.broadcast.to(socketId).emit("recieved-details", msg)
     } )
+
+    //Takeaway
+
+    socket.on('takeaway-details', async(msg,room,cb)=>{
+
+        try {
+
+           const token = socket.handshake.headers.cookie.replaceAll("jwt=", '$').replaceAll(';','$').split('$')[1]
+            const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
+            if(verifyUser){
+                const user = await UserData.findById({_id : verifyUser._id.valueOf()}).select({name : 1,username : 1,profileImg : 1,phone : 1}).lean();
+                
+                // const doSomethingAsync = async item => {
+                //     return await RestData.findOne({menu : {$elemMatch : {_id : item.foodId}}}).select({menu : 1})
+                    
+                //   }
+                  
+                //   const getData = async () => {
+                //     return Promise.all(msg.map(item => doSomethingAsync(item)))
+                //   }
+                    console.log(msg)
+                  const data = await RestData.findOne({menu : {$elemMatch : {_id : msg[0].foodId}}}).select({menu : 1})
+                  let finalMenu = []
+
+                  let currObj;
+                //   data.forEach(menu =>{
+                    data.menu.forEach(elem =>{
+                        msg.forEach(element =>{
+                            if(elem._id.valueOf() == element.foodId){
+                                let price;
+                                elem.quantityDetails.forEach(currElem =>{
+                                    let fVal =  `${currElem.quantity} ${currElem.quantityUnit}`
+                                    if(fVal == element.foodQuantity){
+                                        price = currElem.price
+                                    }
+                                })
+                                currObj = {
+                                    foodName : elem.cuisinename,
+                                    foodId : element.foodId,
+                                    foodQuantity : element.foodQuantity,
+                                    cartQuantity : element.cartQuantity,
+                                    price : price,
+                                    restaurantId : room
+    
+                                    
+                                }
+                                finalMenu.push(currObj)
+                            }
+                        })
+    
+                      })
+                  //})
+                 
+                  console.log(finalMenu);
+                  user.socketId = socket.id
+                  var roster = io.sockets.adapter.rooms.get(room)
+                  if(roster != undefined){
+                    socket.to(room).emit("recieve-takeaway-details", finalMenu,user);
+                    cb('Recieved')
+                  }else{
+                    cb('Failed')
+                  }
+                
+              
+            }
+
+        } catch (error) {
+                console.log(error);
+        }   
+        
+    })
+    socket.on('dine-details', async(msg,room,cb)=>{
+        
+        try {
+
+
+            const token = socket.handshake.headers.cookie.replaceAll("jwt=", '$').replaceAll(';','$').split('$')[1]
+            const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
+            if(verifyUser){
+                const user = await UserData.findById({_id : verifyUser._id.valueOf()}).select({name : 1,username : 1,profileImg : 1,phone : 1}).lean();
+                
+                // const doSomethingAsync = async item => {
+                //     return await RestData.findOne({menu : {$elemMatch : {_id : item.foodId}}}).select({menu : 1})
+                    
+                //   }
+                  
+                //   const getData = async () => {
+                //     return Promise.all(msg.map(item => doSomethingAsync(item)))
+                //   }
+    
+                  const data = await RestData.findOne({menu : {$elemMatch : {_id : msg[0].foodId}}}).select({menu : 1})
+                  let finalMenu = []
+
+                  let currObj;
+                //   data.forEach(menu =>{
+                    data.menu.forEach(elem =>{
+                        msg.forEach(element =>{
+                            if(elem._id.valueOf() == element.foodId){
+                                let price;
+                                elem.quantityDetails.forEach(currElem =>{
+                                    let fVal =  `${currElem.quantity} ${currElem.quantityUnit}`
+                                    if(fVal == element.foodQuantity){
+                                        price = currElem.price
+                                    }
+                                })
+                                currObj = {
+                                    foodName : elem.cuisinename,
+                                    foodId : element.foodId,
+                                    foodQuantity : element.foodQuantity,
+                                    cartQuantity : element.cartQuantity,
+                                    price : price,
+                                    restaurantId : room
+    
+                                    
+                                }
+                                finalMenu.push(currObj)
+                            }
+                        })
+    
+                      })
+                  //})
+                 
+                  
+                  user.socketId = socket.id
+                 
+                  var roster = io.sockets.adapter.rooms.get(room)
+                  if(roster != undefined){
+                    socket.to(room).emit("recieve-dine-details", finalMenu,user);
+                    cb('Recieved')
+                  }else{
+                    cb('Failed')
+                  }
+                
+               
+            }
+
+        } catch (error) {
+                console.log(error);
+        }   
+        
+    })
+    socket.on('takeaway-response', (msg,socketId)=>{
+
+            socket.broadcast.to(socketId).emit('takeaway-details',msg)
+
+    })
+    socket.on('dine-response', (msg,socketId)=>{
+
+        socket.broadcast.to(socketId).emit('dine-details',msg)
+
+})
+    socket.on('status-check',(room,cb)=>{
+        var roster = io.sockets.adapter.rooms.get(room)
+        if(roster != undefined){
+          
+          cb('ACTIVE')
+        }else{
+          cb('OFFLINE')
+        }
+    })
 })
 
 
@@ -321,17 +661,46 @@ app.get("/", auth , async (req,res)=>{
                     
                     
                 
-                
-               let name = req.user.name.split([" "]);
+             
+            // const createOrder = async()=>{
+            //     const order = await fetch('https://sandbox.cashfree.com/pg/order',{
+            //         method : 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //             "x-api-version": "2022-01-01",
+            //             "Accept": "application/json",
+            //             "x-client-id": "177288cf66b69314bdb8a5cd24882771",
+            //             "x-client-secret": "a081ce60a1a29662e7feae17d854abda56fcb52d"
+            //         },
+            //         body : {
+            //             "customer_details": {
+            //                 "customer_id": "adnan123",
+            //                 "customer_phone": "8788967972"
+            //             },
+            //             "order_amount": 89,
+            //             "order_currency": "INR"
+            //         }
+            
+            //     })
+            
+            //     console.log(await order.json())
+            // }
+            
+            // createOrder()
+            
+
+              
+                 
+              let name = req.user.name.split([" "]);
                 
 
-                res.render("index",{
-                token : req.token,
-                name : name[0],
-                userId : req.user._id,
-               
-                
-            });
+              res.render("index",{
+              token : req.token,
+              name : name[0],
+              userId : req.user._id,
+             
+              
+          });
 
            
         } catch (error) {
@@ -427,10 +796,23 @@ app.get("/signup", async (req,res)=>{
 
     res.render("signup")
 })
-
+app.post("/check-username",async(req,res)=>{
+    try {
+            const findUsername = await UserData.find({ username: { $exists: true, $eq : req.body.payload } })
+        
+            if(findUsername.length >= 1){
+                res.send(true)
+            }else{
+                res.send(false)
+            }
+    } catch (error) {
+        res.send(error)
+    }
+})
 app.post("/signup", async (req,res)=>{
 
     try {
+        console.log(req.body)
         
         const newUser = new UserData({
             name : req.body.name,
@@ -447,7 +829,7 @@ app.post("/signup", async (req,res)=>{
                 
              if(phoneSearch){
                 
-                res.send("phone number exist");
+                res.status(400).send({msg : "Phone number exists"})
                 
             }else{
                 const token  = await newUser.generateToken();
@@ -460,10 +842,12 @@ app.post("/signup", async (req,res)=>{
             
             
             await newUser.save();
-            res.redirect("/")
+            res.send(true)
+           
         }
         
     } catch (error) {
+        console.log(error)
         res.send(error);
     }
 })
@@ -669,12 +1053,12 @@ app.post("/ovrall", async (req,res)=>{
 
 
 
-app.post('/test', upload.single('file'), async (req,res)=>{
+app.post('/test', uploadMultipleDocs, async (req,res)=>{
     try {
 
 
-        // const cuisines = req.file.filename;
-        // console.log(cuisines);
+        
+        
       
         // let fileArr = [];
         //  cuisines.forEach(elem =>{
@@ -776,7 +1160,7 @@ app.post('/test', upload.single('file'), async (req,res)=>{
     } catch (error) {
         res.send(error);
     }
-    ;
+    
    
 })
 app.post("/restaurants/:id/renderRestaurants",auth, async (req,res)=>{
@@ -1244,7 +1628,7 @@ app.get("/business/profile", auth , async(req,res)=>{
           bookingData.forEach((elem , index)=>{
               
               for(var l = 0; l < dateArr.length; l++){
-
+               
                 if(elem.bookingDate == dateArr[l]){
                     break;
                 }
@@ -1257,7 +1641,7 @@ app.get("/business/profile", auth , async(req,res)=>{
           })
            
 
-          
+            
            
             const doSomethingAsync = async (item , index)=> {
 
@@ -1308,7 +1692,7 @@ app.get("/business/register", auth , async(req,res)=>{
               
           })
       }else {
-      res.redirect('/signup');
+      res.redirect('/login');
 
       }
   } catch (error) {
@@ -1316,14 +1700,316 @@ app.get("/business/register", auth , async(req,res)=>{
     res.send(error)
   }
 })
-app.post("/business/register", auth , async(req,res)=>{
+app.post("/business/register", auth , uploadMultipleDocs, async(req,res)=>{
     try {
         if(req.token){
-            console.log(req.body);
-           res.end()
+                let weeks = req.body.weekDays.split([","]);
+                let cuisineType = req.body.cuisineType.split([","]);
+                let outletType = req.body.outletType.split([","]);
+               
+                const newRestaurant = new RestaurantRequest({
+                    restaurantname : req.body.restaurantName,
+                    restaurantimg : req.files.restaurantImage[0].filename,
+                    address : req.body.restaurantAddress,
+                    locality : req.body.locality ? req.body.locality : req.body.restaurantAddress,
+                    phone : req.body.phone,
+                    email : req.body.ownerEmail,
+                    ownerName : req.body.ownerName,
+                    location : {
+                        type : "Point",
+                        coordinates :[
+                            req.body.latitude,
+                            req.body.longitude
+                        ]
+                    },
+                    workingHours : {
+                        weeks :[
+                            weeks
+                        ],
+                        hours : [
+                            req.body.openHour,
+                            req.body.openMin,
+                            req.body.closeHour,
+                            req.body.closeMin
+                        ]
+                    },
+                    category :  req.body.category,
+                    seating : req.body.seating,
+                    requestFrom : req.user._id,
+                    cuisines : cuisineType,
+                    outletType : outletType,
+                    panDetails : {
+                        panNumber : req.body.panNumber,
+                        legalEntityName : req.body.legalEntity,
+                        legalEntityAddress : req.body.legalEntityAddress,
+                        panImage : req.files.panImage[0].filename
+
+                    },
+                    gstDetails : {
+                        gstRegistered : req.body.gstRegistered,
+                        gstNumber : req.body.gstRegistered == 'true' ? req.body.gstNumber : '',
+                        gstImage : req.body.gstRegistered == 'true' ?  req.files.gstImage[0].filename : '',
+                        chargeOnMenu : req.body.gstMenuCharge
+
+                    },
+                    fssaiDetails : {
+                        fssaiNumber : req.body.fssaiNumber,
+                        fssaiExpiry : req.body.fssaiExpiry,
+                        fssaiImage : req.files.fssaiImage[0].filename
+                    },
+                    bankDetails : {
+                        bankNumber : req.body.bankNumber,
+                        accountType : req.body.accountType,
+                        ifscCode : req.body.ifscCode
+                    },
+
+
+                })
+                let db = await newRestaurant.save();
+                res.send({db})
+        }   
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+})
+
+app.post('/moreInfo',auth,async(req,res)=>{
+    try {
+        console.log(req.body);  
+        const findRes = await RestOwnerData.findById({_id : req.user.ownerOf})
+        if(req.body.payload == 'dine'){
+            let data = [];
+            for(let i = 0;i < findRes.dineIn.length;i++){
+                if(findRes.dineIn[i]._id.valueOf() == req.body.id){
+                        let currObj = {
+                            orderId : findRes.dineIn[i].orderId,
+                            orderDate : findRes.dineIn[i].orderDate,
+                            
+                        }
+                        data.push([
+                            findRes.dineIn[i].orderList,
+                            findRes.dineIn[i].total,
+                            findRes.dineIn[i].payment,
+                            currObj  
+                        ])
+                }
+            }
+             res.send({data})
+        }else if(req.body.payload == 'upcomingBookings'){
+
+            let data = [];
+            for(let i = 0;i < findRes.upcomingBookings.length;i++){
+                if(findRes.upcomingBookings[i]._id.valueOf() == req.body.id){
+                        let currObj = {
+                            orderId : findRes.upcomingBookings[i].oderId ? findRes.upcomingBookings[i].oderId : 'Asd65654',
+                            orderDate : findRes.upcomingBookings[i].bookingDate,
+                            
+                        }
+                        data.push([
+
+                            findRes.upcomingBookings[i].orderList,
+                            findRes.upcomingBookings[i].total,
+                            findRes.upcomingBookings[i].payment,
+                            currObj  
+                        ])
+                }
+            }
+            console.log(data)
+             res.send({data})
+            
+
+        }else if(req.body.payload == 'takeaway'){
+
+            let data = [];
+            
+
+            for(let i = 0;i < findRes.takeaway.length;i++){
+                if(findRes.takeaway[i]._id.valueOf() == req.body.id){
+                        let currObj = {
+                            orderId : findRes.takeaway[i].oderId ? findRes.takeaway[i].oderId : 'Asd65654',
+                            orderDate : findRes.takeaway[i].orderDate,
+                               
+                        }
+                        data.push([
+
+                            findRes.takeaway[i].orderList,
+                            findRes.takeaway[i].total,
+                            findRes.takeaway[i].payment,
+                            currObj  
+                        ])
+                }
+            }
+            
+             res.send({data})
+        }
+        
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+})
+app.post("/dineinDetails",auth,async(req,res)=>{
+    try {
+        if(req.token){
+            const getData = await RestOwnerData.findById({_id : req.user.ownerOf})
+           
+            // const doSomethingAsync = async item => {
+
+            //     return await UserData.findById({_id : item.userId})
+
+            // }
+            // const getData2 = async () => {
+            //     return Promise.all(getData.dineIn.map(item => doSomethingAsync(item)))
+            //   }
+
+            //   const userData = await getData2()
+
+              const tb = async item => {
+                return await UserData.findById({_id : item.userId})
+
+            }
+            const getDat = async () => {
+                return Promise.all(getData.upcomingBookings.map(item => tb(item)))
+              }
+
+              const tbData = await getDat()
+                res.send([{payload : getData.dineIn},{tb : getData.upcomingBookings},{tbData}]) 
+        }
+    } catch (error) {
+        console.log(error)
+        res.send({error})
+    }
+})
+app.post("/saveDineinDetails",auth,async(req,res)=>{
+    try {
+        if(req.token){
+            console.log("here",req.body.payload)
+            const owner = await RestData.findById({_id : req.body.payload[0][0].restaurantId})
+            let orderList = [];
+            let grandTotal = 0;
+            let subTotal = 0;
+            let charges = 0;
+            console.log("here", req.body.payload)
+            req.body.payload[0].forEach(elem =>{
+                let currObj = {
+                    foodId : elem.foodId,
+                    foodName : elem.foodName,
+                    cartQuantity : elem.cartQuantity,
+                    foodQuantity : elem.foodQuantity,
+                    price : elem.price   
+                }
+                subTotal += elem.price * elem.cartQuantity
+                charges = ((subTotal / 100) * 18).toFixed(2)
+                grandTotal = subTotal + parseFloat(charges)
+                orderList.push(currObj)
+            })
+            const ownerAc = await RestOwnerData.findByIdAndUpdate({_id : owner.owner},{
+                $push :{
+                    dineIn :[{
+                    userId : req.body.payload[1]._id,
+                    orderId : req.body.payload[1].orderId ? req.body.payload[1].orderId : "A45678978",
+                    orderList : orderList,
+                    total :[{
+                        subTotal,
+                        charges,
+                        grandTotal
+                    }],
+                    payment : [{
+                        paymentMode : 'Cash',
+                        paymentStatus : false
+                    }]
+            
+                }]
+                }
+            },{
+                useFindAndModify : false
+            })
+
+           
+            await ownerAc.save();
+            res.send(true)
+        }
+    } catch (error) {
+        console.log(error)
+
+    }
+})
+
+app.post("/takeawayDetails", auth ,async(req,res)=>{
+    try {
+        if(req.token){
+            const getData = await RestOwnerData.findById({_id : req.user.ownerOf})
+           
+            const doSomethingAsync = async item => {
+
+                return await UserData.findById({_id : item.userId})
+
+            }
+            const getData2 = async () => {
+                return Promise.all(getData.takeaway.map(item => doSomethingAsync(item)))
+              }
+
+              const userData = await getData2()
+            res.send([{payload : getData.takeaway},{userData}])   
         }
     } catch (error) {
         
+    }
+})
+app.post("/saveTakeawayDetails", auth , async(req,res)=>{
+    try {
+        if(req.token){
+           
+
+            const owner = await RestData.findById({_id : req.body.payload[0][0].restaurantId})
+            let orderList = [];
+            let grandTotal = 0;
+            let subTotal = 0;
+            let charges = 0;
+            console.log("here", req.body.payload)
+            req.body.payload[0].forEach(elem =>{
+                let currObj = {
+                    foodId : elem.foodId,
+                    foodName : elem.foodName,
+                    cartQuantity : elem.cartQuantity,
+                    foodQuantity : elem.foodQuantity,
+                    price : elem.price   
+                }
+                subTotal += elem.price * elem.cartQuantity
+                charges = ((subTotal / 100) * 18).toFixed(2)
+                grandTotal = subTotal + charges
+                orderList.push(currObj)
+            })
+            const ownerAc = await RestOwnerData.findByIdAndUpdate({_id : owner.owner},{
+                $push :{
+                    takeaway :[{
+                    userId : req.body.payload[1]._id,
+                    orderTime : req.body.payload[1].time,
+                    status : "pending",
+                    orderList : orderList,
+                    total :[{
+                        subTotal,
+                        charges,
+                        grandTotal
+                    }],
+                    payment : [{
+                        paymentMode : 'Cash',
+                        paymentStatus : false
+                    }]
+            
+                }]
+                }
+            },{
+                useFindAndModify : false
+            })
+
+           
+            await ownerAc.save();
+            res.send(true)
+        }
+    } catch (error) {
+        res.send(error)
     }
 })
 app.post("/saveUpcomingBookings", auth , async(req,res)=>{
@@ -1869,30 +2555,68 @@ app.post("/business/remove-offer/:offerID", auth ,async(req,res)=>{
 app.post("/add-food-items", auth , upload.single('file') , async(req,res)=>{
     try {0
         if(req.token){  
-            console.log(req.file.filename);
+            console.log(req.body);
+            console.log(req.file)
             const findId = await RestOwnerData.findById({_id : req.user.ownerOf});
-                console.log(findId );
-           const rest = await RestData.findByIdAndUpdate({_id : findId.restaurantId},{
-               $push :{
-                   menu :[{
-                       cuisinename : req.body.foodName,
-                       cuisineImg : req.file.filename,
-                       price : req.body.foodPrice1,
-                       quantity : req.body.foodQuantity1,
-                       quantityUnit : req.body.foodUnit1,
-                       price1 : req.body.foodPrice2,
-                       quantity1 : req.body.foodQuantity2,
-                       quantityUnit1 : req.body.foodUnit2
+            if(req.body.quantityOption){
 
-                   }]
-               }
-           })
+                const rest = await RestData.findByIdAndUpdate({_id : findId.restaurantId},{
+                    $push :{
+                        menu :[{
+                            cuisinename : req.body.foodName,
+                            cuisineImg : req.file.filename,
+                            quantityDetails : [{
+                             price : req.body.foodPrice1,
+                             quantity : req.body.foodQuantity1,
+                             quantityUnit : req.body.foodUnit1
+                            },{
+                             price : req.body.foodPrice2,
+                             quantity : req.body.foodQuantity2,
+                             quantityUnit : req.body.foodUnit2
+                            }],
+                            type : req.body.category,
+                            category : req.body.cuisineType[0] != '' ? req.body.cuisineType[0] : req.body.cuisineType[1],  
+                            packaging : req.body.packaging,
+     
+     
+                        }]
+                    }
+                })
+     
+                await rest.save();
 
-           await rest.save();
+
+            }else{
+
+                const rest = await RestData.findByIdAndUpdate({_id : findId.restaurantId},{
+                    $push :{
+                        menu :[{
+                            cuisinename : req.body.foodName,
+                            cuisineImg : req.file.filename,
+                            quantityDetails : [{
+                             price : req.body.foodPrice1,
+                             quantity : req.body.foodQuantity1,
+                             quantityUnit : req.body.foodUnit1
+                            }],
+                            type : req.body.category,
+                            category : req.body.cuisineType[0] != '' ? req.body.cuisineType[0] : req.body.cuisineType[1],  
+                            packaging : req.body.packaging,
+     
+     
+                        }]
+                    }
+                })
+     
+                await rest.save();
+            }
+          
+                
+           
         }
 
         res.redirect('/business/profile')
     } catch (error) {
+        console.log(error)
         res.send(error)
     }
 })
@@ -1968,15 +2692,13 @@ app.get("/menuData/:id",async(req,res)=>{
 
 app.get("/suggest-a-feature",auth,async(req,res)=>{
     try {
-        if(req.token){
+        
 
                
 
                 res.render('suggestFeature')
 
-        }else{
-            res.redirect('/login')
-        }
+        
     } catch (error) {
 
         res.send(error)
@@ -2013,6 +2735,24 @@ app.post("/suggest-a-feature",auth,async(req,res)=>{
         }else{
             res.redirect('/login')
         }
+    } catch (error) {
+
+        res.send(error)
+        
+    }
+})
+
+app.get("/complaints",auth,async(req,res)=>{
+    try {
+       
+
+           
+                res.render('complaint')
+
+
+
+
+
     } catch (error) {
 
         res.send(error)
@@ -2105,15 +2845,29 @@ app.get('/contact-us',async(req,res)=>{
     }
 })
 
-app.get("/how-it-works",async(req,res)=>{
-    try {
-        res.render('howItWorks');
-    } catch (error) {
+// app.get("/how-it-works",async(req,res)=>{
+//     try {
+//         res.render('howItWorks');
+//     } catch (error) {
         
+//     }
+
+// })   
+
+app.get('/privacy-policy', async(req,res)=>{
+    try {
+        res.render('privacyPolicy')
+    } catch (error) {
+        res.send(error)
     }
-
 })
-
+app.get('/t&c', async(req,res)=>{
+    try {
+        res.render('termsAndConditions')
+    } catch (error) {
+        res.send(error)
+    }
+})
 app.get("/edit-profile",auth,async(req,res)=>{
     try {
         if(req.token){
@@ -2158,6 +2912,21 @@ app.post('/edit-profile',auth,async(req,res)=>{
     }
 
 })
+app.post('/edit-profile-img',auth,async(req,res)=>{
+    try {
+        if(req.token){
+            console.log(req.body)
+            const updateUser = await UserData.findByIdAndUpdate({_id :req.user._id},{
+                profileImg : req.body.profileImg,
+                profileColor : req.body.profileColor  
+            },{new : true})
+            let updatedUser = await updateUser.save()
+            res.send(true);
+        }
+    } catch (error) {
+        res.send(Object.keys(error.keyValue))   
+    }
+})
 app.post('/private-account',auth,async(req,res)=>{
 
     try {
@@ -2188,6 +2957,784 @@ app.post('/blogger-account',auth,async(req,res)=>{
             res.send(false)
     }
 })
+
+app.post('/inventory',auth,async(req,res)=>{
+    try {
+        if(req.token){
+            const findOwner = await RestOwnerData.findById({_id : req.user.ownerOf})
+            let findRes;
+            let resultArr = [];
+            if(req.body.payload){
+                let payload = req.body.payload.trim()
+            findRes = await RestData.find({$and : [{_id : findOwner.restaurantId},{menu : {$elemMatch : {cuisinename : {$regex:  new RegExp(payload+'.*','i')}}}}]},{menu : 1});
+            // findRes = await RestData.find({menu : {$elemMatch : {cuisinename : {$regex:  new RegExp(payload+'.*','i')}}}})    
+            findRes[0].menu.forEach(elem =>{
+                if(elem.packaging == 'packed'){
+                    resultArr.push(elem)
+                }
+            })
+            
+            }else{
+
+            findRes = await RestData.find({$and :[{_id : findOwner.restaurantId},{menu : {$elemMatch : {packaging : "packed"}}}]}).select({menu : 1});
+            findRes[0].menu.forEach(elem =>{
+                if(elem.packaging == 'packed'){
+                    resultArr.push(elem)
+                }
+            })
+            }
+            res.send(resultArr)
+
+        }
+    } catch (error) {
+        res.send(error);
+    }   
+})
+app.post('/update-stock',auth,async(req,res)=>{
+    try {
+        if(req.token){
+            const ownerData = await RestOwnerData.findById({_id : req.user.ownerOf})
+            
+
+            
+            const tb = async item => {
+                
+                
+                let data =  await RestData.findOneAndUpdate({
+                    _id : ownerData.restaurantId
+                },{
+                    $set : {
+
+                        "menu.$[].quantityDetails.$[e2].stock" :  item.stock  
+                    }
+                },{
+                    arrayFilters : [
+                        {"e2._id" : item.qId}
+                    ]
+                });
+                await data.save()
+                return data
+            }
+            const getDat = async () => {
+                return Promise.all(req.body.payload.map(item => tb(item)))
+              }
+
+              const tbData = await getDat()
+            
+             
+              if(tbData.length >= 1){
+                res.send(true)
+              }else{
+                res.send(false)
+              }
+
+        }
+    } catch (error) {
+        console.log(error)
+        res.send(error);
+    }   
+})
+app.get('/privacy-policy',async(req,res)=>{
+    try {
+        res.render('privacyPolicy')
+    } catch (error) {
+        res.send(error)
+    }
+})
+app.get('/terms-&-conditions',async(req,res)=>{
+    try {
+        res.render('termsAndConditions')
+    } catch (error) {
+        res.send(error)
+    }
+})
+
+app.post('/verify-payment', auth , async(req,res)=>{
+    try {
+        
+          
+            const options = {
+                method: 'GET',
+                url: `https://api.cashfree.com/pg/orders/${req.body.order_id}`,
+                headers: {
+                  Accept: 'application/json',
+                  'x-client-id': process.env.CFAPPID,
+                  'x-client-secret': process.env.CFSECRETID,
+                  'x-api-version': '2022-01-01'
+                }
+              };
+              
+              axios.request(options).then(function (response) {
+                if(response.data.order_status == 'PAID'){
+                    
+                    res.send(response.data)
+                }else{
+                    res.send(response.data.order_status)
+                }
+              }).catch(function (error) {
+                console.error(error);
+              });
+            
+
+        
+    } catch (error) {
+        
+    }
+})
+
+app.post('/checkout',auth,async(req,res)=>{
+
+    try {
+        if(req.token){
+            
+            const findVender = await RestOwnerData.find({_id : req.body.id});
+            
+            const checkout = ()=>{
+                const options = {
+                    method: 'POST',
+                    url: 'https://api.cashfree.com/pg/orders',
+                    headers: {
+                      Accept: 'application/json',
+                      'x-client-id': process.env.CFAPPID,
+                      'x-client-secret': process.env.CFSECRETID,
+                      'x-api-version': '2022-01-01',
+                      'Content-Type': 'application/json'
+                    },
+                    data: {
+                        
+                      customer_details: {customer_phone: req.user.phone, customer_id : req.user._id},
+                      order_meta: {return_url: req.body.returnUrl },
+                      order_amount: req.body.amount,    
+                      order_currency: 'INR',
+                    //   order_splits: [{vendor_id: findVender._id, percentage: 99}]
+                    },
+                    
+                  };
+                  
+                  axios.request(options).then(function (response) {
+                    console.log(response)
+                    res.status(200).send({data : response.data})
+                  }).catch(function (error) {
+                    console.log(error)
+                    res.status(500).send(error)
+                  });
+            }
+           checkout()
+        }
+    } catch (error) {
+        console.log(error)
+            res.send(error)   
+    }
+})
+app.post("/verify-step1",verificationAuth,async(req,res)=>{
+    try {
+        if(req.token){
+            
+            console.log(req.body);
+            let phoneStatus;
+            
+           
+
+                if(req.body.payload.phone == req.user.phoneStats.phone){
+                    if(req.user.phoneStats.status){
+                        phoneStatus = true;
+                        
+
+                    }else{
+                        res.status(401).send({msg :"Please Verify Phone Number",position : "Restaurant Number"})
+                        phoneStatus = false;
+                      
+                    }
+                }else{
+                        res.status(401).send({msg :"Please Verify Phone Number",position : "Restaurant Number"})
+                        phoneStatus = false;
+                      
+                }
+
+
+                  
+            
+
+            if(req.body.payload.email == req.user.emailStats.email && phoneStatus){
+                if(req.user.emailStats.status){
+                        res.status(200).send({msg :"Verified",position : "Body"})
+                }else{
+                    res.status(401).send({msg :"Please Verify Email",position : "Owner Email"})
+                    
+                }
+            }else if(req.body.payload.email != req.user.emailStats.email && phoneStatus){
+            
+                    res.status(401).send({msg :"Please Verify Email",position : "Owner Email"})
+                    
+                
+                
+            }
+
+
+           
+        }else{
+            let recievedBody = req.body.payload;
+            console.log(recievedBody);
+            res.status(401).send({msg : 'Please Verify Details',position : 'Body'})
+        }
+    } catch (error) {
+        console.log(error);
+    }
+})
+app.post('/verify-email',verificationAuth,async(req,res)=>{
+    try {
+        if(req.token){
+           
+
+            const OTP = otpGenerator.generate(6 ,{
+                digits : true, lowerCaseAlphabets : false, upperCaseAlphabets : false, specialChars : false
+            })
+            console.log(req.user);
+            if(req.user.length < 1){
+                res.send(false)
+            }else{
+                const options = {
+                    from : "noxshdine@outlook.com",
+                    to : req.body.payload,
+                    subject : "Verfication",
+                    text : `Your OTP is ${OTP}`
+                }
+                
+                transporter.sendMail(options, (err,info)=>{
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    console.log(info.response);
+                })
+    
+    
+                const saveOTP = await new Otp({
+                        username : req.body.payload,
+                        otp : OTP,
+                      
+                })
+                
+                
+                const saveEmail = await Verification.findOneAndUpdate({_id : req.user._id},{
+                    $set : {
+                        emailStats : {
+                            email : req.body.payload,
+                            status : false
+                        }   
+                    }
+                })
+
+                const token  = await saveOTP.generateToken();
+    
+                res.cookie("session", token, {
+                    expires: new Date(Date.now() + 300000),
+                    httpOnly: true
+                });
+
+              
+    
+                await saveOTP.save()
+                await saveEmail.save()
+                res.send(true)
+            
+        }
+    }else{
+        
+        const OTP = otpGenerator.generate(6 ,{
+            digits : true, lowerCaseAlphabets : false, upperCaseAlphabets : false, specialChars : false
+        })
+        
+        
+            const options = {
+                from : "noxshdine@outlook.com",
+                to : req.body.payload,
+                subject : "Verfication",
+                text : `Your OTP is ${OTP}`
+            }
+            
+            transporter.sendMail(options, (err,info)=>{
+                if(err){
+                    console.log(err);
+                    return;
+                }
+                console.log(info.response);
+            })
+
+
+            const saveOTP = await new Otp({
+                    username : req.body.payload,
+                    otp : OTP,
+                  
+            })
+            
+            
+            
+            const saveEmail = new Verification({
+                emailStats : {
+                    email : req.body.payload,
+                    status : false
+                }   
+            })
+
+            const token  = await saveOTP.generateToken();
+
+            res.cookie("session", token, {
+                expires: new Date(Date.now() + 300000),
+                httpOnly: true
+            });
+
+            const emailToken  = await saveEmail.generateToken();
+
+            res.cookie("businessVerification", emailToken, {
+                expires: new Date(Date.now() + 300000 * 60),
+                httpOnly: true
+            });
+
+          
+
+            await saveOTP.save()
+            await saveEmail.save()
+            res.send(true)
+        
+    }
+
+    
+    } catch (error) {
+            res.send(error)
+    }
+})
+app.post('/verify-email-otp',otpAuth,async(req,res)=>{
+    try {
+        if(req.token){
+            const otp = req.body.payload
+            if(otp == req.user.otp){
+                const token = req.cookies.businessVerification;
+                const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
+        
+                const user = await Verification.findOneAndUpdate({_id: verifyUser._id.valueOf()},{
+                    $set : {
+                        "emailStats.status":  true   
+                        
+                    }
+                });
+
+                await user.save()
+                res.send({msg : "Email Verified"})
+            }else{
+                res.send({msg : "Invalid OTP"})
+            }
+            
+        }else{
+            res.send('');
+        }
+    } catch (error) {
+            res.send(error)
+    }
+})
+
+app.post('/verify-phone',verificationAuth,async(req,res)=>{
+    try {
+        console.log(req.body.payload)
+        if(req.token){
+           
+
+            const OTP = otpGenerator.generate(6 ,{
+                digits : true, lowerCaseAlphabets : false, upperCaseAlphabets : false, specialChars : false
+            })
+            console.log(req.user);
+            if(req.user.length < 1){
+                res.send(false)
+            }else{
+                
+            const options = {
+                method: 'POST',
+                url: 'https://www.fast2sms.com/dev/bulkV2',
+                headers: {
+
+                    "authorization":"UJSgyQ5CrupNLnMwIEdmi2aOk4e8P19fGjWtl7zZVsb3vX0BYxzkGL0IumgNrHvEUPTf7RYcWs51d8Ah",
+                    "Content-Type":"application/json"
+                    },
+                data : {
+                    "route" : "dlt",
+                        "sender_id" : "NXHGRP",
+                        "message" : "139047",
+                        "variables_values" : `${req.body.payload}|${OTP}|`,
+                        "flash" : 0,
+                        "numbers" : req.body.payload,
+                }
+                
+              };
+              
+              axios.request(options).then(function (response) {
+                console.log(response.data);
+                
+              }).catch(function (error) {
+                console.error(error);
+              });
+    
+                const saveOTP = await new Otp({
+                        username : req.body.payload,
+                        otp : OTP,
+                      
+                })
+                
+                
+                const savePhone = await Verification.findOneAndUpdate({_id : req.user._id},{
+                    $set : {
+                        phoneStats : {
+                            phone : req.body.payload,
+                            status : false
+                        }   
+                    }
+                })
+
+                const token  = await saveOTP.generateToken();
+    
+                res.cookie("session", token, {
+                    expires: new Date(Date.now() + 300000),
+                    httpOnly: true
+                });
+
+              
+    
+                await saveOTP.save()
+                await savePhone.save()
+                res.send(true)
+            
+        }
+    }else{
+        
+        const OTP = otpGenerator.generate(6 ,{
+            digits : true, lowerCaseAlphabets : false, upperCaseAlphabets : false, specialChars : false
+        })
+        
+        
+        const options = {
+            method: 'POST',
+            url: 'https://www.fast2sms.com/dev/bulkV2',
+            headers: {
+
+                "authorization":"UJSgyQ5CrupNLnMwIEdmi2aOk4e8P19fGjWtl7zZVsb3vX0BYxzkGL0IumgNrHvEUPTf7RYcWs51d8Ah",
+                "Content-Type":"application/json"
+                },
+            body : {
+                
+
+                    "route" : "dlt",
+                    "sender_id" : "NXHGRP",
+                    "message" : "139047",
+                    "variables_values" : `${req.body.payload}|${OTP}`,
+                    "flash" : 0,
+                    "numbers" : req.body.payload,
+                    
+            }
+            
+          };
+          
+          axios.request(options).then(function (response) {
+            console.log(response.data);
+            res.redirect(response.data.payment_link)
+          }).catch(function (error) {
+            console.error(error);
+          });
+
+
+            const saveOTP = await new Otp({
+                    username : req.body.payload,
+                    otp : OTP,
+                  
+            })
+            
+            
+            
+            const savePhone = new Verification({
+                phoneStats : {
+                    phone : req.body.payload,
+                    status : false
+                }   
+            })
+
+            const token  = await saveOTP.generateToken();
+
+            res.cookie("session", token, {
+                expires: new Date(Date.now() + 300000),
+                httpOnly: true
+            });
+
+            const phoneToken  = await saveEmail.generateToken();
+
+            res.cookie("businessVerification", phoneToken, {
+                expires: new Date(Date.now() + 300000 * 60),
+                httpOnly: true
+            });
+
+          
+
+            await saveOTP.save()
+            await savePhone.save()
+            res.send(true)
+        
+    }
+
+    
+    } catch (error) {
+            res.send(error)
+    }
+})
+
+app.post('/verify-phone-otp',otpAuth,async(req,res)=>{
+    try {
+        if(req.token){
+            const otp = req.body.payload
+            if(otp == req.user.otp){
+                const token = req.cookies.businessVerification;
+                const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
+        
+                const user = await Verification.findOneAndUpdate({_id: verifyUser._id.valueOf()},{
+                    $set : {
+                        "phoneStats.status":  true   
+                        
+                    }
+                });
+
+                await user.save()
+                res.send({msg : "Phone Number Verified"})
+
+        }else{
+            res.send({msg : "Invalid OTP"})
+        }
+        
+    }else{
+        res.send('');
+    }
+    } catch (error) {
+        
+    }
+})
+app.get('/admin',adminAuth,async(req,res)=>{
+
+    try {
+        if(req.token){
+            res.render('admin')
+
+        }else{
+            res.redirect('/admin/login')
+        }
+    } catch (error) {
+        
+    }
+
+})
+app.post('/admin',adminAuth,async(req,res)=>{
+
+    try {
+        if(req.token){
+            const getRes = await RestaurantRequest.find({approved : false});
+            res.send({getRes});
+
+        }else{
+            res.redirect('/admin/login')
+        }
+    } catch (error) {
+        res.send(error)
+    }
+
+})
+app.get('/admin/login',async(req,res)=>{
+    try {
+        res.render('adminLogin')
+    } catch (error) {
+        res.send(error)
+    }
+})
+app.post('/admin/login',async(req,res)=>{
+    try {
+
+        
+        const uId = req.body.uId
+        const pass = req.body.password
+      
+        const user = await Admin.findOne({uId});
+            console.log(req.body);
+        if(user){   
+            
+            const passMatch = await bcrypt.compare(pass, user.password);
+
+            if(passMatch){
+                
+                const token  = await user.generateToken();
+                res.cookie("admin", token, {
+                    expires: new Date(Date.now() + 30*24*60*60*1000),
+                    httpOnly: true
+                });
+               
+                
+                res.redirect('/admin')
+    
+            }else{
+                console.log(false);
+               res.send(false)
+    
+            };
+            
+            
+            
+        }else{
+           
+            res.send(false)
+            
+        }
+
+
+    } catch (error) {
+        
+    }
+})
+app.post('/approve-restaurant',adminAuth,async(req,res)=>{
+    try {
+        console.log(req.body.id)
+        const findData = await RestaurantRequest.findById({_id : req.body.id})
+       
+        const pushRes = new RestData({
+            restaurantname : findData.restaurantname,
+            restaurantimg : findData.restaurantimg,
+            address : findData.address,
+            locality : findData.locality,
+            phone : findData.phone,
+            email : findData.email,
+            location : findData.location,
+            workingHours : {
+                weeks : findData.workingHours.weeks,
+                hours : findData.workingHours.hours
+            },
+            category : findData.category ? findData.category : '',
+            seating : findData.seating ? findData.seating : '',
+            facilities : findData.facilities ? findData.facilities : [],
+            cuisines : findData.cuisines
+
+        })
+        const pushedRes = await pushRes.save()
+        
+        const ownerRes = await new RestOwnerData({
+            restaurantId : pushRes._id.valueOf(),
+            pastBookings : [],
+            upcomingBookings : [],
+            takeaway : [],
+            dineIn : []
+        })
+        const ownerPushedRes = await ownerRes.save()
+
+        const user = await UserData.findByIdAndUpdate({_id : findData.requestFrom},{
+            $set : {
+                ownerOf : ownerPushedRes._id.valueOf()
+            }
+        })
+        await user.save()
+
+        const res = await RestData.findByIdAndUpdate({_id : pushedRes._id.valueOf()},{
+            $set : {
+                owner : ownerPushedRes._id.valueOf()
+            }
+        })
+        await res.save()
+
+        await RestaurantRequest.findByIdAndDelete({_id : pushedRes._id.valueOf()})
+        const createVendor = ()=>{
+            const options = {
+                method: 'POST',
+                url: 'https://sandbox.cashfree.com/api/v2/easy-split/vendors',
+                headers: {
+                  Accept: 'application/json',
+                  'x-client-id': '183683fd4c3be6a671a35e371a386381',
+                  'x-client-secret': '0178ca783fbe700bd9c954d5b8641176c8307660',
+                  'x-api-version': '2022-01-01',
+                  'Content-Type': 'application/json'
+                },
+                data: {
+                    
+                    email : findData.email,
+                    status : "ACTIVE",
+                    bank : {
+                        accountNumber : findData.bankDetails.bankNumber,
+                        accountHolder : findData.bankDetails.accountHolder,
+                        ifsc : findData.bankDetails.ifscCode
+                    },
+                    phone : findData.phone ,
+                    name : findData.ownerName,
+                    id : ownerPushedRes._id.valueOf(),
+                    settlementCycleId : 1
+                },
+                
+              };
+              
+              axios.request(options).then(function (response) {
+                res.status(200).send(ok)
+              }).catch(function (error) {
+                    res.status(500).send(error)
+              });
+        }
+
+        createVendor()
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
+app.post('/avatars', auth, async(req,res)=>{
+    try {
+        if(req.token){
+            let avatarsTitle = []
+            let avatars = []
+            let arr = []
+            let a;
+            let i = 0;
+            let currentPath;
+
+
+    
+    fs.readdir(avatarPath, function (err, files) {
+        files.forEach(function (file) {
+
+            avatarsTitle.push(file)
+            currentPath = path.join(avatarPath, file)
+            
+        
+
+        });
+
+       
+      
+                   
+        
+            avatarsTitle.forEach((elem)=>{
+                
+                currentPath = path.join(avatarPath , elem);
+                fs.readdir(currentPath, function (err, files) {
+                    files.push(elem)   
+                   avatars.push(files)
+
+                    if(i == avatarsTitle.length - 1){
+                        res.send({avatarsTitle,avatars})
+                    }
+                    i = i + 1;
+
+                })
+
+            })      
+
+    })  
+       
+
+
+        }
+    } catch (error) {
+
+        console.log(error)
+        res.send(error)
+    }
+})
+
 server.listen(port, ()=>{
     console.log("Conection is established at " + port);
 })

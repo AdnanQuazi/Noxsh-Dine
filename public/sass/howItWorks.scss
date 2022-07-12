@@ -10,15 +10,21 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
         gap: 4rem;
-
+        hr{
+            width: 100%;
+        }
         h1{
             font-size: 4rem;
             margin-top: 4rem;
         }
 
         .takeaway-div,.grouptreat-div,.precook-div,.speaktoorder-div{
+            align-self: start;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
             h1{
                 font-size: 3rem;
                 margin-top: 0;
@@ -26,6 +32,7 @@
             ul{
                 padding: 0;
                 margin: 0;
+                margin-left: 2rem;
 
                 li{
                     list-style: none;

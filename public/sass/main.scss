@@ -2,12 +2,14 @@
 
 .my-toast{
     
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: auto;
     justify-content: center;
     align-items: center;
     opacity: 0;
+    top: 0;
+    display: none;
     span{   
         font-size: 2rem;
         background-color: rgb(202, 29, 29);
@@ -63,7 +65,7 @@ nav{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    
+    background-color: white;
     
 }
 .nav-scroll{
@@ -106,6 +108,9 @@ nav{
     
 }
 
+.my-toast{
+    z-index: 15;
+}
 
 nav{
     
@@ -113,12 +118,13 @@ nav{
     z-index: 5;
     a{
         text-decoration: none;
+
     }
         span{
             transition: 0.5s ease-in-out;
             
             font-size: 4rem;
-            color: white;
+            color: black;
             width: fit-content;
             height: fit-content;
 
@@ -158,6 +164,7 @@ nav{
             display: flex;
             align-items: center;
             margin-bottom: 0;
+            padding-left: 0;
         }
         
         
@@ -166,9 +173,9 @@ nav{
            display: inline-block;
            
            button{
-            font-size: 2.5rem;
-            background-color: #3ea055;
-            border: 0.1rem solid #3ea055;
+            font-size: 2rem;
+            background-color: #00917c;
+            border: 0.1rem solid #00917c;
             border-radius: 1rem;
             padding: 1rem 2rem;
             color: white;
@@ -182,9 +189,9 @@ nav{
            text-decoration: none;
            position: relative;
            padding: 0 2rem;
-           color: white;
+           color: black;
            
-           font-size: 2.5rem;
+           font-size: 2rem;
            line-height: 8rem;
             
            
@@ -223,7 +230,7 @@ nav{
         
         .fa-heart{
             transition: 0.5s ease-in-out;
-            color: white;
+            color: black;
             font-size: 3rem;
             width: 3rem;
             height: 3rem;
@@ -239,12 +246,12 @@ nav{
             transition: 0.5s ease-in-out;
             font-size: 2rem;
             padding: 0 1rem;
-            color: white;
+            color: black;
         }
         .fa-caret-down{
             transition: 0.5s ease-in-out;
             font-size: 2rem;
-            color:white;
+            color: black;
         }
         a{
             text-decoration: none;
@@ -317,7 +324,27 @@ nav{
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-
+    .mic {
+        background: #fff;
+        width: 10rem;
+        height: 10rem;
+        border: 1px solid #eee;
+        border-radius: 100%;
+        bottom: 0;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+      
+        transform: translate(-50%,-50%);
+        font-size: 3rem;
+        color: #00917c;
+        transition: 0.5s translate ease-in-out;
+      }
+      
     img{
         width: 40rem;
         height: 40rem;
@@ -913,9 +940,7 @@ nav{
             
             .fac-1,.fac-2,.fac-3,.fac-4{
                 margin: 2rem 0.5rem;
-                background-image: url(/images/rooftop.jpg);
-                background-size: cover;
-                background-position: bottom;
+               
                 width: 25rem;
                 height: 25rem;
                 border-radius: 50%;
@@ -926,6 +951,15 @@ nav{
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
+                position: relative;
+
+                img{
+                    width: 25rem;
+                    height: 25rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center;
+                }
                 
 
                 span{
@@ -934,18 +968,15 @@ nav{
                     border-radius: 5rem;
                     padding: 1rem;
                     background-color: rgba(255, 255, 255, 0.9);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: fit-content;
+                    transform: translate(-50%,-50%);
                    
             }
             }
-            .fac-2{
-                background-image:url(/images/veg.jpg);
-            }
-            .fac-3{
-                background-image:url(/images/outdoor.jpg);
-            }
-            .fac-4{
-                background-image:url(/images/prvdine.jpg);
-            }
+            
             .fac-1:hover,.fac-2:hover,.fac-3:hover,.fac-4:hover{
                 transform: scale(1.04);
                
@@ -993,7 +1024,7 @@ nav{
         
          .food-1,.food-2,.food-3,.food-4,.food-5,.food-6,.food-7,.food-8,.food-9,.food-10{
              margin: 4rem 0.5rem;
-             background-image: url(/images/Chicken.jpg);
+             
              background-size: cover;
              background-position: bottom;
              width: 20rem;
@@ -1006,8 +1037,15 @@ nav{
              justify-content: center;
              align-items: center;
              cursor: pointer;
+             position: relative;
              
-
+                img{
+                    width: 20rem;
+                    height: 20rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center;
+                }
              span{
                  
                  font-size: 2rem;
@@ -1015,39 +1053,16 @@ nav{
                  border-radius: 5rem;
                  padding: 1rem;
                  background-color: rgba(255, 255, 255, 0.9);
+                 position: absolute;
+                 top: 50%;
+                 left: 50%;
+                 transform: translate(-50%,-50%);
+                 width: fit-content;
                  
                 
          }
          }
-         .food-2{
-             background-image:url(/images/biryani.jpg);
-             background-position: center;
-         }
-         .food-3{
-             background-image:url(/images/pizza.jpg);
-         }
-         .food-4{
-             background-image:url(/images/pizza.jpg);
-         }
-         .food-5{
-            background-image:url(/images/streetFood.jpg);
-         }
-         .food-6{
-            background-image:url(/images/iceCream.jpg);
-         }
-         .food-7{
-            background-image:url(/images/momos2.jpg);
-         }
-         .food-8{
-            background-image:url(/images/dosa.jpg);
-         }
-         .food-9{
-            background-image:url(/images/paneer.jpg);
-            background-position: top;
-         }
-         .food-10{
-            background-image:url(/images/kabab.jpg);
-         }
+         
          .food-1:hover,.food-2:hover,.food-3:hover,.food-4:hover,.food-5:hover,.food-6:hover,.food-7:hover,.food-8:hover,.food-9:hover,.food-10:hover{
 
             
@@ -1182,7 +1197,7 @@ nav{
             align-items: center;
             
             h1{
-                color: #F47D4F;
+                color: #00917c;
                 margin: 0;
                 
                 font-size: 3rem;
@@ -1262,13 +1277,21 @@ nav{
 
             .footer-upper-content{
                 width: 100%;
-                height: 35rem;
+                height: 45rem;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                gap: 1rem;
+                justify-content: center;
+                gap: 2rem;
+                
+                .footer-data-con{
+                    display: flex;
+                    gap: 2rem;
+                    width: 100%;
+                    justify-content: space-between;
 
-                .logo-div,.site-map-div,.contact-us-div{
+                }
+                .logo-div,.site-map-div,.contact-us-div,.legal-div{
                     width: 100%;
                     height: 100%;
                     // background-color: #F47D4F;
@@ -1280,13 +1303,17 @@ nav{
                 }
 
                 .logo-div{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
                     img{
                         width: 35rem;
                         height: 35rem;
                         align-self: center;
                     }
                 }
-                .site-map-div{
+                .site-map-div,.legal-div{
                     gap: 2rem;
                     h1{
                         font-size: 3rem;
@@ -1299,17 +1326,14 @@ nav{
                         font-size: 2rem;
                         color: black;
                     }
-                    a:nth-child(8){
-                            background-color: black;
-                            color: white;
-                            padding: 1rem 1rem;
-                            border-radius: 5rem;
+                    a:nth-child(5){
+                            color: #00917c;
+                            font-weight: 700;
                     }
-                    a:nth-child(7){
-                        background-color: black;
-                        color: white;
-                        padding: 1rem 1rem;
-                        border-radius: 5rem;
+                    a:nth-child(4){
+                        font-weight: 700;
+
+                        color: #00917c;
                 }
                 }
                 .contact-us-div{
@@ -1319,26 +1343,42 @@ nav{
                         color: black;
                         margin: 0;
                     }
-                    span{
+                    a{
                         color: black;
                         font-size: 2rem;
+                        text-decoration: none;
                     }
-                    .contact-us-logo-div{
-                        display: flex;
-                        gap: 4rem;
-
-                        i{
-                            color: black;
-                            font-size: 2rem;
-                        }
-                    }
+                    
                 }
             }
             .footer-lower-content{
                 width: 100%;
-                height: 7rem;
+                height: auto;
+                
                 // background-color: aquamarine;
+                .contact-us-logo-div{
+                    display: flex;
+                    gap: 4rem;
+                    justify-content: center;
+                    align-items: center;
+                    span{
+                        background-color: #00917b;
+                        color: white;
+                        width: 6rem;
+                        height: 6rem;
+                        border-radius: 50%;
+                        text-align: center;
 
+                    }
+                    i{
+                        color: black;
+                        font-size: 4rem;
+                        line-height: -4rem;
+                        color: white;
+                        
+                    }
+                    margin-bottom: 2rem;
+                }
                 .copyright-div{
                     width: 100%;
                     height: 100%;
@@ -1521,6 +1561,11 @@ nav{
             width: 21rem;
             height: 21rem;
 
+            img{
+                width: 21rem;
+                height: 21rem;
+            }
+
     } 
     }
 
@@ -1542,6 +1587,10 @@ nav{
         align-items: center !important;
         margin-top: 2rem;
 
+            p{
+                font-size: 2rem;
+                max-width: 55rem;
+            }
         .form-div{
             display: flex;
             flex-direction: column;
@@ -1551,9 +1600,9 @@ nav{
 
 
         }
-        .login-btn{
-            padding: 0 !important;
-        }
+        // .login-btn{
+        //     padding: 0 !important;
+        // }
         .forgot-pass-link{
             width: 100%;
             
@@ -1565,8 +1614,9 @@ nav{
 
             }
         }
-        .login-btn{
+        .login-btn,.signup-btn{
                 font-size: 3.5rem !important;
+                padding: 0.5rem 2rem !important;
 
         }
 
@@ -1691,6 +1741,11 @@ nav{
             width: 20rem;
             height: 20rem;
 
+            img{
+                width: 20rem;
+                height: 20rem;
+            }
+
     } 
     }
 }
@@ -1707,8 +1762,273 @@ nav{
 }
 }
 @media (max-width: 480px) {
+    .offers-outer-con,.food-items-outer-con,.menu-outer-con,.gallery-outer-con{
+        width: 100% !important;
+        
+    }
+    .food-items-div-con,.gallery-div-con{
+        max-height: 80rem;
+        flex-direction: column !important;
+        .food{
+            width: 100% !important; 
+        }
+    }
+    .parent-con .data-con{
+        margin-left: 9rem;
 
-    .edit-prof-sec1{
+        .data-wrapper-parent-dashboard{
+            padding: 2rem;
+
+            .main-data-holder-dashboard{
+
+                .table-outer-con{
+                    width: 100% !important;
+                    .items-holder{
+                        gap: 3rem !important;
+                        .header-con{
+                            gap: 3rem !important;
+                            flex-direction: column-reverse !important;
+
+                            button{
+                                font-size: 2.5rem !important;
+                                margin-left: auto;
+                                padding: 1.5rem 3rem !important;
+                            }
+                            .search-div{
+                                width: 100% !important;
+                                font-size: 2.5rem !important;
+                                padding: 1.5rem 3rem !important;
+                                i{
+                                    font-size: 3rem !important;
+                                }
+                                input{
+                                   
+                                    font-size: 3rem !important;
+                                    width: 100% !important;
+                                }
+                            }
+                        }
+                        .items-wrapper{
+                            .item{
+                                min-height: 20rem !important;
+                                height: auto !important;
+                                flex: 1 1 auto;
+                                .img-div img{
+                                    width: 10rem !important;
+                                    height: 10rem !important;
+                                }
+                                .item-name{
+                                    font-size: 2.5rem !important;
+                                }
+                                .input-group-inventory{
+                                    margin-bottom: 2rem !important;
+                                    label{
+                                        font-size: 2rem !important;
+                                    }
+                                    input{  
+                                        font-size: 2.5rem !important;
+                                    }
+                                    
+                                }
+                                button{ 
+                                    margin-top: 3rem !important;
+                                    padding: 1rem 2rem !important;
+                                    width: fit-content !important;
+                                    font-size: 2.5rem !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div{
+        flex-direction: column;
+        gap: 4rem !important;
+        background-color: transparent !important;
+        .dinein-s,.takeaway-s,.table-booking-s{
+            background-color: white;
+            min-height: 50vh;
+            border-radius: 1rem;
+            h1{
+                font-size: 3rem !important;
+            }
+
+            .dinein-s-data,.table-booking-s-data,.takeaway-s-data{
+            border: none !important;
+            }
+
+        }
+    }
+    .main-data-holder-dine,.main-data-holder-takeaway{
+        .main-data-con{
+            gap: 3rem !important;
+            flex: 1 1 auto;
+            .user-details-div{
+                .table-no-div{
+                    h4{
+                        font-size: 2.5rem !important;
+                    }
+                }
+                img{
+                    width: 8rem !important;
+                    height: 8rem !important;
+                }
+                .name-username-div{
+                    h4{
+                        font-size: 2.5rem !important;
+                    }
+                    span{
+                        font-size: 2rem !important;
+                    }
+                }
+            }
+            .booking-details-con{
+                gap: 3rem !important;
+                h4{
+                    font-size: 2.5rem !important;
+
+                }
+                p{
+                    font-size: 2.5rem !important;
+                }
+            }
+            .buttons-con{
+                button{
+                    font-size: 2.5rem !important;
+                    padding: 1.5rem 3rem !important;
+                }
+                
+            }
+        }
+    }
+    .more-info-holder{
+        padding: 2rem !important;
+        .more-data-holder{
+            height: fit-content !important;
+            width: 100% !important;
+        }
+    }
+    .side-nav{
+        width: 9rem !important;
+        ul {
+            li{
+                padding: 1.5rem 3rem!important;
+                font-size: 3rem !important;
+                i{
+                    font-size: 4rem !important;
+                    // width: 4rem;
+                    // height: 4rem;
+                    margin-right: 3rem !important;
+                }
+            }
+
+        }
+    }
+    .side-nav:hover{
+        width: 55rem !important;
+    }
+    .progress-bar{
+        display: none !important;
+    }
+    .form-content-wrap-div{
+        max-width: 100vw !important;
+        .form-wrap-con{
+            margin-left: 0 !important;
+
+            .form-step{
+                .input-group{
+                    .styled-header{
+                        p{
+                            font-size: 2rem !important;
+                        }
+                    }
+                    span{
+                        font-size: 3rem;
+                    }
+                    label{
+                        font-size: 2.5rem;
+                    }
+                    input{
+                        font-size: 3rem;
+                        padding: 1rem 2rem;
+                    }
+                    button{
+                        padding: 1rem 2rem;
+                        font-size: 3rem;
+                        min-width: fit-content;
+                    }
+                    .tel-det{
+                        span{
+                            font-size: 2.5rem !important;
+                        }
+                        padding: 1rem 2rem !important;
+                        input{
+                            padding: 0;
+                        }
+
+                    }
+                    .verify-phone{
+                        font-size: 2.5rem !important;
+                    }
+                    .verify-owner-email{
+                        padding: 2rem 2rem !important;
+                    }
+                }   
+                .establishment-radio-div{
+                    input{
+                        font-size: 2rem;
+                        width: 2rem !important;
+                        height: 2rem !important;
+                    }
+                    span{
+                        font-size: 2.5rem !important;
+                    }
+                }
+                .checkbox-div,.weeks-checkbox-div{
+                    .input-checkbox-div{
+                        input{
+                            width: 2.5rem !important;
+                            height: 2.5rem !important;
+                        }
+                    }
+                }
+                .next,.prev{
+                    margin-top: 4rem !important;
+                    font-size: 2.5rem !important;
+                    padding: 1rem 4rem !important;
+                }
+                .doc-img-upload{
+                    font-size: 2.5rem !important;
+                    padding: 1rem 2rem !important;
+                    span{
+                        font-size: 2.5rem !important;
+                    }
+                }
+            }
+
+            h1{
+                font-size: 4rem !important;
+            }
+        }
+    }
+    .nav-wrapper{
+        width: 80vw !important;
+    }
+    .main-form-outer-div{
+        .wrapper{
+            width: 100vw !important;
+        }
+    }
+    
+
+    .edit-prof-sec1 .edit-det-con .wrap-con .left-con form .changeImg{
+
+        font-size: 2.5rem !important;
+        padding: 2rem 8rem !important;
+        
     }
     .edit-det-con{
         height: auto !important;
@@ -1778,7 +2098,7 @@ nav{
     } 
     .my-toast{
     
-        position: absolute;
+        position: fixed;
         width: 100%;
         height: auto;
         justify-content: center;
@@ -2055,6 +2375,11 @@ nav{
             width: 25rem;
             height: 25rem;
 
+            img{
+                width: 25rem;
+                height: 25rem;
+            }
+
             span{
                 font-size: 2.5rem;
             }
@@ -2065,8 +2390,13 @@ nav{
 
 .sec4 .top-food-items .food-items-con{
     .food-1,.food-2,.food-3,.food-4,.food-5,.food-6,.food-7,.food-8,.food-9,.food-10{
-        width: 30rem;
-        height: 30rem;
+        width: 25rem;
+        height: 25rem;
+
+        img{
+            width: 25rem;
+            height: 25rem;
+        }
 
         span{
             font-size: 2.5rem;
@@ -2359,15 +2689,17 @@ nav{
             
             font-size: 2.5rem !important;
         }
+
+        
         
         .edit-prof-btn-con{
             .edit-prof-btn{
                 border-radius: 10rem;
                 padding: 1rem 2rem;
-                font-size: 1.8rem;
-                width: fit-content !important;
-                margin-left: 2.5rem;
+                font-size: 2.5rem;
+                width: 20rem;
                 margin-top: 9rem;
+
             }
 
             .rf-holder-con{
@@ -2945,3 +3277,10 @@ nav{
     border-radius: 0.5rem;
     margin-right: 2rem;
 }
+
+$x: 1;
+
+:export {
+    x: $x;
+   
+  }

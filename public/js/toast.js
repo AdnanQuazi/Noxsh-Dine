@@ -7,7 +7,7 @@ export const hideToast = ()=>{
     tl.to(toast,0.5,{
         opacity : "0",
         display : "none",
-        top : window.scrollY
+        top : "0"
     })
 
     

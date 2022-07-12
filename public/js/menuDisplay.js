@@ -61,7 +61,7 @@ const fillMenu = ()=>{
                if(elem.type == "Non-Veg"){
                    typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                }else{
-                   typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
+                   typeData = `<img src="https://img.icons8.com/fluency/50/000000/vegetarian-food-symbol.png" alt="">`
                } 
 
                

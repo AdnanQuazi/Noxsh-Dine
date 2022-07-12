@@ -25,6 +25,8 @@ import * as toast from './toast.js'
                 window.location.href = './'
             },1000)
     }else{
+
         toast.showToast("Invalid Login Details")
+        
     }
 }

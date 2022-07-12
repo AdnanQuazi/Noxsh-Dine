@@ -119,7 +119,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/js/index.js"></script>
 <script src="/js/search.js"></script>
-<script src="/js/searchBar.js"></script>
+<script src="/js/searchbar.js"></script>
 <script src="/js/common.js"></script>
 <script src="/js/cuisineData.js"></script>
 
@@ -331,21 +331,27 @@ window.addEventListener('scroll', ()=>{
 
     const filters_btn = document.querySelector('.filters-btn');
     const filter_div = document.querySelector('.filter-div')
+    let tl = new TimelineLite()
     filters_btn.addEventListener('click', ()=>{ 
     document.body.classList.add('ovf')
     tl.to(filter_div , 0.5 , {
         display : "flex",
         opacity : "1",
-        top : window.scrollY + 80
+        bottom : "0",
+        top : window.scrollY + 80,
+        
     })
    
     })
 
     const closeFilters = ()=>{
+    document.body.classList.remove('ovf')
+
         tl.to(filter_div , 0.5 , {
         display : "none",
         opacity : "0",
-        top : 0
+        top : "unset",
+        bottom : "-100%"
     })
     }
 </script>

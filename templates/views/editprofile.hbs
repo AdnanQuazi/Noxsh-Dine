@@ -34,14 +34,23 @@
                 <div class="wrap-con">
                     <div class="left-con">
                         <form action="">
-                            <label class="profileImageLabel" style="background-image: url(/images/avatar.png);">
-                        
-                            <input type="file" name="profile-pic">
+                            <label class="profileImageLabel">
+
+                            <img class="profileImg" src="" alt="">
+                            
                             </label>
 
-                            <button type="submit">Change</button>
+                            <button  class="changeImg" onclick="changeImg()">Change</button>
                             
                         </form>
+                        <div class="input-group">
+                            <h2>Choose Backgorund Color</h2>
+                            <input type="color" name="backgroundColor" id="" onchange="colorSelected(this)">
+                        </div>
+                        <div class="avatars-wrap-con">
+                            
+                           
+                        </div>
                     </div>
                     <div class="right-con">
                         <h2>Account</h2>
@@ -73,7 +82,6 @@
                             </label>
                         </div>
                         <button class="save-btn">Save</button>
-                        <input type="color">
                     </div>
                 </div>
                 
@@ -168,6 +176,10 @@
 
         </div>
     </div> --}}
+
+    <div class="ava"> 
+
+    </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/js/index.js"></script>
@@ -182,5 +194,5 @@
 
 </script>
 
-
+<script src="/js/avatars.js"></script>
 </html>

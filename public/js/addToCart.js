@@ -2,8 +2,18 @@
 
 
 const parentBtn = document.querySelector('.menu-wrap-con');
+let Resid
+try {
+    Resid = window.location.href.substring(window.location.href.indexOf('/nfc') + 1).split(['/'])[1].split(['?'])[0];
+    if(Resid == ''){
+        Resid = window.location.href.substring(window.location.href.indexOf('/restaurants') + 1).split(['/'])[1].split(['?'])[0];  
+    }
+} catch (error) {
+    
+}
 
-let Resid = window.location.href.substring(21).split(['/'])[2];
+
+console.log(Resid)
 
 
 
@@ -12,7 +22,7 @@ const cartCon = document.querySelector('.cart-con');
 const foodItemHolder = document.querySelector('.food-items-holder');
 
 const emptyCart = document.querySelector('.empty-cart')
-
+let theGrandTotal;
 const displayCart = async()=>{
 
     try {
@@ -147,6 +157,7 @@ const displayCart = async()=>{
 
         
         grandTotal = (parseFloat(subTotal) + parseFloat(tax)).toFixed(2);
+        theGrandTotal = grandTotal;
        
 
          document.querySelector('.sub-total-text').textContent = "₹ " + subTotal;
@@ -473,3 +484,6 @@ const removeFromCart = (foodId, foodQuantity, e)=>{
 
 
 displayCart()
+
+
+

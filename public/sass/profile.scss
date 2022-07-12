@@ -317,9 +317,9 @@ nav{
             width: 20rem;
             height: max-content;
             font-size: 1.5rem;
-            padding: .5rem 0;
-            border: 0.2rem solid #F47D4F;
-            background-color: #F47D4F;
+            padding: 0.8rem 0;
+            border: 0.2rem solid #00917C;
+            background-color: #00917C;
             color: white;
             border-radius: 0.5rem;
            align-self: flex-start;
@@ -428,7 +428,7 @@ nav{
                }
            }
            .active{
-               border-left: 0.2rem solid #F47D4F;
+               border-left: 0.2rem solid #00917C;
            }
         }
         .options-dis-con{
@@ -819,7 +819,7 @@ nav{
                        .more-info{
                         position: relative;
                         margin-right: auto;
-                        background-color: #F47D4F;
+                        background-color: #00917C;
                         border-radius: 0.5rem;
                         color: white;
                         font-size: 1.5rem;

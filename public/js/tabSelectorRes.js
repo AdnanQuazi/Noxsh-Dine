@@ -13,7 +13,7 @@ const  tabs = document.querySelectorAll('[data-tab-target]');
                 tab.classList.remove('active');
                })
              
-            
+               
                 tab.classList.add('active');
         
             
@@ -22,10 +22,20 @@ const  tabs = document.querySelectorAll('[data-tab-target]');
             tabContents.forEach(tabContent =>{
                 tabContent.classList.remove('active');
             })
-            target.classList.add('active')
 
+            target.classList.add('active')
+            
 
         })
 
         
     })
+
+    // sideNav.addEventListener('click',()=>{
+    //     if(sideNav.style.width === '32rem'){
+    //         sideNav.style.width = '6.5rem'
+    //     }else{
+    //         sideNav.style.width = '32rem'
+    //     }
+            
+    // })

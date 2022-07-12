@@ -1037,6 +1037,7 @@ nav .acc-det .home-prof-div-con ul li {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  gap: 2rem;
 }
 
 .restaurant-profile-con .restaurant-basic-details-con .restaurant-basic-details .right-con .header-see-all-rev {
@@ -1338,9 +1339,10 @@ nav .acc-det .home-prof-div-con ul li {
   width: calc(100% + 2rem);
   text-align: center;
   padding: 2rem 0;
-  color: #F47D4F;
-  background: blanchedalmond;
+  color: #ffffff;
+  background: #00917c;
   border-radius: 0 0 50% 50%;
+  opacity: 0.5;
 }
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .schedule-book-container form {
@@ -1362,23 +1364,27 @@ nav .acc-det .home-prof-div-con ul li {
 }
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .schedule-book-container form button[type="submit"] {
-  border: 0.2rem solid #F47D4F;
+  border: 0.2rem solid #00917c;
   width: 100%;
   text-align: center;
   padding: 1rem;
-  background-color: #F47D4F;
+  background-color: #00917c;
   color: white;
   font-size: 1.5rem;
   border-radius: 0.5rem;
   -ms-flex-item-align: end;
       -ms-grid-row-align: end;
       align-self: end;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
   margin: 2rem 0 1rem 0;
 }
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .schedule-book-container form button[type="submit"]:hover {
-  background-color: #f47e4fe5;
-  border-color: #f47e4fe5;
+  background-color: #00917c;
+  border-color: #00917c;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .schedule-book-container form label {
@@ -1500,7 +1506,7 @@ nav .acc-det .home-prof-div-con ul li {
 }
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .schedule-book-container form .date-con .container input:checked ~ .month {
-  background-color: #F47D4F;
+  background-color: #00917c;
 }
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .schedule-book-container form .timing-con {
@@ -1571,7 +1577,7 @@ nav .acc-det .home-prof-div-con ul li {
 }
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .schedule-book-container form .container input:checked ~ .checkmark {
-  background-color: #F47D4F;
+  background-color: #00917c;
 }
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .schedule-book-container form input[type="number"] {
@@ -1747,7 +1753,7 @@ nav .acc-det .home-prof-div-con ul li {
 .restaurant-profile-con .menu-book-con .content-section .overview-menu-con .overview-facilities-con .bi-check-circle-fill {
   font-size: 2.5rem;
   margin-right: 1rem;
-  color: #3ab757;
+  color: #00917c;
 }
 
 .restaurant-profile-con .menu-book-con .content-section .overview-menu-con .overview-cuisines {
@@ -1789,7 +1795,7 @@ nav .acc-det .home-prof-div-con ul li {
 .restaurant-profile-con .menu-book-con .content-section .overview-menu-con .overview-cuisines h3 .bi-check-circle-fill {
   font-size: 2.5rem;
   margin-right: 1rem;
-  color: #3ab757;
+  color: #00917c;
 }
 
 .restaurant-profile-con .menu-book-con .content-section .overview-menu-con .overview-popular {
@@ -1858,7 +1864,7 @@ nav .acc-det .home-prof-div-con ul li {
 .restaurant-profile-con .menu-book-con .content-section .overview-menu-con .overview-popular .popular-service .dishes-con h3 .bi-check-circle-fill, .restaurant-profile-con .menu-book-con .content-section .overview-menu-con .overview-popular .popular-service .service-con h3 .bi-check-circle-fill, .restaurant-profile-con .menu-book-con .content-section .overview-menu-con .overview-popular .popular-dishes .dishes-con h3 .bi-check-circle-fill, .restaurant-profile-con .menu-book-con .content-section .overview-menu-con .overview-popular .popular-dishes .service-con h3 .bi-check-circle-fill {
   font-size: 2.5rem;
   margin-right: 1rem;
-  color: #3ab757;
+  color: #00917c;
 }
 
 .restaurant-profile-con .menu-book-con .content-section .overview-menu-con .reviews-con {
@@ -2197,7 +2203,7 @@ nav .acc-det .home-prof-div-con ul li {
 
 .restaurant-profile-con .menu-book-con .content-section .review-tab-con .add-review-con form textarea {
   resize: none;
-  border: 0.2rem solid #F47D4F;
+  border: 0.2rem solid #00917c;
   outline: none;
   width: 40rem;
   height: 100%;
@@ -2218,13 +2224,13 @@ nav .acc-det .home-prof-div-con ul li {
 }
 
 .restaurant-profile-con .menu-book-con .content-section .review-tab-con .add-review-con form #btnSubmit {
-  border: 0.2rem solid #F47D4F;
+  border: 0.2rem solid #00917c;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   text-align: center;
-  padding: 1rem;
-  background-color: #F47D4F;
+  padding: 1rem 2rem;
+  background-color: #00917c;
   color: white;
   font-size: 1.5rem;
   border-radius: 0.5rem;
@@ -2913,9 +2919,46 @@ nav .acc-det .home-prof-div-con ul li {
   position: absolute;
   z-index: 6;
   display: none;
+  overflow-y: auto;
+  padding-bottom: 32rem;
 }
 
 .overview-menu-con, .gallery-con, .menu-con, .review-tab-con {
   margin-bottom: 4rem;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 11;
+  width: 90%;
+  height: 30rem;
+  border-radius: 1rem;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #afafaf;
+}
+
+.popup svg {
+  width: 5rem;
+  height: 5rem;
+}
+
+.popup h1 {
+  font-size: 3.5rem;
+}
+
+.popup p {
+  font-size: 2rem;
 }
 /*# sourceMappingURL=restaurant.css.map */

@@ -3,7 +3,7 @@
 // Returns a Bootstrap toast instance
    
    let gallerySlide;
-const id = window.location.href.substring(window.location.href.indexOf('/restaurant') + 1).split(['/'])[1];
+const id = window.location.href.substring(window.location.href.indexOf('/restaurant') + 1).split(['/'])[1].split(['?'])[0];
 
 function haversine(lat1, lon1, lat2, lon2)
 {

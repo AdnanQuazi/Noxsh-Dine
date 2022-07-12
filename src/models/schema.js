@@ -18,6 +18,9 @@ const userSchema = new mongoose.Schema({
     },
     profileImg :{
         type : String
+    },
+    profileColor : {
+        type : String
     },  
     phone:{
         type: String,
@@ -32,7 +35,7 @@ const userSchema = new mongoose.Schema({
     },
     date: {
         type : String,
-        default : new Date().toLocaleString()
+        default : new Date()
     },
     email:{
         type: String,
@@ -78,6 +81,9 @@ const userSchema = new mongoose.Schema({
         type : String
     }],
     pastBookings : [{
+        type : String
+    }],
+    takeaway :[{
         type : String
     }],
     following : [{

@@ -891,6 +891,7 @@ nav{
                 height: 100%;
                 justify-content: space-between;
                 align-items: flex-end;
+                gap: 2rem;
 
                 .header-see-all-rev{
                     font-size: 1.5rem;
@@ -1157,9 +1158,10 @@ nav{
                             width: calc(100% + 2rem);
                             text-align: center;
                             padding: 2rem 0;
-                            color: #F47D4F;
-                            background: blanchedalmond;
+                            color: #ffffff;
+                            background: #00917c;
                             border-radius: 0 0 50% 50%;
+                            opacity: 0.5;
 
                         }
                         form{
@@ -1170,20 +1172,22 @@ nav{
                             font-family: 'Poppins', sans-serif;
 
                             button[type = "submit"]{
-                                border: 0.2rem solid #F47D4F;
+                                border: 0.2rem solid #00917c;
                                 width: 100%;
                                 text-align: center;
                                 padding: 1rem;
-                                background-color: #F47D4F;
+                                background-color: #00917c;
                                 color: white;
                                 font-size: 1.5rem;
                                 border-radius: 0.5rem;
                                 align-self: end;
+                                transition: 0.2s all ease-in-out;
                                 margin: 2rem 0 1rem 0;
                             }
                             button[type = "submit"]:hover{
-                                background-color: #f47e4fe5;
-                                border-color: #f47e4fe5;
+                                background-color: #00917c;
+                                border-color: #00917c;
+                                transform: scale(1.02);
                             }
                             label{
                                 font-size: 1.5rem;
@@ -1283,7 +1287,7 @@ nav{
                                 
                                 /* When the radio button is checked, add a blue background */
                                 .container input:checked ~ .month {
-                                    background-color: #F47D4F;
+                                    background-color: #00917c;
                                 }
                             }   
                             .timing-con{
@@ -1346,7 +1350,7 @@ nav{
                                 
                                 /* When the radio button is checked, add a blue background */
                                 .container input:checked ~ .checkmark {
-                                    background-color: #F47D4F;
+                                    background-color: #00917c;
                                 }
                                 input[type="number"] {
                                     -webkit-appearance: textfield;
@@ -1490,7 +1494,7 @@ nav{
                         .bi-check-circle-fill{
                             font-size: 2.5rem;
                             margin-right: 1rem;
-                            color: rgb(58, 183, 87);
+                            color: #00917c;
                         }
                 }
 
@@ -1519,7 +1523,7 @@ nav{
                         .bi-check-circle-fill{
                             font-size: 2.5rem;
                             margin-right: 1rem;
-                            color: rgb(58, 183, 87);
+                            color: #00917c;
                         }
                        
                     }
@@ -1561,7 +1565,7 @@ nav{
                         .bi-check-circle-fill{
                             font-size: 2.5rem;
                             margin-right: 1rem;
-                            color: rgb(58, 183, 87);
+                            color: #00917c;
                         }
                             }
                         }
@@ -1806,7 +1810,7 @@ nav{
 
                                 textarea{
                                     resize: none;
-                                    border: 0.2rem solid #F47D4F;
+                                    border: 0.2rem solid #00917c;
                                     outline: none;
                                     width: 40rem;
                                     height: 100%;
@@ -1823,11 +1827,11 @@ nav{
                                 }
                                 
                                 #btnSubmit{
-                                    border: 0.2rem solid #F47D4F;
+                                    border: 0.2rem solid #00917c;
                                     width: max-content;
                                     text-align: center;
-                                    padding: 1rem;
-                                    background-color: #F47D4F;
+                                    padding: 1rem 2rem;
+                                    background-color: #00917c;
                                     color: white;
                                     font-size: 1.5rem;
                                     border-radius: 0.5rem;
@@ -2344,9 +2348,38 @@ nav{
     position: absolute;
     z-index: 6;
     display: none;
+    overflow-y: auto;
+    padding-bottom: 32rem;
 }
 
 .overview-menu-con,.gallery-con,.menu-con,.review-tab-con{
     margin-bottom: 4rem;
 
+}
+
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    z-index: 11;
+    width: 90%;
+    height: 30rem;
+    border-radius: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #afafaf;
+
+    svg{
+        width: 5rem;
+        height: 5rem;
+    }
+    h1{
+        font-size: 3.5rem;
+    }
+    p{
+        font-size: 2rem;
+    }
 }

@@ -71,6 +71,9 @@ const RestSchema = new mongoose.Schema({
             quantityUnit : {
                 type : String
             },
+            stock : {
+                type : Number
+            }
         }],
             
             category : {
@@ -83,6 +86,12 @@ const RestSchema = new mongoose.Schema({
                 type : String
             },
             type : {
+                type : String
+            },
+            stock : {
+                type : Number
+            },
+            packaging : {
                 type : String
             }
         

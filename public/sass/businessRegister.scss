@@ -1,10 +1,10 @@
 nav{
     width: 100% !important;
     height: 6rem;
-    background-color: aqua;
+    background-color: white !important;
     display: flex;
     align-items: center;
-    position: relative !important;
+    
     box-shadow: 0 3px 1rem rgba(0,0,0,.1);
     .nav-wrapper{
         width: 120rem;
@@ -144,10 +144,61 @@ nav{
     }
 }
 
+.pp-bg-con{
+    width: 100vw;
+    height: 100vh;
+    
+   
+   
+    justify-content: center;
+    align-items: center;
+   position: fixed;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 15;
+    top: 0;
+    display: none;
+}
+.success-popup{
+    position: relative;
+    
+    z-index: 5;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 2rem;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    h2{
+        font-size: 5rem;
+    }
+    p{
+        font-size: 2.5rem;   
+        text-align: center;
+    }
+    small{
+        color: #afafaf;
+        font-size: 2rem;
+    }
+    button{
+        margin-top: 2rem;
+        font-size: 3rem;
+        background-color: #00917c;
+        border: 0.1rem solid #00917c;
+        padding: 1rem 4rem;
+        color: white;
+        border-radius: 1rem;
+
+
+    }
+}
 .main-form-outer-div{
     width: 100%;
     min-height: calc(100vh - 8rem);
    padding: 4rem 0;
+   margin-top: 8rem;
 
    h1{
        font-size: 3.2rem;
@@ -170,7 +221,7 @@ nav{
         }
         .progress-bar{
             position: sticky;
-            top: 2rem;
+            top: 10rem;
             display: flex;
             height: 40rem;
             box-shadow: 0 3px 1rem rgba(0,0,0,.1);
@@ -265,7 +316,150 @@ nav{
                 justify-content: flex-start;
                 align-items: flex-start;
                 margin: 2rem 0;
+
+                .doc-img{
+                    width: 20rem;
+                    height: 20rem;
+                    border: 0.1rem solid #afafaf;
+                    margin-bottom:2rem ;
+                    object-fit: contain;
+                    object-position: center;
+                    display: none;
+                }
+                .radio-input-group{
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
+                    padding: 2rem 0;
+                    h2{
+                        margin: 0;
+                        margin:0 2rem;
+                        font-size: 1.8rem;
+                    }
+
+                    input{
+                        width: auto;
+                        margin: 0;
+                    }
+                }
+                .otp-div{
+                    width: auto;
+                    height: auto;
+                    gap: 2rem;
+                    align-items: center;
+                    margin-bottom: 2rem;
+                    .otp-inp{
+                        width: 50%;
+                        text-align: center;
+                        margin-bottom: 0.5rem !important;
+                    }
+                    button{
+                        background-color: rgb(235, 200, 148);
+                        color: white;
+                        font-size: 2rem;
+                        padding: 0.8rem 2rem;
+                        border: 0.1rem solid rgb(235, 200, 148);
+                        border-radius: 0.5rem;
+                        height: max-content;
+                    }
+
+                }
                 
+                .verify-owner-email{
+                    width: 100%;
+                    font-size: 2rem;
+                    padding: 1rem;
+                    text-align: center;
+                    border: 0.1rem solid rgb(235, 200, 148);
+                    background-color: rgb(235, 200, 148);
+                    color: white;
+                    border-radius: 1rem !important;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 2rem;
+                    i{
+                        font-size: 2rem;
+                    }
+                }
+                
+                .doc-img-upload{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                    background-color: #f5f5f5;
+                    position: relative;
+                    padding: 0.8rem;
+                    border-radius: 1rem !important;
+                    border: 0.1rem dashed #afafaf;
+                    span{
+                    color: #afafaf;
+                    font-size: 2rem;
+
+                    }
+                    input{
+                        position: absolute;
+                        width: 90%;
+                        height: 100%;
+                        margin: 0;
+                        opacity: 0;
+                    }
+                }
+                .input-grp-2{
+                    display: flex;
+                    gap: 2rem;
+                    width: 100%;
+                    input{
+                        width: 100%;
+                    }
+                }
+                .img-holder{
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    gap: 2rem;
+                    
+                    .img-placeholder{
+                        width: 50%;
+                        height: 30rem;
+                        border: 0.1rem solid #afafaf;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-size: cover;
+                        background-position: center;
+                        font-size: 5rem;
+                        color: #afafaf;
+
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+                    label{
+                        width: 50%;
+                        height: 30rem;
+                        border: 0.1rem dashed #333;
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 5rem;
+                        color: #333;
+                        cursor: pointer;
+                        input{
+                            width: 100%;
+                            height : 100%;
+                            position: absolute;
+                            opacity: 0;
+                        }
+                    }
+                }
+
                 .weeks-checkbox-div{
                     width: 100%;
                     display: flex;
@@ -524,7 +718,7 @@ nav{
                     color: #afafaf;
                    
                 }
-                input{
+                input,select{
                     font-size: 2rem;
                     border: 0.1rem solid #afafaf;
                     border-radius: 0.5rem !important;
@@ -577,13 +771,17 @@ nav{
                         }
                         
                     }
-                    .verify-phone{
+                    .verify-phone,.verify-owner-phone{
                         flex-grow: 1;
                         font-size: 1.8rem;
                         background-color: rgb(235, 200, 148);
                         color: white;
                         border: 0.1rem solid rgb(235, 200, 148);
                         border-radius: 0.5rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 2rem;
                     }
                 }
                 
@@ -651,6 +849,9 @@ nav{
 }
 .wrapper{
     width: 100rem !important;
+}
+@media (max-width: 920px) {
+    
 }
 .nav-wrapper{
     width: 100rem !important;

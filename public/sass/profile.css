@@ -428,9 +428,9 @@ nav .dec-loc-con .detect-con button span, nav .dec-loc-con .detect-con button .b
   height: -moz-max-content;
   height: max-content;
   font-size: 1.5rem;
-  padding: .5rem 0;
-  border: 0.2rem solid #F47D4F;
-  background-color: #F47D4F;
+  padding: 0.8rem 0;
+  border: 0.2rem solid #00917C;
+  background-color: #00917C;
   color: white;
   border-radius: 0.5rem;
   -ms-flex-item-align: start;
@@ -574,7 +574,7 @@ nav .dec-loc-con .detect-con button span, nav .dec-loc-con .detect-con button .b
 }
 
 .profile-page-con .profile-options-con .options-con .active {
-  border-left: 0.2rem solid #F47D4F;
+  border-left: 0.2rem solid #00917C;
 }
 
 .profile-page-con .profile-options-con .options-dis-con {
@@ -1097,7 +1097,7 @@ nav .dec-loc-con .detect-con button span, nav .dec-loc-con .detect-con button .b
 .profile-page-con .profile-options-con .options-dis-con .your-bookings-view-con .main-data-con .buttons-con .more-info {
   position: relative;
   margin-right: auto;
-  background-color: #F47D4F;
+  background-color: #00917C;
   border-radius: 0.5rem;
   color: white;
   font-size: 1.5rem;

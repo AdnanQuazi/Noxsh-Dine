@@ -379,9 +379,9 @@
             }
   }
   .cart-absolute-div{
-      position : sticky;
+      position : fixed;
       bottom : 2rem;
-      margin-bottom: 2rem;
+     
       display : none;
       padding : 2rem;
       justify-content: space-between;

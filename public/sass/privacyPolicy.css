@@ -1,0 +1,44 @@
+.pp-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  height: 100vh;
+  margin-top: 8rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pp-con h1 {
+  font-size: 4rem;
+  margin: 4rem 0 4rem 0;
+}
+
+.pp-con .pol-con {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4rem;
+}
+
+.pp-con .pol-con .pol-holder h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pp-con .pol-con .pol-holder p {
+  font-size: 1.5rem;
+}
+/*# sourceMappingURL=privacyPolicy.css.map */

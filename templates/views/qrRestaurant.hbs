@@ -22,9 +22,18 @@
     <link rel="stylesheet" href="/sass/restaurantMeal.css">
 
 
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 </head>
 <body>
+
+    <div class="popup successP">
+        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_rc5d0f61.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;"    autoplay></lottie-player>
+        <h1>Payment Successfull</h1>
+        <p>Please wait for the restaurant to accept the order</p>
+    </div>
+
+    
     
     <div class="landing-div">
         <h1>Raghuveer Restaurant<br>Warmly<br>Welcomes You</h1>
@@ -79,7 +88,7 @@
 
 
                 </div>
-                <button class="order-btn" onclick="pushOrder()">Proceed To Pay</button>
+                <button class="order-btn">Proceed To Pay</button>
                  </div>
                </div>
 
@@ -187,7 +196,21 @@ const tl3 = new TimelineLite()
 <script src="/js/menuAnimation.js" ></script>
 <script src="/js/addToCart.js" ></script>
 <script src="/js/scrollToView.js" ></script>
+<script src="/socket.io/socket.io.js"></script>
+<script  src="/js/dineSocket.js"></script>
+<script>
+    function generateRandom(maxLimit = 7){
+  let rand = Math.random() * maxLimit;
+   // say 99.81321410836433
 
+  rand = Math.floor(rand); // 99
+    rand == 0 || rand > maxLimit ? rand = 0 : rand = rand
+  
+
+  document.querySelector('.landing-div').style.backgroundImage = ` linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),url(/images/qrImages/${rand}.jpg)`
+}
+ generateRandom()   
+</script>
 
 
 

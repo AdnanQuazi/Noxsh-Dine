@@ -18,11 +18,13 @@
 </head>
 <body>
     {{>navbar}}
-    
+     <div class="my-toast">
+      <span></span>
+    </div>
     <div class="login-main-con">
         <div class="login-con">
             <div class="login-det">
-                <form action="/signup" method="post" onsubmit="return validation('signup')">
+              
                 <span>SIGN UP</span>
                 <div class="input-details" >
                      <span class="text-danger" id="danger-fname"></span>
@@ -30,7 +32,7 @@
                 
                 </div>
                 <div class="input-details" style="margin-top: 4rem;">
-                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="text" onkeyup="checkUsername(this)" id="username" name="username" placeholder="Username" required>
                 </div>
                 <div class="input-details" style="margin-top: 4rem;">
                     <span class="text-danger" id="danger-phone"></span>
@@ -51,10 +53,11 @@
                 <div class="input-details" style="margin-top: 4rem;">
                 <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" required>
                 </div>
-                <button type="submit" class="login-btn">Sign Up</button>
+                <P>By signing up you agree to our Terms & Conditions and you have read our Policy.</P>
+                <button onclick="validation()" class="signup-btn">Sign Up</button>
 
-                    <span class="danger-l-span">Invalid Password</span>
-                </form>
+                   
+                
                 <span class="new-acc-link">Already have an account? <a href="/login">Login</a></span>
             </div>
             <div class="wel-msg-con">
@@ -65,7 +68,7 @@
 
 
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/js/validation.js"></script>
 <script src="/js/visibl.js"></script>
 <script src="/js/common.js"></script>

@@ -7,7 +7,7 @@
     <title>Register</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&family=Raleway:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Ballet:opsz@16..72&family=Bellota+Text:wght@300;400;700&family=Charmonman:wght@400;700&family=Comfortaa:wght@300;400;500&family=Dancing+Script:wght@400;500;600&family=Fira+Code:wght@300;400;500&family=Major+Mono+Display&family=Montserrat:wght@100;200;300;400;500&family=Pacifico&family=Quicksand:wght@300;400;500&family=Rochester&family=Sacramento&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
    <script src="https://kit.fontawesome.com/caae6b21c5.js" crossorigin="anonymous"></script>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -19,6 +19,17 @@
     
 </head>
 <body>
+    <div class="my-toast">
+      <span></span>
+    </div>
+    <div class="pp-bg-con">
+        <div class="success-popup">
+        <h2>Thank You!</h2>
+        <p>You will get a confirmation mail once the documents/details are verified</p>
+        <small>This process can take upto 12hours</small>
+        <button onclick="hidePopup()">Done</button>
+    </div>
+    </div>
     
   <nav>
          <div class="nav-wrapper">
@@ -82,11 +93,11 @@
                 <div class="form-content-wrap-div">
                 <div class="progress-bar">
                     <div class="progress" id="progress"></div>
-                    <div class="progress-step " data-title="Restaurnt Details">
+                    <div class="progress-step progress-step-active" data-title="Restaurnt Details">
                         <span>Restaurnt Details</span>
                     </div>
 
-                    <div class="progress-step progress-step-active" data-title="Restaurant Timings & Cuisines">
+                    <div class="progress-step " data-title="Restaurant Timings & Cuisines">
                         <span>Restaurant Timings, Cuisines & Facilities</span>
                     </div>
 
@@ -94,7 +105,7 @@
                         <span>Restaurant & Menu Images </span>
                     </div>
 
-                    <div class="progress-step" data-title="Upload Documents">
+                    <div class="progress-step  " data-title="Upload Documents">
                         <span>Upload Documents</span>
                     </div>
 
@@ -107,15 +118,15 @@
 
 
 
-                <div class="form-step ">
+                <div class="form-step  step-active">
                    
                     
                     <div class="input-group">
                         <span>Restaurant Details</span>
                         <label for="RestaurantName">Restaurant Name</label>
-                        <input type="text" name="RestaurantName" id="">
+                        <input type="text" name="restaurantName" id="">
                         <label for="RestaurantAddress">Restaurant Address</label>
-                        <input type="text" name="RestaurantAddress" id="">
+                        <input type="text" name="restaurantAddress" id="">
                     </div>
                        
                     <div class="input-group">
@@ -145,9 +156,9 @@
                          
                         <button class="verify-phone">Get OTP</button>
                         </div>
-                         <div class="otp-div">
-                            <input type="number">
-                            
+                         <div class="otp-div otp-div-phone">
+                             <input type="number" name="phone-otp" class="otp-inp" placeholder="OTP">
+                                <button class="submit-otp verify-phone-otp">Submit</button>   
                         </div>
                          
                     </div>
@@ -158,7 +169,7 @@
                         
                          
                          
-                        <label for="ownerPhone"></label>
+                        {{!-- <label for="ownerPhone"></label>
                         
                         <div class="tel-wrapper">
                             <div class="tel-det">
@@ -169,12 +180,9 @@
 
                         </div>
                          
-                        <button class="verify-phone">Get OTP</button>
-                        </div>
-                        <div class="otp-div">
-                            <input type="number">
-                            
-                        </div>
+                        <button class="verify-owner-phone">Get OTP</button>
+                        </div> --}}
+                        
                             
                          
                     </div>
@@ -192,16 +200,21 @@
                             </div>
                          
                         </div>
+                        <div class="otp-div otp-div-email">
+                             <input type="number" name="email-otp" class="otp-inp" placeholder="OTP">
+                                <button class="submit-otp verify-email-otp">Submit</button>   
+                        </div>
+                        <button class="verify-owner-email">Verify Email</button>
                     </div>
                      <div class="buttons-con">
                   
-                    <button class="next">Next</button>
+                    <button class="next next1">Next</button>
                 </div>
                 </div>
 
 
 
-                <div class="form-step step-active">
+                <div class="form-step">
                     <div class="input-group">
                         <div class="styled-header">
                         <span>Establishment Type</span>
@@ -209,7 +222,7 @@
                         </div>
                        
                         <div class="establishment-radio-div">
-                        <input type="radio" name="establishment">
+                        <input type="radio" name="establishment" checked>
                          <span>Dine-in only</span>
                         </div>
                         
@@ -321,7 +334,7 @@
                         <div class="time-div">
                             <div class="open-div">
                                 <h4 class="about-time">Open Hours</h4>
-                                <span class="open-hour-text">10</span>
+                                <span class="open-hour-text">09</span>
                                 <span>:</span>
                                 <span class="open-min-text">00</span>
                                 <i class="bi bi-clock"></i>
@@ -364,7 +377,7 @@
                                     <span class="hours">08</span>
                                     </label>
                                     <label class="container">
-                                    <input class="time-radio" type="radio"  name="openHour" value="9" onchange="openTime(this)">
+                                    <input class="time-radio" type="radio"  name="openHour" value="9" onchange="openTime(this)" checked>
                                     <span class="hours">09</span>
                                     </label>
                                     <label class="container">
@@ -432,7 +445,7 @@
                             </div>
                             <div class="open-time-con-min">
                                     <label class="container">
-                                    <input class="time-radio" type="radio"  name="openMin" value="0" onchange="openTime(this)">
+                                    <input class="time-radio" type="radio"  name="openMin" value="0" onchange="openTime(this)" checked>
                                     <span class="min">00</span>
                                     </label>
                                     <label class="container">
@@ -774,7 +787,7 @@
                                     <span class="hours">21</span>
                                     </label>
                                      <label class="container">
-                                    <input class="time-radio" type="radio"  name="closeHour" value="22" onchange="closeTime(this)">
+                                    <input class="time-radio" type="radio"  name="closeHour" value="22" onchange="closeTime(this)" checked>
                                     <span class="hours">22</span>
                                     </label>
                                      <label class="container">
@@ -790,7 +803,7 @@
                             </div>
                             <div class="close-time-con-min">
                                     <label class="container">
-                                    <input class="time-radio" type="radio"  name="closeMin" value="0" onchange="closeTime(this)">
+                                    <input class="time-radio" type="radio"  name="closeMin" value="0" onchange="closeTime(this)" checked>
                                     <span class="min">00</span>
                                     </label>
                                     <label class="container">
@@ -971,7 +984,7 @@
                                     </label>
                                      <label class="container">
                                     <input class="time-radio" type="radio"  name="closeMin" value="46" onchange="closeTime(this)">
-                                    <span class="hours">46</span>
+                                    <span cla-ss="hours">46</span>
                                     </label>
                                      <label class="container">
                                     <input class="time-radio" type="radio"  name="closeMin" value="47" onchange="closeTime(this)">
@@ -1071,9 +1084,142 @@
                         </div>
                     </div>
                      <div class="buttons-con">
-                    <button class="prev">Back</button>
-                    <button class="next" >Next</button>
+                    <button class="prev prev2">Back</button>
+                    <button class="next next2" >Next</button>
                 </div>  
+                </div>
+
+                <div class="form-step">
+                    <div class="input-group">
+                        <div class="styled-header">
+                            <span class="">Restaurant Photo</span>
+                            <p>Upload a front photo of your Restaurant</p>
+                        </div>
+                        <div class="img-holder">
+                            <div class="img-placeholder">
+                                <i class="bi bi-image"></i>
+                            </div>
+                            <label for="">
+                                <input type="file" class="res-img-inp" name="res-img-inp">
+                                <i class="bi bi-camera-fill"></i>
+                            </label>
+                        </div>
+                    </div>
+                     <div class="buttons-con">
+                    <button class="prev prev3">Back</button>
+                    <button class="next next3" >Next</button>
+                </div> 
+                    
+                </div>
+
+                <div class="form-step ">
+                    <div class="input-group">
+                        <div class="styled-header">
+                            <span>PAN Details</span>
+                            <p>We will verify legal entity with this information</p>
+                        </div>
+                        <div class="input-grp-2">
+                        <input type="text" name="pan-number" id="" placeholder="PAN Number" style="text-transform: uppercase;">
+                        <input type="text" name="legal-entity" id="" placeholder="Legal Entity Name">
+
+                        </div>
+                        <input type="text" name="legal-entity-address" id="" placeholder="Address of Legal Entity">
+
+                        <img class="doc-img" data-doc-content="pan" src="" alt="" srcset="">
+                        <label for="" class="doc-img-upload pan-img-upload">
+                            <span><i class="bi bi-upload"></i> Upload PAN Card Image</span>
+            
+                            <input type="file" name="pan-img" data-doc-target="pan" onchange="showDoc(this)">
+                        </label>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="styled-header">
+                            <span>GST Information</span>
+                            <p>This will help us calculating your taxes</p>
+
+                        </div>
+                        <h2>Is your restaurant GST registered?</h2>
+                        <div class="radio-input-group">
+                            
+                            <input type="radio" name="gst-registered" value="true" checked  onchange="hideGstDiv(this)">
+                            <h2>YES</h2>
+                            <input type="radio" name="gst-registered" value="false" onchange="hideGstDiv(this)">
+                            <h2>NO</h2>
+
+                        </div>
+                        <div class="gst-con-h-div">
+                                  <input type="text" name="gstin-number" placeholder="GST Number">
+                                  
+                                  <img class="doc-img" data-doc-content="gst" src="" alt="" srcset="">
+                        <label for="" class="doc-img-upload gst-img-upload">
+                            <span><i class="bi bi-upload"></i> Upload GST Image</span>
+                            
+                            <input type="file" name="gst-img" data-doc-target="gst" onchange="showDoc(this)">
+                           
+                            
+                        </label>
+
+                        <h2 style="margin-top: 4rem;">Do you charge 5% GST as restaurant services on all your menu items?</h2>
+
+                        <div class="radio-input-group">
+                            
+                            <input type="radio" name="gst-menu-charge" value="true" checked>
+                            <h2>YES</h2>
+                            <input type="radio" name="gst-menu-charge" value="false">
+                            <h2>NO</h2>
+
+                        </div>
+                        </div>
+                      
+
+                    </div>
+
+                    <div class="input-group">
+                            <div class="styled-header">
+                            <span>FSSAI Certificate</span>
+                            <p>This is required to comply with regulations on food safety</p>
+
+
+                        </div>
+                            <input type="text" name="fssai-number" id="" placeholder="FSSAI Number">
+                            <input type="text" name="fssai-expiry" placeholder="FSSAI Expiry (DD/MM/YYYY)">
+                                <img class="doc-img" data-doc-content="fssai" src="" alt="" srcset="">
+                            <label for="" class="doc-img-upload fssai-img-upload">
+                            <span><i class="bi bi-upload"></i> Upload FSSAI Image</span>
+                            <input type="file" name="fssai-img" data-doc-target="fssai" onchange="showDoc(this)">
+                        </label>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="styled-header">
+                            <span>Bank details</span>
+                            <p>Let us know where to deposit your money</p>
+
+
+                        </div>
+                        <input type="text" name="account-holder" placeholder="Account Holder Name">
+                        <div class="input-grp-2">
+                            <input type="number" name="bank-number" id="" placeholder="Bank Account Number">
+                            <input type="number" name="re-bank-number" id="" placeholder="Re-enter Account Number">
+
+                        </div>
+                        <div class="input-grp-2">
+                            <select name="account-type" id="" aria-placeholder="Account Type">
+                                
+                                <option value="Savings" selected>Savings</option>
+                                <option value="Current">Current</option>
+
+                            </select>
+                            <input type="text" name="bank-ifsc" id="" placeholder="Bank IFSC code">
+
+                        </div>
+                    </div>
+
+                    <div class="buttons-con">
+                    <button class="prev prev4">Back</button>
+                    <button class="next next4" >Finish</button>
+                </div>
                 </div>
                 </div>
                 </div>
@@ -1084,9 +1230,18 @@
 </body>
 {{!-- <script src="https://apis.mapmyindia.com/advancedmaps/v1/{{accessToken}}/map_load?v=1.3"></script>
 <script src="https://apis.mapmyindia.com/advancedmaps/api/{{accessToken}}/map_sdk_plugins"></script> --}}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    
+    const imgInp = document.querySelector('.res-img-inp')
+    imgInp.onchange = evt => {
+  const [file] = imgInp.files
+  if (file) {
+    document.querySelector('.img-placeholder').innerHTML = '<img src="" alt="" id="imgeee">';
+    const blah = document.querySelector('#imgeee')
+
+    blah.src = URL.createObjectURL(file)
+  }
+}
 // var map = new MapmyIndia.Map('map', {center: [localStorage.getItem("clientLatitude"), localStorage.getItem("clientLongitude")], zoom: 15, search: false});
 
   // var options ={

@@ -211,6 +211,10 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
   top: 0rem;
 }
 
+.parent-con .inactive {
+  width: 6.5rem;
+}
+
 .parent-con .side-nav {
   width: 6.5rem;
   height: 100vh;
@@ -274,11 +278,11 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
 
 .parent-con .side-nav ul li i .notify {
   position: absolute;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background-color: #dc3545;
   border-radius: 50%;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.7rem;
+  height: 1.7rem;
   display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -327,51 +331,7 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
   display: block;
 }
 
-.parent-con .data-con .data-wrapper-parent-dashboard {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  min-height: calc(100vh - 8rem);
-  padding: 2rem 4rem;
-}
-
-.parent-con .data-con .data-wrapper-parent-dashboard .main-data-con {
-  width: 45rem;
-  height: 30rem;
-  background-color: white;
-  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
-          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
-  position: relative;
-  padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.parent-con .data-con .data-wrapper-parent-dashboard .main-data-con img {
-  width: 100%;
-  height: 25rem;
-}
-
-.parent-con .data-con .data-wrapper-parent-pastBookings, .parent-con .data-con .data-wrapper-parent-currentBookings, .parent-con .data-con .data-wrapper-parent-upcomingBookings, .parent-con .data-con .data-wrapper-parent-userProfile, .parent-con .data-con .data-wrapper-parent-takeaway {
+.parent-con .data-con .data-wrapper-parent-pastBookings, .parent-con .data-con .data-wrapper-parent-currentBookings, .parent-con .data-con .data-wrapper-parent-upcomingBookings, .parent-con .data-con .data-wrapper-parent-userProfile, .parent-con .data-con .data-wrapper-parent-takeaway, .parent-con .data-con .data-wrapper-parent-dine, .parent-con .data-con .data-wrapper-parent-dashboard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -388,9 +348,24 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
   position: relative;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder-dine .main-data-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder-dine .main-data-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder-dine .main-data-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder-dine .main-data-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder-dine .main-data-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder-dine .main-data-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder-dine .main-data-con {
   position: relative;
-  width: auto;
+  width: 45rem !important;
+  overflow: hidden;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder-dine .main-data-con .specifier, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder-dine .main-data-con .specifier, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder-dine .main-data-con .specifier, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder-dine .main-data-con .specifier, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder-dine .main-data-con .specifier, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder-dine .main-data-con .specifier, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder-dine .main-data-con .specifier {
+  position: absolute;
+  font-size: 1.2rem;
+  bottom: 1rem;
+  left: 1rem;
+  color: #28a745;
+  border-radius: 0.5rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder {
+  position: relative;
+  width: 100%;
   height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -400,8 +375,284 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
   gap: 2rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con {
-  max-width: 45rem;
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-height: 50vh;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .dinein-s, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .takeaway-s, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .dinein-s, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .takeaway-s, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .dinein-s, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .takeaway-s, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .dinein-s, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .takeaway-s, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .dinein-s, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .takeaway-s, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .dinein-s, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .takeaway-s, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .dinein-s, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .takeaway-s, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .table-booking-s {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-bottom: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .dinein-s h1, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .takeaway-s h1, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .table-booking-s h1, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .dinein-s h1, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .takeaway-s h1, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .table-booking-s h1, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .dinein-s h1, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .takeaway-s h1, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .table-booking-s h1, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .dinein-s h1, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .takeaway-s h1, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .table-booking-s h1, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .dinein-s h1, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .takeaway-s h1, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .table-booking-s h1, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .dinein-s h1, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .takeaway-s h1, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .table-booking-s h1, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .dinein-s h1, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .takeaway-s h1, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .table-booking-s h1 {
+  display: inline-block;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  color: #afafaf;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-size: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .dinein-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .dinein-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .takeaway-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .takeaway-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .table-booking-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .table-booking-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .dinein-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .dinein-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .takeaway-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .takeaway-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .table-booking-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .table-booking-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .dinein-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .dinein-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .takeaway-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .takeaway-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .table-booking-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .table-booking-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .dinein-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .dinein-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .takeaway-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .takeaway-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .table-booking-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .table-booking-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .dinein-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .dinein-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .takeaway-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .takeaway-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .table-booking-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .table-booking-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .dinein-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .dinein-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .takeaway-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .takeaway-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .table-booking-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .table-booking-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .dinein-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .dinein-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .takeaway-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .takeaway-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .table-booking-s .dinein-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .table-booking-s .takeaway-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .table-booking-s .table-booking-s-data {
+  padding: 2rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-right: 0.1rem solid #afafaf;
+  gap: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .table-booking-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .dinein-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .takeaway-s .table-booking-s-data, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .table-booking-s .table-booking-s-data {
+  border: none;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .separation-div .table-booking-s, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .separation-div .table-booking-s {
+  border: none;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con {
+  width: calc(100vw - 15rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con h1, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con h1, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con h1, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con h1, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con h1, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con h1, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con h1 {
+  margin: 0rem 0 2rem 0;
+  font-weight: 700;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  min-height: 50vh;
+  background-color: white;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .header-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .header-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .header-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .header-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .header-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .header-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .header-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory {
+  font-size: 1.8rem;
+  padding: 0.8rem 1.6rem;
+  background-color: #0f0fbb;
+  color: white;
+  border-radius: 10rem;
+  border: 0.1rem solid #0f0fbb;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory i, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory i, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory i, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory i, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory i, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory i, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .header-con .refresh-inventory i {
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .search-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .search-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .search-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .search-div, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .search-div, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .search-div, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .search-div {
+  background-color: white;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .search-div input, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .search-div input, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .search-div input, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .search-div input, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .search-div input, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .search-div input, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .search-div input {
+  font-size: 2rem;
+  border: none;
+  outline: none;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .search-div i, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .search-div i, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .search-div i, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .search-div i, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .search-div i, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .search-div i, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .search-div i {
+  font-size: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item {
+  min-width: 35rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  gap: 2rem;
+  position: relative;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .img-div img, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .img-div img, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .img-div img, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item .img-div img, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item .img-div img, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item .img-div img, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item .img-div img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 1rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div {
+  margin-right: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div .item-name, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div .item-name, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div .item-name, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div .item-name, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div .item-name, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div .item-name, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item .item-details-div .item-name {
+  font-size: 2rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .input-group-inventory, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .input-group-inventory, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .input-group-inventory, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item .input-group-inventory, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item .input-group-inventory, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item .input-group-inventory, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item .input-group-inventory {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  margin-left: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item label, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item label, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item label, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item label, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item label, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item label, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item label {
+  top: -70%;
+  position: absolute;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item input, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item input, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item input, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item input, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item input, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item input, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  width: 7rem;
+  border: 0.1rem solid #afafaf;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: white;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  text-align: center;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .update-btn, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .update-btn, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item .update-btn, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item .update-btn, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item .update-btn, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item .update-btn, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item .update-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background-color: none;
+  color: white;
+  border: none;
+  background-color: #3ea055;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 7rem;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus + .update-btn, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus + .update-btn, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus + .update-btn, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus + .update-btn, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus + .update-btn, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus + .update-btn, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .table-outer-con .items-holder .items-wrapper .item input:focus + .update-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con {
+  width: 45rem !important;
   min-height: 22rem;
   background-color: white;
   -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
@@ -422,12 +673,10 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  gap: 2rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -441,14 +690,44 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
           align-items: center;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div img {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .table-no-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .table-no-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .table-no-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .table-no-div, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div .table-no-div, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div .table-no-div, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div .table-no-div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .table-no-div h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .table-no-div h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .table-no-div h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .table-no-div h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div .table-no-div h4, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div .table-no-div h4, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div .table-no-div h4 {
+  font-size: 2rem;
+  margin-left: 0;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .table-no-div h4 span, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .table-no-div h4 span, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .table-no-div h4 span, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .table-no-div h4 span, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div .table-no-div h4 span, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div .table-no-div h4 span, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div .table-no-div h4 span {
+  color: #afafaf;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div h4, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div h4, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div h4 {
+  font-size: 2rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: auto;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div h4 span, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div h4 span, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div h4 span, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div h4 span, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div h4 span, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div h4 span, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div h4 span {
+  color: #afafaf;
+}
+
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div img, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div img {
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
   margin-right: 2rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div .name-username-div {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div .name-username-div, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div .name-username-div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -464,17 +743,18 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
           align-items: flex-start;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div .name-username-div .name {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div .name-username-div .name, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div .name-username-div .name {
   font-size: 1.8rem;
   margin-bottom: 0;
+  margin-left: 0;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div .name-username-div .username {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .user-details-div .name-username-div .username, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .user-details-div .name-username-div .username {
   color: #afafaf;
   font-size: 1.5rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -490,21 +770,22 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
       flex-wrap: wrap;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-count-con {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .guest-count-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .date-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .time-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .guest-name-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .guest-count-con {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-count-con h4 {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .guest-count-con h4, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .date-con h4, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .time-con h4, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .guest-name-con h4, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .guest-count-con h4 {
   color: #afafaf;
+  font-size: 2rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-count-con p {
-  font-size: 1.5rem;
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .booking-details-con .guest-count-con p, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .date-con p, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .time-con p, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .guest-name-con p, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .booking-details-con .guest-count-con p {
+  font-size: 2rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .buttons-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .buttons-con {
   width: 100%;
   height: auto;
   display: -webkit-box;
@@ -516,7 +797,7 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
   gap: 2rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .status-con {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .buttons-con .status-con, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .buttons-con .status-con {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -528,12 +809,12 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
           align-items: center;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .status-con h4 {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .buttons-con .status-con h4, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .buttons-con .status-con h4 {
   margin: 0;
   margin-right: 2rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .buttons-con .status-con .bi-circle-fill {
   display: inline-block;
   line-height: 1.5rem;
   font-size: 1rem;
@@ -541,8 +822,8 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
   color: #28a745;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con button {
-  padding: 1rem 2rem;
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .buttons-con button, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .buttons-con button {
+  padding: 1rem 4rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -550,29 +831,29 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
   background-color: transparent;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .more-info {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .buttons-con .more-info, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .buttons-con .more-info {
   position: relative;
-  margin-right: auto;
-  background-color: #F47D4F;
+  background-color: #00917c;
   border-radius: 0.5rem;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .decline {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .buttons-con .decline, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .buttons-con .decline {
   position: relative;
-  background-color: #dc3545;
+  background-color: white;
+  border: 0.1rem solid #dc3545;
   border-radius: 0.5rem;
-  color: white;
-  font-size: 1.2rem;
+  color: #dc3545;
+  font-size: 1.5rem;
 }
 
-.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .accept {
+.parent-con .data-con .data-wrapper-parent-pastBookings .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-currentBookings .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-upcomingBookings .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-userProfile .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-takeaway .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-dine .main-data-holder .main-data-con .buttons-con .accept, .parent-con .data-con .data-wrapper-parent-dashboard .main-data-holder .main-data-con .buttons-con .accept {
   position: relative;
   background-color: #28a745;
   border-radius: 0.5rem;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .parent-con .data-con .more-data-holder {
@@ -1131,5 +1412,225 @@ nav .nav-util .acc-det .home-prof-div-con-b ul li:hover {
 
 .edit-data-outer-div .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder .input-con label, .edit-data-outer-div-2 .edit-data-div .form-div form .food-item-det-div .cuisine-data-con .cuisine-data-holder .input-con label {
   font-size: 2rem;
+}
+
+.skeleton {
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+          animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@-webkit-keyframes skeleton-loading {
+  0% {
+    background-color: #a3b8c2;
+  }
+  100% {
+    baclkground-color: #f0f3f5;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #a3b8c2;
+  }
+  100% {
+    baclkground-color: #f0f3f5;
+  }
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 0.5rem !important;
+}
+
+.skeleton-text:last-child {
+  width: 80%;
+}
+
+.more-info-holder {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.445);
+  z-index: 10;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.more-info-holder i {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  font-size: 4rem;
+  color: white;
+}
+
+.more-info-holder .more-data-holder {
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2rem;
+  max-width: 40rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  height: calc(100vh - 12rem);
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+}
+
+.more-info-holder .more-data-holder .order-list-con hr {
+  border: 0.1rem;
+}
+
+.more-info-holder .more-data-holder .order-list-con .overall-food {
+  border-bottom: 0.1rem solid #afafaf;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.more-info-holder .more-data-holder .order-list-con .overall-food .food-item-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.more-info-holder .more-data-holder .order-list-con .overall-food .food-item-con .item-details {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.more-info-holder .more-data-holder .order-list-con .overall-food .food-item-con .item-details h4 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.more-info-holder .more-data-holder .order-list-con .overall-food .food-item-con .item-details p {
+  font-size: 1.5rem;
+}
+
+.more-info-holder .more-data-holder .order-list-con .overall-food .food-item-con .item-details .details {
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.more-info-holder .more-data-holder .order-list-con .overall-food .food-item-con .item-details .details p {
+  font-weight: 500;
+}
+
+.more-info-holder .more-data-holder .order-list-con .overall-food p {
+  margin: 0;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+
+.more-info-holder .more-data-holder .total-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.more-info-holder .more-data-holder .total-div p {
+  font-weight: 500;
+}
+
+.more-info-holder .more-data-holder .total-div hr {
+  border: 0.1rem;
+}
+
+.more-info-holder .more-data-holder .total-div .cal-div {
+  border-bottom: 0.1rem dashed #afafaf;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.more-info-holder .more-data-holder .total-div .cal-div .sub-total, .more-info-holder .more-data-holder .total-div .cal-div .tax {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5rem 0;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.more-info-holder .more-data-holder .total-div .grand-total {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.ovf-check {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  height: 50rem;
+  background-color: aliceblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 2rem;
+  overflow-x: auto;
+}
+
+.ovf-check .ovf-check-content {
+  min-width: 20rem;
+  height: 45rem;
+  background-color: #333;
+  margin: 0 2rem;
 }
 /*# sourceMappingURL=businessProfile.css.map */
