@@ -35,11 +35,15 @@ menuWrapCon2.addEventListener('click', (e)=>{
         if(e.target.dataset.tabStatus == "open"){
             let tab = document.getElementById(e.target.dataset.tabTarget);
             
-            console.log(tab);
+           
+               
+           
              tl4.to(target,0.5, {height:"0", opacity : "0"},);
                 let targetBtn = e.target.closest('button');
                 let btnData = targetBtn.innerHTML.split('<');
                 e.target.closest('button').innerHTML = `${btnData[0]} <i class="bi bi-caret-up-fill"></i>`
+               
+               
                 
                 
                 
@@ -52,7 +56,7 @@ menuWrapCon2.addEventListener('click', (e)=>{
             let tab = document.getElementById(e.target.dataset.tabTarget);
 
            
-
+            
             tl4.to(target,0.5,{
                     height : "auto",
                     opacity : "1"
@@ -95,7 +99,7 @@ try {
 
         if(e.target.dataset.tabStatus == "open"){
             let tab = document.getElementById(e.target.dataset.tabTarget);
-            
+           
             console.log(tab);
              tl4.to(target,0.5, {height:"0", opacity : "0"},);
                 let targetBtn = e.target.closest('button');

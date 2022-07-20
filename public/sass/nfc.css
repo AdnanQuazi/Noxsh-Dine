@@ -302,6 +302,7 @@
   -o-object-fit: cover;
      object-fit: cover;
   object-position: center;
+  border-radius: 50%;
 }
 
 .menu-items .menu-wrap-con .menu-item .item-details-div, .menu-items .menu-wrap-con-takeaway .menu-item .item-details-div {
@@ -405,8 +406,8 @@
   font-size: 3rem;
   padding: 1rem 2rem;
   color: white;
-  background-color: #3ea055;
-  border: 0.1rem solid #3ea055;
+  background-color: #00917c;
+  border: 0.1rem solid #00917c;
   border-radius: 10rem;
 }
 
@@ -430,15 +431,15 @@
   font-size: 4rem;
   padding: 1rem 2rem;
   color: white;
-  background-color: #3ea055;
-  border: 0.1rem solid #3ea055;
+  background-color: #00917c;
+  border: 0.1rem solid #00917c;
   border-radius: 10rem;
 }
 
 .btn-con button {
   line-height: 3rem;
   height: auto;
-  background-color: #3ea055;
+  background-color: #00917c;
   border: none;
 }
 
@@ -452,7 +453,7 @@
 .btn-con input {
   max-width: 3rem;
   text-align: center;
-  background-color: #3ea055;
+  background-color: #00917c;
   color: white;
   border: none;
   font-size: 3rem;
@@ -472,7 +473,7 @@
   background-color: white;
   z-index: 11;
   width: 90%;
-  height: 30rem;
+  height: auto;
   border-radius: 1rem;
   display: none;
   -webkit-box-orient: vertical;
@@ -483,6 +484,7 @@
       -ms-flex-align: center;
           align-items: center;
   border: 1px solid #afafaf;
+  padding: 1rem;
 }
 
 .popup svg {

@@ -77,7 +77,7 @@
       justify-content: flex-start;
       align-items: flex-start;
       height : auto;
-      max-height: 40rem;
+      
       width: 100%;
     }
     .empty-cart{
@@ -262,16 +262,41 @@
             background-color: white;
             
             opacity: 0;
-            padding: 4rem 2rem 75px 4rem;
+            padding: 4rem 2rem 75px 2rem;
             height: 100vh !important;
             z-index: 10;
-
+            hr{
+              width: 100%;
+              height: 1rem;
+              margin: 1rem 0;
+            }
+            .add-more-food{
+              background-color: transparent;
+              font-size: 3rem;
+              text-align: center;
+              color: #00917c;
+              border: none;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              i{
+                margin-right: 2rem;
+                font-size: 5rem;
+              }
+            }
             .cart-con{
               box-shadow: none;
               height: 100%;
               .food-items-holder{
 
               margin-top: 4rem;
+              overflow: auto;
+              max-height: 50vh;
+              padding: 2rem 0;
+              border-radius: 1rem;
+              gap: 4rem;
+             
+             
 
               }
               h2{
@@ -294,17 +319,18 @@
                     gap: 2rem;                 
 
                   .food-img-con{
-                    min-width: 18rem;
-                    height: 18rem;
+                    min-width: 10rem;
+                    height: 10rem;
                     border-radius: 50%;
                     background-color: #f5f5f5;
                     border-radius: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    display: none;  
                     img{
-                        width: 14rem;
-                        height: 14rem;
+                        width: 8rem;
+                        height: 8rem;
                         border-radius: 50%;
                         object-position: center;
                         object-fit: cover;
@@ -318,40 +344,54 @@
 
                     max-width: 20rem;
                     width: auto;
+                    min-width: 15rem;
                     img{
                       width: 3rem;
                       height: 3rem;
                     }
                     .food-food-price-con{
                       h4{
-                        font-size: 2.5rem;
+                        font-size: 3rem;
+                        font-weight: 700;
                       }
                     }
                   }
                   .right-con{
+                    width: 100%;
                     justify-content: space-between;
-                    gap: 4rem;
+                    gap: 3rem;
                     .number-input{
                       margin-left: auto;
-                      padding: 0.5rem 0;
+                      padding: 1rem;
+                      display: flex;
+                      gap: 0rem;
+                      justify-content: center;
+                      align-items: center;
                       .minus,.plus{
                         display: flex;
                         align-items: center;
                         width: 4rem;
                       }
                       input[type="number"]{
-                        font-size: 2.5rem;
+                        font-size: 3.5rem;
+                        width: 5rem;
+                        height: 4.5rem;
+                        width: min-content !important;
+                        max-width: none; 
+                        text-align: center;
                       }
 
                       .bi-dash,.bi-plus{
-                        font-size: 3rem;
-                        width: 3rem;
-                        height: 3rem;
-                        line-height: 3rem;
+                        font-size: 6rem;
+                        width: 6rem;
+                        height: 6rem;
+                        line-height: 6rem;
                       }
                     }
                     .food-total-price{
-                      font-size: 2.5rem;
+                      font-size: 3rem;
+                      font-weight: 700;
+                      min-width: 8rem;
                     }
                   }
                 }
@@ -363,30 +403,41 @@
                   align-items: center;
                 }
                 h4{
-                  font-size: 2.5rem;
+                  font-weight: 700;
+                  font-size: 3rem;
 
                 }
                 p{
-                  font-size: 2.5rem;
+                  font-size: 3rem;
+                  font-weight: 700;
                   margin-bottom: 0.5rem;
                 }
               }
               .order-btn{
-                font-size: 2.5rem;
-                padding: 1.5rem 6rem;
+                position: fixed;
+                bottom: 2rem;
+                font-size: 3rem;
+                padding: 2rem 6rem;
                 margin-top: auto;
+                width: 90%;
+                border-radius: 1rem;
+                left: 50%;
+                transform: translate(-50%,0%);
+                background-color: #00917c;
+                border: 0.1rem solid #00917c;
+
               }
             }
   }
   .cart-absolute-div{
       position : fixed;
       bottom : 2rem;
-     
       display : none;
       padding : 2rem;
       justify-content: space-between;
       align-items: center;
-      background-color: #f4774d;
+      background-color: #00917c;
+      border: 0.1rem solid #00917c;
       border-radius: 0.5rem;
       color: white;
       width:  95%;
@@ -395,7 +446,15 @@
       
 
       .det-div{
-        
+        position: relative;
+          .ab-h4{
+            position: absolute;
+            right: -2rem;
+            bottom: 2rem;
+            transform: translate(100%,50%);
+            width: fit-content;
+            white-space: pre;
+          }
         h4{
           margin : 0;
           font-size: 2.8rem;
@@ -403,7 +462,7 @@
         }
         h4:first-child{
           font-size : 2rem;
-          margin-bottom: 0.5rem;
+          margin-bottom: 1.5rem;
           font-weight: 400;
         }
       }
@@ -422,6 +481,10 @@
   flex-direction: column;
   padding: 1rem 2rem;
   margin-top: 4rem;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 15;
   h1{
       font-size: 4rem !important;
       display: flex;

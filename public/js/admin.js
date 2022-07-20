@@ -5,7 +5,7 @@ const getRes = async()=>{
         
     })
    const fData = await restaurants.json()
-   console.log(fData.getRes[0])
+   console.log(fData.getRes)
    let overallCon = document.querySelector('.overall-con');
     fData.getRes.forEach(element => {
        let htmldata = `<div class="docs-div">
@@ -14,17 +14,17 @@ const getRes = async()=>{
 
 
        <div class="inner-img-holder">
-       <img src="/documents/${element.panDetails.panImage}" alt="" srcset="">
+       <img src="/documents/${element.panDetails.panImage}" alt="" srcset="" onclick="enlaregImg(this)">
        <span>PAN</span>
        </div>
 
        <div class="inner-img-holder">
-       <img src="/documents/${element.gstDetails.gstImage}" alt="" srcset="">
+       <img src="/documents/${element.fssaiDetails.fssaiImage}" alt="" srcset="" onclick="enlaregImg(this)">
        <span>FSSAI</span>
        </div>
 
        <div class="inner-img-holder">
-       <img src="/documents/${element.fssaiDetails.fssaiImage}" alt="" srcset="">
+       <img src="/documents/${element.gstDetails.gstImage}" alt="" srcset="" onclick="enlaregImg(this)">
        <span>GST</span>
        </div>
 
@@ -168,6 +168,25 @@ const appRes = await fetch('/approve-restaurant',{
 
 }
 const disRes = async(i)=>{
+
+
+}
+
+const enlaregImg = (i)=>{
+    document.querySelector('.doc-img-el').src = i.src
+
+    document.querySelector('.en-img-con').style.display = 'flex'
+    document.querySelector('.en-img-con').style.top =  window.scrollY + 'px'
+
+    document.body.classList.add('ovf')
+
+}
+
+function closeCon (){
+    document.querySelector('.doc-img-el').src = ''
+
+    document.querySelector('.en-img-con').style.display = 'none'
+    document.body.classList.remove('ovf')
 
 
 }

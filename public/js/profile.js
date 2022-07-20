@@ -22,7 +22,7 @@ const profileDataFetch = async ()=>{
             body: JSON.stringify({payload: localStorage.getItem('user')})
     });
     const data = await profileData.json();
-    
+    console.log(data)    
 
     //RECENTLY VIEWED
    
@@ -183,7 +183,7 @@ const profileDataFetch = async ()=>{
     document.querySelector('.followers-count').textContent = data.followersData[0] ? data.followersData.length : 0 
     document.querySelector('.following-count').textContent = data.followingData[0] ? data.followingData.length : 0
     document.querySelector('.review-count').textContent = data.finalRevData[0] ? data.finalRevData.length : 0
-
+    
 }
 
 

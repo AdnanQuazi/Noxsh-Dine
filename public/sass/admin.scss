@@ -170,3 +170,26 @@ body{
         }
     }
 }
+
+.en-img-con{
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    span {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-size: 4rem;
+    }
+    img{
+        width: 100rem;
+        height: 100rem;
+        object-fit: contain;
+    }
+}

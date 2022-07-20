@@ -57,7 +57,7 @@ nav{
     top: 0;
     background-color: transparent;
     width: 100vw;
-    height: 8rem;
+    height: 10rem;
     position: fixed;
     transition: 0.5s ease-in-out;
 
@@ -129,8 +129,8 @@ nav{
             height: fit-content;
 
             img{
-                width: 25rem;
-                height: 25rem;
+                width: 18rem;
+                height: 10rem;
                 object-fit: contain;
                 object-position: center;
                 border-radius: 2rem;
@@ -225,7 +225,7 @@ nav{
         align-items: center;
         cursor: pointer;
         position: relative;
-        transition: 0.5s ease-in-out;
+        
         width: auto;
         
         .fa-heart{
@@ -324,6 +324,7 @@ nav{
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
+    
     .mic {
         background: #fff;
         width: 10rem;
@@ -1246,7 +1247,7 @@ nav{
    }    
    footer{
       
-       background-color: #f5f5f5;
+       background-color: white;
        width: 100%;
        height: auto;
         .footer-img{
@@ -1286,14 +1287,14 @@ nav{
                 
                 .footer-data-con{
                     display: flex;
-                    gap: 2rem;
+                    gap: 4rem;
                     width: 100%;
-                    justify-content: space-between;
+                    justify-content: space-around;
 
                 }
                 .logo-div,.site-map-div,.contact-us-div,.legal-div{
-                    width: 100%;
-                    height: 100%;
+                    width: max-content;
+                    height: max-content;
                     // background-color: #F47D4F;
                     display: flex;
                     flex-direction: column;
@@ -1308,8 +1309,8 @@ nav{
                     justify-content: center;
                     flex-direction: row;
                     img{
-                        width: 35rem;
-                        height: 35rem;
+                        width: 475px;
+                        height: 300px;
                         align-self: center;
                     }
                 }
@@ -1326,15 +1327,18 @@ nav{
                         font-size: 2rem;
                         color: black;
                     }
-                    a:nth-child(5){
-                            color: #00917c;
-                            font-weight: 700;
-                    }
-                    a:nth-child(4){
-                        font-weight: 700;
-
-                        color: #00917c;
+                   
                 }
+                .site-map-div {
+                    
+                a:nth-child(6){
+                    color: #00917c;
+                    font-weight: 700;
+                }
+                a:nth-child(5){
+                        font-weight: 700;
+                        color: #00917c;
+                }   
                 }
                 .contact-us-div{
                     gap: 2rem;
@@ -1430,7 +1434,8 @@ nav{
     
    nav{
 
-
+    justify-content: space-between;
+    padding: 0 4rem;
     
     
     .nav-links-con{
@@ -1445,6 +1450,7 @@ nav{
         transform: translate(0,-110%);
         background-color: white ;
         display: flex !important;
+        left: 0;
     ul{
         
         flex-direction: column;
@@ -1459,6 +1465,10 @@ nav{
       
         font-size: 3rem;
         color: #333;
+    }
+    ul li button{
+        font-size: 3rem;
+        padding: 1.5rem 3rem;
     }
     
 }
@@ -1477,7 +1487,8 @@ nav{
     width: 100%;
     opacity: 0;
     gap: 20rem;
-
+    top : -100vh;
+    left: 0;
     
     .fa-heart,.fa-caret-down,span,a{
         color: #333;
@@ -1678,6 +1689,15 @@ nav{
 }
 
 @media (max-width: 768px) {
+    footer{
+
+        .footer-content {
+            .footer-upper-content{
+                flex-direction: column;
+                height: auto !important;
+            }
+        }
+    }
     html{
         font-size: 38%;
     }
@@ -1762,6 +1782,20 @@ nav{
 }
 }
 @media (max-width: 480px) {
+    footer{
+        .logo-div{
+            img{
+                width: 250px !important;
+                height: 150px !important;
+            }
+        }
+        .footer-lower-content{
+            margin-top: 4rem;
+        }
+    }
+    .cancel-booking{
+        font-size: 2rem !important;
+    }
     .offers-outer-con,.food-items-outer-con,.menu-outer-con,.gallery-outer-con{
         width: 100% !important;
         
@@ -3278,9 +3312,29 @@ nav{
     margin-right: 2rem;
 }
 
-$x: 1;
+.loader-holder{
+    position: fixed;
+    
+    z-index: 11;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
 
-:export {
-    x: $x;
+.loader{
+    width: auto;
+    height: auto;
+    padding: 2rem;
+    
    
-  }
+    border-radius: 1rem;
+    
+    
+    img{
+        width: 8rem;
+        height: 8rem;
+    }
+}
+}

@@ -18,11 +18,12 @@ const takeawayDet = [];
 const dineDet = [];
 
 
-socket.on('recieve-details', details =>{
+socket.on('recieve-details', (details)=>{
 
     det.push(details)
    
    let data = details
+        
    showNotification('TABLE BOOKING',`Booking request from ${data.guestName}`) 
 
   let htmlData = `<div class="main-data-con">
@@ -32,6 +33,7 @@ socket.on('recieve-details', details =>{
           <h4 class="name">${data.name}</h4>
           <span class="username">${data.userName}</span>
       </div>
+      <h4><span>ID</span> ${data.orderId}</h4>
   </div>
   <div class="booking-details-con">
       <div class="date-con">
@@ -66,6 +68,11 @@ socket.on('recieve-details', details =>{
  
 })
 
+socket.on('cancel-booking', async(id,res)=>{
+        const i = document.querySelector(`#${id}`)
+        
+       declineBookingRequest(i)
+})
 //MORE INFO
 
 const closeMoreInfo = ()=>{
@@ -73,6 +80,7 @@ const closeMoreInfo = ()=>{
     document.querySelector('.more-info-holder').style.display = 'none'
 }
     const moreInfo = async(source,id,resId)=>{
+        console.log("moreInfo")
         let payload;
         if(source == 'dine'){
 
@@ -215,7 +223,7 @@ const displayUpcomingData = async ()=>{
                 <h4 class="name">${userdata.name}</h4>
                 <span class="username">${userdata.username}</span>
             </div>
-            <h4><span>ID</span> #3456297</h4>
+            <h4><span>ID</span> ${elem.orderId}</h4>
         </div>
         <div class="booking-details-con">
             <div class="date-con">
@@ -401,7 +409,7 @@ const displayTakeawayData = async()=>{
                 <h4 class="name">${userdata.name}</h4>
                 <span class="username">${userdata.username}</span>
             </div>
-            <h4><span>ID</span> #3456297</h4>
+            <h4><span>ID</span> ${elem.orderId}</h4>
         </div>
         <div class="booking-details-con">
             <div class="date-con">
@@ -478,9 +486,9 @@ const takeawayPCon = document.querySelector('.takeaway-s-data');
 
 
 
-socket.on('recieve-takeaway-details', (details,user)=>{
+socket.on('recieve-takeaway-details', (details,user,orderId)=>{
     console.log("here",details,user)
-    takeawayDet.push([details,user])
+    takeawayDet.push([details,user,orderId])
     showNotification('TAKEAWAY',`Takeaway request from ${user.username}`) 
     let htmlData = `<div class="main-data-con">
   <div class="user-details-div">
@@ -489,6 +497,7 @@ socket.on('recieve-takeaway-details', (details,user)=>{
           <h4 class="name">${user.name}</h4>
           <span class="username">${user.username}</span>
       </div>
+      <h4><span>ID</span> ${orderId}</h4>
   </div>
   <div class="booking-details-con">
       <div class="date-con">
@@ -752,16 +761,16 @@ const declineDineinRequest = async(i)=>{
     p.parentNode.remove()
 }
 
-socket.on('recieve-dine-details', async(details,user)=>{
+socket.on('recieve-dine-details', async(details,user,orderId,tableNo)=>{
     
    
     showNotification('DINE-IN',` ORDER from ${user.username}`) 
-    dineDet.push([details,user])
+    dineDet.push([details,user,orderId,tableNo])
     let htmlData = `<div class="main-data-con">
   <div class="user-details-div">
       <div class="table-no-div">
-    <h4>Table No. 4</h4>
-    <h4>ID #3456297</h4>
+    <h4>Table No. ${tableNo}</h4>
+    <h4>${orderId}</h4>
 
       </div>
   </div>

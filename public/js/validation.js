@@ -124,7 +124,9 @@ const validation = async()=>{
                showToast(result.msg,'red')
           }else{
                showToast("Account Created Successfully",'#3ea055');
-               
+               setTimeout(() => {
+                    window.location.href = '/'
+               }, 3000);
           }
      }
     

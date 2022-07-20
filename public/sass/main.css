@@ -61,7 +61,7 @@ nav {
   top: 0;
   background-color: transparent;
   width: 100vw;
-  height: 8rem;
+  height: 10rem;
   position: fixed;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
@@ -149,8 +149,8 @@ nav span {
 }
 
 nav span img {
-  width: 25rem;
-  height: 25rem;
+  width: 18rem;
+  height: 10rem;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
@@ -267,8 +267,6 @@ nav .acc-det {
           align-items: center;
   cursor: pointer;
   position: relative;
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
   width: auto;
 }
 
@@ -1486,7 +1484,7 @@ hr {
 }
 
 footer {
-  background-color: #f5f5f5;
+  background-color: white;
   width: 100%;
   height: auto;
 }
@@ -1545,16 +1543,19 @@ footer .footer-content .footer-upper-content .footer-data-con {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
   width: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 footer .footer-content .footer-upper-content .logo-div, footer .footer-content .footer-upper-content .site-map-div, footer .footer-content .footer-upper-content .contact-us-div, footer .footer-content .footer-upper-content .legal-div {
-  width: 100%;
-  height: 100%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1587,8 +1588,8 @@ footer .footer-content .footer-upper-content .logo-div {
 }
 
 footer .footer-content .footer-upper-content .logo-div img {
-  width: 35rem;
-  height: 35rem;
+  width: 475px;
+  height: 300px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -1610,12 +1611,12 @@ footer .footer-content .footer-upper-content .site-map-div a, footer .footer-con
   color: black;
 }
 
-footer .footer-content .footer-upper-content .site-map-div a:nth-child(5), footer .footer-content .footer-upper-content .legal-div a:nth-child(5) {
+footer .footer-content .footer-upper-content .site-map-div a:nth-child(6) {
   color: #00917c;
   font-weight: 700;
 }
 
-footer .footer-content .footer-upper-content .site-map-div a:nth-child(4), footer .footer-content .footer-upper-content .legal-div a:nth-child(4) {
+footer .footer-content .footer-upper-content .site-map-div a:nth-child(5) {
   font-weight: 700;
   color: #00917c;
 }
@@ -1715,6 +1716,12 @@ footer .footer-content .footer-lower-content .copyright-div span {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  nav {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 4rem;
+  }
   nav .nav-links-con {
     position: absolute;
     top: 0rem;
@@ -1737,6 +1744,7 @@ footer .footer-content .footer-lower-content .copyright-div span {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
+    left: 0;
   }
   nav .nav-links-con ul {
     -webkit-box-orient: vertical;
@@ -1756,6 +1764,10 @@ footer .footer-content .footer-lower-content .copyright-div span {
     font-size: 3rem;
     color: #333;
   }
+  nav .nav-links-con ul li button {
+    font-size: 3rem;
+    padding: 1.5rem 3rem;
+  }
   nav .nav-active {
     -webkit-transform: translate(0, 0%);
             transform: translate(0, 0%);
@@ -1770,6 +1782,8 @@ footer .footer-content .footer-lower-content .copyright-div span {
     width: 100%;
     opacity: 0;
     gap: 20rem;
+    top: -100vh;
+    left: 0;
   }
   nav .acc-det .fa-heart, nav .acc-det .fa-caret-down, nav .acc-det span, nav .acc-det a {
     color: #333;
@@ -1953,6 +1967,13 @@ footer .footer-content .footer-lower-content .copyright-div span {
 }
 
 @media (max-width: 768px) {
+  footer .footer-content .footer-upper-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto !important;
+  }
   html {
     font-size: 38%;
   }
@@ -2011,6 +2032,16 @@ footer .footer-content .footer-lower-content .copyright-div span {
 }
 
 @media (max-width: 480px) {
+  footer .logo-div img {
+    width: 250px !important;
+    height: 150px !important;
+  }
+  footer .footer-lower-content {
+    margin-top: 4rem;
+  }
+  .cancel-booking {
+    font-size: 2rem !important;
+  }
   .offers-outer-con, .food-items-outer-con, .menu-outer-con, .gallery-outer-con {
     width: 100% !important;
   }
@@ -3382,7 +3413,30 @@ footer .footer-content .footer-lower-content .copyright-div span {
   margin-right: 2rem;
 }
 
-:export {
-  x: 1;
+.loader-holder {
+  position: fixed;
+  z-index: 11;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.loader-holder .loader {
+  width: auto;
+  height: auto;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.loader-holder .loader img {
+  width: 8rem;
+  height: 8rem;
 }
 /*# sourceMappingURL=main.css.map */

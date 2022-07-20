@@ -4,7 +4,7 @@ const menuWrapConE = document.querySelector('.menu-wrap-con');
 
 
 
-// const id = window.location.href.substring(window.location.href.indexOf('/reataurants') + 1).split(['/'])[1];
+// const id = window.location.href.substring(window.location.href.indexOf('/restaurants') + 1).split(['/'])[1].split(['?'])[0]
 // console.log(id);
 
 // let finalData;

@@ -44,7 +44,7 @@
                  {{#if token}}
            
               
-                <img class="prof-img" src="/images/profimg.jpg" alt="" onclick="openProfileOptions()">
+                <img class="prof-img" style="background-color: {{profileColor}};" src="{{profileImg}}" alt="" onclick="openProfileOptions()">
                 <span onclick="openProfileOptions()">{{name}}</span>
                 <i class="fas fa-caret-down" onclick="openProfileOptions()"></i>
                 
@@ -204,7 +204,7 @@
                              <input type="number" name="email-otp" class="otp-inp" placeholder="OTP">
                                 <button class="submit-otp verify-email-otp">Submit</button>   
                         </div>
-                        <button class="verify-owner-email">Verify Email</button>
+                        <button class="verify-owner-email">Get OTP</button>
                     </div>
                      <div class="buttons-con">
                   
@@ -322,7 +322,7 @@
                             <input type="checkbox" name="cuisine" value="Bar Food" onchange="getSelectedCuisine(this)">
                             <label for="">Bar Food</label>
                             </div>
-                            <button class="load-cuisine">Load More</button>
+                            
                         </div>
                         
                     </div>
@@ -1092,7 +1092,7 @@
                 <div class="form-step">
                     <div class="input-group">
                         <div class="styled-header">
-                            <span class="">Restaurant Photo</span>
+                            <span class="">Restaurant Display Image</span>
                             <p>Upload a front photo of your Restaurant</p>
                         </div>
                         <div class="img-holder">
@@ -1112,7 +1112,7 @@
                     
                 </div>
 
-                <div class="form-step ">
+                <div class="form-step">
                     <div class="input-group">
                         <div class="styled-header">
                             <span>PAN Details</span>

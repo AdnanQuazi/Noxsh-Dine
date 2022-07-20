@@ -426,7 +426,7 @@ const nearbyRestaurants = async () =>{
      }
   )}
      
-     if(window.location.href == "https://noxshdine.com/"){
+     if(window.location.href == "https://www.noxshdine.com/"){
           defaultRestaurantFetch();
 
      }

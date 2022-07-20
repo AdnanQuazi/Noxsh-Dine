@@ -1,5 +1,5 @@
 const select = document.querySelectorAll('.date-radio');
-console.log(select);
+let content2 = document.querySelector('.content');
 const weekRadio = document.querySelectorAll('.week-date');
 const monthRadio = document.querySelectorAll('.month');
 const date = new Date();
@@ -314,7 +314,7 @@ const openBookCon = ()=>{
      const  BookCon = document.querySelector('.content-side-section');
      if(screen.width < 481){
 
-          document.body.classList.toggle("ovf");
+          document.body.classList.add("ovf");
       
       
     
@@ -331,7 +331,7 @@ const closeBookCon = ()=>{
      const  BookCon = document.querySelector('.content-side-section');
      if(screen.width < 481){
 
-          document.body.classList.toggle("ovf");
+          document.body.classList.remove("ovf");
       
       
     
@@ -347,16 +347,67 @@ const closeBookCon = ()=>{
 
 const ghostBooking = document.querySelector('.ghost-booking');
     const  clientBookingCycleAnimation = ()=>{
-        const ghostBooking = document.querySelector('.ghost-booking').style.display = "flex";
+     let guestName = document.querySelector('.guest-name').value;
+     if(guestName) {
+          const ghostBooking = document.querySelector('.ghost-booking') 
+          ghostBooking.style.display = "flex"
+          content2.innerHTML += `<button class="cancel-booking" onclick="cancelBooking()">Cancel Booking</button>`
+          const timeI = document.querySelector('.time')
+
+          let min = 1;
+          let sec = 60;
+
+          const idInterval = setInterval(()=>{
+          if(min == 0 && sec == 0){
+               stopInterval()
+          }
+          if(sec <= 9){ 
+               
+               timeI.innerHTML = `0${min}:0${sec}`
+          }else{
+               timeI.innerHTML = `0${min}:${sec}`
+          }
+          if(sec != 0){
+               sec--
+          }else{
+               min--
+               sec = 60
+          }
+
+          
+          },1000)
+
+          function stopInterval(){
+               content2.innerHTML = `
+               <div class="status-div">
+              
+               
+               <span style="color: rgb(195,14,14);font-weight: 700;">Oops it seems that the restaurant is not responding</span>
+               
+               </div>
+               `
+               clearInterval(idInterval)
+               setTimeout(()=>{
+                    ghostBooking.style.display = "none"
+                    content2.innerHTML = `<img src="/images/rollingloader2.svg" alt="" srcset="">
+                    <span class="ghost-h2">Please wait for confirmation from the Restuarant</span>
+                    <p>Do not close this window</p>
+                    <h4 class="time"></h4>`
+                    
+                },5000)
+          }
+     }
+        
     }
 
 
     const takeawayDiv = document.querySelector('.takeaway-div');
     const openTakeawayCon = ()=>{
-
+     document.body.scrollY = 0;
+     document.documentElement.scrollY = 0;
      if(screen.width < 481){
 
-          document.body.classList.toggle("ovf");
+          document.body.classList.add("ovf");
 
           tl2.to(takeawayDiv, 0.1, {opacity: 0,
                display : "none",
@@ -366,6 +417,7 @@ const ghostBooking = document.querySelector('.ghost-booking');
       
           tl2.to(takeawayDiv, 0.5, {opacity: 1,
                display : "block",
+               
                bottom : -window.scrollY - 55,
                  
           });
@@ -379,11 +431,12 @@ const ghostBooking = document.querySelector('.ghost-booking');
 
      if(screen.width < 481){
 
-          document.body.classList.toggle("ovf");
+          document.body.classList.remove("ovf");
           
          
           tl2.to(takeawayDiv, 0.5, {opacity: 0,
                display : "none",
+               top : "unset",
                bottom : -window.scrollY - 100,
                  
           });

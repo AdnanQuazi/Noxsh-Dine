@@ -5,19 +5,19 @@ import * as toast from './toast.js'
 
 
  export const login = async()=>{
-    const number = document.querySelector('input[name="phone"]').value
+    const username = document.querySelector('input[name="username"]').value
     const password = document.querySelector('input[name="password"]').value
     
     const sendDetails = await fetch('/login',{
         method : 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({phone: number ,password : password})
+        body: JSON.stringify({username,password : password})
     })
  
 
     if(await sendDetails.json() == true){
 
-        toast.showToast("Welcome Back")
+        toast.showToast("Welcome Back","green")
 
 
             setTimeout(function(){
@@ -26,7 +26,7 @@ import * as toast from './toast.js'
             },1000)
     }else{
 
-        toast.showToast("Invalid Login Details")
+        toast.showToast("Invalid Credentials")
         
     }
 }

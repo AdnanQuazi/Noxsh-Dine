@@ -58,7 +58,7 @@ const fillMenu = ()=>{
             if(element == elem.category){
                   let typeData;
                   let quantityData = '';
-               if(elem.type == "Non-Veg"){
+               if(elem.type == "Non-veg"){
                    typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                }else{
                    typeData = `<img src="https://img.icons8.com/fluency/50/000000/vegetarian-food-symbol.png" alt="">`
@@ -85,7 +85,7 @@ const fillMenu = ()=>{
             console.log(arr);
             let btn;
             if(arr.length < 1){
-                btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</i></button>`
             }
                 for(let [index,i] of arr.entries()){
                     let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
@@ -99,12 +99,14 @@ const fillMenu = ()=>{
                             <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
                             </div>`
                             break;
+                        }else{
+                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                         }
 
                     }else{
                         
                         if(index == arr.length - 1){
-                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                         }
                     }
                 } 
@@ -237,10 +239,10 @@ filterTabs.forEach(tab =>{
             
                         
                         if(element == elem.category){
-                              let typeData;
-                  let quantityData;
+                              let typeData = '';
+                  let quantityData = '';
 
-                           if(elem.type == "Non-Veg"){
+                           if(elem.type == "Non-veg"){
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                            }else{
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
@@ -264,11 +266,14 @@ filterTabs.forEach(tab =>{
                             
                         let arr = JSON.parse(localStorage.getItem(id)) || []
                         let btn;
+                        if(arr.length < 1){
+                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
+                        }
                         for(let [index,i] of arr.entries()){
                             let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
                             console.log(quantity);
                             if(i.foodId == elem._id){
-        
+                                   
                                 if(i.foodQuantity == quantity){
                                     btn = `<div class="btn-con">
                                     <button ><span><i class="bi bi-dash" onclick="removeFromCart('${i.foodId}' , '${i.foodQuantity}' , this);"></i></span></button>
@@ -276,12 +281,14 @@ filterTabs.forEach(tab =>{
                                     <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
                                     </div>`
                                     break;
+                                }else{
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                                 }
         
                             }else{
                                 
                                 if(index == arr.length - 1){
-                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                                 }
                             }
                         }  
@@ -338,7 +345,7 @@ filterTabs.forEach(tab =>{
                 tab.dataset.tabStatus = "inactive"
                 fillMenu()
             }   
-        }else if(tab.dataset.tabCategory == "Non-Veg"){
+        }else if(tab.dataset.tabCategory == "Non-veg"){
             if(tab.dataset.tabStatus == "inactive"){
 
                 document.querySelector('.catUl').innerHTML = ''
@@ -347,7 +354,7 @@ filterTabs.forEach(tab =>{
                 menuWrapCon.innerHTML = '';
                 finalData.menuData.menu.forEach(elem =>{
             
-                    if(elem.type == "Non-Veg"){
+                    if(elem.type == "Non-veg"){
                        vegData.push(elem)
                     }
                     
@@ -389,9 +396,9 @@ filterTabs.forEach(tab =>{
                         
                         if(element == elem.category){
                               let typeData;
-                  let quantityData;
+                  let quantityData = '';
 
-                           if(elem.type == "Non-Veg"){
+                           if(elem.type == "Non-veg"){
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
                            }else{
                                typeData = `<img src="https://img.icons8.com/fluency/50/000000/non-vegetarian-food-symbol.png" alt="">`
@@ -413,7 +420,10 @@ filterTabs.forEach(tab =>{
             
                         })
                         let arr = JSON.parse(localStorage.getItem(id)) || []
-                        let btn;
+                        let btn = '';
+                        if(arr.length < 1){
+                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
+                        }
                         for(let [index,i] of arr.entries()){
                             let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
                             console.log(quantity);
@@ -426,12 +436,14 @@ filterTabs.forEach(tab =>{
                                     <button ><span><i class="bi bi-plus" id="${i.foodId}" data-tab-target="addToCart" ></i></span></button>
                                     </div>`
                                     break;
+                                }else{
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                                 }
         
                             }else{
                                 
                                 if(index == arr.length - 1){
-                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                                 }
                             }
                         } 

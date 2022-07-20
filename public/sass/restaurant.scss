@@ -1106,7 +1106,7 @@ nav{
 
                                 span{
                                     margin-left: 2rem;
-                                    color: black !important;
+                                    
                                 }
                             }
                             p{
@@ -1117,7 +1117,7 @@ nav{
                             }
                             span{
                                 font-size: 2rem;
-                                color: #F47D4F;
+                                color: #00917c;
                                 font-weight: 500;
                                 background: none;
                                 border: none;
@@ -2347,7 +2347,7 @@ nav{
     background-color: white;
     position: absolute;
     z-index: 6;
-    display: none;
+    display: block;
     overflow-y: auto;
     padding-bottom: 32rem;
 }
@@ -2365,13 +2365,13 @@ nav{
     background-color: white;
     z-index: 11;
     width: 90%;
-    height: 30rem;
+    height: auto;
     border-radius: 1rem;
     display: none;
     flex-direction: column;
     align-items: center;
     border: 1px solid #afafaf;
-
+    padding: 1rem;
     svg{
         width: 5rem;
         height: 5rem;
@@ -2382,4 +2382,59 @@ nav{
     p{
         font-size: 2rem;
     }
+}
+.res-stats-popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    z-index: 11;
+    width: 90%;
+    height: auto;
+    border-radius: 1rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #afafaf;
+    background-color: white;
+    padding: 2rem;
+    gap: 0rem;
+    
+
+    h1{
+        font-size: 3.5rem !important;
+        font-weight: 700;
+        margin-top: 4rem;
+    }
+    h4{
+        font-size: 3rem !important;
+        color: #afafaf;
+    }
+    button{
+        margin-top: 4rem;
+        border: 0.1rem solid #00917c;
+        color: #00917c;
+        border-radius: 1rem;
+        background-color: white;
+        padding: 1.5rem 3rem !important;
+        font-size: 2.5rem;
+
+    }
+    i{
+        font-size: 3.5rem;
+        padding: 2rem;
+        position: absolute;
+        top: 0;
+        right: 2rem;        
+    }
+}
+.cancel-booking{
+    background-color: rgb(218, 21, 21);
+    padding: 1rem;
+    border: 0.1rem solid rgb(218, 21, 21);
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
 }

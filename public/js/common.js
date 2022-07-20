@@ -56,16 +56,30 @@ burger.addEventListener('click', ()=>{
      icn1.classList.toggle("blk")
      icn.classList.toggle("blk")
     nav.classList.toggle('nav-active');
-    accDet.classList.toggle('acc-active');
+    
     if(icn.style.display == 'none' && icn1.style.display == 'flex'){
          icn.style.display = 'flex'
          icn1.style.display = 'none'
           document.body.classList.remove("ovf");
+          let tl = new TimelineLite();
+          tl.to(accDet,0.5,{
+               opacity: 0,
+               top : "-100vh"
+                    
+
+          })
          
     }else{
          icn.style.display =  'none'
          icn1.style.display =  'flex'
          document.body.classList.add("ovf");
+         let tl = new TimelineLite();
+               tl.to(accDet,0.5,{
+                    opacity: 1,
+                    top : "65vh"
+                         
+
+               })
      
     }
     

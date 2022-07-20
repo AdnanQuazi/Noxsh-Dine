@@ -2,10 +2,6 @@ nav {
   position: relative;
 }
 
-nav .nav-links-con {
-  display: none !important;
-}
-
 nav .loc-div {
   position: relative;
   display: -webkit-box;

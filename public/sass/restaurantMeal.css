@@ -347,6 +347,10 @@
   }
   .content-side-section-cart .cart-con .food-items-holder {
     margin-top: 4rem;
+    overflow: auto;
+    max-height: 50vh;
+    padding: 2rem 0;
+    border-radius: 1rem;
   }
   .content-side-section-cart .cart-con h2 {
     font-size: 4rem;
@@ -459,15 +463,22 @@
     margin-bottom: 0.5rem;
   }
   .content-side-section-cart .cart-con .order-btn {
-    font-size: 2.5rem;
-    padding: 1.5rem 6rem;
+    position: fixed;
+    bottom: 2rem;
+    font-size: 3rem;
+    padding: 2rem 6rem;
     margin-top: auto;
+    width: 90%;
+    border-radius: 1rem;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    background-color: #00917c;
+    border: 0.1rem solid #00917c;
   }
   .cart-absolute-div {
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     bottom: 2rem;
-    margin-bottom: 2rem;
     display: none;
     padding: 2rem;
     -webkit-box-pack: justify;
@@ -476,11 +487,13 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    background-color: #f4774d;
-    border-radius: 1rem;
+    background-color: #00917c;
+    border: 0.1rem solid #00917c;
+    border-radius: 0.5rem;
     color: white;
     width: 95%;
     left: 2.5%;
+    border-radius: 1rem;
   }
   .cart-absolute-div .det-div h4 {
     margin: 0;
@@ -488,7 +501,7 @@
   }
   .cart-absolute-div .det-div h4:first-child {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     font-weight: 400;
   }
   .cart-absolute-div h2 {

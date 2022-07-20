@@ -374,7 +374,7 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 }
 
 .main-form-outer-div form .progress-step-active {
-  background-color: #ebc894 !important;
+  background-color: #1c1c1c !important;
   font-size: 1.5rem;
 }
 
@@ -472,11 +472,11 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 }
 
 .main-form-outer-div form .form-step .input-group .otp-div button {
-  background-color: #ebc894;
+  background-color: #1c1c1c;
   color: white;
   font-size: 2rem;
   padding: 0.8rem 2rem;
-  border: 0.1rem solid #ebc894;
+  border: 0.1rem solid #1c1c1c;
   border-radius: 0.5rem;
   height: -webkit-max-content;
   height: -moz-max-content;
@@ -488,8 +488,8 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
   font-size: 2rem;
   padding: 1rem;
   text-align: center;
-  border: 0.1rem solid #ebc894;
-  background-color: #ebc894;
+  border: 0.1rem solid #1c1c1c;
+  background-color: #1c1c1c;
   color: white;
   border-radius: 1rem !important;
   display: -webkit-box;
@@ -524,11 +524,11 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
   position: relative;
   padding: 0.8rem;
   border-radius: 1rem !important;
-  border: 0.1rem dashed #afafaf;
+  border: 0.1rem dashed black;
 }
 
 .main-form-outer-div form .form-step .input-group .doc-img-upload span {
-  color: #afafaf;
+  color: black;
   font-size: 2rem;
 }
 
@@ -763,7 +763,7 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 }
 
 .main-form-outer-div form .form-step .input-group .time-div .open-time-wrap-con .close-time-con-hours .container input:checked ~ .hours, .main-form-outer-div form .form-step .input-group .time-div .open-time-wrap-con .close-time-con-min .container input:checked ~ .hours, .main-form-outer-div form .form-step .input-group .time-div .close-time-wrap-con .close-time-con-hours .container input:checked ~ .hours, .main-form-outer-div form .form-step .input-group .time-div .close-time-wrap-con .close-time-con-min .container input:checked ~ .hours {
-  background-color: #ebc894;
+  background-color: #1c1c1c;
   color: white;
 }
 
@@ -772,7 +772,7 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 }
 
 .main-form-outer-div form .form-step .input-group .time-div .open-time-wrap-con .close-time-con-hours .container input:checked ~ .min, .main-form-outer-div form .form-step .input-group .time-div .open-time-wrap-con .close-time-con-min .container input:checked ~ .min, .main-form-outer-div form .form-step .input-group .time-div .close-time-wrap-con .close-time-con-hours .container input:checked ~ .min, .main-form-outer-div form .form-step .input-group .time-div .close-time-wrap-con .close-time-con-min .container input:checked ~ .min {
-  background-color: #ebc894;
+  background-color: #1c1c1c;
   color: white;
 }
 
@@ -828,7 +828,7 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 }
 
 .main-form-outer-div form .form-step .input-group .time-div .open-time-wrap-con .open-time-con-hours .container input:checked ~ .hours, .main-form-outer-div form .form-step .input-group .time-div .open-time-wrap-con .open-time-con-min .container input:checked ~ .hours, .main-form-outer-div form .form-step .input-group .time-div .close-time-wrap-con .open-time-con-hours .container input:checked ~ .hours, .main-form-outer-div form .form-step .input-group .time-div .close-time-wrap-con .open-time-con-min .container input:checked ~ .hours {
-  background-color: #ebc894;
+  background-color: #1c1c1c;
   color: white;
 }
 
@@ -837,7 +837,7 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 }
 
 .main-form-outer-div form .form-step .input-group .time-div .open-time-wrap-con .open-time-con-hours .container input:checked ~ .min, .main-form-outer-div form .form-step .input-group .time-div .open-time-wrap-con .open-time-con-min .container input:checked ~ .min, .main-form-outer-div form .form-step .input-group .time-div .close-time-wrap-con .open-time-con-hours .container input:checked ~ .min, .main-form-outer-div form .form-step .input-group .time-div .close-time-wrap-con .open-time-con-min .container input:checked ~ .min {
-  background-color: #ebc894;
+  background-color: #1c1c1c;
   color: white;
 }
 
@@ -1018,9 +1018,9 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
       -ms-flex-positive: 1;
           flex-grow: 1;
   font-size: 1.8rem;
-  background-color: #ebc894;
+  background-color: #1c1c1c;
   color: white;
-  border: 0.1rem solid #ebc894;
+  border: 0.1rem solid #1c1c1c;
   border-radius: 0.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1047,7 +1047,7 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 
 .main-form-outer-div form .form-step .detect-loc {
   border: none;
-  background-color: #ebc894;
+  background-color: #1c1c1c;
   padding: 1rem 2rem;
   font-size: 1.8rem;
   display: -webkit-box;
@@ -1081,16 +1081,16 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 }
 
 .main-form-outer-div form .form-step .buttons-con .prev, .main-form-outer-div form .form-step .buttons-con .next {
-  border: 0.2rem solid #ebc894;
+  border: 0.2rem solid #1c1c1c;
   padding: 0.8rem 4rem;
   font-size: 1.8rem;
   border-radius: 0.5rem;
-  color: #ebc894;
+  color: #1c1c1c;
   background-color: white;
 }
 
 .main-form-outer-div form .form-step .buttons-con .next {
-  background-color: #ebc894;
+  background-color: #1c1c1c;
   color: white;
   margin-left: auto;
 }
@@ -1104,7 +1104,7 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
   width: 0.5rem;
   left: 3.2rem;
   z-index: -1;
-  background-color: #ebc894;
+  background-color: #1c1c1c;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
@@ -1115,5 +1115,15 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 
 .nav-wrapper {
   width: 100rem !important;
+}
+
+@media (max-width: 480px) {
+  .otp-div button {
+    padding: 1rem 3rem !important;
+    font-size: 3rem !important;
+  }
+  .tel-wrapper .verify-phone {
+    font-size: 3rem !important;
+  }
 }
 /*# sourceMappingURL=businessRegister.css.map */

@@ -10,6 +10,9 @@ const RestOwnerSchema = new mongoose.Schema({
         type : String
     },
     pastBookings :[{
+        orderId : {
+            type : String
+        },
         userId : {
             type : String
         },
@@ -62,6 +65,9 @@ const RestOwnerSchema = new mongoose.Schema({
         }]
     }],
     takeaway :[{
+        orderId : {
+            type : String
+        },
         userId : {
             type : String
         },
@@ -168,6 +174,9 @@ const RestOwnerSchema = new mongoose.Schema({
 
     }],
     upcomingBookings :[{
+        orderId : {
+            type : String
+        },
         userId : {
             type : String
         },

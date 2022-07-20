@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/sass/main.css">
     <link rel="stylesheet" href="/sass/nfc.css">
     <link rel="stylesheet" href="/sass/restaurantMeal.css">
-
+    <link rel="stylesheet" href="/sass/cart.css">
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
@@ -47,7 +47,7 @@
     <div class="menu-items">
         <div class="filter-div">
             <div class="veg" data-tab-category="Veg" data-tab-status="inactive"><span>Veg</span></div>
-            <div class="non-veg" data-tab-category="Non-Veg" data-tab-status="inactive"><span>Non Veg</span></div>
+            <div class="non-veg" data-tab-category="Non-veg" data-tab-status="inactive"><span>Non Veg</span></div>
 
         </div>
         <div class="menu-wrap-con"></div>
@@ -202,14 +202,15 @@ const tl3 = new TimelineLite()
     function generateRandom(maxLimit = 7){
   let rand = Math.random() * maxLimit;
    // say 99.81321410836433
+  
+  rand = Math.floor(rand) == 0 || Math.floor(rand) > maxLimit ? 1 :  Math.floor(rand); // 99
 
-  rand = Math.floor(rand); // 99
-    rand == 0 || rand > maxLimit ? rand = 0 : rand = rand
   
 
   document.querySelector('.landing-div').style.backgroundImage = ` linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),url(/images/qrImages/${rand}.jpg)`
 }
  generateRandom()   
+ 
 </script>
 
 

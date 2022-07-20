@@ -333,11 +333,13 @@ const step2Validation = async()=>{
 
             }
         }
+        
         for(let l = 0;l < allWeekInputs.length;l++){
+
             if(allWeekInputs[l].checked){
                 validationStatus = true
                 break
-            }else{
+            }else if(l == allWeekInputs.length - 1){
                 showToast('Please Select at least one day','red')                    
 
                 validationStatus = false
@@ -469,6 +471,10 @@ const step4Validation = ()=>{
     }
 
     if(validationStatus){
+        nextBtn4.style.backgroundColor = 'white'
+        nextBtn4.style.borderColor = '#afafaf'
+        nextBtn4.style.color = '#afafaf'
+
         registerRestaurant()
     }
    
@@ -594,7 +600,9 @@ const registerRestaurant = async()=>{
 }
 
 function hidePopup(){
+    
     document.querySelector('.pp-bg-con').style.display = 'none'
+    window.location.href = '/'
 }
 
 // nextBtns.forEach((btn) => {
@@ -655,6 +663,9 @@ document.querySelector('.verify-owner-email').addEventListener('click',async()=>
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({payload: allEmailInputs[0].value})
         })
+        if(await veriyEmail.json()){
+            showToast('OTP sent successfully',"green")
+        }
     }else{
         allEmailInputs[0].style.borderColor = 'red';
        
@@ -698,6 +709,9 @@ document.querySelector('.verify-phone').addEventListener('click',async()=>{
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({payload: numberVal.value})
         })
+        if(await verifyPhone.json()){
+            showToast('OTP sent successfully',"green")
+        }
     }else{
         numberVal.style.borderColor = 'red';
        

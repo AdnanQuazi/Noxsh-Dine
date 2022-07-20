@@ -45,6 +45,11 @@
   color: #00917c;
 }
 
+nav {
+  position: relative !important;
+  width: auto !important;
+}
+
 nav .acc-det a {
   color: black;
 }

@@ -31,34 +31,3 @@
 
 // }());
 
-const timeI = document.querySelector('.time')
-// const currenTIme = new Date
-// const dateC =new Date(date.getTime('en-US',{
-// }) +  120 * 1000);
-// console.log(dateC.getMinutes());
-let min = 1;
-let sec = 60;
-
-const idInterval = setInterval(()=>{
-    if(min == 0 && sec == 0){
-        stopInterval()
-    }
-    if(sec <= 9){ 
-       
-        timeI.innerHTML = `0${min}:0${sec}`
-    }else{
-        timeI.innerHTML = `0${min}:${sec}`
-    }
-    if(sec != 0){
-        sec--
-    }else{
-        min--
-        sec = 60
-    }
-
-    
-},1000)
-
-function stopInterval(){
-    clearInterval(idInterval)
-}

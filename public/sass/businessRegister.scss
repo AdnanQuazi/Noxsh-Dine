@@ -288,7 +288,7 @@ nav{
         }
         .progress-step-active{
 
-            background-color: rgb(235, 200, 148) !important;
+                background-color: #1c1c1c !important;
             font-size: 1.5rem;
             
         }
@@ -354,11 +354,11 @@ nav{
                         margin-bottom: 0.5rem !important;
                     }
                     button{
-                        background-color: rgb(235, 200, 148);
+                        background-color: #1c1c1c;
                         color: white;
                         font-size: 2rem;
                         padding: 0.8rem 2rem;
-                        border: 0.1rem solid rgb(235, 200, 148);
+                        border: 0.1rem solid #1c1c1c;
                         border-radius: 0.5rem;
                         height: max-content;
                     }
@@ -370,8 +370,8 @@ nav{
                     font-size: 2rem;
                     padding: 1rem;
                     text-align: center;
-                    border: 0.1rem solid rgb(235, 200, 148);
-                    background-color: rgb(235, 200, 148);
+                    border: 0.1rem solid #1c1c1c;
+                    background-color: #1c1c1c;
                     color: white;
                     border-radius: 1rem !important;
                     display: flex;
@@ -393,9 +393,9 @@ nav{
                     position: relative;
                     padding: 0.8rem;
                     border-radius: 1rem !important;
-                    border: 0.1rem dashed #afafaf;
+                    border: 0.1rem dashed black;
                     span{
-                    color: #afafaf;
+                    color: black;
                     font-size: 2rem;
 
                     }
@@ -565,7 +565,7 @@ nav{
                             
                             /* When the radio button is checked, add a blue background */
                             .container input:checked ~ .hours {
-                                background-color: rgb(235, 200, 148);
+                                background-color: #1c1c1c;
                                 color: white;
                             }
                             .container:hover input ~ .min {
@@ -574,7 +574,7 @@ nav{
                             
                             /* When the radio button is checked, add a blue background */
                             .container input:checked ~ .min {
-                                background-color: rgb(235, 200, 148);
+                                background-color: #1c1c1c;
                                 color: white;
                             }
                         }
@@ -620,7 +620,7 @@ nav{
                         
                         /* When the radio button is checked, add a blue background */
                         .container input:checked ~ .hours {
-                            background-color: rgb(235, 200, 148);
+                            background-color: #1c1c1c;
                             color: white;
                         }
                         .container:hover input ~ .min {
@@ -629,7 +629,7 @@ nav{
                         
                         /* When the radio button is checked, add a blue background */
                         .container input:checked ~ .min {
-                            background-color: rgb(235, 200, 148);
+                            background-color: #1c1c1c;
                             color: white;
                         }
                     }
@@ -774,9 +774,9 @@ nav{
                     .verify-phone,.verify-owner-phone{
                         flex-grow: 1;
                         font-size: 1.8rem;
-                        background-color: rgb(235, 200, 148);
+                        background-color: #1c1c1c;
                         color: white;
-                        border: 0.1rem solid rgb(235, 200, 148);
+                        border: 0.1rem solid #1c1c1c;
                         border-radius: 0.5rem;
                         display: flex;
                         justify-content: center;
@@ -798,7 +798,7 @@ nav{
             }
             .detect-loc{
                 border: none;
-                background-color: rgb(235, 200, 148);
+                background-color: #1c1c1c;
                 padding: 1rem 2rem;
                 font-size: 1.8rem;
                 display: flex;
@@ -819,15 +819,15 @@ nav{
                 margin: 2rem 0;
 
                 .prev,.next{
-                    border: 0.2rem solid rgb(235, 200, 148);
+                    border: 0.2rem solid #1c1c1c;
                     padding: 0.8rem 4rem;
                     font-size: 1.8rem;
                     border-radius: 0.5rem;
-                    color: rgb(235, 200, 148);
+                    color: #1c1c1c;
                     background-color: white;
                 }
                 .next{
-                    background-color: rgb(235, 200, 148);
+                    background-color: #1c1c1c;
                     color: white;
                     margin-left: auto;
                 }
@@ -844,7 +844,7 @@ nav{
     width: 0.5rem;
     left: 3.2rem;
     z-index: -1;
-    background-color: rgb(235, 200, 148);
+    background-color: #1c1c1c;
     transition: 0.2s ease-in-out;
 }
 .wrapper{
@@ -855,4 +855,18 @@ nav{
 }
 .nav-wrapper{
     width: 100rem !important;
+}
+@media (max-width : 480px) {
+    .otp-div{
+        button{
+           padding: 1rem 3rem !important;
+           font-size: 3rem !important;
+
+        }
+    }
+    .tel-wrapper{
+        .verify-phone{
+            font-size: 3rem !important;
+        }
+    }
 }

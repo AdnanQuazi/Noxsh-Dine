@@ -26,77 +26,101 @@
     
 </head>
 <body>
-     <div class="popup successP">
-        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_rc5d0f61.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;"    autoplay></lottie-player>
-        <h1>Payment Successfull</h1>
-        <p>Please wait for the restaurant to accept the order</p>
+    
+    <div class="loader-holder">
+        <div class="loader">
+            <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_jwdccuex.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;"  loop  autoplay></lottie-player>
+        </div>
+    </div>
+    
+    <div class="res-stats-popup">
+        <i class="bi bi-x-lg" onclick="hide(this)"></i>
+        <lottie-player src="https://assets9.lottiefiles.com/datafiles/xZpWMoHmugR4VVFC8F9KiEIpHJshuTGN15rtuMON/online-offline.json"  background="transparent"  speed="1"  style="width: 50px; height: 50px;" autoplay></lottie-player>
+        <h1>SORRY</h1>
+
+        <h4>Restaurant is offline</h4>
+        <button onclick="window.location.href='/'">Search for other restaurant</button>
     </div>
 
-    <div class="takeaway-div">
 
-        <button class="categories-btn">Categories</button>
+     <div class="popup successP">
+        <h1 style="margin-top: 1rem;">Payment Successfull</h1>
+        <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_jwdccuex.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;"  loop  autoplay></lottie-player>
+        <p>Please wait while your order is being confirmed</p>
+    </div>
 
-    <div class="ovf-div"></div>
+        <div class="takeaway-div" style="display: none;">
 
-    <div class="categories-div" style="display : none;">
-            <ul class="catUl">
-               
+            <button class="categories-btn">Categories</button>
+
+        <div class="ovf-div"></div>
+
+        <div class="categories-div" style="display : none;">
+                <ul class="catUl">
                 
+                    
 
 
 
-            </ul>
-    </div>  
-        <div class="head-div">
-            <h1><i class="fa-solid fa-angle-left" onclick="closeTakeawayCon()"></i>Takeaway</h1>
-          <p>Please choose food for takeaway from below menu</p>
-        </div>
-          
-         <div class="menu-items">
-        <div class="filter-div">
-            <div class="veg" data-tab-category="Veg" data-tab-status="inactive"><span>Veg</span></div>
-            <div class="non-veg" data-tab-category="Non-Veg" data-tab-status="inactive"><span>Non Veg</span></div>
+                </ul>
+        </div>  
+            <div class="head-div">
+                <h1><i class="fa-solid fa-angle-left" onclick="closeTakeawayCon()"></i>Takeaway</h1>
+            <p>Please choose food for takeaway from below menu</p>
+            </div>
+            
+            <div class="menu-items">
+            <div class="filter-div">
+                <div class="veg" data-tab-category="Veg" data-tab-status="inactive"><span>Veg</span></div>
+                <div class="non-veg" data-tab-category="Non-Veg" data-tab-status="inactive"><span>Non Veg</span></div>
 
-        </div>
-        <div class="menu-wrap-con-takeaway"></div>
-                
-        </div>
+            </div>
+            <div class="menu-wrap-con-takeaway"></div>
+                    
+            </div>
 
-        <div class="content-side-section-cart">
-                 <div class="cart-con">
-                    <h2><i class="fa-solid fa-angle-left" onclick="closeCartMobile()"></i>Your Cart</h2>
-                   
-                   <img class="empty-cart" src="/images/emptyCart.png" alt="" srcset="" >
+            
 
-                   <div class="food-items-holder"></div>
-                  <div class="total-div">
-                    <h2>Total</h2>
-                  
-                    <div class="cal-div">
-                        <div class="sub-total"><h4>Sub Total : </h4> <p class="sub-total-text ">0 ₹</p></div>
-                        <div class="tax"><h4>Taxes & Charges : </h4> <p class="tax-text ">0 ₹</p></div>
+
+        <div class="cart-absolute-div">
+
+                    <div class="det-div">
+                    <h4 class="item-count-abs">0 ITEM</h4>
+                    <h4 class="grand-total-abs ">₹ 0</h4>
+                    <h4 class="ab-h4">plus taxes</h4>
                     </div>
-
-                    <div class="grand-total"><h4>Grand Total : </h4> <p class="grand-total-text ">0 ₹</p></div>
-
+                    
+                    <h2>View Cart <i class="bi bi-caret-right-fill"></i></h2>
 
                 </div>
-                <button class="order-btn">Proceed To Pay</button>
-                 </div>
-               </div>
+        </div> 
+
+        <div class="content-side-section-cart" style="top: 100%; display: none; opacity: 0;">
+                    <div class="cart-con">
+                        <h2><i class="fa-solid fa-angle-left" onclick="closeCartMobile()"></i>Your Cart</h2>
+                    
+                    <img class="empty-cart" src="/images/emptyCart.png" alt="" srcset="" >
+
+                    <div class="food-items-holder"></div>
+
+                        <hr>
+                        <button class="add-more-food" onclick="closeCartMobile()"><i class="bi bi-plus"></i> Add more food</button>
+                        <hr>
+                    <div class="total-div">
+                        <h2>Total</h2>
+                    
+                        <div class="cal-div">
+                            <div class="sub-total"><h4>Sub Total : </h4> <p class="sub-total-text ">0 ₹</p></div>
+                            <div class="tax"><h4>Taxes & Charges : </h4> <p class="tax-text ">0 ₹</p></div>
+                        </div>
+
+                        <div class="grand-total"><h4>Grand Total : </h4> <p class="grand-total-text ">0 ₹</p></div>
 
 
-    <div class="cart-absolute-div">
-
-                <div class="det-div">
-                  <h4 class="item-count-abs">0 ITEM</h4>
-                <h4 class="grand-total-abs ">₹ 0</h4>
+                    </div>
+                    <button class="order-btn">Proceed to pay</button>
+                    </div>
                 </div>
-                
-                <h2>View Cart <i class="bi bi-caret-right-fill"></i></h2>
-
-              </div>
-    </div> 
 
     
     <div class="ghost-div"></div>
@@ -285,7 +309,7 @@
                 <div class="wrapper">
                 <div class="book-table-button-div">
                   
-                  <button class="book-table-btn" onclick=""><img src="/images/bookIcon.png" alt="">Pre Cook</button>
+                  <button class="book-table-btn" onclick="openBookCon()"><img src="/images/bookIcon.png" alt="">Pre Cook</button>
                
               </div>
               </div>
@@ -294,7 +318,7 @@
                 <div class="wrapper">
                 <div class="book-table-button-div">
                   
-                  <button class="book-table-btn" onclick="openTakeawayCon()"><img src="/images/bookIcon.png" alt="">Takeaway</button>
+                  <button class="book-table-btn" onclick="window.location.href = window.location.href + '/takeaway'"><img src="/images/bookIcon.png" alt="">Takeaway</button>
                
               </div>
               </div>
@@ -702,7 +726,7 @@
 <script src="/js/searchbar.js"></script>
 <script src="/js/countdown.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script  src="/js/socket.js"></script>
+<script src="/js/socket.js"></script>
 
 <script>
     var toastElList = [].slice.call(document.querySelectorAll('.toast'))
@@ -767,7 +791,7 @@ const tl3 = new TimelineLite()
         display : "none",
         top : window.scrollY
     },)
-    document.body.classList.remove('ovf');
+    document.body.classList.add('ovf');
     catBtn.innerHTML = "Categories"
 
     }
@@ -888,7 +912,7 @@ const fillMenu = ()=>{
             console.log(arr);
             let btn;
             if(arr.length < 1){
-                btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
             }
                 for(let [index,i] of arr.entries()){
                     let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
@@ -907,7 +931,7 @@ const fillMenu = ()=>{
                     }else{
                         
                         if(index == arr.length - 1){
-                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                         }
                     }
                 } 
@@ -1069,7 +1093,7 @@ filterTabs.forEach(tab =>{
                             
                         let arr = JSON.parse(localStorage.getItem(id)) || []
                         if(arr.length < 1){
-                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                            btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                         }else{
                             for(let [index,i] of arr.entries()){
                             console.log(index);
@@ -1090,7 +1114,7 @@ filterTabs.forEach(tab =>{
                                 
                                 
                                 if(index == arr.length - 1) {
-                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                                 }
                             }
                         } 
@@ -1226,7 +1250,7 @@ filterTabs.forEach(tab =>{
                         let arr = JSON.parse(localStorage.getItem(id)) || []
                         let btn;
                         if(arr.length < 1){
-                             btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                             btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                         }else{
                              for(let [index,i] of arr.entries()){
                             let quantity = `${elem.quantityDetails[0].quantity} ${elem.quantityDetails[0].quantityUnit}`
@@ -1245,7 +1269,7 @@ filterTabs.forEach(tab =>{
                             }else{
                                 
                                 if(index == arr.length - 1){
-                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                                    btn = `<button class="add-to-cart" id="${elem._id}" data-tab-target="addToCart">Add</button>`
                                 }
                             }
                         } 
@@ -1332,7 +1356,7 @@ const openCartMobile = ()=>{
     document.body.classList.add('ovf');
     tlN.to(tabContainer, 0.5, {opacity: 1,
         display : "flex",
-        top : "0",
+        top : window.scrollY,
         ease : Power2.easeinout      
    });
     
@@ -1342,7 +1366,7 @@ const openCartMobile = ()=>{
 }
 
 const closeCartMobile = ()=>{
-  console.log("265415")
+  
   const tabContainer = document.querySelector('.content-side-section-cart');
     
     tlN.to(tabContainer, 0.5, {opacity: 0,

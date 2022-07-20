@@ -152,7 +152,7 @@ const displayCart = async()=>{
         
       
        
-        tax = ((parseFloat(subTotal) * 18) / 100).toFixed(2)
+        tax = ((parseFloat(subTotal) * 5) / 100).toFixed(2)
 
 
         
@@ -211,10 +211,12 @@ document.querySelector('.food-items-holder').addEventListener('click', (e)=>{
 
 
 const changeBtn = (e)=>{
-
+    console.log("changed button fired")
     let arr = JSON.parse(localStorage.getItem(Resid)) || []
 
         let parentDiv = e.closest('.menu-item');
+        parentDiv.querySelector('.item-price').innerHTML = `₹${e.dataset.tabPrice}`
+        
     let addToCartDiv = parentDiv.querySelector('.add-to-cart-div');
     if(arr.length < 1){
 
@@ -222,7 +224,7 @@ const changeBtn = (e)=>{
 
         for(let [index,elem] of arr.entries()){
             if(elem.foodId == e.name){
-                
+               
                 if(elem.foodQuantity == e.value){
                        
                     let btn = ` <div class="btn-con">
@@ -233,9 +235,14 @@ const changeBtn = (e)=>{
                 addToCartDiv.innerHTML = ''
                 addToCartDiv.insertAdjacentHTML('afterbegin', btn)
                 break;
+                }else{
+                    console.log("opt")
+                    let btn = `<button class="add-to-cart" id="${e.name}" data-tab-target="addToCart">Add</button>`
+                addToCartDiv.innerHTML = ''
+                addToCartDiv.insertAdjacentHTML('afterbegin', btn)
                 }
             }else{
-                let btn = `<button class="add-to-cart" id="${e.name}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                let btn = `<button class="add-to-cart" id="${e.name}" data-tab-target="addToCart">Add</button>`
                 addToCartDiv.innerHTML = ''
                 addToCartDiv.insertAdjacentHTML('afterbegin', btn)
 
@@ -272,10 +279,12 @@ const addToCart = (e)=>{
     }
     try {
     foodQuantity = document.querySelector(`[data-tab-id='${foodId}']:checked`).value;
+   
         
     } catch (error) {
         document.querySelector(`[data-tab-id='${foodId}']`).checked = true;
-        foodQuantity = document.querySelector(`[data-tab-id='${foodId}']`).value;
+        foodQuantity = document.querySelector(`[data-tab-id='${foodId}']:checked`).value;
+   
 
     }
     
@@ -326,21 +335,22 @@ const addToCart = (e)=>{
 
             for(let [index,elem] of arr.entries()){
                 if(elem.foodId == foodId){
-              
+                    
                     if(elem.foodQuantity == foodQuantity){
+
             
             
             
                         arr[index].cartQuantity += 1
                         localStorage.setItem(Resid, JSON.stringify(arr));
-                       
+                        
                         
                         break;
                         
             
             
             
-                    }else{
+                    }else if(index == arr.length - 1){
             
                         currentData = {
                             foodId : foodId,
@@ -460,7 +470,7 @@ const removeFromCart = (foodId, foodQuantity, e)=>{
                     let parentDiv = document.querySelector(`[data-id='${foodId}']`).closest('.menu-item');
                     console.log(parentDiv);
                     let addToCartDiv = parentDiv.querySelector('.add-to-cart-div');
-                    let btn = `<button class="add-to-cart" id="${foodId}" data-tab-target="addToCart">Add <i class="bi bi-plus"></i></button>`
+                    let btn = `<button class="add-to-cart" id="${foodId}" data-tab-target="addToCart">Add</button>`
                         addToCartDiv.innerHTML = ''
                         addToCartDiv.insertAdjacentHTML('afterbegin', btn)
         

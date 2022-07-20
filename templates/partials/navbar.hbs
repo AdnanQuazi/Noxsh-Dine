@@ -1,7 +1,7 @@
  <nav>
         
                 
-                <a href=""><span class="logo"><img src="/images/noxshLogo.png" alt="" srcset=""></span></a>
+                <a href=""><span class="logo"><img src="/images/Frame3.jpg" alt="" srcset=""></span></a>
            
             
             <div class="nav-links-con">
@@ -11,13 +11,18 @@
                     {{#if token}}
                     
                     <li><a href="/signup" onclick="ovfh()" >Contact Us</a> </li>
+                    <li><a href="/suggest-a-feature" onclick="ovfh()">Suggest a feature</a></li>
+                    <li><a href="/complaints" onclick="ovfh()">Raise a complaint</a></li>
+                    <li><a href="/logout" onclick="ovfh()">Logout</a></li>
+
+
                     <li><button onclick="ovfh(); window.location.href='/business/register'">Register as a Restaurant</button></li>
 
                     {{else}}
                     <li><a href="/login" onclick="ovfh()" >Log In</a> </li>
                     <li><a href="/signup" onclick="ovfh()" >Sign Up</a> </li>
-                    <li><a href="/signup" onclick="ovfh()" >Contact Us</a> </li>
-
+                    <li><a href="/contact-us" onclick="ovfh()" >Contact Us</a> </li>
+                    
                     <li><button onclick="ovfh(); window.location.href='/business/register'">Register as a Restaurant</button></li>
                     {{/if}}
                 </ul>
@@ -27,7 +32,7 @@
                  {{#if token}}
            
                 <i class="fas fa-heart"></i>
-                <img class="prof-img" src="/images/profimg.jpg" alt="" onclick="openProfileOptions()">
+                <img class="prof-img" style="background-color:{{profileColor}} ;" src="{{profileImg}}" alt="" onclick="openProfileOptions()">
                 <span onclick="openProfileOptions()">{{name}}</span>
                 <i class="fas fa-caret-down" onclick="openProfileOptions()"></i>
                 
@@ -46,6 +51,7 @@
             
             {{!-- <button class="register-as-restaurant">Register as a Restaurant</button>
             <a href="/login">Log in/Sign up</a> --}}
+            
             
             {{/if}}
             

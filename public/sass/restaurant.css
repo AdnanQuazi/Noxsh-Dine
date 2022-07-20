@@ -1280,7 +1280,6 @@ nav .acc-det .home-prof-div-con ul li {
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .ghost-booking .content .status-div span {
   margin-left: 2rem;
-  color: black !important;
 }
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .ghost-booking .content p {
@@ -1291,7 +1290,7 @@ nav .acc-det .home-prof-div-con ul li {
 
 .restaurant-profile-con .menu-book-con .full-restaurant-content-section .content-side-section .ghost-booking .content span {
   font-size: 2rem;
-  color: #F47D4F;
+  color: #00917c;
   font-weight: 500;
   background: none;
   border: none;
@@ -2918,7 +2917,7 @@ nav .acc-det .home-prof-div-con ul li {
   background-color: white;
   position: absolute;
   z-index: 6;
-  display: none;
+  display: block;
   overflow-y: auto;
   padding-bottom: 32rem;
 }
@@ -2936,7 +2935,7 @@ nav .acc-det .home-prof-div-con ul li {
   background-color: white;
   z-index: 11;
   width: 90%;
-  height: 30rem;
+  height: auto;
   border-radius: 1rem;
   display: none;
   -webkit-box-orient: vertical;
@@ -2947,6 +2946,7 @@ nav .acc-det .home-prof-div-con ul li {
       -ms-flex-align: center;
           align-items: center;
   border: 1px solid #afafaf;
+  padding: 1rem;
 }
 
 .popup svg {
@@ -2960,5 +2960,69 @@ nav .acc-det .home-prof-div-con ul li {
 
 .popup p {
   font-size: 2rem;
+}
+
+.res-stats-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 11;
+  width: 90%;
+  height: auto;
+  border-radius: 1rem;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #afafaf;
+  background-color: white;
+  padding: 2rem;
+  gap: 0rem;
+}
+
+.res-stats-popup h1 {
+  font-size: 3.5rem !important;
+  font-weight: 700;
+  margin-top: 4rem;
+}
+
+.res-stats-popup h4 {
+  font-size: 3rem !important;
+  color: #afafaf;
+}
+
+.res-stats-popup button {
+  margin-top: 4rem;
+  border: 0.1rem solid #00917c;
+  color: #00917c;
+  border-radius: 1rem;
+  background-color: white;
+  padding: 1.5rem 3rem !important;
+  font-size: 2.5rem;
+}
+
+.res-stats-popup i {
+  font-size: 3.5rem;
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  right: 2rem;
+}
+
+.cancel-booking {
+  background-color: #da1515;
+  padding: 1rem;
+  border: 0.1rem solid #da1515;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
 }
 /*# sourceMappingURL=restaurant.css.map */
