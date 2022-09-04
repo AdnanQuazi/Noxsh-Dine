@@ -36,16 +36,20 @@ const showToast = (data,color)=>{
 
 }   
 
-
+     let password 
+     let firstname 
+     let conpass 
+     let email
+     let username 
 
 let vStatus;
 const validation = async()=>{
      
-     const password = document.getElementById('password').value;
-     const firstname = document.getElementById('name').value;
-     const conpass = document.getElementById('confirmpassword').value
-     const phone = document.getElementById('phone').value;
-     const username = document.getElementById('username');
+      password = document.getElementById('password').value;
+      firstname = document.getElementById('name').value;
+      conpass = document.getElementById('confirmpassword').value
+      email = document.getElementById('email').value;
+      username = document.getElementById('username');
 
      
      
@@ -65,21 +69,21 @@ const validation = async()=>{
          
      }
     
-     if(phonecheck.test(phone) ){
-          dangerphone.innerHTML = "";
-          vStatus = true
-     }else{
-          if(screen.width < 480){
-               showToast('Invalid Number','red')
-               vStatus = false
-               return false
-          }else{
-               dangerphone.innerHTML = "Invalid Number";
-               vStatus = false
-               return false
-          }
+     // if(phonecheck.test(phone) ){
+     //      dangerphone.innerHTML = "";
+     //      vStatus = true
+     // }else{
+     //      if(screen.width < 480){
+     //           showToast('Invalid Number','red')
+     //           vStatus = false
+     //           return false
+     //      }else{
+     //           dangerphone.innerHTML = "Invalid Number";
+     //           vStatus = false
+     //           return false
+     //      }
          
-     }
+     // }
      if(passwordcheck.test(password) ){
           dangerpass.innerHTML = "";
           vStatus = true
@@ -113,21 +117,18 @@ const validation = async()=>{
      
      vStatus = await checkUsername(username)
      if(vStatus && username.value.length >= 2){
-          const signUp = await fetch('/signup',{
+
+          const sendOtp = await fetch("/send-register-otp",{
                method : 'POST',
                headers : {'Content-Type' : 'application/json'},
-               body : JSON.stringify({name : firstname , username : username.value,phone : phone,password : password})
+               body : JSON.stringify({email : email})      
           })
-
-          let result = await signUp.json()
-          if(result.msg == 'Phone number exists'){
-               showToast(result.msg,'red')
-          }else{
-               showToast("Account Created Successfully",'#3ea055');
-               setTimeout(() => {
-                    window.location.href = '/'
-               }, 3000);
+          if(await sendOtp.status == 200){
+               document.querySelector(".popup-div").style.display = "grid"
           }
+
+
+          
      }
     
 }
@@ -148,3 +149,41 @@ const checkUsername = async(e)=>{
           return true
      }
 }
+let isInProcess = false;
+document.querySelector("#signUpAOTPS").addEventListener('click',async ()=>{
+     let otp = document.querySelector('input[name="OTP"]').value
+     if(!otp) return
+
+     if(vStatus && !isInProcess && username.value.length >= 2){
+          isInProcess = true
+          const otpAuth = await fetch('/verify-otp',{
+               method : 'POST',
+               headers : {'Content-Type' : 'application/json'},
+               body : JSON.stringify({otp : otp})               
+          })
+          if(await otpAuth.status == 200){
+               const signUp = await fetch('/signup',{
+                    method : 'POST',
+                    headers : {'Content-Type' : 'application/json'},
+                    body : JSON.stringify({name : firstname , username : username.value,email : email,password : password})
+               })
+     
+               let result = await signUp.json()
+               if(result.msg == 'Phone number exists'){
+                    showToast(result.msg,'red')
+                    isInProcess = false
+               }else{
+                    showToast("Account Created Successfully",'#3ea055');
+                    setTimeout(() => {
+                         window.location.href = '/'
+                    }, 3000);
+                    isInProcess = false
+               }
+          }else{
+               isInProcess = false
+               showToast("Invalid OTP","red")
+          }
+     }
+     
+
+})

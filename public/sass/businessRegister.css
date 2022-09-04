@@ -25,7 +25,9 @@ nav .nav-wrapper {
           align-items: center;
 }
 
-nav .nav-wrapper span {
+nav .nav-wrapper img {
+  width: 18rem;
+  height: 10rem;
   color: #333;
 }
 
@@ -219,7 +221,10 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
   -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 2rem;
-  width: 95vw;
+  min-width: 40rem;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -236,12 +241,18 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
   border-radius: 1rem;
 }
 
+.success-popup img {
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 2rem;
+}
+
 .success-popup h2 {
-  font-size: 5rem;
+  font-size: 3.5rem;
 }
 
 .success-popup p {
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -252,12 +263,12 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
 
 .success-popup button {
   margin-top: 2rem;
-  font-size: 3rem;
+  font-size: 2rem;
   background-color: #00917c;
   border: 0.1rem solid #00917c;
   padding: 1rem 4rem;
   color: white;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 
 .main-form-outer-div {
@@ -1124,6 +1135,16 @@ nav .acc-det .home-prof-div-con-b ul li:hover {
   }
   .tel-wrapper .verify-phone {
     font-size: 3rem !important;
+  }
+  .success-popup {
+    min-width: 90%;
+  }
+  .success-popup lottie-player {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .success-popup small {
+    font-size: 3rem;
   }
 }
 /*# sourceMappingURL=businessRegister.css.map */

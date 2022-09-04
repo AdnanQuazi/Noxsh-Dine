@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-console.log("port ",port)
+
 require("./db/conn");
 const UserData = require('./models/schema');
 const RestData = require('./models/restaurant')
@@ -38,7 +38,6 @@ const axios = require('axios');
 const bcrypt = require('bcryptjs');
 const multer = require('multer'); 
 const { index, re, json } = require('mathjs');
-const sharp = require('sharp');
 const { get } = require('mongoose');
 const { query } = require('express');
 const server = require("http").createServer(app);
@@ -54,6 +53,7 @@ const uid = new ShortUniqueId({
 });
 const fs = require('fs');
 const RestaurantData = require('./models/restaurant');
+const { resolveSoa } = require('dns');
 
 
 const transporter = nodemailer.createTransport({
@@ -71,7 +71,6 @@ const transporter = nodemailer.createTransport({
         pass : process.env.PASS
     }
 })
-const fsPromises = fs.promises;
 
 
 const options = {
@@ -230,6 +229,9 @@ if (typeof localStorage === "undefined" || localStorage === null) {
     var LocalStorage = require('node-localstorage').LocalStorage;
     localStorage = new LocalStorage('./scratch');
   };
+
+
+var favicon = require('serve-favicon');
   
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -238,6 +240,8 @@ app.set("views", templatePath);
 app.use(express.static(staticPath));
 app.use(cookieParser());
 hbs.registerPartials(partialPath);
+app.use(favicon(path.join(__dirname,'../','public','images','favicon-16x16.png'))); 
+
 
 
 
@@ -271,9 +275,23 @@ const docStorage = multer.diskStorage({
   
 var uploadDocs = multer({ storage: docStorage });
 var uploadMultipleDocs = uploadDocs.fields([{name : 'restaurantImage', maxCount : 1},{name : 'panImage' , maxCount : 1 },{name : 'fssaiImage' , maxCount : 1 },{name : 'gstImage' , maxCount : 1 }])
-
-io.on("connection", (socket)=>{
+io.on("connection",(socket)=>{
    
+    function getCookie(cName) {
+        const name = cName + "=";
+        const cDecoded = socket.handshake.headers.cookie;
+        const cArr = socket.handshake.headers.cookie.replaceAll(';','$').replaceAll(' ','$').split('$')
+       
+        let res;
+        cArr.forEach(val => {
+
+           if (val.indexOf(name) === 0) {
+           
+            res =  val.substring(name.length);
+           }
+           })
+        return res;
+     }
     
 
     socket.on('rest-connect', id =>{
@@ -289,8 +307,8 @@ io.on("connection", (socket)=>{
     socket.on('booking-details',async (msg,room) => { 
 
         try {
-            const token = socket.handshake.headers.cookie.replaceAll("jwt=", '$').replaceAll(';','$').split('$')[1];
-            const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
+            
+            const verifyUser = jwt.verify(getCookie("jwt") , process.env.SECRET_KEY);
             
             if(verifyUser){
                 let orderId = uid()
@@ -300,15 +318,15 @@ io.on("connection", (socket)=>{
                 msg.profileImg = user.profileImg
                 msg.socketId = socket.id  
                 msg.orderId = orderId
-              socket.to(room).emit("recieve-details", msg);
+                socket.to(room).emit("recieve-details", msg);
             }
            
         } catch (error) {
-            console.log(error);
+
         }
 
           
-     });1
+     });
 
     socket.on('join-room',room =>{
 
@@ -322,12 +340,12 @@ io.on("connection", (socket)=>{
 
     //Takeaway
 
-    socket.on('takeaway-details', async(msg,room,cb)=>{
+    socket.on('takeaway-details', async(msg,room,payment,cb)=>{
 
         try {
 
-           const token = socket.handshake.headers.cookie.replaceAll("jwt=", '$').replaceAll(';','$').split('$')[1]
-            const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
+           
+            const verifyUser = jwt.verify(getCookie("jwt") , process.env.SECRET_KEY);
             if(verifyUser){
                 const user = await UserData.findById({_id : verifyUser._id.valueOf()}).select({name : 1,username : 1,profileImg : 1,phone : 1}).lean();
                 
@@ -339,20 +357,53 @@ io.on("connection", (socket)=>{
                 //   const getData = async () => {
                 //     return Promise.all(msg.map(item => doSomethingAsync(item)))
                 //   }
-                    console.log(msg)
+              
                   const data = await RestData.findOne({menu : {$elemMatch : {_id : msg[0].foodId}}}).select({menu : 1})
                   let finalMenu = []
                   let orderId = uid()
                   let currObj;
+                  const date = new Date();
+           const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+            const week = {
+                0: "Sun",
+                1 : "Mon",
+                2 : "Tue",
+                3 : "Wed",
+                4 : "Thu",
+                5 : "Fri",
+                6 : "Sat",
+                
+            }
+
+            let utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+            let nd = new Date(utc + (3600000* 5.5));
+            let todayDay = `${week[nd.getDay()]}, ${nd.getDate()} ${months[nd.getMonth()]}`
+
+            const handleTime = (dataD) => {
+                let data= new Date(dataD)
+
+                let hrs = (data.getHours() + 1) % 12 || 12
+                let mins = data.getMinutes()
+                if(hrs<=9)
+                   hrs = '0' + hrs
+                if(mins<10)
+                  mins = '0' + mins
+                const postTime= hrs + ':' + mins
+                return postTime
+              }
+
+            let time = handleTime(nd)
                 //   data.forEach(menu =>{
                     data.menu.forEach(elem =>{
                         msg.forEach(element =>{
                             if(elem._id.valueOf() == element.foodId){
                                 let price;
+                                let qId;
                                 elem.quantityDetails.forEach(currElem =>{
                                     let fVal =  `${currElem.quantity} ${currElem.quantityUnit}`
                                     if(fVal == element.foodQuantity){
                                         price = currElem.price
+                                        qId = currElem._id
                                     }
                                 })
                                 currObj = {
@@ -361,9 +412,10 @@ io.on("connection", (socket)=>{
                                     foodQuantity : element.foodQuantity,
                                     cartQuantity : element.cartQuantity,
                                     price : price,
+                                    qId,
+                                    packaging : elem.packaging,
                                     restaurantId : room
     
-                                    
                                 }
                                 finalMenu.push(currObj)
                             }
@@ -372,11 +424,13 @@ io.on("connection", (socket)=>{
                       })
                   //})
                  
-                  console.log(finalMenu);
+                  
                   user.socketId = socket.id
+                  user.date = todayDay
+                  user.time = time
                   var roster = io.sockets.adapter.rooms.get(room)
                   if(roster != undefined){
-                    socket.to(room).emit("recieve-takeaway-details", finalMenu,user,orderId);
+                    socket.to(room).emit("recieve-takeaway-details", finalMenu,user,orderId,payment);
                     cb('Recieved')
                   }else{
                     cb('Failed')
@@ -386,19 +440,18 @@ io.on("connection", (socket)=>{
             }
 
         } catch (error) {
-                console.log(error);
         }   
         
     })
-    socket.on('dine-details', async(msg,room,tableNo,cb)=>{
+    socket.on('dine-details', async(msg,room,tableNo,payment,cb)=>{
         
         try {
 
 
-            const token = socket.handshake.headers.cookie.replaceAll("jwt=", '$').replaceAll(';','$').split('$')[1]
-            const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
-            if(verifyUser){
-                const user = await UserData.findById({_id : verifyUser._id.valueOf()}).select({name : 1,username : 1,profileImg : 1,phone : 1}).lean();
+            // const token = socket.handshake.headers.cookie.replaceAll("jwt=", '$').replaceAll(';','$').split('$')[1]
+            // const verifyUser = jwt.verify(token , process.env.SECRET_KEY);
+            
+                const user = {};
                 
                 // const doSomethingAsync = async item => {
                 //     return await RestData.findOne({menu : {$elemMatch : {_id : item.foodId}}}).select({menu : 1})
@@ -415,15 +468,49 @@ io.on("connection", (socket)=>{
                 let orderId = uid()
                 
                   let currObj;
+                  const date = new Date();
+           const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+            const week = {
+                0: "Sun",
+                1 : "Mon",
+                2 : "Tue",
+                3 : "Wed",
+                4 : "Thu",
+                5 : "Fri",
+                6 : "Sat",
+                
+            }
+            let utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+            let nd = new Date(utc + (3600000* 5.5));
+            let todayDay = `${week[nd.getDay()]}, ${nd.getDate()} ${months[nd.getMonth()]}`
+            
+            
+            const handleTime = (dataD) => {
+                let data= new Date(dataD)
+                let hrs = data.getHours() % 12 || 12
+                let mins = data.getMinutes()
+                if(hrs<=9)
+                   hrs = '0' + hrs
+                if(mins<10)
+                  mins = '0' + mins
+                const postTime= hrs + ':' + mins
+                return postTime
+              }
+
+            let time = handleTime(nd)
+
                 //   data.forEach(menu =>{
                     data.menu.forEach(elem =>{
                         msg.forEach(element =>{
                             if(elem._id.valueOf() == element.foodId){
                                 let price;
+                                let qId;
                                 elem.quantityDetails.forEach(currElem =>{
                                     let fVal =  `${currElem.quantity} ${currElem.quantityUnit}`
+                                    
                                     if(fVal == element.foodQuantity){
                                         price = currElem.price
+                                        qId = currElem._id
                                     }
                                 })
                                 currObj = {
@@ -432,8 +519,9 @@ io.on("connection", (socket)=>{
                                     foodQuantity : element.foodQuantity,
                                     cartQuantity : element.cartQuantity,
                                     price : price,
-                                    
-                                    restaurantId : room
+                                    qId,
+                                    packaging : elem.packaging,
+                                    restaurantId : room,
     
                                     
                                 }
@@ -446,31 +534,83 @@ io.on("connection", (socket)=>{
                  
                   
                   user.socketId = socket.id
-                 
+                  user.date = todayDay
+                  user.time = time
+                      
                   var roster = io.sockets.adapter.rooms.get(room)
                   if(roster != undefined){
-                    socket.to(room).emit("recieve-dine-details", finalMenu,user,orderId,tableNo);
+                    socket.to(room).emit("recieve-dine-details", finalMenu,user,orderId,tableNo,payment);
                     cb('Recieved')
                   }else{
                     cb('Failed')
                   }
                 
                
-            }
+            
 
         } catch (error) {
-                console.log(error);
         }   
         
     })
-    socket.on('takeaway-response', (msg,socketId)=>{
+    socket.on('takeaway-response', async(msg,socketId,billDetails)=>{
 
-            socket.broadcast.to(socketId).emit('takeaway-details',msg)
+        const verifyUser = jwt.verify(getCookie("jwt"), process.env.SECRET_KEY);
+
+        const restDet = await RestData.findById({_id : billDetails[0][0].restaurantId})
+        
+        const findGst = await RestaurantRequest.find({requestFrom : verifyUser._id})
+
+      
+        const {restaurantname , address } = restDet
+        let gstDet = findGst[0].gstDetails;
+        
+        // findGst.forEach(elem => {
+        //     if(elem.restaurantname == restaurantname){
+
+        //         gstDet = elem.gstDetails
+        //     }
+        // })
+            socket.broadcast.to(socketId).emit('takeaway-details',msg,restaurantname,address,gstDet)
 
     })
-    socket.on('dine-response', (msg,socketId)=>{
+    socket.on('dine-response', async(msg,socketId,billDetails)=>{
+   
+        
+      
+        
+        if(msg){
+            const verifyUser = jwt.verify(getCookie("jwt"), process.env.SECRET_KEY);
+            const findUser = await UserData.findById({_id : verifyUser._id})
+            const restaurant = await RestOwnerData.findById({_id : findUser.ownerOf})
+           
 
-        socket.broadcast.to(socketId).emit('dine-details',msg)
+            const restDet = await RestData.findById({_id : billDetails[0][0].restaurantId})
+            
+            const findGst = await RestaurantRequest.find({requestFrom : verifyUser._id})
+    
+            
+            
+            const {restaurantname , address } = restDet
+            let gstDet = findGst[0].gstDetails;
+
+            
+            // findGst.forEach(elem => {
+            //     if(elem.restaurantname == restaurantname){
+    
+            //         gstDet = elem.gstDetails
+            //     }
+            // })
+
+            
+    
+    
+            socket.broadcast.to(socketId).emit('dine-details',msg,billDetails,restaurantname,address,gstDet)
+        }else{
+            socket.broadcast.to(socketId).emit('dine-details',msg)
+
+        }
+        
+       
 
 })
     socket.on('status-check',(room,cb)=>{
@@ -520,10 +660,10 @@ app.post('/forgot-password',async(req,res)=>{
             
             transporter.sendMail(options, (err,info)=>{
                 if(err){
-                    console.log(err);
+                   
                     return;
                 }
-                console.log(info.response);
+                
             })
 
 
@@ -551,7 +691,54 @@ app.post('/forgot-password',async(req,res)=>{
             res.send(error)
     }   
 })
+app.post('/send-register-otp',async(req,res)=>{
+    try {   
+        
+        const email = req.body.email;
+       
+        const OTP = otpGenerator.generate(6 ,{
+            digits : true, lowerCaseAlphabets : false, upperCaseAlphabets : false, specialChars : false
+        })
+            const options = {
+                from : "Noxsh Dine <care@noxshdine.com>",
+                to : email,
+                subject : "Verfication",
+                text : `Your OTP is ${OTP}`
+            }
+            
+            transporter.sendMail(options, (err,info)=>{
+                if(err){
+                    console.log(err);
+                    return;
+                }
+                console.log(info.response);
+            })
 
+
+            const saveOTP = await new Otp({
+                    username : email,
+                    otp : OTP,
+                  
+            })
+
+
+            const token  = await saveOTP.generateToken();
+
+            res.cookie("session", token, {
+                expires: new Date(Date.now() + 300000),
+                httpOnly: true
+            });
+
+            await saveOTP.save()
+            
+            res.send(true)
+        
+        
+    } catch (error) {
+        console.log(error);
+            res.send(error)
+    }   
+})
 app.post('/verify-otp',otpAuth,async(req,res)=>{
 
     try {
@@ -561,9 +748,9 @@ app.post('/verify-otp',otpAuth,async(req,res)=>{
         // const verifyOTP = await bcrypt.compare(otp,findDB[0].otp);
             const verifyOTP = otp == findDB.otp
         if(verifyOTP){
-            res.send(true)
+            res.status(200).send(true)
         }else{
-            res.send(false)
+            res.status(401).send(false)
         }
 
 
@@ -577,15 +764,20 @@ app.post('/verify-otp',otpAuth,async(req,res)=>{
 
 app.post('/reset-password', otpAuth,async(req,res)=>{
     try {
-        const pass = req.body.password
-        console.log(pass , req.user.username);
-        const hashedPassword = await bcrypt.hash(pass, 10);
-        const finduser = await UserData.findOneAndUpdate({username : req.user.username},{
-            password : hashedPassword
-        })
-
-        await finduser.save();
-        res.send(true)
+        if(req.token){
+            const pass = req.body.password
+            console.log(pass , req.user.username);
+            const hashedPassword = await bcrypt.hash(pass, 10);
+            const finduser = await UserData.findOneAndUpdate({username : req.user.username},{
+                password : hashedPassword
+            })
+    
+            await finduser.save();
+            res.send(true)
+        }else{
+            res.send(error)
+        }
+      
     } catch (error) {
         res.send(false)
     }
@@ -714,16 +906,30 @@ app.get("/", auth , async (req,res)=>{
                  
               let name = req.user.name.split([" "]);
                 
-
-              res.render("index",{
-              token : true,
-              name : name[0],
-              userId : req.user._id,
-              profileImg : req.user.profileImg,
-              profileColor : req.user.profileColor
-             
+            if(req.user.ownerOf == '' || req.user.ownerOf == undefined || req.user.ownerOf == null){
               
-          });
+                res.render("index",{
+                    token : true,
+                    name : name[0],
+                    userId : req.user._id,
+                    profileImg : req.user.profileImg,
+                    profileColor : req.user.profileColor
+                   
+                    
+                });
+            }else if(req.user.ownerOf){
+                res.render("index",{
+                    token : true,
+                    name : name[0],
+                    userId : req.user._id,
+                    profileImg : req.user.profileImg,
+                    profileColor : req.user.profileColor,
+                    owner : true
+                   
+                    
+                });
+            }
+              
 
            
         } catch (error) {
@@ -842,19 +1048,19 @@ app.post("/signup", async (req,res)=>{
         const newUser = new UserData({
             name : req.body.name,
             username : req.body.username,
-            phone : req.body.phone,
+            email : req.body.email,
             password : req.body.password,
             yourBookings : [],
             pastBookings : []
 
         })
 
-        const phoneSearch = await UserData.findOne({phone : req.body.phone})
+        const emailSearch = await UserData.findOne({phone : req.body.email})
            
                 
-             if(phoneSearch){
+             if(emailSearch){
                 
-                res.status(400).send({msg : "Phone number exists"})
+                res.status(400).send({msg : "Email is taken"})
                 
             }else{
                 const token  = await newUser.generateToken();
@@ -872,8 +1078,7 @@ app.post("/signup", async (req,res)=>{
         }
         
     } catch (error) {
-        console.log(error)
-        res.send(error);
+       res.status(401).send("Failed")
     }
 })
 
@@ -1439,14 +1644,29 @@ app.get('/myprofile', auth ,(req,res)=>{
 
     try {
         let name = req.user.name.split([" "]);
-        res.render("profile",{
-            token : true,
-            name : name[0],
-            username : req.user.username,
-            profName : req.user.name,
-            profileImg : req.user.profileImg,
-            profileColor : req.user.profileColor
-        });
+        if(req.user.ownerOf == '' || req.user.ownerOf == undefined || req.user.ownerOf == null){
+              
+            res.render("profile",{
+                token : true,
+                name : name[0],
+                userId : req.user._id,
+                profileImg : req.user.profileImg,
+                profileColor : req.user.profileColor
+               
+                
+            });
+        }else if(req.user.ownerOf){
+            res.render("profile",{
+                token : true,
+                name : name[0],
+                userId : req.user._id,
+                profileImg : req.user.profileImg,
+                profileColor : req.user.profileColor,
+                owner : true
+               
+                
+            });
+        }
     } catch (error) {
         console.log(error);
         res.redirect('/login')
@@ -1466,10 +1686,10 @@ app.post("/myprofile", auth , async(req,res)=>{
             const confirmBookings = async(elem)=> {
 
                 
-                const rdb = await RestOwnerData.find({"upcomingBookings._id" : {$nin : [elem]} }, {"upcomingBookings._id" : elem});
+                const rdb = await RestOwnerData.find({"upcomingBookings._id" : {$eq : [elem]} }, {"upcomingBookings._id" : elem});
                 
-                
-                if(rdb.length > 0){
+                console.log("RDB",elem,rdb)
+                if(!rdb.length){
 
                     const db = await UserData.findOneAndUpdate({yourBookings : {$in : [elem]}},{
                         $push : {
@@ -1715,7 +1935,9 @@ app.get("/business/profile", auth , async(req,res)=>{
 
             res.render('businessRestaurantProfile',{
                 token :  true,
-                name : name[0]
+                name : name[0],
+                profileImg : req.user.profileImg,
+                profileColor : req.user.profileColor
             });
         }else{
             res.redirect('/login')
@@ -1804,6 +2026,7 @@ app.post("/business/register", auth , uploadMultipleDocs, async(req,res)=>{
                         fssaiImage : req.files.fssaiImage[0].filename
                     },
                     bankDetails : {
+                        accountHolder : req.body.accountHolder,
                         bankNumber : req.body.bankNumber,
                         accountType : req.body.accountType,
                         ifscCode : req.body.ifscCode
@@ -1851,7 +2074,7 @@ app.post('/moreInfo',auth,async(req,res)=>{
             for(let i = 0;i < findRes.upcomingBookings.length;i++){
                 if(findRes.upcomingBookings[i]._id.valueOf() == req.body.id){
                         let currObj = {
-                            orderId : findRes.upcomingBookings[i].oderId ? findRes.upcomingBookings[i].oderId : 'Asd65654',
+                            orderId : findRes.upcomingBookings[i].orderId ? findRes.upcomingBookings[i].orderId : 'Asd65654',
                             orderDate : findRes.upcomingBookings[i].bookingDate,
                             
                         }
@@ -1876,7 +2099,7 @@ app.post('/moreInfo',auth,async(req,res)=>{
             for(let i = 0;i < findRes.takeaway.length;i++){
                 if(findRes.takeaway[i]._id.valueOf() == req.body.id){
                         let currObj = {
-                            orderId : findRes.takeaway[i].oderId ? findRes.takeaway[i].oderId : 'Asd65654',
+                            orderId : findRes.takeaway[i].orderId ? findRes.takeaway[i].orderId : 'Asd65654',
                             orderDate : findRes.takeaway[i].orderDate,
                                
                         }
@@ -1987,32 +2210,58 @@ app.post("/dineinDetails",auth,async(req,res)=>{
 app.post("/saveDineinDetails",auth,async(req,res)=>{
     try {
         if(req.token){
-            console.log("here",req.body.payload)
+            
+            
+
             const owner = await RestData.findById({_id : req.body.payload[0][0].restaurantId})
             let orderList = [];
             let grandTotal = 0;
             let subTotal = 0;
             let charges = 0;
-            console.log("here", req.body.payload)
-            req.body.payload[0].forEach(elem =>{
+            
+            req.body.payload[0].forEach(async (elem) =>{
+                
                 let currObj = {
                     foodId : elem.foodId,
                     foodName : elem.foodName,
                     cartQuantity : elem.cartQuantity,
                     foodQuantity : elem.foodQuantity,
-                    price : elem.price   
+                    price : elem.price,
+                    qId : elem.qId   
                 }
                 subTotal += elem.price * elem.cartQuantity
-                charges = ((subTotal / 100) * 18).toFixed(2)
+                charges = ((subTotal / 100) * 5).toFixed(2)
                 grandTotal = subTotal + parseFloat(charges)
                 orderList.push(currObj)
+
+                if(elem.packaging === "packed"){
+
+                        
+
+                            let data =  await RestData.findOneAndUpdate({
+                        _id : req.body.payload[0][0].restaurantId
+                    },{
+                        $inc : {
+
+                            "menu.$[].quantityDetails.$[e2].stock" :  -elem.cartQuantity
+                        }
+                    },{
+                        arrayFilters : [
+                            {"e2._id" : elem.qId}
+                        ]
+                    });
+                    await data.save()
+                    
+                    
+                
+                }
             })
             const ownerAc = await RestOwnerData.findByIdAndUpdate({_id : owner.owner},{
                 $push :{
                     dineIn :[{
-                    userId : req.body.payload[1]._id,
                     orderId : req.body.payload[2] ? req.body.payload[2] : "A45678978",
                     orderList : orderList,
+                    orderTime : req.body.payload[1].time,
                     tableNo : req.body.payload[3],
                     total :[{
                         subTotal,
@@ -2020,8 +2269,9 @@ app.post("/saveDineinDetails",auth,async(req,res)=>{
                         grandTotal
                     }],
                     payment : [{
-                        paymentMode : 'Cash',
-                        paymentStatus : false
+                        paymentId : req.body.payload[4].order_id ? req.body.payload[4].order_id : '',
+                        paymentMode : req.body.payload[4].order_status == "PAID" ? 'Prepaid' : 'Cash',
+                        paymentStatus : req.body.payload[4].order_status ? req.body.payload[4].order_status : 'UNPAID'
                     }]
             
                 }]
@@ -2029,9 +2279,20 @@ app.post("/saveDineinDetails",auth,async(req,res)=>{
             },{
                 useFindAndModify : false
             })
-
-           
             await ownerAc.save();
+            
+            if(req.body.payload[4].order_status == 'UNPAID'){
+                   
+                    
+                   const updatPendingAmount = await RestOwnerData.findOneAndUpdate({_id : owner.owner},{
+                    $inc : {
+                        pendingAmount : 1
+                    }
+                   })
+                   
+                 await updatPendingAmount.save()
+            }
+
             res.send(true)
         }
     } catch (error) {
@@ -2065,14 +2326,14 @@ app.post("/saveTakeawayDetails", auth , async(req,res)=>{
     try {
         if(req.token){
            
-
+            console.log("Payload" , req.body.payload)
             const owner = await RestData.findById({_id : req.body.payload[0][0].restaurantId})
             let orderList = [];
             let grandTotal = 0;
             let subTotal = 0;
             let charges = 0;
             console.log("here", req.body.payload)
-            req.body.payload[0].forEach(elem =>{
+            req.body.payload[0].forEach(async (elem) =>{
                 let currObj = {
                     foodId : elem.foodId,
                     foodName : elem.foodName,
@@ -2081,9 +2342,28 @@ app.post("/saveTakeawayDetails", auth , async(req,res)=>{
                     price : elem.price   
                 }
                 subTotal += elem.price * elem.cartQuantity
-                charges = ((subTotal / 100) * 18).toFixed(2)
-                grandTotal = subTotal + charges
+                charges = ((subTotal / 100) * 5).toFixed(2)
+                grandTotal =  subTotal + parseFloat(charges)
                 orderList.push(currObj)
+
+                    if(elem.packaging === "packed"){
+
+                        
+
+                            let data =  await RestData.findOneAndUpdate({
+                        _id : req.body.payload[0][0].restaurantId
+                    },{
+                        $inc : {
+
+                            "menu.$[].quantityDetails.$[e2].stock" :  -elem.cartQuantity
+                        }
+                    },{
+                        arrayFilters : [
+                            {"e2._id" : elem.qId}
+                        ]
+                    });
+                    await data.save()
+                }
             })
             const ownerAc = await RestOwnerData.findByIdAndUpdate({_id : owner.owner},{
                 $push :{
@@ -2099,8 +2379,9 @@ app.post("/saveTakeawayDetails", auth , async(req,res)=>{
                         grandTotal
                     }],
                     payment : [{
-                        paymentMode : 'Cash',
-                        paymentStatus : false
+                        paymentId : req.body.payload[3].order_id ? req.body.payload[3].order_id : '',
+                        paymentMode : req.body.payload[3].order_status == "PAID" ? 'Prepaid' : 'Cash',
+                        paymentStatus : req.body.payload[3].order_status == "PAID" ? req.body.payload[3].order_status : 'UNPAID'
                     }]
             
                 }]
@@ -2849,7 +3130,7 @@ app.post("/business/send-data", auth , async(req,res)=>{
                 })
                 console.log(currentData);
             }
-            res.send({activeOffers : currentData, foodItems : findData.menu, menu : findData.menuimgs, gallery : findData.gallery});
+            res.send({activeOffers : currentData, foodItems : findData.menu, menu : findData.menuimgs, gallery : findData.gallery,pendingAmount : findOwner.pendingAmount});
 
         }
     } catch (error) {
@@ -2862,7 +3143,7 @@ app.get("/menuData/:id",async(req,res)=>{
     try {
 
        
-            const findData = await RestData.findById({_id : req.params.id}).select({menu : 1});
+            const findData = await RestData.findById({_id : req.params.id}).select({menu : 1 , restaurantname : 1});
             res.send({menuData : findData});
             console.log(findData);
         
@@ -2882,7 +3163,6 @@ app.get("/suggest-a-feature",auth,async(req,res)=>{
 
                 res.render('suggestFeature')
 
-        
     } catch (error) {
 
         res.send(error)
@@ -2907,7 +3187,7 @@ app.post("/suggest-a-feature",auth,async(req,res)=>{
                     if(err){
                         res.send(false)
                     }else{
-                        res.send(true)   
+                        res.redirect('/')   
                     }
 
                 })
@@ -2956,6 +3236,7 @@ app.post("/complaints",auth,async(req,res)=>{
                     from : "Noxsh Dine <care@noxshdine.com>",
                     to : "noxshcomplaints@gmail.com",
                     subject : "Complaint!",
+                    
                     text : req.body.msg
                 }
                 
@@ -2963,7 +3244,7 @@ app.post("/complaints",auth,async(req,res)=>{
                     if(err){
                         res.send(false)
                     }else{
-                        res.send(true)   
+                        res.redirect('/')   
                     }
 
                 })
@@ -3001,7 +3282,7 @@ app.post("/contact-us",auth,async(req,res)=>{
                     if(err){
                         res.send(false)
                     }else{
-                        res.send(true)   
+                        res.redirect('/')    
                     }
 
                 })
@@ -3057,10 +3338,29 @@ app.get("/edit-profile",auth,async(req,res)=>{
         if(req.token){
             let name = req.user.name.split([" "]);
 
-            res.render('editprofile', {
-                token : true,
-                name : name
-            });
+            if(req.user.ownerOf == '' || req.user.ownerOf == undefined || req.user.ownerOf == null){
+              
+                res.render("editProfile",{
+                    token : true,
+                    name : name[0],
+                    userId : req.user._id,
+                    profileImg : req.user.profileImg,
+                    profileColor : req.user.profileColor
+                   
+                    
+                });
+            }else if(req.user.ownerOf){
+                res.render("editProfile",{
+                    token : true,
+                    name : name[0],
+                    userId : req.user._id,
+                    profileImg : req.user.profileImg,
+                    profileColor : req.user.profileColor,
+                    owner : true
+                   
+                    
+                });
+            }
         }
        
     } catch (error) {
@@ -3290,7 +3590,7 @@ app.post('/checkout',auth,async(req,res)=>{
                       order_meta: {return_url: req.body.returnUrl },
                       order_amount: req.body.amount,    
                       order_currency: 'INR',
-                    //   order_splits: [{vendor_id: findVender._id, percentage: 99}]
+                    //   order_splits: [{vendor_id: findVender._id, amount: req.body.amount - 1}]
                     },
                     
                   };
@@ -3310,6 +3610,7 @@ app.post('/checkout',auth,async(req,res)=>{
             res.send(error)   
     }
 })
+
 app.post("/verify-step1",verificationAuth,async(req,res)=>{
     try {
         if(req.token){
@@ -3696,6 +3997,72 @@ app.post('/verify-phone-otp',otpAuth,async(req,res)=>{
         
     }
 })
+
+app.post("/admin/update-pending-amount",adminAuth,async(req,res)=>{
+    try{    
+        if(req.token){
+
+            let id = req.body.payload
+            console.log("========" , id);
+            const findOwner = await RestOwnerData.findOneAndUpdate({_id : id},{
+                $set : {
+                    pendingAmount : 0
+                }
+            })
+            await findOwner.save()
+            res.status(200).send({message : "Successfull"})
+        }else{
+            res.status(401).send({message : "Unauthorized"})
+        }
+    }catch(err){
+        res.send(err)
+    }
+})
+
+app.get("/admin/restaurants-data",adminAuth,async(req,res)=>{
+    try {
+        if(req.token){
+            res.render('adminRestaurants')
+        }else{
+            res.status(401).send({"messsage" : "Unauthorized"})
+        }
+    } catch (error) {
+        res.send(error)
+    }
+})
+app.post("/admin/restaurants-data",adminAuth,async(req,res)=>{
+    try {
+        if(req.token){
+            const findRestaurants = await RestData.find({locality : req.body.payload})
+        
+            const fetchPendingAmount = async (item)=>{
+                let amountHere = await RestOwnerData.findById({_id : item.owner}).select({pendingAmount : 1})
+                console.log(amountHere)
+                return {
+                    id : item.owner,
+                    restaurantname : item.restaurantname,
+                    address : item.address,
+                    locality : item.locality,
+                    restaurantimg : item.restaurantimg,
+                    phone : item.phone,
+                    pendingAmount : amountHere.pendingAmount
+                }
+              }
+              const getPendingAmount = async () =>{
+                  return Promise.all(findRestaurants.map(item => fetchPendingAmount(item)))
+              }
+            
+              const pendingAmount = await getPendingAmount();
+
+              res.send(pendingAmount)
+            
+        }else{
+            res.status(401).send({"messsage" : "Unauthorized"})
+        }
+    } catch (error) {
+        res.send(error)
+    }
+})
 app.get('/admin',adminAuth,async(req,res)=>{
 
     try {
@@ -3714,7 +4081,7 @@ app.post('/admin',adminAuth,async(req,res)=>{
 
     try {
         if(req.token){
-            const getRes = await RestaurantRequest.find({approved : false});
+            const getRes = await RestaurantRequest.find({ $and : [{approved : false},{status : "pending"}]});
             res.send({getRes});
 
         }else{
@@ -3775,11 +4142,51 @@ app.post('/admin/login',async(req,res)=>{
         
     }
 })
+app.post('/disapprove-restaurant',adminAuth,async(req,res)=>{
+    try {
+            if(req.token){
+                const findData = await RestaurantRequest.findById({_id : req.body.id})
+                const findDataU = await RestaurantRequest.findByIdAndUpdate({_id : req.body.id},{
+                    $set : {
+                        approved : false,
+                        status : "rejected"
+                    }
+                })
+
+                const options = {
+                    from : "Noxsh Dine <care@noxshdine.com>",
+                    to : findData.email,
+                    subject : "Restaurant Registration Failed",
+                    html : `<h1 style="color : black;">Sorry,</h1><p>Your registration for Restaurant (${findData.restaurantname}) failed to pass the verification process and hence disapproved.</p><p>For more info you can email us on care@noxshdine.com</p>
+                    `
+                }
+                
+                transporter.sendMail(options, (err,info)=>{
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    console.log(info.response);
+                })
+
+                res.send(true)
+            }     
+            
+    } catch (error) {
+        res.send(error)   
+    }
+})
 app.post('/approve-restaurant',adminAuth,async(req,res)=>{
     try {
-        console.log(req.body.id)
+        
         const findData = await RestaurantRequest.findById({_id : req.body.id})
-       
+        const findDataU = await RestaurantRequest.findByIdAndUpdate({_id : req.body.id},{
+            $set : {
+                approved : true,
+                status : "confirmed"
+            }
+        })
+
         const pushRes = new RestData({
             restaurantname : findData.restaurantname,
             restaurantimg : findData.restaurantimg,
@@ -3816,22 +4223,38 @@ app.post('/approve-restaurant',adminAuth,async(req,res)=>{
         })
         await user.save()
 
-        const res = await RestData.findByIdAndUpdate({_id : pushedRes._id.valueOf()},{
+        const rest = await RestData.findByIdAndUpdate({_id : pushedRes._id.valueOf()},{
             $set : {
                 owner : ownerPushedRes._id.valueOf()
             }
         })
-        await res.save()
+        await rest.save()
 
         await RestaurantRequest.findByIdAndDelete({_id : pushedRes._id.valueOf()})
+
+        const options = {
+            from : "Noxsh Dine <care@noxshdine.com>",
+            to : findData.email,
+            subject : "Restaurant Confirmation",
+            html : `<h1 style="color : black;">Congratulations,</h1><p>We have successfully activated your account and you can start accepting orders. <p>We are glad to have you with us.</p> </p><p>For more info you can email us on care@noxshdine.com</p>
+            `
+        }
+        
+        transporter.sendMail(options, (err,info)=>{
+            if(err){
+                console.log(err);
+                return;
+            }
+            console.log(info.response);
+        })
         const createVendor = ()=>{
             const options = {
                 method: 'POST',
-                url: 'https://sandbox.cashfree.com/api/v2/easy-split/vendors',
+                url: 'https://api.cashfree.com/api/v2/easy-split/vendors',
                 headers: {
                   Accept: 'application/json',
-                  'x-client-id': '183683fd4c3be6a671a35e371a386381',
-                  'x-client-secret': '0178ca783fbe700bd9c954d5b8641176c8307660',
+                  'x-client-id': process.env.CFAPPID,
+                  'x-client-secret': process.env.CFSECRETID,
                   'x-api-version': '2022-01-01',
                   'Content-Type': 'application/json'
                 },
@@ -3853,16 +4276,22 @@ app.post('/approve-restaurant',adminAuth,async(req,res)=>{
               };
               
               axios.request(options).then(function (response) {
-                res.status(200).send(ok)
+                
+               
+    
+                res.send(true)
               }).catch(function (error) {
-                    res.status(500).send(error)
+                    console.log(error)
+                    res.send(error)
               });
         }
-
-        createVendor()
+        
+        // createVendor()
+        res.send(true)
         
     } catch (error) {
         console.log(error)
+        res.send(error)
     }
 })
 app.post('/avatars', auth, async(req,res)=>{
@@ -3921,6 +4350,13 @@ app.post('/avatars', auth, async(req,res)=>{
 app.get('/about-us',async(req,res)=>{
     try {
         res.render('aboutUs')
+    } catch (error) {
+        res.send(error)
+    }
+})
+app.get('/how-it-works',async(req,res)=>{
+    try {
+        res.render('howItWorks')
     } catch (error) {
         res.send(error)
     }
@@ -4018,6 +4454,19 @@ app.post('/get-past-bookings',auth,async(req,res)=>{
         
         res.send(error)
     }
+})
+
+app.get("/get-restaurant-id",auth,async(req,res)=>{
+
+    try {
+        if(req.token){
+            const getOwner = await RestOwnerData.findById({_id : req.user.ownerOf})
+           res.send({id : getOwner.restaurantId})
+        }
+    } catch (error) {
+        res.send(error)
+    }
+    
 })
 
 server.listen(port, ()=>{

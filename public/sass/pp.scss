@@ -1,0 +1,51 @@
+nav{
+    position: relative;
+    box-shadow: 0 3px 1rem rgba(0,0,0,.1);
+    width: 100%;
+    
+}
+.pp-con{
+    min-height: 100vh;
+    margin-top: 4rem;
+
+
+    hr{
+        height: 1px;
+        border: 0.1rem solid black;
+        color: black;
+    }   
+    
+    h1{
+        font-family: "montserrat" !important;
+        width: 100%;
+        display: inline-block;
+        padding: 2rem 0;
+        text-align: center;
+        font-weight: 600;
+        font-size: 4.5rem;
+    }
+
+    .pol-con{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start; 
+        padding: 4rem 0;
+        .pol-holder{
+            margin-bottom: 6rem;
+            h2{
+                font-size: 2.8rem;
+                font-family: "montserrat" !important;
+                font-weight: 500;
+                margin-bottom: 2rem;
+            }
+            p{
+                font-size: 1.8rem;
+                font-family: "montserrat" !important;
+                color: #333;
+                line-height: 3rem;
+            }
+        }
+    }
+    
+}

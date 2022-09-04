@@ -33,7 +33,7 @@
     
   <nav>
          <div class="nav-wrapper">
-             <span>NOXSH</span>
+             <img src="/images/Frame3.jpg" alt="" srcset="">
 
              <div class="nav-util"> 
                  
@@ -129,15 +129,25 @@
                         <input type="text" name="restaurantAddress" id="">
                     </div>
                        
-                    <div class="input-group">
-                         <span>Enter The Co-ordinates</span>
-                        <label for="lat">Latitude</label>
-                         <input type="text" name="lat" id="lat">
-                         <label for="long">Longitude</label>
-                         <input type="text" name="long" id="long">
-                         <button class="detect-loc"><i class="fa-solid fa-location-crosshairs"></i>Detect</button>
-                    </div>
-
+                   
+                        
+                        
+                         <input type="text" name="lat" id="lat" hidden>
+                         
+                         <input type="text" name="long" id="long" hidden>
+             
+                        <div class="input-group">
+                            <label for="locality">Locality</label>
+                            <select name="locality" id="">
+                                <option value="" disabled selected>Locality</option>
+                                <option value="Nagpur">Nagpur</option>
+                                <option value="Warud">Warud</option>
+                                <option value="Morshi">Morshi</option>
+                                <option value="Katol">Katol</option>
+                                <option value="Amravati">Amravati</option>
+                                <option value="Pandhurna">Pandhurna</option>
+                            </select>
+                        </div>
                     <div class="input-group">
                         <div class="styled-header">
                          <span class="tel-det-head">Contact Number At Restaurant</span>
@@ -169,19 +179,7 @@
                         
                          
                          
-                        {{!-- <label for="ownerPhone"></label>
                         
-                        <div class="tel-wrapper">
-                            <div class="tel-det">
-                            <span>+91</span>
-                            <hr>
-                            <input type="tel" name="ownerPhone" id="ownerPhone">
-
-
-                        </div>
-                         
-                        <button class="verify-owner-phone">Get OTP</button>
-                        </div> --}}
                         
                             
                          
@@ -251,10 +249,6 @@
                             <label for="">Bakery</label>
                             </div>
                             <div class="input-checkbox-div">
-                            <input type="checkbox" name="outletType" value="Beverage Shop" onchange="getSelected(this)">
-                            <label for="">Beverage Shop</label>
-                            </div>
-                            <div class="input-checkbox-div">
                             <input type="checkbox" name="outletType" value="Cafe" onchange="getSelected(this)">
                             <label for="">Cafe</label>
                             </div>
@@ -317,10 +311,6 @@
                             <div class="input-checkbox-div">
                             <input type="checkbox" name="cuisine" value="BBQ" onchange="getSelectedCuisine(this)">
                             <label for="">BBQ</label>
-                            </div>
-                            <div class="input-checkbox-div">
-                            <input type="checkbox" name="cuisine" value="Bar Food" onchange="getSelectedCuisine(this)">
-                            <label for="">Bar Food</label>
                             </div>
                             
                         </div>
@@ -1267,6 +1257,8 @@
 
 
 </script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 <script src="/js/business.js"></script>
 <script src="/js/formSlide.js"></script>
 <script src="/js/businessRegisterValidation.js"></script>

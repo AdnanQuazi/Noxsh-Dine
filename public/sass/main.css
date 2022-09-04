@@ -314,7 +314,7 @@ nav .acc-det a {
 
 nav .acc-det .home-prof-div-con {
   position: absolute;
-  bottom: -23rem;
+  bottom: -14rem;
   right: 0;
   width: 20rem;
   height: auto;
@@ -383,8 +383,8 @@ nav .acc-det .home-prof-div-con ul li:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(/images/hero.jpg);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/hero.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url();
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url();
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3438,5 +3438,222 @@ footer .footer-content .footer-lower-content .copyright-div span {
 .loader-holder .loader img {
   width: 8rem;
   height: 8rem;
+}
+
+.invoice {
+  padding: 2rem;
+  width: 90%;
+  border: 0.5rem solid #00917c;
+  height: auto;
+  position: relative;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  z-index: -1;
+}
+
+.invoice .logo-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.invoice .logo-div .name-add-div {
+  max-width: 30rem;
+}
+
+.invoice .logo-div .name-add-div .res-name {
+  margin-top: 2rem;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #00917c;
+}
+
+.invoice .logo-div .order-no {
+  font-size: 2.5rem;
+  width: auto;
+  text-align: end;
+}
+
+.invoice .logo-div .order-no::before {
+  content: 'ORDER';
+  position: relative;
+  top: -3rem;
+  right: -50%;
+  font-weight: 700;
+  font-size: 2.2rem;
+}
+
+.invoice hr {
+  margin: 0.5rem 0;
+}
+
+.invoice .gst-date-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.invoice .gst-div h1, .invoice .date-div h1 {
+  margin-top: 2rem;
+  font-weight: 700;
+}
+
+.invoice .gst-div h3, .invoice .date-div h3 {
+  font-size: 2.2rem;
+}
+
+.invoice .bill-table {
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 2.2rem;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.invoice .bill-table thead tr {
+  font-weight: 700;
+  color: #00917c;
+  max-width: 10rem;
+}
+
+.invoice .bill-table th, .invoice .bill-table td {
+  padding: 1rem 0rem;
+}
+
+.invoice .bill-table tr {
+  border-bottom: 0.1rem solid #f5f5f5;
+}
+
+.invoice .bill-table tr:last-of-type {
+  border-bottom: 0.4rem solid #00917c;
+}
+
+.invoice .bill-table tr:nth-of-type(even) {
+  background-color: #f5f5f5;
+}
+
+.invoice .bill-table tr:nth-of-type(even) td {
+  color: #00917c;
+}
+
+.invoice .bill-table thead tr th:last-of-type, .invoice .bill-table tbody tr td:last-of-type {
+  text-align: right;
+}
+
+.invoice .total-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 100%;
+  margin: 2rem 0;
+  gap: 2rem;
+}
+
+.invoice .total-div .total-con, .invoice .total-div .tax-con, .invoice .total-div .grand-total-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.invoice .total-div .total-con h1, .invoice .total-div .tax-con h1, .invoice .total-div .grand-total-con h1 {
+  font-weight: 700;
+}
+
+.invoice .total-div .total-con .en-pr, .invoice .total-div .tax-con .en-pr, .invoice .total-div .grand-total-con .en-pr {
+  width: 8rem;
+  text-align: end;
+}
+
+.invoice .greet-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.invoice .greet-div h1 {
+  text-align: center;
+}
+
+.invoice .greet-div img {
+  width: 19rem;
+  height: 11rem;
+  margin-right: 2rem;
+}
+
+.inv-con {
+  position: absolute;
+  width: 95%;
+  border-radius: 1rem;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  padding: 2rem 0;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+          box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 15;
+}
+
+.inv-con .dnd-bill {
+  font-size: 2.5rem;
+  padding: 1rem 2rem;
+  background-color: #00917c;
+  border: thin solid #00917c;
+  color: white;
+  border-radius: 0.5rem;
 }
 /*# sourceMappingURL=main.css.map */

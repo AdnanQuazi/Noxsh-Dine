@@ -224,7 +224,7 @@
     </div>
     <nav>
         <div class="nav-wrapper">
-             <span>NOXSH</span>
+            <img src="/images/Frame3.jpg" alt="" srcset="">
 
              <div class="nav-util"> 
                  
@@ -233,7 +233,7 @@
                  {{#if token}}
            
               
-                <img class="prof-img" src="/images/profimg.jpg" alt="">
+                <img class="prof-img" style="background-color:{{profileColor}} ;" src="{{profileImg}}" alt="">
                 <span >{{name}}</span>
                 
                 
@@ -277,19 +277,21 @@
                 <li class="side-nav-list" data-tab-target = "#currentBookings"><i class="fa-solid fa-arrow-right-arrow-left"><span class="notify currentBookingNotify">0</span></i>Bookings</li>
                 <li class="side-nav-list" data-tab-target = "#dine"><i class="fa-solid fa-table-list"><span class="notify dineNotify">0</span></i>Dine in/Pre-Cook</li>
                 
-                  <li class="side-nav-list" data-tab-target = "#upcomingBookings"><i class="fa-solid fa-turn-up"><span class="notify upcomingBookingNotify">0</span></i>Upcoming Bookings</li>
+                  {{!-- <li class="side-nav-list" data-tab-target = "#upcomingBookings"><i class="fa-solid fa-turn-up"><span class="notify upcomingBookingNotify">0</span></i>Upcoming Bookings</li> --}}
                   <li class="side-nav-list" data-tab-target = "#takeaway"><i class="fa-solid fa-burger"><span class="notify takeawayNotify">0</span></i>Takeaway</li>
                   
                   <li class="side-nav-list" data-tab-target = "#pastBookings"><i class="fa-solid fa-clock-rotate-left"></i>Bookings History</li>
                 <li class="side-nav-list" data-tab-target = "#userProfile"><i class="fa-solid fa-user"></i>Manage your Restaurant</li>
+                <li class="side-nav-list" data-tab-target = "#pendingAmount"><i class="fa-solid fa-sack-dollar"></i>Pending Amount</li>
+
             </ul>
         </div>
-        <div class="lower-con">
+        {{!-- <div class="lower-con">
             <ul>
                 <li><i class="fa-solid fa-gear"></i></li>
                 <li><i class="fa-solid fa-circle-question"></i></li>
             </ul>
-        </div>
+        </div> --}}
 
     </div>
 
@@ -351,9 +353,9 @@
                 <div class="past-bookings-holder">
                     <div class="header-con"> 
                         <div class="search-div">
-                            <input type="text" name="past-item-search" placeholder="Search Items">
+                            <input type="text" name="past-item-search" placeholder="Search For Bookings">
                             <i class="bi bi-search" ></i>
-                            <button onclick="searchPastBookings()">Search</button>
+                            <button class="searchPastBookings" onclick="searchPastBookings()">Search</button>
                         </div>
                     </div>
 
@@ -517,15 +519,6 @@
         <div id="userProfile" data-tab-content>
             <div class="data-wrapper-parent-userProfile">
                 <div class="main-data-holder main-data-holder-userProfile">
-                    <div class="offers-outer-con">
-                    <h1>Active Offers</h1>
-                <div class="offers-div-con">
-                    
-
-                
-                    
-                </div>
-                </div>
                 <div class="food-items-outer-con">
                     <div class="header-search-div">
                 <h1>Your Menu</h1>
@@ -541,14 +534,6 @@
                         <p>Add Food Item</p>
                     </div>
                 </div>
-                </div>
-                <div class="menu-outer-con">
-                    
-                <h1>Menu</h1>
-                    
-                 <div class="menu-div-con">
-                  
-                    </div>
                 </div>
                  <div class="gallery-outer-con">
                     
@@ -598,6 +583,17 @@
             <div class="data-wrapper-parent-dine">
                 <div class="main-data-holder main-data-holder-dine">
                      
+                </div>
+            </div>
+        </div>
+
+        <div id="pendingAmount" data-tab-content>
+            <div class="data-wrapper-pending-amount">
+                <div class="main-data-holder main-data-pending-amount">
+                        <div class="pending-amount-div">
+                            <h1>Pending Amount</h1>
+                            <h4 id="pending-amount-here">₹</h4>
+                        </div>
                 </div>
             </div>
         </div>
@@ -654,9 +650,9 @@
 
 <script src="/js/tabSelectorRes.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script  src="/js/socketRes.js"></script>
-<script  src="/js/manageRestaurant.js"></script>
-<script  src="/js/category.js"></script>
+<script src="/js/socketRes.js"></script>
+<script src="/js/manageRestaurant.js"></script>
+<script src="/js/category.js"></script>
 <script src="/js/inventory.js"></script>
 
 

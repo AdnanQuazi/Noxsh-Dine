@@ -72,6 +72,7 @@ transform-origin: center;
         text-align: center;
         color: white;
         font-weight: 700;
+        transform: translate(0,-50%);
     }
     .quote{
         font-family: "Rochester", "cursive";
@@ -264,10 +265,11 @@ box-shadow: 0 3px 1rem rgba(0,0,0,.1);
                 width: 1fr;
                 height: auto;
                 display: flex;
-                background-color: #f5f5f5;
+                background-color: #ffffff;
                 border-radius: 10rem;
                 gap: 1rem;
-                margin-left: 20rem;
+                margin-left: 0;
+                align-self: flex-end;
                 padding: 1.5rem 2rem;
                 .quantity-div{
                     display: flex;
@@ -381,5 +383,6 @@ box-shadow: 0 3px 1rem rgba(0,0,0,.1);
     }
     p{
         font-size: 2rem;
+        text-align: center;
     }
 }

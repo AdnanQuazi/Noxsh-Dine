@@ -27,7 +27,7 @@ const getRes = async()=>{
        <img src="/documents/${element.gstDetails.gstImage}" alt="" srcset="" onclick="enlaregImg(this)">
        <span>GST</span>
        </div>
-
+        
        </div>
        
 
@@ -62,6 +62,10 @@ const getRes = async()=>{
            <div class="det-group">
                <span>Owner Name</span>
                <p>${element.ownerName}</p>
+           </div>
+           <div class="det-group">
+               <span>Date</span>
+               <p>${element.date}</p>
            </div>
        </div>
        </div>
@@ -165,11 +169,15 @@ const appRes = await fetch('/approve-restaurant',{
     headers : {'Content-Type' : 'application/json'},
     body : JSON.stringify({id : i})
 })
-
+    window.location.reload()
 }
 const disRes = async(i)=>{
-
-
+    const appRes = await fetch('/disapprove-restaurant',{
+        method : 'POST',
+        headers : {'Content-Type' : 'application/json'},
+        body : JSON.stringify({id : i})
+    })
+    window.location.reload()
 }
 
 const enlaregImg = (i)=>{

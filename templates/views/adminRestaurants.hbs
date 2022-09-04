@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants</title>
+     <link rel="stylesheet" href="/sass/admin.css">
+    <link rel="stylesheet" href="/sass/main.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+   <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Ballet:opsz@16..72&family=Bellota+Text:wght@300;400;700&family=Charmonman:wght@400;700&family=Comfortaa:wght@300;400;500&family=Dancing+Script:wght@400;500;600&family=Fira+Code:wght@300;400;500&family=Major+Mono+Display&family=Montserrat:wght@100;200;300;400;500&family=Pacifico&family=Quicksand:wght@300;400;500&family=Rochester&family=Sacramento&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="popupdiv">
+        <div class="popup">
+            <h1>Are you sure about this recovery ?</h1>
+            <div class="btn-div">
+                <button class="confirm" onclick="recvrd(this)">Yes</button>
+                <button class="decline" onclick="dec()">No</button>
+            </div>
+        </div>
+    </div>
+    <select name="locality" id="" onchange="findResult(this.value)">
+        <option value="" disabled selected>Select city</option>
+        <option value="Nagpur">Nagpur</option>
+        <option value="Warud">Warud</option>
+        <option value="Pandurna">Pandurna</option>
+        <option value="Amravati">Amravati</option>
+        <option value="Katol">Katol</option>
+    </select>
+    
+    <div class="restaurants-holder-div">
+        
+    </div>
+    
+</body>
+<script>
+    let container = document.querySelector(".restaurants-holder-div")
+     const findResult = async(e)=>{
+        container.innerHTML = ''
+        let data = await fetch('/admin/restaurants-data',{
+            method : 'POST',
+            headers : {'Content-Type' : 'application/json'},
+            body : JSON.stringify({payload : e})
+        })
+        let finalData = await data.json()
+        finalData.forEach(elem =>{
+            let htmlData = `<div class="restaurant">
+            <div class="res-name-add">
+                <h1>${elem.restaurantname}</h1>
+                <p>${elem.address}</p>
+            </div>
+            <h4 class="res-contact-number">+91 ${elem.phone}</h4>
+            <h4 class="pending-amount">₹${elem.pendingAmount}</h4>
+            <button id="updateAmount" onclick="ask(this)" data-id="${elem.id}">Recovered</button>
+        </div>`
+        container.insertAdjacentHTML('beforeend',htmlData)
+        })
+    }
+    const ask = (e)=>{
+        document.querySelector(".popupdiv").style.display = "grid"
+        document.querySelector(".confirm").dataset.id = e.dataset.id
+
+    }
+    const recvrd = async(e)=>{
+        document.querySelector(".popupdiv").style.display = "none"
+        const pushData = await fetch("/admin/update-pending-amount",{
+            method : 'POST',
+            headers : {'Content-Type' : 'application/json'},
+            body : JSON.stringify({payload : e.dataset.id})
+        })
+        if(await pushData.status === 200) findResult(document.querySelector('select[name="locality"]').value)
+
+    }
+    const dec = ()=>{
+        document.querySelector(".popupdiv").style.display = "none"
+    }
+    
+</script>
+
+</html>

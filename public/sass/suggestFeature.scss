@@ -24,6 +24,32 @@ backdrop-filter: blur( 7px );
 -webkit-backdrop-filter: blur( 7px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+        hr{
+            margin: 0;
+            border: 0.1rem solid black;
+            width: 80%;
+        }
+        .socials{
+            width: 60rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            height: auto;
+            gap: 2rem;
+            flex-direction: column;
+
+            span{
+                font-size: 1.8rem;
+                flex: 0 1 auto;
+                font-weight: 700;
+                i{
+                    margin-right: 0.5rem;
+                    color: #afafaf;
+                }
+            }
+        }
     }
     .head{
         font-size: 4rem;

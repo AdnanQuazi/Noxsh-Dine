@@ -1,0 +1,63 @@
+nav {
+  position: relative;
+  -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.pp-con {
+  min-height: 100vh;
+  margin-top: 4rem;
+}
+
+.pp-con hr {
+  height: 1px;
+  border: 0.1rem solid black;
+  color: black;
+}
+
+.pp-con h1 {
+  font-family: "montserrat" !important;
+  width: 100%;
+  display: inline-block;
+  padding: 2rem 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 4.5rem;
+}
+
+.pp-con .pol-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 4rem 0;
+}
+
+.pp-con .pol-con .pol-holder {
+  margin-bottom: 6rem;
+}
+
+.pp-con .pol-con .pol-holder h2 {
+  font-size: 2.8rem;
+  font-family: "montserrat" !important;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.pp-con .pol-con .pol-holder p {
+  font-size: 1.8rem;
+  font-family: "montserrat" !important;
+  color: #333;
+  line-height: 3rem;
+}
+/*# sourceMappingURL=pp.css.map */

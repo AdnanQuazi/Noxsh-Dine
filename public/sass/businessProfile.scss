@@ -23,7 +23,9 @@ nav{
         align-items: center;
         
 
-        span{
+        img{
+            width: 18rem;
+            height: 10rem;
             color: #333;
         }
     }
@@ -289,7 +291,7 @@ nav{
         //     }
         // }
         
-        .data-wrapper-parent-pastBookings,.data-wrapper-parent-currentBookings,.data-wrapper-parent-upcomingBookings,.data-wrapper-parent-userProfile,.data-wrapper-parent-takeaway,.data-wrapper-parent-dine,.data-wrapper-parent-dashboard{
+        .data-wrapper-parent-pastBookings,.data-wrapper-parent-currentBookings,.data-wrapper-parent-upcomingBookings,.data-wrapper-parent-userProfile,.data-wrapper-parent-takeaway,.data-wrapper-parent-dine,.data-wrapper-parent-dashboard,.data-wrapper-pending-amount{
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
@@ -298,6 +300,8 @@ nav{
             padding: 2rem 4rem;
             gap: 2rem;
             position: relative;
+
+            
             .past-bookings-holder{
                 background-color: white;
                 padding: 1rem;
@@ -332,6 +336,22 @@ nav{
                 font-size: 2rem;
             }
         }
+            .main-data-pending-amount{
+                .pending-amount-div{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2rem;
+                    background-color: white;
+                    box-shadow: 0 3px 1rem rgba(0,0,0,.1);
+                    border-radius: 1rem;
+                    gap: 2rem;
+                    h4{
+                        font-size: 3.5rem;
+                        font-weight: 700;
+                        color: #dc3545;
+                    }
+                }
+            }
             .main-data-holder-dine{
                 .main-data-con{
                     position: relative;
@@ -357,7 +377,13 @@ nav{
                 flex-wrap: wrap;
                 gap: 2rem;
                 
-                
+                .pay-det-txt{
+                    position: absolute;
+                    bottom: 1rem;
+                    font-size: 1.8rem;
+                    
+                    font-weight: 700;
+                }
                 .separation-div{
                     flex: 1 1 auto;
                     min-height: 50vh;
@@ -1323,6 +1349,19 @@ nav{
         flex: 1 0 auto;
         height: calc(100vh - 12rem);
         box-shadow: 0 3px 1rem rgba(0,0,0,.1);
+        display: flex;
+        flex-direction: column;
+        .p-n-d{
+            position: relative;
+            background-color: #dc3545;
+            color: white;
+            border: #dc3545;
+            font-size: 1.8rem;
+            border-radius: 0.5rem;
+            padding: 1rem 2rem;
+            margin-top: auto;
+            margin-left: auto;
+        }
 
         .order-list-con{
 
@@ -1487,6 +1526,13 @@ nav{
             }
         }
     }
+}
+.searchPastBookings{
+    background-color: black;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 5rem;
 }
 @keyframes popup {
     0%{

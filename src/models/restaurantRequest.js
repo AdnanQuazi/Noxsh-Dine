@@ -36,7 +36,7 @@ const RestRequestSchema = new mongoose.Schema({
     },
     date: {
         type : String,
-        default : new Date().toLocaleString()
+        default : new Date()
     },
     email:{
         type: String,
@@ -154,6 +154,9 @@ const RestRequestSchema = new mongoose.Schema({
         }
     },
     bankDetails : {
+        accountHolder : {
+            type : String
+        },  
         bankNumber : {
             type : String
         },
@@ -163,6 +166,10 @@ const RestRequestSchema = new mongoose.Schema({
         ifscCode : {
             type : String
         }
+    },
+    status : {
+        type : String,
+        default : "pending"
     }
 
 });

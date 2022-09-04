@@ -13,7 +13,9 @@ nav{
         align-items: center;
         
 
-        span{
+        img{
+            width: 18rem;
+            height: 10rem;
             color: #333;
         }
     }
@@ -165,17 +167,23 @@ nav{
     background-color: white;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 2rem;
-    width: 95vw;
+    min-width: 40rem;
+    max-width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
+    img{
+        width: 5rem;
+        height: 5rem;
+        margin-bottom: 2rem;
+    }
     h2{
-        font-size: 5rem;
+        font-size: 3.5rem;
     }
     p{
-        font-size: 2.5rem;   
+        font-size: 2rem;   
         text-align: center;
     }
     small{
@@ -184,12 +192,12 @@ nav{
     }
     button{
         margin-top: 2rem;
-        font-size: 3rem;
+        font-size: 2rem;
         background-color: #00917c;
         border: 0.1rem solid #00917c;
         padding: 1rem 4rem;
         color: white;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
 
 
     }
@@ -867,6 +875,16 @@ nav{
     .tel-wrapper{
         .verify-phone{
             font-size: 3rem !important;
+        }
+    }
+    .success-popup{
+        min-width: 90%;
+        lottie-player{
+            width: 100px !important;
+            height: 100px !important;
+        }
+        small{
+            font-size: 3rem;
         }
     }
 }

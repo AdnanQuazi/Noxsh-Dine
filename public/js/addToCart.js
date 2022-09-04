@@ -88,7 +88,7 @@ const displayCart = async()=>{
                       
                     if(element.foodQuantity == stringP){
 
-                        priceDat = ` <h4 class="">₹ ${price.price}</h4>`
+                        priceDat = ` <h4 class="">₹ ${price.price} <span style="color: #afafaf;">(${element.foodQuantity})<span></h4>`
                         currentPrice = price.price
                     }
                 })

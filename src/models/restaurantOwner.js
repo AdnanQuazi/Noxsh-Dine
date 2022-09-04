@@ -111,11 +111,14 @@ const RestOwnerSchema = new mongoose.Schema({
             }
         }],
         payment : [{
+            paymentId : {
+                type : String
+            },
             paymentMode : {
                 type : String
             },
             paymentStatus : {
-                type : Boolean
+                type : String
             }
         }]
 
@@ -130,6 +133,9 @@ const RestOwnerSchema = new mongoose.Schema({
         orderDate : {
             type : String,
             default : new Date()
+        },
+        orderTime : {
+            type : String
         },
         orderList : [{
             foodId : {
@@ -161,7 +167,7 @@ const RestOwnerSchema = new mongoose.Schema({
             }
         }],
         payment : [{
-            paymentMethod : {
+            paymentId : {
                 type : String
             },
             paymentMode : {
@@ -220,6 +226,9 @@ const RestOwnerSchema = new mongoose.Schema({
             }
         }],
         payment : [{
+            paymentId : {
+                type : String
+            },
             paymentMethod : {
                 type : String
             },
@@ -227,9 +236,12 @@ const RestOwnerSchema = new mongoose.Schema({
                 type : String
             }
         }]
-    }]
-    
-    
+    }],
+    pendingAmount : {
+        type : Number,
+        default : 0
+    }
+
 
 });
 

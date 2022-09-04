@@ -3,6 +3,7 @@
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  height: 85rem;
 }
 
 .wel-msg-con {
@@ -52,6 +53,58 @@ nav {
 
 nav .acc-det a {
   color: black;
+}
+
+.popup-div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 25;
+  display: none;
+}
+
+.popup-div .popup-otp-div {
+  background-color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  border-radius: 0.5rem;
+  max-width: 30rem;
+}
+
+.popup-div .popup-otp-div h1 {
+  margin-bottom: 2rem;
+}
+
+.popup-div .popup-otp-div input {
+  font-size: 2rem;
+  padding: 0.8rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  border: thin solid black;
+}
+
+.popup-div .popup-otp-div button {
+  font-size: 2rem;
+  padding: 0.8rem;
+  background-color: #00917c;
+  color: white;
+  border: 1px solid #00917c;
+  border-radius: 0.5rem;
 }
 
 @media (max-width: 875px) {

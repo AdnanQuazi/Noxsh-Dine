@@ -273,4 +273,156 @@ body h2 {
   -o-object-fit: contain;
      object-fit: contain;
 }
+
+select[name="locality"] {
+  font-size: 2.5rem;
+  padding: 1rem;
+  left: 50%;
+  margin-top: 2rem;
+  position: relative;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+.restaurants-holder-div {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 4rem;
+  gap: 3rem;
+}
+
+.restaurants-holder-div .restaurant {
+  width: auto;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem;
+  gap: 6rem;
+  border-radius: 1rem;
+  border: 1px solid #afafaf;
+}
+
+.restaurants-holder-div .res-name-add h1 {
+  font-size: 2.5rem;
+}
+
+.restaurants-holder-div .res-name-add p {
+  font-size: 2rem;
+  color: #afafaf;
+  max-width: 50rem;
+}
+
+.restaurants-holder-div .res-contact-number, .restaurants-holder-div .pending-amount, .restaurants-holder-div #updateAmount {
+  font-size: 2rem;
+}
+
+.restaurants-holder-div #updateAmount {
+  background-color: #dc3545;
+  border: #dc3545;
+  padding: 1rem 2rem;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.popupdiv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  place-items: center;
+  z-index: 1;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  display: none;
+}
+
+.popupdiv .popup {
+  background-color: white;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 1rem;
+  -webkit-animation: pop 0.2s ease-in-out;
+          animation: pop 0.2s ease-in-out;
+}
+
+.popupdiv .btn-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem;
+}
+
+.popupdiv .confirm, .popupdiv .decline {
+  font-size: 1.8rem;
+  padding: 0.8rem 2rem;
+  background-color: #3ea055;
+  border: 1px solid #3ea055;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.popupdiv .decline {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+@-webkit-keyframes pop {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
 /*# sourceMappingURL=admin.css.map */

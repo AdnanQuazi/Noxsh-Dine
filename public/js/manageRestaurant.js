@@ -354,22 +354,22 @@ const fetchRestData = async()=>{
     foodItemsDiv.insertAdjacentHTML("afterbegin",htmlData);
     })
 
-    //Menu
-    const menuDiv = document.querySelector('.menu-div-con');
-    finalData.menu.forEach(elem =>{
-        let htmlData = ` <div class="menu">
-        <div class="hov-btn-con">
-                        <button class="edit-btn" onclick="popEditWindow2(${elem._Id})" data-tab-window="Menu-items"><i class="bi bi-pencil-fill"></i></button>
-                        <button class="delete-btn"><i class="bi bi-trash3-fill"></i></button>
-                        </div>
-        <div class="menu-img"><img src="/uploads/${elem.img}" alt="" srcset=""></div>
+    // //Menu
+    // const menuDiv = document.querySelector('.menu-div-con');
+    // finalData.menu.forEach(elem =>{
+    //     let htmlData = ` <div class="menu">
+    //     <div class="hov-btn-con">
+    //                     <button class="edit-btn" onclick="popEditWindow2(${elem._Id})" data-tab-window="Menu-items"><i class="bi bi-pencil-fill"></i></button>
+    //                     <button class="delete-btn"><i class="bi bi-trash3-fill"></i></button>
+    //                     </div>
+    //     <div class="menu-img"><img src="/uploads/${elem.img}" alt="" srcset=""></div>
         
         
-        </div>`
+    //     </div>`
 
-        menuDiv.insertAdjacentHTML("afterbegin",htmlData)
+    //     menuDiv.insertAdjacentHTML("afterbegin",htmlData)
 
-    })
+    // })
 
     //Gallery
     const galleryDiv = document.querySelector('.gallery-div-con');
@@ -387,11 +387,15 @@ const fetchRestData = async()=>{
         galleryDiv.insertAdjacentHTML("afterbegin",htmlData)
 
     })
+    document.querySelector("#pending-amount-here").textContent = "₹" + finalData.pendingAmount
+    console.log("DATA", finalData)
+    
 }
 
 fetchRestData()
 
 const searchPastBookings = async(i)=>{
+    document.querySelector('.past-bookings-data-holder').innerHTML = ''
     const val = document.querySelector('input[name="past-item-search"]').value
     const getPastBookings = await fetch('/get-past-bookings',{
         method : 'POST',
@@ -399,7 +403,8 @@ const searchPastBookings = async(i)=>{
             body: JSON.stringify({payload: val.toUpperCase()})
     })
     const pastBooking = await getPastBookings.json()
-    console.log(pastBooking)
+    console.log(pastBooking);
+    if(!pastBooking.userData) return document.querySelector('.past-bookings-data-holder').insertAdjacentHTML('afterbegin',`<h1>No Results</h1>`)
     if(pastBooking.whereFound == 'Table Booking'){
    
         let htmlData = `<div class="main-data-con">

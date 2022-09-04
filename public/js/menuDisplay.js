@@ -170,6 +170,7 @@ const menuDataFetch = async()=>{
     let data = await menuData.json();
     finalData = data;
     console.log(finalData);
+    document.querySelector('.landing-div').innerHTML = `<h1>${finalData.menuData.restaurantname}<br>Warmly<br>Welcomes You</h1>`
     fillMenu()
     
 
@@ -881,6 +882,16 @@ const openCartMobile = ()=>{
     
    
    
+
+}
+function closeCartMobile (){
+    const tabContainer = document.querySelector('.content-side-section-cart');
+    document.body.classList.remove('ovf');
+    tlN.to(tabContainer, 1, {opacity: 0,
+        display : "none",
+        top : "100%",
+        ease : Power2.easeinout      
+   });
 
 }
 document.querySelector('.fa-angle-left').addEventListener('click', ()=>{

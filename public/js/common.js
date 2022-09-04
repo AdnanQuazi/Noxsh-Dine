@@ -89,13 +89,27 @@ burger.addEventListener('click', ()=>{
 const ovfh = ()=>{
      
     nav.classList.remove('nav-active');
-    body.classList.remove('ovf');
+    document.body.classList.remove('ovf');
     if(icn.style.display == 'none' && icn1.style.display == 'flex'){
          icn.style.display = 'flex'
          icn1.style.display = 'none'
+         let tl = new TimelineLite();
+          tl.to(accDet,0.5,{
+               opacity: 0,
+               top : "-100vh"
+                    
+
+          })
     }else{
          icn.style.display =  'none'
          icn1.style.display =  'flex'
+         let tl = new TimelineLite();
+               tl.to(accDet,0.5,{
+                    opacity: 1,
+                    top : "65vh"
+                         
+
+               })
     }
 }
 

@@ -29,7 +29,7 @@
     "nodemailer": "^6.7.5",
     "nodemon": "^2.0.15",
     "otp-generator": "^4.0.0",
-    "sharp": "^0.30.3",
+    "serve-favicon": "^2.5.0",
     "short-unique-id": "^4.4.4",
     "socket.io": "^4.5.1",
     "socket.io-client": "^4.5.1"

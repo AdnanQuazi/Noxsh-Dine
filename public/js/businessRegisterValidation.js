@@ -481,10 +481,19 @@ const step4Validation = ()=>{
 }
 
 const registerRestaurant = async()=>{
+
+        document.querySelector('.pp-bg-con').style.display = 'flex'
+        document.querySelector('.pp-bg-con').innerHTML = `<div class="success-popup">
+        <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_jwdccuex.json"  background="transparent"  speed="1"  style="width: 160px; height: 160px;"  loop  autoplay></lottie-player>
+        <small>Please Wait</small>
+        </div>`
+        document.querySelector('.pp-bg-con').style.top = window.scrollY
+        document.body.classList.add('ovf')
+
         let restaurantName = document.querySelector('input[name=restaurantName]').value || "ad";
         let restaurantAddress = document.querySelector('input[name=restaurantAddress]').value;
-        let latitude = document.querySelector('input[name=lat]').value;
-        let longitude = document.querySelector('input[name=long]').value;
+        let latitude = 22.22;
+        let longitude = 22.22;
         let phone = document.querySelector('input[name=phone]').value;
         let ownerName = document.querySelector('input[name=ownerName]').value;
         let ownerEmail = document.querySelector('input[name=ownerEmail]').value;
@@ -590,9 +599,12 @@ const registerRestaurant = async()=>{
             body: formData
         })
         if(await sendData.json()){
-            document.querySelector('.pp-bg-con').style.display = 'flex'
-            document.querySelector('.pp-bg-con').style.top = window.scrollY
-            document.body.classList.add('ovf')
+            document.querySelector('.pp-bg-con').innerHTML = `<div class="success-popup">
+            <h2>Thank You!</h2>
+            <p>You will get a confirmation mail once the documents/details are verified</p>
+            <small>This process can take upto 12hours</small>
+            <button onclick="hidePopup()">Done</button>
+        </div>`
         }else{
             document.body.classList.remove('ovf')
             showToast("Fialed" , 'red')

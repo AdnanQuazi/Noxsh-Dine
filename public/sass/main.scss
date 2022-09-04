@@ -263,7 +263,7 @@ nav{
         }
         .home-prof-div-con {
             position: absolute;
-            bottom: -23rem;
+            bottom: -14rem;
             right: 0;
             width: 20rem;
             height: auto;
@@ -320,7 +320,7 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url(/images/hero.jpg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url();
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -3337,4 +3337,168 @@ nav{
         height: 8rem;
     }
 }
+}
+
+.invoice{
+    padding: 2rem;
+    width: 90%;
+    border: 0.5rem solid #00917c;
+    height: auto;
+    position: relative;
+    
+    align-self: center;
+    z-index: -1;
+
+    .logo-div{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        .name-add-div{
+            max-width: 30rem;
+            .res-name{
+                margin-top: 2rem;
+                font-weight: 700;
+                font-size: 3rem;
+                color: #00917c;
+            }   
+        }
+        .order-no{
+            font-size: 2.5rem;
+            width: auto;
+            text-align: end;
+        }
+        .order-no::before{
+            content: 'ORDER';
+            position: relative;
+            top: -3rem;
+            right: -50%;
+            
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+    }
+    hr{
+        margin: 0.5rem 0;
+    }
+
+    .gst-date-div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .gst-div,.date-div{
+        h1{
+            margin-top: 2rem;
+            font-weight: 700;
+        }
+        h3{
+            font-size: 2.2rem;
+        }
+    }
+    .bill-table{
+        border-collapse: collapse;
+        margin: 2rem 0;
+        font-size: 2.2rem;
+        width: 100%;
+        margin-top: 4rem;
+        thead tr {
+            
+            font-weight: 700;
+            color: #00917c;
+            max-width: 10rem;
+        }
+        th,td{
+
+            padding: 1rem 0rem;
+        }
+        tr{
+            border-bottom: 0.1rem solid #f5f5f5;
+        }
+        tr:last-of-type{
+            border-bottom: 0.4rem solid #00917c;
+        }
+        tr:nth-of-type(even){
+            background-color: #f5f5f5;
+            td{
+                color: #00917c;
+            }
+        }
+        thead tr th:last-of-type,tbody tr td:last-of-type{
+            text-align: right;
+        }
+    }
+    .total-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        margin: 2rem 0;
+        gap: 2rem;
+        .total-con,.tax-con,.grand-total-con{
+
+            
+            display: flex;
+            gap: 2rem;
+            width: fit-content;
+
+            h1{
+                font-weight: 700;
+            }
+            .en-pr{
+                
+                width: 8rem;
+                text-align: end;
+            }
+        }
+    }
+    .greet-div{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    
+        h1{
+            text-align: center;
+        }
+        img{
+            width: 19rem;
+            height: 11rem;
+            margin-right: 2rem;
+        }
+    }
+}
+.inv-con{
+    position: absolute;
+    width: 95%;
+    border-radius: 1rem;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    padding: 2rem 0;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    z-index: 15;
+    
+
+    .dnd-bill{
+        font-size: 2.5rem;
+        padding: 1rem 2rem;
+        background-color: #00917c;
+        border: thin solid #00917c;
+        color: white;
+        border-radius: 0.5rem;
+
+    }
+
 }

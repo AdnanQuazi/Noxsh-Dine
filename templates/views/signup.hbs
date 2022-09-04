@@ -17,7 +17,15 @@
 
 </head>
 <body>
+    <div class="popup-div">
+        <div class="popup-otp-div">
+            <h1>Please Enter OTP sent to your E-mail</h1>
+            <input type="text" name="OTP" placeholder="OTP">
+            <button id="signUpAOTPS">Sign Up</button>
+        </div>
+    </div>
     {{>navbar}}
+    
      <div class="my-toast">
       <span></span>
     </div>
@@ -36,9 +44,7 @@
                 </div>
                 <div class="input-details" style="margin-top: 4rem;">
                     <span class="text-danger" id="danger-phone"></span>
-                <span>+91</span>
-                <hr>
-                <input type="text" id="phone" name="phone" placeholder="Contact Number" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
                 </div>
                  <div class="input-details" style="margin-top: 4rem;">
                      <span class="text-danger" id="danger-pass"></span>

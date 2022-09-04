@@ -1,6 +1,27 @@
+
+
 const socket = io()
 const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
-const room = "619ccebc133b95ae0d7db23c"
+console.log("===============")
+console.log(id);
+console.log("===============")
+
+let room;
+const findId = async()=>{
+    let sendReq = await fetch("/get-restaurant-id")
+    let data = await sendReq.json()
+    room = data.id
+
+    socket.emit('join-room', room);
+
+
+}
+findId()
+
+
+// // fetch("/get-restaurant-id").then(res => res.json()).then((res)=> {room = res.id})
+// console.log(room)
+
 const dataPCon = document.querySelector('.table-booking-s-data');
 const updataPCon = document.querySelector('.main-data-holder-dine');
 
@@ -10,8 +31,7 @@ const dineNotify = document.querySelector('.dineNotify');
 const takeawayNotify = document.querySelector('.takeawayNotify');
 
 let main_data_holder_currentBookings = document.querySelector('.table-booking-s-data').childNodes;
-// socket.emit('rest-connect', id)
-socket.emit('join-room', room);
+
 
 const det = [];
 const takeawayDet = [];
@@ -74,17 +94,22 @@ socket.on('cancel-booking', async(id,res)=>{
        declineBookingRequest(i)
 })
 //MORE INFO
-
+let isMoreInfoOpened = false
 const closeMoreInfo = ()=>{
+    isMoreInfoOpened = false
     document.querySelector('.more-info-holder').innerHTML = `<i class="bi bi-x-lg" onclick="closeMoreInfo()"></i>`
     document.querySelector('.more-info-holder').style.display = 'none'
 }
     const moreInfo = async(source,id,resId)=>{
-        console.log("moreInfo")
+
+        if(isMoreInfoOpened) return
+        isMoreInfoOpened = true
         let payload;
+        let btn = ``;
         if(source == 'dine'){
 
             payload = 'dine'
+            btn = `<button class='p-n-d'>Paid & Delivered</button>`
 
         }else if(source == 'tb'){
 
@@ -92,6 +117,7 @@ const closeMoreInfo = ()=>{
 
         }else if(source == 'takeaway'){
             payload = 'takeaway'
+            btn = `<button class='p-n-d'>Delivered</button>`
         }
 
         const moreInfoData = await fetch('/moreInfo',{
@@ -140,7 +166,7 @@ const closeMoreInfo = ()=>{
                 if(fData.data[0][2].length >= 1){
                     paymentHtml = `<h1>Payemnt Method</h1>
                     <p>${fData.data[0][2][0].paymentMode}</p>
-                    <p>${fData.data[0][2][0].paymentMode == 'Cash' ? '' : fData.data[0][2][0].paymentStatus}</p>
+                    <p>${fData.data[0][2][0].paymentStatus}</p>
                     </div>`
                 }
                 if(fData.data[0][1].length >= 1){
@@ -178,9 +204,9 @@ const closeMoreInfo = ()=>{
             
                     ${paymentHtml}
                 </div>
-            
+               ${btn}
             </div>`
-                
+            document.querySelector('.more-info-holder').style.top = window.scrollY + 'px'
             document.querySelector('.more-info-holder').insertAdjacentHTML('afterbegin', mrInfo);
             document.querySelector('.more-info-holder').style.display = 'flex'
         }
@@ -402,7 +428,7 @@ const displayTakeawayData = async()=>{
         
   
         let htmlData = `<div class="main-data-con">
-        
+        <span class="pay-det-txt" style="color :${elem.payment[0].paymentStatus == "PAID" ? '#3ea055' : '#dc3545'} ;">${elem.payment[0].paymentStatus == "PAID" ? elem.payment[0].paymentStatus : "UNPAID"}</span>
         <div class="user-details-div">
             <img src="${userdata.profileImg}" alt="">
             <div class="name-username-div">
@@ -441,7 +467,7 @@ const displayTakeawayData = async()=>{
 displayTakeawayData();
 const acceptTakeawayRequest = async(i)=>{
 
-    socket.emit('takeaway-response', true , i.id)
+   
     var p = i.parentNode
     p.parentNode.remove()
 
@@ -453,6 +479,7 @@ const acceptTakeawayRequest = async(i)=>{
             break
         }
     }
+    socket.emit('takeaway-response', true , i.id, takeawayDet[currentTakeawayData])
     const postData = await fetch('/saveTakeawayDetails',{
         method : 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -486,11 +513,12 @@ const takeawayPCon = document.querySelector('.takeaway-s-data');
 
 
 
-socket.on('recieve-takeaway-details', (details,user,orderId)=>{
-    console.log("here",details,user)
-    takeawayDet.push([details,user,orderId])
+socket.on('recieve-takeaway-details', (details,user,orderId,payment)=>{
+    
+    takeawayDet.push([details,user,orderId,payment])
     showNotification('TAKEAWAY',`Takeaway request from ${user.username}`) 
     let htmlData = `<div class="main-data-con">
+    <span class="pay-det-txt" style="color :${payment.orderStatus == "PAID" ? '#3ea055' : '#dc3545'} ;">${payment.orderStatus == "PAID" ? "PAID" : "UNPAID"}</span>
   <div class="user-details-div">
       <img src="${user.profileImg}" alt="">
       <div class="name-username-div">
@@ -502,11 +530,11 @@ socket.on('recieve-takeaway-details', (details,user,orderId)=>{
   <div class="booking-details-con">
       <div class="date-con">
           <h4>Date</h4>
-          <p>ad</p>
+          <p>${user.date}</p>
       </div>
       <div class="time-con">
             <h4>Time</h4>
-          <p>ad</p>
+          <p>${user.time}</p>
       </div>
       <div class="guest-name-con">
             <h4>Guest Name</h4>
@@ -617,7 +645,7 @@ const displayDineinData = async()=>{
         })
     
         let finalData = await getData.json()
-        console.log(finalData)     
+        console.log({fullDineinData : finalData})     
    
         dCon.innerHTML = ''
     
@@ -639,9 +667,10 @@ const displayDineinData = async()=>{
             
       
             let htmlData = ` <div class="main-data-con">
+            <span class="pay-det-txt" style="color :${elem.payment[0].paymentStatus == "PAID" ? '#3ea055' : '#dc3545'} ;">${elem.payment[0].paymentStatus == "PAID" ? "PAID" : "UNPAID"}</span>
             <div class="user-details-div">
                 <div class="table-no-div">
-              <h4><span>Table No.</span> 4</h4>
+              <h4><span>Table No.</span> ${elem.tableNo}</h4>
               <h4><span>ID</span> ${elem.orderId}</h4>
           
                 </div>
@@ -653,7 +682,7 @@ const displayDineinData = async()=>{
                 </div>
                 <div class="time-con">
                       <h4>Time</h4>
-                    <p>${orderDate}</p>
+                    <p>${elem.orderTime}</p>
                 </div>
                 <div class="guest-name-con">
                       
@@ -687,6 +716,7 @@ const displayDineinData = async()=>{
             
       
             let htmlData = `<div class="main-data-con">
+            
             <span class="specifier">Table booking</span>
             <div class="user-details-div">
                 <img src="${userdata.profileImg}" alt="">
@@ -694,7 +724,7 @@ const displayDineinData = async()=>{
                     <h4 class="name">${userdata.name}</h4>
                     <span class="username">${userdata.username}</span>
                 </div>
-                <h4><span>ID</span> #3456297</h4>
+                <h4><span>ID</span> ${elem.orderId}</h4>
             </div>
             <div class="booking-details-con">
                 <div class="date-con">
@@ -730,7 +760,6 @@ const displayDineinData = async()=>{
 displayDineinData()
 const acceptDineinRequest = async(i)=>{
 
-    socket.emit('dine-response', true , i.id)
     var p = i.parentNode
     p.parentNode.remove()
 
@@ -741,8 +770,9 @@ const acceptDineinRequest = async(i)=>{
             currentBookingData = j
         }
     }
+    socket.emit('dine-response', true , i.id, dineDet[currentBookingData])
 
-   console.log("here",dineDet[currentBookingData]);
+   
     const postData = await fetch('/saveDineinDetails',{
         method : 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -761,12 +791,14 @@ const declineDineinRequest = async(i)=>{
     p.parentNode.remove()
 }
 
-socket.on('recieve-dine-details', async(details,user,orderId,tableNo)=>{
+socket.on('recieve-dine-details', async(details,user,orderId,tableNo,payment)=>{
     
    
-    showNotification('DINE-IN',` ORDER from ${user.username}`) 
-    dineDet.push([details,user,orderId,tableNo])
+    showNotification('DINE-IN',` ORDER from ${orderId}`) 
+    dineDet.push([details,user,orderId,tableNo,payment])
     let htmlData = `<div class="main-data-con">
+    <span class="pay-det-txt" style="color :${payment.order_status == "PAID" ? '#3ea055' : '#dc3545'} ;">${payment.order_status == "PAID" ? payment.order_status : "UNPAID"}</span>
+    
   <div class="user-details-div">
       <div class="table-no-div">
     <h4>Table No. ${tableNo}</h4>
@@ -777,19 +809,11 @@ socket.on('recieve-dine-details', async(details,user,orderId,tableNo)=>{
   <div class="booking-details-con">
       <div class="date-con">
           <h4>Date</h4>
-          <p>ad</p>
+          <p>${user.date}</p>
       </div>
       <div class="time-con">
             <h4>Time</h4>
-          <p>ad</p>
-      </div>
-      <div class="guest-name-con">
-            <h4>Guest Name</h4>
-          <p>${user.name}</p>
-      </div>
-      <div class="guest-count-con">
-            <h4>Guest Count</h4>
-          <p>${user.phone}</p>
+          <p>${user.time}</p>
       </div>
   </div>
   <div class="buttons-con">
@@ -866,14 +890,14 @@ let dineData = ` <div class="more-data-holder more-data-holder-takeaway">
 
 </div> `
 
-try {
-    document.querySelector('.more-data-holder-dine').remove();
+// try {
+//     document.querySelector('.more-data-holder-dine').remove();
      
      
- } catch (error) {
+//  } catch (error) {
      
- }
- dineDataPCon.insertAdjacentHTML('beforeend', dineData)
+//  }
+//  dineDataPCon.insertAdjacentHTML('beforeend', dineData)
 
  
 

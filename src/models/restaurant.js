@@ -31,7 +31,6 @@ const RestSchema = new mongoose.Schema({
     phone:{
         type: String,
         required: true,
-        unique: true    
         
     },
     date: {
@@ -40,9 +39,6 @@ const RestSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        unique: true,
-        index: true,
-        sparse: true
     },
     tokens:[{
         token: {

@@ -68,7 +68,7 @@
                    
                     <lottie-player src="https://assets7.lottiefiles.com/temp/lf20_yYJhpG.json"  background="transparent"  speed="1"  style="width: 5rem; height: 5rem;"    autoplay></lottie-player>
                     
-                    <span style="color : rgb(195,14,14);">Booking Declined</span>
+                    <span style="color : rgb(195,14,14);">Sorry, Table is Unavailable at the moment</span>
                     </div>
                     `
                   }
