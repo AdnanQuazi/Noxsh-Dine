@@ -42,7 +42,7 @@
     
     
     <div class="landing-div">
-        <h1>Raghuveer Restaurant<br>Warmly<br>Welcomes You</h1>
+        <h1>Welcome</h1>
        
 
 
@@ -98,10 +98,9 @@
 
                 </div>
 
-                <div class="btns-con">
+                <div class="btns-con" id="payment-buttons-container">
                     
-                <button class="pay-later" id="pay-now">Pay Later</button>
-                <button class="pay-now" id="pay-now">Pay Now</button>
+                <button class="pay-later" id="pay-later">Pay Later</button>
                 </div>
                 
                 
@@ -129,7 +128,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script>
-
+    const payButton = async () =>{
+        let idHere = window.location.href.substring(window.location.href.indexOf('/nfc') + 1).split(['/'])[1].split(['?'])[0];
+        let html = `<button class="pay-now" id="pay-now" onclick="payNow()">Pay Now</button>`
+        const fetchStatus = await fetch('/online-payment-status',{
+            method : 'POST',
+            headers : {'Content-Type' : 'application/json'},
+            body: JSON.stringify({payload: idHere})
+        })
+        const statusJson = await fetchStatus.json()
+       
+        if(statusJson.status){
+            document.querySelector("#payment-buttons-container").insertAdjacentHTML('beforeend',html)
+        }
+    }
+    payButton()
     const downloadBill = (i)=>{
 
          const ssTarget =  document.querySelector('.invoice')

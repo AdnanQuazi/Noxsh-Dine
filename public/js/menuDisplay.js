@@ -170,7 +170,7 @@ const menuDataFetch = async()=>{
     let data = await menuData.json();
     finalData = data;
     console.log(finalData);
-    document.querySelector('.landing-div').innerHTML = `<h1>${finalData.menuData.restaurantname}<br>Warmly<br>Welcomes You</h1>`
+    document.querySelector('.landing-div').innerHTML = `<h1>${finalData.menuData.restaurantname} Restaurant<br>Warmly<br>Welcomes You</h1>`
     fillMenu()
     
 

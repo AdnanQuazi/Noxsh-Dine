@@ -300,6 +300,9 @@ const fetchRestData = async()=>{
 
     finalData = await getRestData.json();
     console.log(finalData.activeOffers);
+
+    //ONLINE PAYMENT
+    
     //Active Offers
     const offersDivCon = document.querySelector('.offers-div-con');
     finalData.activeOffers.forEach(elem =>{
@@ -404,7 +407,7 @@ const searchPastBookings = async(i)=>{
     })
     const pastBooking = await getPastBookings.json()
     console.log(pastBooking);
-    if(!pastBooking.userData) return document.querySelector('.past-bookings-data-holder').insertAdjacentHTML('afterbegin',`<h1>No Results</h1>`)
+    if(!pastBooking) return document.querySelector('.past-bookings-data-holder').insertAdjacentHTML('afterbegin',`<h1>No Results</h1>`)
     if(pastBooking.whereFound == 'Table Booking'){
    
         let htmlData = `<div class="main-data-con">
@@ -446,7 +449,7 @@ const searchPastBookings = async(i)=>{
 
         let orderDate = `${pastBooking.bookingFound.orderDate.split([' '])[0]}, ${pastBooking.bookingFound.orderDate.split([' '])[1]} ${pastBooking.bookingFound.orderDate.split([' '])[2]}`
         let htmlData = `<div class="main-data-con">
-        
+        <span class="pay-det-txt" style="color : ${pastBooking.bookingFound.payment[0].paymentStatus == 'UNPAID' ? 'red' : 'green'}">${pastBooking.bookingFound.payment[0].paymentStatus}</span>
         <div class="user-details-div">
             <img src="${pastBooking.userData.profileImg}" alt="">
             <div class="name-username-div">
@@ -482,9 +485,10 @@ const searchPastBookings = async(i)=>{
     }else if(pastBooking.whereFound == 'Dine In'){
         let orderDate = `${pastBooking.bookingFound.orderDate.split([' '])[0]}, ${pastBooking.bookingFound.orderDate.split([' '])[1]} ${pastBooking.bookingFound.orderDate.split([' '])[2]}`
         let htmlData = `<div class="main-data-con">
+        <span class="pay-det-txt" style="color : ${pastBooking.bookingFound.payment[0].paymentStatus == 'UNPAID' ? 'red' : 'green'}">${pastBooking.bookingFound.payment[0].paymentStatus}</span>
         <div class="user-details-div">
             <div class="table-no-div">
-          <h4><span>Table No.</span> </h4>
+          <h4><span>Table No. ${pastBooking.bookingFound.tableNo}</span> </h4>
           <h4><span>ID</span> ${pastBooking.bookingFound.orderId}</h4>
       
             </div>
@@ -492,17 +496,11 @@ const searchPastBookings = async(i)=>{
         <div class="booking-details-con">
             <div class="date-con">
                 <h4>Date</h4>
-                <p>${orderDate}</p>
+                <p>${pastBooking.bookingFound.orderDate}</p>
             </div>
             <div class="time-con">
                   <h4>Time</h4>
-                <p>${orderDate}</p>
-            </div>
-            <div class="guest-name-con">
-                  
-            </div>
-            <div class="guest-count-con">
-                 
+                <p>${pastBooking.bookingFound.orderTime}</p>
             </div>
         </div>
         <div class="buttons-con">
@@ -616,3 +614,36 @@ const removeQty = (i)=>{
    foundDiv.querySelector('input[name="quantityOption"]').checked = false
    foundDiv.style.display = 'none'
 }
+
+const updateOnlinePayment = async(e)=>{
+    let data = e.checked
+    console.log(data)
+    const updateOP = await fetch('/toggle-online-payment',{
+        method : 'POST',
+        headers : {'Content-Type' : 'application/json'},
+        body : JSON.stringify({payload: data})
+    })
+}
+
+const dispopInp = async () =>{
+    const opiNp = document.querySelector('input[name="onlinePayment"]')
+        const fetchOP = await fetch('/online-payment-status',{
+        method : 'POST'
+    })
+    const fetchOPJson = await fetchOP.json()
+    console.log({HEHE : fetchOPJson.status})
+    opiNp.checked = fetchOPJson.status
+}
+
+const displayBills = async(e)=>{
+
+    const bills = await fetch('/bills',{
+        method : 'POST',
+        headers : {'Content-Type' : 'application/json'},
+        body : JSON.stringify({payload : e.value})
+    })
+
+    console.log(await bills.json())
+}
+
+dispopInp()

@@ -16,6 +16,7 @@ const otpSchema = new mongoose.Schema({
         type : Number
     }
 }, {timestamps : true});
+
 otpSchema.methods.generateToken = async function (){
     try {
 

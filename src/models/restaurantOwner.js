@@ -240,6 +240,10 @@ const RestOwnerSchema = new mongoose.Schema({
     pendingAmount : {
         type : Number,
         default : 0
+    },
+    onlinePayment : {
+        type : Boolean,
+        default : true
     }
 
 

@@ -10,9 +10,21 @@ body{
 }
 .overall-con{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 2rem;
     padding: 4rem;
+    justify-content: space-between;
+    flex-direction: column;
+    .header-btn{
+        padding: 1rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        background-color: #3ea055;
+        font-size: 1.8rem;
+        color: white;
+        border: 0.1rem solid #3ea055;
+        width: fit-content;
+    }
     h1{
         font-size: 3rem;
     }

@@ -2,10 +2,6 @@
 
 const socket = io()
 const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
-console.log("===============")
-console.log(id);
-console.log("===============")
-
 let room;
 const findId = async()=>{
     let sendReq = await fetch("/get-restaurant-id")
@@ -109,7 +105,7 @@ const closeMoreInfo = ()=>{
         if(source == 'dine'){
 
             payload = 'dine'
-            btn = `<button class='p-n-d'>Paid & Delivered</button>`
+            
 
         }else if(source == 'tb'){
 
@@ -117,7 +113,6 @@ const closeMoreInfo = ()=>{
 
         }else if(source == 'takeaway'){
             payload = 'takeaway'
-            btn = `<button class='p-n-d'>Delivered</button>`
         }
 
         const moreInfoData = await fetch('/moreInfo',{
@@ -127,6 +122,16 @@ const closeMoreInfo = ()=>{
         })
         let fData = await moreInfoData.json()
         console.log(fData.data)
+        if(source == 'takeaway'){
+            btn = `<button class='p-n-d' onclick='confirmDelivered("${fData.data[0][3].orderId}","takeaway")'>Delivered</button>`
+        }
+        if(source == 'dine'){
+            btn = `<button class='p-n-d' onclick='confirmDelivered("${fData.data[0][3].orderId}","dine")'>Paid & Download</button>`
+        }
+        if(source == 'dine' && fData.data[0][2][0].paymentStatus != 'UNPAID'){
+            btn = `<button class='p-n-d' style="background-color : green;" onclick='confirmDelivered("${fData.data[0][3].orderId}","dine")'>Paid & Download</button>`
+        }   
+
         if(source == 'dine' || source == 'tb' || source == "takeaway"){
             let orderHtml = ``;
             let totalHtml = ``;
@@ -185,9 +190,13 @@ const closeMoreInfo = ()=>{
                 }
                 let mrInfo = ` <div class="more-data-holder more-data-holder-takeaway">
                 <div class="more-data-con">
-                    <p>${fData.data[0][3].orderId}<p>
-                    <div class="order-list-con">
-                    <h1>More Info</h1>
+                    <h1 style="text-align:center;">${fData.data[0][4].restaurantName}</h1>
+                    <h2 style="text-align:center;">${fData.data[0][4].address}</h2>
+                    <p style="text-align:left;margin-top:2rem">DATE : ${fData.data[0][3].orderDate}</p>
+                    <p style="text-align:left;margin: 1.5rem 0">ORDER ID : ${fData.data[0][3].orderId}<p>
+                    <p style="text-align:left;">GST : ${fData.data[0][4].gstNumber}<p>
+                    <div style="margin-top:2rem" class="order-list-con">
+                    
             
               ${orderHtml}
                     
@@ -202,7 +211,7 @@ const closeMoreInfo = ()=>{
                     <div class="payment-details-div">
                 
             
-                    ${paymentHtml}
+                    
                 </div>
                ${btn}
             </div>`
@@ -643,14 +652,14 @@ const displayDineinData = async()=>{
         const getData = await fetch('/dineinDetails',{
             method : 'POST'
         })
-    
+        
         let finalData = await getData.json()
         console.log({fullDineinData : finalData})     
    
         dCon.innerHTML = ''
     
         finalData[0].payload.forEach(elem => {
-            let orderDate = `${elem.orderDate.split([' '])[0]}, ${elem.orderDate.split([' '])[1]} ${elem.orderDate.split([' '])[2]}`
+            let orderDate = elem.orderDate
             let userdata = {};
             
             // loop1:for(var i = 0; i < finalData[1].userData.length; i++){
@@ -666,7 +675,7 @@ const displayDineinData = async()=>{
             // }
             
       
-            let htmlData = ` <div class="main-data-con">
+            let htmlData = ` <div class="main-data-con" style="border-left :0.7rem solid ${elem.payment[0].paymentStatus == "PAID" ? '#3ea055' : '#dc3545'} ;">
             <span class="pay-det-txt" style="color :${elem.payment[0].paymentStatus == "PAID" ? '#3ea055' : '#dc3545'} ;">${elem.payment[0].paymentStatus == "PAID" ? "PAID" : "UNPAID"}</span>
             <div class="user-details-div">
                 <div class="table-no-div">
@@ -797,7 +806,7 @@ socket.on('recieve-dine-details', async(details,user,orderId,tableNo,payment)=>{
     showNotification('DINE-IN',` ORDER from ${orderId}`) 
     dineDet.push([details,user,orderId,tableNo,payment])
     let htmlData = `<div class="main-data-con">
-    <span class="pay-det-txt" style="color :${payment.order_status == "PAID" ? '#3ea055' : '#dc3545'} ;">${payment.order_status == "PAID" ? payment.order_status : "UNPAID"}</span>
+    <span class="pay-det-txt" style="color :${payment.order_status == "PAID" ? '#3ea055' : '#dc3545'} ;">${payment.order_status == "PAID" ? "PAID" : "UNPAID"}</span>
     
   <div class="user-details-div">
       <div class="table-no-div">
@@ -903,10 +912,67 @@ let dineData = ` <div class="more-data-holder more-data-holder-takeaway">
 
 })
 
+const delivered = async(e)=>{
+    console.log(e.dataset.id)
+    if(e.dataset.source == 'takeaway'){
+        const updateTakeawayStatus = await fetch('/takeaway-order-status', {
+            method : 'POST',
+            headers : {'Content-Type' : 'application/json'},
+            body : JSON.stringify({payload: e.dataset.id})
+        })
+        const response = await updateTakeawayStatus.json()
+        if(await updateTakeawayStatus.status === 200){
+            document.querySelector('.popupdiv').style.display = 'none'
+            displayTakeawayData()        
+        }
+    }
+    if(e.dataset.source == 'dine'){
+        const ssTarget =  document.querySelector('.more-data-holder')
+        document.querySelector('.p-n-d').style.display = 'none'
+        html2canvas(ssTarget).then((canvas)=>{
+        const base64Img = canvas.toDataURL("image/jpg")
+        const anchor = document.createElement('a');
+        anchor.setAttribute("href", base64Img)
+        anchor.setAttribute("download", `${e.dataset.id}.jpg`)
+        anchor.click();
+        document.querySelector('.p-n-d').style.display = 'block'
+        }) 
+        const updateDineStatus = await fetch('/dine-order-status', {
+            method : 'POST',
+            headers : {'Content-Type' : 'application/json'},
+            body : JSON.stringify({payload: e.dataset.id})
+        })
+        const response = await updateDineStatus.json()
+        if(await updateDineStatus.status === 200){
+            document.querySelector('.popupdiv').style.display = 'none'
+            displayDineinData()        
+        }
+    }
+    
+
+}   
+
+const confirmDelivered = (id,source) =>{
+    if(source == 'takeaway'){
+        document.querySelector('#popup-data').textContent = 'Are you sure this is Delivered ?'
+    }
+    if(source == 'dine'){
+        document.querySelector('#popup-data').textContent = 'Do you want to mark this paid ?'
+    }
+    document.querySelector('.popupdiv').style.display = 'grid'
+    document.querySelector(".confirm").dataset.id = id
+    document.querySelector(".confirm").dataset.source = source
+
+
+}
+const dec = () =>{
+    document.querySelector('.popupdiv').style.display = 'none'
+    
+}
+
 function showNotification (head,body){
     const notification = new Notification(head,{
         body : body
     })
     
 }
-

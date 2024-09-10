@@ -129,7 +129,7 @@ const RestRequestSchema = new mongoose.Schema({
         gstRegistered : {
             type : Boolean
         },
-        gstinNumber : {
+        gstNumber : {
             type : String
         },
         gstImage : {

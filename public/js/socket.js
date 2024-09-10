@@ -41,16 +41,22 @@
             bookingDetails.restaurantId = room
 
 
-            
+           
             if (bookingDetails && guestName) {
                       
                 socket.emit('booking-details', bookingDetails , room);
                     
 
-                    }  
+            }else{
+                window.location.href = "/login"
+            }  
                 });
 
+                
 
+                socket.on('login', data =>{
+                    window.location.href = "/login"
+                })
                 socket.on('recieved-details', msg =>{
                   if(msg){
                     content.innerHTML = `

@@ -28,7 +28,7 @@ document.querySelector('.pay-later').addEventListener('click',()=>{
                     document.querySelector('.successP').innerHTML =   ` <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_qw3jzeji.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;" loop autoplay></lottie-player>
                     <h1>Order Recieved</h1>`
                 },2000)
-               
+                isPendingOrder = false
             }else{
                 setTimeout(()=>{
                     document.querySelector('.successP').innerHTML =   ` <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_tl52xzvn.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;"    autoplay></lottie-player>
@@ -37,6 +37,8 @@ document.querySelector('.pay-later').addEventListener('click',()=>{
                 setTimeout(()=>{
                     document.querySelector('.popup').style.display = 'none'
                 },3000)
+                isPendingOrder = false
+
             }
         });
       }else{
@@ -48,13 +50,13 @@ document.querySelector('.pay-later').addEventListener('click',()=>{
             setTimeout(()=>{
                 document.querySelector('.popup').style.display = 'none'
             },5000)
+        isPendingOrder = false
 
       }  
     })
 
     
 
-    isPendingOrder = false
 
 })
 const sendDineDet = async(e)=>{ 
@@ -106,6 +108,10 @@ socket.on('dine-details', (msg,billDetails,restaurantname,address,gstDet)=>{
                 
     localStorage.removeItem(`${room}Payment`)
     localStorage.removeItem(room)
+        if(!JSON.parse(localStorage.getItem(room))){
+            document.querySelector('.cart-absolute-div').style.display = "none"
+            document.querySelector('.categories-btn').style.bottom = "2rem"
+        }
                 setTimeout(()=>{
                     document.querySelector('.popup').style.display = 'none'
                     displayBill()
@@ -120,7 +126,7 @@ socket.on('dine-details', (msg,billDetails,restaurantname,address,gstDet)=>{
                     if(gstDet.gstRegistered){
                         gstData = `<div class="gst-div">
                         <h1>GST</h1>
-                        <h3>${gst.gstNumber}</h3>
+                        <h3>${gstDet.gstNumber}</h3>
                     </div>`
                     }
                     let subTotal = 0;
@@ -188,6 +194,9 @@ socket.on('dine-details', (msg,billDetails,restaurantname,address,gstDet)=>{
                             <h1>GRAND TOTAL :</h1>
                             <h1 class="en-pr">₹${gTotal}</h1>
                         </div>
+                        <div class="grand-total-con">
+                            <h1 style="color:${billDetails[4].order_status == 'UNPAID' ? 'red' : 'green'}">${billDetails[4].order_status}</h1>
+                        </div>
                     </div>
                     <hr>
                     <div class="greet-div">
@@ -223,19 +232,21 @@ socket.on('dine-details', (msg,billDetails,restaurantname,address,gstDet)=>{
 
 
 
-
-document.querySelector('.pay-now').addEventListener('click',async()=>{
+const payNow = () =>{
+    console.log("CLICKING")
     if(isPendingOrder) return
     isPendingOrder = true
     socket.emit('status-check', room , async(res)=>{
         if(res == 'ACTIVE'){
-            const checkout = await fetch('/checkout',{
+            console.log('SENDING REQ TO API')
+            const checkout = await fetch('/checkout-dine',{
                 method : 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({amount: theGrandTotal,returnUrl : `${window.location.href.split('?')[0]}?order_id={order_id}&order_token={order_token}`,id : room})
             })
 
             let data = await checkout.json()
+            console.log({'recieved-data' : data})
             if(await checkout.status == 200){
                 localStorage.setItem(`${room}Payment`,JSON.stringify({
                     order_id : data.data.order_id,
@@ -261,7 +272,10 @@ document.querySelector('.pay-now').addEventListener('click',async()=>{
    
    isPendingOrder = false
     
-})
+}
+
+   
+
 
 
 
